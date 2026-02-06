@@ -560,14 +560,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="slide-subtitle">Adjust assumptions to model projected returns &middot; NOI escalates 2% annually (NNN lease) &middot; 10-year fund life</div>
   <div class="scenario-slider-group">
     <div class="scenario-slider">
+      <label>Entry Cap Rate</label>
+      <div class="slider-value" id="val-cap">6.0%</div>
+      <input type="range" id="slider-cap" min="3" max="9" step="0.25" value="6">
+    </div>
+    <div class="scenario-slider">
       <label>Exit Cap Rate (Yr 10)</label>
       <div class="slider-value" id="val-re">6.0%</div>
       <input type="range" id="slider-re" min="4" max="10" step="0.25" value="6">
-    </div>
-    <div class="scenario-slider">
-      <label>Structural Long Portfolio Return</label>
-      <div class="slider-value" id="val-alpha">12.0%</div>
-      <input type="range" id="slider-alpha" min="0" max="25" step="0.5" value="12">
     </div>
     <div class="scenario-slider">
       <label>Loan Rate</label>
@@ -575,9 +575,9 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       <input type="range" id="slider-loan" min="3" max="9" step="0.25" value="6">
     </div>
     <div class="scenario-slider">
-      <label>Entry Cap Rate</label>
-      <div class="slider-value" id="val-cap">6.0%</div>
-      <input type="range" id="slider-cap" min="3" max="9" step="0.25" value="6">
+      <label>Structural Long Portfolio Return</label>
+      <div class="slider-value" id="val-alpha">12.0%</div>
+      <input type="range" id="slider-alpha" min="0" max="25" step="0.5" value="12">
     </div>
   </div>
   <div class="chart-area" style="flex:1; min-height:0;"><canvas id="chart-scenario-nav"></canvas></div>
