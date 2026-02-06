@@ -1,0 +1,4484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MI Capital Partners — Investment Thesis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0d2137;
+  --teal: #2a7a8c;
+  --light-blue: #edf4f7;
+  --gray: #5a6a78;
+  --source-gray: #8a96a0;
+  --white: #ffffff;
+  --card-border: #2a7a8c;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+}
+
+.presentation {
+  width: 100%; height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--white);
+  border-left: 4px solid var(--teal);
+  padding: 52px 64px 36px 60px;
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+}
+
+.slide.active {
+  display: flex;
+  opacity: 1;
+}
+
+.slide.fade-in {
+  display: flex;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.slide.fade-out {
+  display: flex;
+  animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* Typography */
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 6px;
+  flex-shrink: 0;
+}
+
+.slide-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.slide-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--gray);
+  margin-bottom: 22px;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.body-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.source-line {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--source-gray);
+  margin-top: 6px;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+/* Cards */
+.card {
+  background: var(--light-blue);
+  border-left: 4px solid var(--teal);
+  border-radius: 4px;
+  padding: 22px 26px;
+  margin-bottom: 14px;
+}
+
+.card-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.card-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.card-row > .card { flex: 1; }
+
+/* Chart area — flexes to fill remaining slide space */
+.chart-area {
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  max-height: 72vh;
+  position: relative;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.chart-area canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-placeholder {
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  border: 2px dashed var(--teal);
+  background: #f0f4f7;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.chart-placeholder span {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--source-gray);
+  text-align: center;
+  padding: 20px;
+}
+
+/* Download button */
+.chart-download-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid #cdd5db;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--teal);
+  z-index: 10;
+  transition: background 0.2s;
+}
+.chart-download-btn:hover { background: var(--light-blue); }
+
+/* Stat cards */
+.stat-card {
+  background: var(--light-blue);
+  border-left: 4px solid var(--teal);
+  border-radius: 4px;
+  padding: 18px 22px;
+  text-align: center;
+  flex: 1;
+}
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gray);
+  line-height: 1.4;
+}
+
+/* Giant number */
+.giant-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--teal);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+/* Section Divider */
+.slide-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.divider-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.divider-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: var(--gray);
+  font-weight: 300;
+}
+
+/* Title slide */
+.title-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.title-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.title-underline {
+  width: 120px;
+  height: 4px;
+  background: var(--teal);
+  margin: 0 auto 24px auto;
+  border-radius: 2px;
+}
+
+.title-sub1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  color: var(--gray);
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.title-sub2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  color: var(--source-gray);
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+
+.title-confidential {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--source-gray);
+}
+
+/* Horizontal rule */
+.slide-hr {
+  width: 100%;
+  height: 1px;
+  background: #d0d8de;
+  margin: 16px 0;
+  border: none;
+}
+
+/* Italic accent */
+.italic-accent {
+  font-style: italic;
+  color: var(--teal);
+}
+
+/* Bold accent */
+.bold-accent {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Small note */
+.small-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--source-gray);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* Stat row labels */
+.stat-row-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+/* Bullet list */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+}
+.bullet-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.5;
+  padding: 4px 0 4px 18px;
+  position: relative;
+}
+.bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+/* Controls */
+.controls {
+  position: fixed;
+  bottom: 18px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  font-family: 'Inter', sans-serif;
+}
+
+.slide-counter {
+  font-size: 13px;
+  color: var(--source-gray);
+  background: rgba(255,255,255,0.9);
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid #d0d8de;
+}
+
+.fs-btn {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #d0d8de;
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--gray);
+  font-family: 'Inter', sans-serif;
+}
+.fs-btn:hover { background: var(--light-blue); }
+
+/* Scrollbar */
+.slide::-webkit-scrollbar { width: 6px; }
+.slide::-webkit-scrollbar-thumb { background: #c0cad2; border-radius: 3px; }
+.slide::-webkit-scrollbar-track { background: transparent; }
+
+/* Responsive tweaks for smaller screens */
+@media (max-height: 800px) {
+  .slide { padding: 32px 48px 32px 44px; }
+  .slide-title { font-size: 26px; }
+  .chart-area, .chart-placeholder { height: 320px; }
+  .giant-number { font-size: 60px; }
+  .divider-title { font-size: 42px; }
+  .title-main { font-size: 44px; }
+}
+</style>
+</head>
+<body>
+
+<div class="presentation" id="presentation">
+
+<!-- ========== SLIDE 1: TITLE ========== -->
+<div class="slide active" id="slide-1">
+  <div class="title-slide">
+    <div class="title-main">INVESTMENT THESIS</div>
+    <div class="title-underline"></div>
+    <div class="title-sub1">Regime Shift &times; AI Infrastructure</div>
+    <div class="title-sub2">A Dual-Thesis Macro Portfolio</div>
+    <div class="title-confidential">CONFIDENTIAL &middot; FEBRUARY 2026</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-2">
+  <div class="section-label">EXECUTIVE SUMMARY</div>
+  <div class="slide-title">Two foundational macro views.</div>
+  <div class="card-row" style="margin-top:12px;">
+    <div class="card">
+      <div class="card-label">THESIS A</div>
+      <div class="card-text">The post-1950s monetary and institutional order is entering a regime of binding constraint. Outcomes bias toward accommodation, financial repression, and the repricing of real assets over nominal claims.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">THESIS B</div>
+      <div class="card-text">AI is the commoditization of cognitive labor and the most capital-intensive infrastructure buildout in history. The binding constraint is physical: power, packaging, memory, metals.</div>
+    </div>
+  </div>
+  <div class="body-text" style="margin-top:12px;"><strong class="bold-accent">These forces do not offset. They compound.</strong></div>
+</div>
+
+<div class="slide" id="slide-3">
+  <div class="slide-divider">
+    <div class="divider-title">REGIME SHIFT</div>
+    <div class="divider-subtitle">The repricing of real assets</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-4">
+  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
+  <div class="slide-title">Federal debt is no longer cyclical. It's structural.</div>
+  <div class="chart-area" id="debt-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('debtChart','MI_federal_debt_gdp.png')" title="Download as PNG">&darr;</button>
+    <canvas id="debtChart"></canvas>
+  </div>
+  <div class="source-line">Source: Congressional Budget Office data and GAO simulation</div>
+</div>
+
+<div class="slide" id="slide-5">
+  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
+  <div class="slide-title">Interest expense is now a major budget item</div>
+  <div class="chart-area" id="spending-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('spendingChart','MI_spending_interest_revenue.png')" title="Download as PNG">&darr;</button>
+    <canvas id="spendingChart"></canvas>
+  </div>
+  <div class="source-line">Source: Congressional Budget Office data and GAO simulation</div>
+</div>
+
+<div class="slide" id="slide-6">
+  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
+  <div class="slide-title">For every $5 the government collects, $1 goes to interest</div>
+  <div class="chart-area" id="interest-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('interestChart','MI_interest_pct_revenues.png')" title="Download as PNG">&darr;</button>
+    <canvas id="interestChart"></canvas>
+  </div>
+  <div class="source-line">Source: U.S. Congressional Budget Office, Macrobond, Apollo Chief Economist</div>
+</div>
+
+<div class="slide" id="slide-7">
+  <div class="section-label">THESIS A &mdash; ASSET PRICING</div>
+  <div class="slide-title">The term premium is back</div>
+  <div class="slide-subtitle">Duration risk is no longer a tail event</div>
+  <div class="chart-area" id="term-premium-container">
+    <button class="chart-download-btn" onclick="downloadChart('termPremiumChart','MI_term_premium.png')" title="Download as PNG">&darr;</button>
+    <canvas id="termPremiumChart"></canvas>
+  </div>
+  <div class="source-line">Source: Board of Governors of the Federal Reserve System (US) via FRED. Shaded areas indicate U.S. recessions.</div>
+</div>
+
+<div class="slide" id="slide-8">
+  <div class="section-label">THESIS A &mdash; INFLATION REGIME</div>
+  <div class="slide-title">Core inflation has settled higher than pre-2020 across every major DM economy</div>
+  <div class="chart-area" id="inflation-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('inflationChart','MI_dm_core_inflation.png')" title="Download as PNG">&darr;</button>
+    <canvas id="inflationChart"></canvas>
+  </div>
+  <div class="source-line">Source: Goldman Sachs. Dashed lines indicate GS forecasts.</div>
+</div>
+
+<div class="slide" id="slide-9">
+  <div class="section-label">THESIS A &mdash; INFLATION REGIME</div>
+  <div class="slide-title">Inflation concentrates where supply can't scale</div>
+  <div class="chart-area" id="price-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('priceChangesChart','MI_price_changes.png')" title="Download as PNG">&darr;</button>
+    <canvas id="priceChangesChart"></canvas>
+  </div>
+  <div class="source-line">Source: Bureau of Labor Statistics</div>
+</div>
+
+<div class="slide" id="slide-10">
+  <div class="section-label">THESIS A &mdash; GLOBAL</div>
+  <div class="slide-title">This is not just the US</div>
+  <div class="slide-subtitle">Japan and the UK are repricing long-run constraints</div>
+  <div class="chart-area" id="japan-uk-container">
+    <button class="chart-download-btn" onclick="downloadChart('japanUkChart','MI_japan_uk_yields.png')" title="Download as PNG">&darr;</button>
+    <canvas id="japanUkChart"></canvas>
+  </div>
+  <div class="source-line">Source: FRED, Bank of Japan, Bank of England</div>
+</div>
+
+<div class="slide" id="slide-11">
+  <div class="section-label">THESIS A &mdash; POLICY</div>
+  <div class="slide-title">Policy volatility is a tax on nominal assets and a subsidy to real ones</div>
+  <div class="body-text" style="margin-top:12px;">When fiscal space narrows, every incremental shock forces larger tradeoffs &mdash; tariffs, subsidies, export controls, energy policy swings. Markets still price these as episodic. We believe they're structural.</div>
+  <div class="body-text">Over time, persistent policy volatility compresses duration and expands the value of optionality embedded in real assets and supply chain control points.</div>
+</div>
+
+<div class="slide" id="slide-12">
+  <div class="slide-divider">
+    <div class="divider-title">THE CASE FOR REAL ASSETS</div>
+    <div class="divider-subtitle">Scarcity plus credibility</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-13">
+  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
+  <div class="slide-title">Gold has overtaken Treasuries in central bank reserves</div>
+  <div class="chart-area" id="gold-treasuries-container">
+    <button class="chart-download-btn" onclick="downloadChart('goldTreasuriesChart','MI_gold_vs_treasuries.png')" title="Download as PNG">&darr;</button>
+    <canvas id="goldTreasuriesChart"></canvas>
+  </div>
+  <div class="source-line">Source: IMF, Department of Treasury</div>
+</div>
+
+<div class="slide" id="slide-14">
+  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
+  <div class="slide-title">Central banks bought 1,000+ tonnes per year for three consecutive years</div>
+  <div class="slide-subtitle">Annual net change in central-bank gold holdings (tonnes)</div>
+  <div class="chart-area" id="cb-gold-container">
+    <button class="chart-download-btn" onclick="downloadChart('cbGoldChart','MI_cb_gold_purchases.png')" title="Download as PNG">&darr;</button>
+    <canvas id="cbGoldChart"></canvas>
+  </div>
+  <div class="source-line">Source: World Gold Council, Gold Demand Trends FY2025</div>
+  <div class="small-note">2025 figure reflects full-year data (863t). Net purchases include reported and estimated unreported activity.</div>
+</div>
+
+<div class="slide" id="slide-15">
+  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
+  <div class="slide-title">Priced in gold, US equities have made no progress since the GFC</div>
+  <div class="chart-area" id="sp-gold-container">
+    <button class="chart-download-btn" onclick="downloadChart('spGoldChart','MI_sp500_gold_ratio.png')" title="Download as PNG">&darr;</button>
+    <canvas id="spGoldChart"></canvas>
+  </div>
+  <div class="source-line">Source: Bloomberg</div>
+</div>
+
+<div class="slide" id="slide-16">
+  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
+  <div class="slide-title">The gold-real yield relationship broke in 2022</div>
+  <div class="slide-subtitle">Gold is now priced as a hedge against institutional risk, not rates</div>
+  <div class="chart-area" id="gold-yield-container">
+    <button class="chart-download-btn" onclick="downloadChart('goldYieldChart','MI_gold_vs_real_yield.png')" title="Download as PNG">&darr;</button>
+    <canvas id="goldYieldChart"></canvas>
+  </div>
+  <div class="source-line">Source: Federal Reserve, Bloomberg</div>
+</div>
+
+<div class="slide" id="slide-17">
+  <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+    <div class="giant-number">29 years</div>
+    <div class="slide-subtitle" style="font-size:20px;margin-bottom:32px;">Average time from discovery to production for a US mine</div>
+    <div class="card-row">
+      <div class="stat-card">
+        <div class="stat-number">24.1 yrs</div>
+        <div class="stat-label">Copper &mdash; global average</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">31.8 yrs</div>
+        <div class="stat-label">Copper &mdash; United States</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">34 yrs</div>
+        <div class="stat-label">Zambia &mdash; longest globally</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-18">
+  <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
+  <div class="slide-title">Even if every announced project proceeds, copper supply meets ~70% of demand by 2035</div>
+  <div class="chart-area" id="copper-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('copperChart','MI_copper_supply_demand.png')" title="Download as PNG">&darr;</button>
+    <canvas id="copperChart"></canvas>
+  </div>
+  <div class="source-line">Source: BloombergNEF</div>
+</div>
+
+<div class="slide" id="slide-19">
+  <div class="section-label">REAL ASSETS &mdash; CONCENTRATION RISK</div>
+  <div class="slide-title">China refines 19 of the 20 strategic minerals the IEA tracks</div>
+  <div class="slide-subtitle">Average market share: ~70%. Gallium: 98.7%. Magnesium: 95%. Rare earths: ~90%.</div>
+  <div class="chart-area" id="minerals-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('mineralsChart','MI_critical_minerals.png')" title="Download as PNG">&darr;</button>
+    <canvas id="mineralsChart"></canvas>
+  </div>
+  <div class="source-line">Source: Various. See IEA Critical Minerals report.</div>
+</div>
+
+<div class="slide" id="slide-20">
+  <div class="section-label">REAL ASSETS &mdash; DEMAND</div>
+  <div class="slide-title">Lithium demand rose 30% in 2024 alone</div>
+  <div class="slide-subtitle">Under transition scenarios, critical mineral demand triples by 2030 and quadruples by 2040</div>
+  <div class="chart-area" id="mineral-demand-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('mineralDemandChart','MI_mineral_demand.png')" title="Download as PNG">&darr;</button>
+    <canvas id="mineralDemandChart"></canvas>
+  </div>
+  <div class="source-line">Source: IEA World Energy Outlook / Critical Minerals report</div>
+</div>
+
+<div class="slide" id="slide-21">
+  <div class="slide-divider">
+    <div class="divider-title">AI AS PRODUCTIVE INFRASTRUCTURE</div>
+    <div class="divider-subtitle">The commoditization of cognitive labor</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-22">
+  <div class="section-label">THESIS B &mdash; SCALING</div>
+  <div class="slide-title">The task horizon is doubling every 7 months</div>
+  <div class="slide-subtitle">METR-Horizon v1.1 &mdash; GPT-5.2 can now complete tasks that take humans ~6.5 hours</div>
+  <div class="chart-area"><canvas id="chart-metr"></canvas></div>
+  <div class="source-line">Source: METR Horizon v1.1 benchmark; p50 = median task duration where AI succeeds 50% of the time</div>
+</div>
+
+<div class="slide" id="slide-23">
+  <div class="section-label">THESIS B &mdash; CAPABILITY</div>
+  <div class="slide-title">Harder benchmarks show capabilities still climbing steeply</div>
+  <div class="slide-subtitle">Frontier running max on non-saturated benchmarks &mdash; FrontierMath went from 1% to 41% in 18 months</div>
+  <div class="chart-area"><canvas id="chart-eci"></canvas></div>
+  <div class="source-line">Source: Epoch AI Capabilities Index (ECI); performance = best-ever score as of each month</div>
+</div>
+
+<div class="slide" id="slide-24">
+  <div class="section-label">AI PRODUCTIVE INFRASTRUCTURE &mdash; ADOPTION</div>
+  <div class="slide-title">900M weekly users in under 3 years</div>
+  <div class="slide-subtitle">ChatGPT weekly active users &mdash; fastest consumer technology adoption in history</div>
+  <div class="chart-area"><canvas id="chart-ai-usage"></canvas></div>
+  <div class="source-line">Source: OpenAI; Epoch AI</div>
+</div>
+
+
+<div class="slide" id="slide-25">
+  <div class="section-label">AI PRODUCTIVE INFRASTRUCTURE &mdash; BUSINESS</div>
+  <div class="slide-title">AI revenue is scaling at unprecedented speed</div>
+  <div class="slide-subtitle">OpenAI: $28M &rarr; $20B in 3 years. Anthropic: $100M &rarr; $9B in 2 years.</div>
+  <div class="chart-area"><canvas id="chart-ai-revenue"></canvas></div>
+  <div class="source-line">Source: Epoch AI; company disclosures; The Information; Bloomberg; CNBC</div>
+</div>
+
+<div class="slide" id="slide-26">
+  <div class="section-label">THESIS B &mdash; COMPUTE SPEND</div>
+  <div class="slide-title">AI lab compute spend is doubling every year</div>
+  <div class="slide-subtitle">Total cloud compute spend by company &mdash; training + inference (excludes one-off datacenter payments)</div>
+  <div class="chart-area"><canvas id="chart-ai-compute-spend"></canvas></div>
+  <div class="source-line">Source: Epoch AI; The Information; company disclosures</div>
+</div>
+
+<div class="slide" id="slide-27">
+  <div class="section-label">THESIS B &mdash; COMPUTE</div>
+  <div class="slide-title">Training compute has grown 10 orders of magnitude since 2017</div>
+  <div class="slide-subtitle">Frontier language models: from ~10<sup>21</sup> FLOP to ~5&times;10<sup>26</sup> FLOP in 8 years</div>
+  <div class="chart-area"><canvas id="chart-training-compute"></canvas></div>
+  <div class="source-line">Source: Epoch AI Notable AI Models database</div>
+</div>
+
+<div class="slide" id="slide-28">
+  <div class="section-label">THESIS B &mdash; AI COMPUTE</div>
+  <div class="slide-title">Training costs have crossed $500M &mdash; approaching $1B per run</div>
+  <div class="slide-subtitle">Estimated training compute cost in 2023 USD for notable AI models (2012&ndash;2025)</div>
+  <div class="chart-area"><canvas id="chart-training-cost"></canvas></div>
+  <div class="source-line">Source: Epoch AI Notable AI Models database; costs in 2023 USD</div>
+</div>
+
+
+<div class="slide" id="slide-29">
+  <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
+  <div class="slide-title">Each GPU generation unlocks a new frontier of training scale</div>
+  <div class="slide-subtitle">GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72</div>
+  <div class="chart-area"><canvas id="chart-gpu-generations"></canvas></div>
+  <div class="source-line">Source: OpenAI, NVIDIA, SemiAnalysis, The Information; cluster sizes are best public estimates</div>
+</div>
+
+
+<div class="slide" id="slide-30">
+  <div class="section-label">THESIS B &mdash; HARDWARE</div>
+  <div class="slide-title">32&times; more chips shipped in three years</div>
+  <div class="stat-row-label" style="margin-top:18px;">AI ACCELERATORS SHIPPED (H100 EQUIV.)</div>
+  <div class="card-row">
+    <div class="stat-card"><div class="stat-number">310K</div><div class="stat-label">2022</div></div>
+    <div class="stat-card"><div class="stat-number">1.4M</div><div class="stat-label">2023</div></div>
+    <div class="stat-card"><div class="stat-number">5.5M</div><div class="stat-label">2024</div></div>
+    <div class="stat-card"><div class="stat-number">10M+</div><div class="stat-label">2025</div></div>
+  </div>
+  <div class="stat-row-label">ASSOCIATED CHIP COST</div>
+  <div class="card-row">
+    <div class="stat-card"><div class="stat-number">$11B</div><div class="stat-label">2022</div></div>
+    <div class="stat-card"><div class="stat-number">$37B</div><div class="stat-label">2023</div></div>
+    <div class="stat-card"><div class="stat-number">$113B</div><div class="stat-label">2024</div></div>
+    <div class="stat-card"><div class="stat-number">$143B</div><div class="stat-label">2025</div></div>
+  </div>
+  <div class="small-note" style="margin-top:8px;">5.96 GW shipped chip power draw in 2025 &mdash; roughly six large nuclear plants.</div>
+  <div class="chart-area" id="hardware-chart-container" style="flex: 1; min-height: 120px; margin-top: 12px;">
+    <button class="chart-download-btn" onclick="downloadChart('hardwareChart','MI_hardware_shipments.png')" title="Download as PNG">&darr;</button>
+    <canvas id="hardwareChart"></canvas>
+  </div>
+</div>
+
+<div class="slide" id="slide-31">
+  <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
+  <div class="slide-title">Hyperscaler capex is entering escape velocity</div>
+  <div class="slide-subtitle">Microsoft, Meta, Alphabet and Amazon are expected to spend &gt;$600B this year &mdash; almost double the ~$350B spent last year</div>
+  <div class="chart-area"><canvas id="chart-hyperscaler-capex"></canvas></div>
+  <div class="source-line">Source: Company earnings (Q4 2025 / Q2 FY2026); 2026E = company guidance (META, GOOGL, AMZN) &amp; Bloomberg consensus (MSFT)</div>
+</div>
+
+
+<div class="slide" id="slide-32">
+  <div class="section-label">THESIS B &mdash; INFRASTRUCTURE</div>
+  <div class="slide-title">The datacenter buildout is at megaproject scale</div>
+  <div class="stat-row-label" style="margin-top:14px;">OPERATIONAL POWER (GW)</div>
+  <div class="card-row">
+    <div class="stat-card"><div class="stat-number">0.8</div><div class="stat-label">2023</div></div>
+    <div class="stat-card"><div class="stat-number">4.5</div><div class="stat-label">2025</div></div>
+    <div class="stat-card"><div class="stat-number">21</div><div class="stat-label">2029</div></div>
+  </div>
+  <div class="stat-row-label">ASSOCIATED CAPEX</div>
+  <div class="card-row">
+    <div class="stat-card"><div class="stat-number">$26B</div><div class="stat-label">2023</div></div>
+    <div class="stat-card"><div class="stat-number">$138B*</div><div class="stat-label">2025</div></div>
+    <div class="stat-card"><div class="stat-number">$646B</div><div class="stat-label">2029</div></div>
+  </div>
+  <div class="chart-area" id="frontier-power-container" style="height:200px;">
+    <button class="chart-download-btn" onclick="downloadChart('frontierPowerChart','MI_frontier_datacenter_power.png')" title="Download as PNG">&darr;</button>
+    <canvas id="frontierPowerChart"></canvas>
+  </div>
+  <div class="source-line">Source: Epoch AI</div>
+</div>
+
+<div class="slide" id="slide-33">
+  <div class="section-label">THESIS B &mdash; POWER</div>
+  <div class="slide-title">US datacenter load doubles to 130 GW by 2030</div>
+  <div class="slide-subtitle">62 GW consumed in 2025 &mdash; PJM capacity market prices up 10&times; in two years ($29 &rarr; $329 / MW-day)</div>
+  <div class="chart-area">
+    <canvas id="datacenterCapacityChart"></canvas>
+  </div>
+  <div class="source-line">Source: Energy Institute, JPMAM, PJM Interconnection</div>
+</div>
+
+<div class="slide" id="slide-34">
+  <div class="section-label">THESIS B &mdash; POWER</div>
+  <div class="slide-title">Interconnection queues stretch 5&ndash;7 years</div>
+  <div class="slide-subtitle">The grid cannot accommodate the demand without massive new investment</div>
+  <div class="chart-area" id="interconnection-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('interconnectionChart','MI_interconnection_queue.png')" title="Download as PNG">&darr;</button>
+    <canvas id="interconnectionChart"></canvas>
+  </div>
+  <div class="source-line">Source: Lawrence Berkeley National Lab, PJM, EIA</div>
+</div>
+
+<div class="slide" id="slide-35">
+  <div class="section-label">THESIS B &mdash; SUPPLY CHAIN</div>
+  <div class="slide-title">GPU supply is a packaging story, not just a wafer story</div>
+  <div class="slide-subtitle">CoWoS + HBM = the second chokepoint</div>
+  <div class="card-row" style="margin-top:12px;">
+    <div class="card">
+      <div class="card-label">CoWoS PACKAGING</div>
+      <div class="card-text">TSMC dominant supplier. Integrates GPU die + HBM stacks via silicon interposer. Despite record capex, capacity remains supply-constrained. Packaging throughput gates finished accelerator output.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">HIGH-BANDWIDTH MEMORY</div>
+      <div class="card-text">SK Hynix + Samsung oligopoly. Each GPU generation requires more HBM per chip. Blackwell &gt; Hopper. Rubin &gt; Blackwell. Lead times extending, allocation tightening.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-36">
+  <div class="section-label">THESIS B &mdash; ECONOMICS</div>
+  <div class="slide-title">Inference is 45% of compute spend and growing</div>
+  <div class="slide-subtitle">Agentic workloads turn every task into hours of sustained reasoning</div>
+  <div class="body-text">Efficiency gains accelerate total consumption &mdash; a Jevons dynamic. As usage shifts from simple queries to autonomous multi-step operation, inference becomes the dominant share of compute expenditure. The capital intensity of AI compounds with deployment as long as demand grows faster than the reduced cost of inference.</div>
+  <div class="chart-area" id="training-inference-container" style="height:220px;">
+    <button class="chart-download-btn" onclick="downloadChart('trainingInferenceChart','MI_training_vs_inference.png')" title="Download as PNG">&darr;</button>
+    <canvas id="trainingInferenceChart"></canvas>
+  </div>
+  <div class="source-line">Source: Semi Analysis, company disclosures, Epoch AI</div>
+</div>
+
+<div class="slide" id="slide-37">
+  <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
+  <div class="slide-title">Margin accrues to bottlenecks, not the most visible layer</div>
+  <div style="margin-top:14px;">
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label">APPLICATION / PLATFORM</div>
+      <div class="card-text">Largest upside, most competitive. Margin protected by distribution, data, workflow lock-in.</div>
+    </div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label">DATA CENTERS</div>
+      <div class="card-text">Hybrid &mdash; moat migrates from space to power + interconnection + speed to deliver.</div>
+    </div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label">POWER &amp; GRID INFRASTRUCTURE</div>
+      <div class="card-text">Contracted, regulated. Quasi-bond cash flows with equity upside. Capacity markets + long-term PPAs.</div>
+    </div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label">SEMICONDUCTORS &mdash; FAB &middot; CoWoS &middot; HBM</div>
+      <div class="card-text">Scarcity rent: allocation pricing, persistent gross margin expansion, contracted demand.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-38">
+  <div class="slide-divider">
+    <div class="divider-title">WHY THESE FORCES COMPOUND</div>
+    <div class="divider-subtitle">The intersection of regime shift and AI infrastructure</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-39">
+  <div class="section-label">INTERSECTION</div>
+  <div class="slide-title">AI is deflationary in cognition. Inflationary in everything it needs to run.</div>
+  <div class="body-text" style="margin-top:12px;">Electricity. Copper. Grid hardware. Aluminum. Advanced packaging. Specialized memory. All in a system where permitting, geopolitics, and supply chain concentration constrain elasticity.</div>
+  <div class="chart-area" id="ai-demand-container">
+    <button class="chart-download-btn" onclick="downloadChart('aiDemandChart','MI_ai_demand_inputs.png')" title="Download as PNG">&darr;</button>
+    <canvas id="aiDemandChart"></canvas>
+  </div>
+  <div class="source-line">Source: IEA, McKinsey, Goldman Sachs commodity research</div>
+</div>
+
+<div class="slide" id="slide-40">
+  <div class="section-label">INTERSECTION &mdash; LABOR</div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+    <div class="giant-number">49%</div>
+    <div class="slide-subtitle" style="font-size:18px;">of occupations now involve AI across at least a quarter of their tasks</div>
+    <div class="body-text">Up from 36% in early 2025. The trend favors full task delegation over collaboration.</div>
+    <div class="chart-area" id="anthropic-index-container" style="height:240px;">
+      <button class="chart-download-btn" onclick="downloadChart('anthropicIndexChart','MI_anthropic_index.png')" title="Download as PNG">&darr;</button>
+      <canvas id="anthropicIndexChart"></canvas>
+    </div>
+    <div class="source-line">Source: Anthropic Economic Index</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-41">
+  <div class="section-label">INTERSECTION &mdash; FISCAL</div>
+  <div class="slide-title">There is no fiscally neutral path through AI displacement</div>
+  <div class="card-row" style="margin-top:14px;">
+    <div class="card">
+      <div class="card-label">WORKFORCE ADJUSTMENT</div>
+      <div class="card-text">Automation Adjustment Assistance, compute taxes, token-generation levies &mdash; all with escalation mechanisms tied to displacement pace.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">INCOME SUPPORT</div>
+      <div class="card-text">UBI proposals, sovereign wealth funds, AI-funded citizen dividends. Each requires new claims: automation taxes, data rents, equity participation.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">INDUSTRIAL POLICY</div>
+      <div class="card-text">AI as national security terrain. China: ~$900B on AI over the past decade. Subsidy and procurement commitments embedded in structural budgets indefinitely.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-42">
+  <div class="section-label">INTERSECTION &mdash; ENDGAME</div>
+  <div class="slide-title">Every prior episode of sovereign overextension at this scale resolved through financial repression</div>
+  <div class="body-text" style="margin-top:12px;">Real rates held below nominal growth, transferring wealth from holders of nominal claims to the government.</div>
+  <div class="slide-hr"></div>
+  <div class="body-text">The same physical bottlenecks, energy assets, and supply-constrained materials that capture value from the AI buildout constitute the natural hedge against the monetary regime that the buildout's sociopolitical consequences will produce.</div>
+  <div class="card-row" style="margin-top:16px;">
+    <div class="stat-card">
+      <div class="stat-label" style="font-size:13px;"><strong>OECD working-age pop:</strong><br>&minus;8% by 2060</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label" style="font-size:13px;"><strong>US-born working-age</strong><br>shrinks every year to 2035</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label" style="font-size:13px;"><strong>Demographics reduce global growth</strong><br>~1.1pp/yr through 2050</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-43">
+  <div class="slide-divider">
+    <div class="divider-title">PORTFOLIO CONSTRUCTION</div>
+    <div class="divider-subtitle">Built to compound through volatility</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-44">
+  <div class="section-label">PORTFOLIO</div>
+  <div class="slide-title">Built to compound through volatility, not avoid it</div>
+  <div class="body-text" style="margin-top:14px;">Long-duration structure. No redemption pressure. Concentrated positions across public equities, commodities, and real asset-linked infrastructure.</div>
+  <div class="body-text">Conviction is high, but conditional. We expect significant volatility as markets oscillate between pricing the AI buildout as a bubble and pricing it as an inevitability, and as macro conditions generate episodic dislocations across rate, currency, and commodity complexes.</div>
+  <div class="chart-placeholder" style="height:240px;"><span>Chart: Portfolio allocation breakdown</span></div>
+</div>
+
+<div class="slide" id="slide-45">
+  <div class="section-label">PORTFOLIO &mdash; LEADING INDICATORS</div>
+  <div class="slide-title">What we track</div>
+  <div class="card-row" style="margin-top:14px;">
+    <div class="card">
+      <div class="card-label">AI BUILDOUT</div>
+      <ul class="bullet-list">
+        <li>Hyperscaler capex trajectories</li>
+        <li>Datacenter energization rates</li>
+        <li>Packaging &amp; memory lead times</li>
+        <li>Capacity market pricing</li>
+        <li>Agentic AI adoption in enterprise</li>
+        <li>AI capability advancements</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">MACRO REGIME</div>
+      <ul class="bullet-list">
+        <li>Term premium dynamics</li>
+        <li>Sovereign debt trajectory vs GDP</li>
+        <li>Real rate behavior across G7</li>
+        <li>Capital Flows</li>
+        <li>Commodity supply response</li>
+        <li>Industrial Policy (Tariffs, strategic reserves)</li>
+        <li>Central Banks Policies and Balance Sheets</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-46">
+  <div class="section-label">PORTFOLIO &mdash; PROCESS</div>
+  <div class="slide-title">How we underwrite</div>
+  <div class="body-text" style="margin-top:14px;">Cost curves. Reinvestment rates. Incremental returns on capital. Free cash flow sensitivity to volume and price across the cycle.</div>
+  <div class="body-text">Balance sheet structure is co-equal with operating quality. Scarcity rents are most valuable during dislocations &mdash; a forced seller cannot capture them.</div>
+  <div class="body-text">Capital allocation discipline is a first-order variable. The historical base rate for value destruction through pro-cyclical overbuilding in commodity and infrastructure businesses is high enough to constitute a structural risk.</div>
+  <div class="slide-hr"></div>
+  <div class="body-text italic-accent">"Exit discipline is valuation-driven. Every constraint eventually attracts the capital that resolves it. We own the period of maximum rent extraction."</div>
+</div>
+
+</div><!-- end .presentation -->
+
+<!-- Controls -->
+<div class="controls">
+  <button class="fs-btn" onclick="toggleFullscreen()" title="Press F">&#9723; Fullscreen</button>
+  <div class="slide-counter" id="slideCounter">1 / 43</div>
+</div>
+
+<script>
+// ==========================
+// PRESENTATION ENGINE
+// ==========================
+const TOTAL_SLIDES = 46;
+let currentSlide = 1;
+let isAnimating = false;
+
+function showSlide(n) {
+  if (n < 1 || n > TOTAL_SLIDES || isAnimating) return;
+  if (n === currentSlide) return;
+  isAnimating = true;
+
+  const oldSlide = document.getElementById('slide-' + currentSlide);
+  const newSlide = document.getElementById('slide-' + n);
+
+  oldSlide.classList.remove('active');
+  oldSlide.classList.add('fade-out');
+
+  newSlide.style.display = 'flex';
+  newSlide.classList.add('fade-in');
+
+  setTimeout(() => {
+    oldSlide.classList.remove('fade-out');
+    oldSlide.style.display = 'none';
+    oldSlide.style.opacity = '0';
+
+    newSlide.classList.remove('fade-in');
+    newSlide.classList.add('active');
+    newSlide.style.opacity = '1';
+
+    currentSlide = n;
+    document.getElementById('slideCounter').textContent = currentSlide + ' / ' + TOTAL_SLIDES;
+    isAnimating = false;
+  }, 400);
+}
+
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+  else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prevSlide(); }
+  else if (e.key === 'f' || e.key === 'F') { toggleFullscreen(); }
+});
+
+// ==========================
+// CHART DOWNLOAD
+// ==========================
+function downloadChart(canvasId, filename) {
+  const canvas = document.getElementById(canvasId);
+  const link = document.createElement('a');
+  link.download = filename;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+// ==========================
+// CHART: TERM PREMIUM (SLIDE 7)
+// ==========================
+(function() {
+  const rawData = {
+    2000: [1.6246,1.5368,1.3973,1.2581,1.4373,1.2737,1.1886,1.0665,1.0635,0.9808,0.9407,0.7762],
+    2001: [0.8731,0.9315,0.9222,1.1409,1.3282,1.3201,1.2849,1.1985,1.2002,1.222,1.3372,1.6529],
+    2002: [1.626,1.5514,1.7344,1.6933,1.6379,1.4987,1.3467,1.1278,0.9052,0.9421,1.0708,1.0772],
+    2003: [1.0733,0.9915,0.9308,1.0097,0.7824,0.6613,1.0156,1.3159,1.2096,1.2033,1.2234,1.2105],
+    2004: [1.1353,1.0965,0.94,1.2435,1.452,1.4044,1.2448,1.1007,0.9661,0.923,0.9157,0.8994],
+    2005: [0.8722,0.8068,0.9567,0.8538,0.7343,0.6378,0.679,0.6847,0.6396,0.735,0.7542,0.7046],
+    2006: [0.6126,0.6686,0.7262,0.8297,0.8666,0.8448,0.7989,0.6892,0.6345,0.6239,0.5441,0.5393],
+    2007: [0.6331,0.6106,0.5261,0.6041,0.6543,0.8777,0.7921,0.7279,0.6958,0.7072,0.6276,0.6524],
+    2008: [0.5028,0.6598,0.676,0.7918,0.8623,0.9536,0.9157,0.829,0.8035,1.0292,0.998,0.496],
+    2009: [0.5336,0.6958,0.6442,0.6536,0.8529,1.1386,1.0274,1.0586,0.9523,0.9302,0.9195,0.9812],
+    2010: [1.0681,1.0207,1.0244,1.0862,0.8671,0.7559,0.6147,0.4225,0.3939,0.2986,0.3972,0.7314],
+    2011: [0.7807,0.9066,0.8249,0.8658,0.6912,0.5593,0.5623,0.1898,0.0428,0.1371,0.0541,0.0323],
+    2012: [0.0091,-0.0135,0.1055,0.0377,-0.09,-0.1712,-0.2278,-0.1485,-0.1494,-0.138,-0.1753,-0.1455],
+    2013: [-0.0487,-0.011,-0.0265,-0.1227,-0.033,0.1951,0.3589,0.4489,0.5016,0.3691,0.4011,0.515],
+    2014: [0.5288,0.4406,0.4711,0.489,0.4079,0.4374,0.4241,0.3742,0.4464,0.3189,0.3403,0.289],
+    2015: [0.1211,0.1751,0.2042,0.1249,0.2687,0.3567,0.3238,0.23,0.2321,0.1763,0.2804,0.2432],
+    2016: [0.1491,-0.0309,0.0375,-0.0104,-0.0064,-0.0944,-0.1741,-0.1441,-0.1075,-0.0476,0.1415,0.3425],
+    2017: [0.3067,0.2961,0.2867,0.1594,0.1426,0.0562,0.1111,0.0598,0.0488,0.1264,0.1068,0.1265],
+    2018: [0.2006,0.321,0.2883,0.2883,0.3344,0.2913,0.2672,0.2471,0.2857,0.3363,0.2966,0.1312],
+    2019: [0.0547,0.0348,-0.0232,-0.0412,-0.1061,-0.2489,-0.2398,-0.4218,-0.3743,-0.3275,-0.2368,-0.2076],
+    2020: [-0.2654,-0.4037,-0.473,-0.5591,-0.5735,-0.5666,-0.6144,-0.6078,-0.5979,-0.5468,-0.499,-0.4785],
+    2021: [-0.4149,-0.3209,-0.1092,-0.0843,-0.0983,-0.1325,-0.227,-0.2438,-0.1927,-0.0596,-0.0406,-0.0761],
+    2022: [0.0668,0.1254,0.2098,0.4809,0.5111,0.5321,0.2274,0.1421,0.3781,0.515,0.3666,0.1521],
+    2023: [0.0487,0.1462,0.1191,-0.0472,-0.0507,0.0467,0.1139,0.2371,0.3515,0.5765,0.4384,0.1798],
+    2024: [0.191,0.2799,0.2741,0.4475,0.416,0.3168,0.2892,0.1199,0.1007,0.3608,0.5358,0.5759],
+    2025: [0.723,0.6216,0.5254,0.5088,0.5683,0.538,0.5328,0.489,0.4615,0.4642,0.485,0.5498],
+    2026: [0.6011]
+  };
+
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const labels = [];
+  const values = [];
+
+  for (let yr = 2000; yr <= 2026; yr++) {
+    const arr = rawData[yr];
+    for (let m = 0; m < arr.length; m++) {
+      labels.push(m === 0 ? String(yr) : '');
+      values.push(arr[m]);
+    }
+  }
+
+  // Recession periods (index ranges)
+  function monthIndex(yr, mo) {
+    let idx = 0;
+    for (let y = 2000; y < yr; y++) { idx += rawData[y].length; }
+    idx += (mo - 1);
+    return idx;
+  }
+
+  const recessions = [
+    { xMin: monthIndex(2001, 3), xMax: monthIndex(2001, 11) },
+    { xMin: monthIndex(2007, 12), xMax: monthIndex(2009, 6) },
+    { xMin: monthIndex(2020, 2), xMax: monthIndex(2020, 4) }
+  ];
+
+  const recessionAnnotations = {};
+  recessions.forEach((r, i) => {
+    recessionAnnotations['recession' + i] = {
+      type: 'box',
+      xMin: r.xMin - 0.5,
+      xMax: r.xMax + 0.5,
+      yMin: -1.0,
+      yMax: 2.0,
+      backgroundColor: 'rgba(42, 122, 140, 0.08)',
+      borderWidth: 0,
+      drawTime: 'beforeDatasetsDraw'
+    };
+  });
+
+  recessionAnnotations['zeroLine'] = {
+    type: 'line',
+    yMin: 0,
+    yMax: 0,
+    borderColor: '#0d2137',
+    borderWidth: 1.5,
+    borderDash: [],
+    drawTime: 'beforeDatasetsDraw'
+  };
+
+  // Split into positive and negative for fill colors
+  const positiveData = values.map(v => v >= 0 ? v : 0);
+  const negativeData = values.map(v => v < 0 ? v : 0);
+
+  const ctx = document.getElementById('termPremiumChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Term Premium (positive)',
+          data: values.map((v, i) => ({x: i, y: v})),
+          borderColor: '#2a7a8c',
+          borderWidth: 1.5,
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          fill: {
+            target: {value: 0},
+            above: 'rgba(42, 122, 140, 0.15)',
+            below: 'rgba(220, 80, 80, 0.12)'
+          },
+          tension: 0.3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      scales: {
+        x: {
+          type: 'category',
+          labels: labels,
+          ticks: {
+            maxRotation: 0,
+            autoSkip: false,
+            callback: function(value, index) {
+              return labels[index] || null;
+            },
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: { display: false }
+        },
+        y: {
+          min: -1.0,
+          max: 2.0,
+          ticks: {
+            stepSize: 0.5,
+            callback: function(value) { return value.toFixed(1) + '%'; },
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: {
+            color: 'rgba(0,0,0,0.06)',
+            drawBorder: false
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 12 },
+          bodyFont: { family: 'Inter', size: 12 },
+          callbacks: {
+            title: function(items) {
+              const idx = items[0].dataIndex;
+              let yr = 2000;
+              let count = 0;
+              for (yr = 2000; yr <= 2026; yr++) {
+                if (count + rawData[yr].length > idx) {
+                  const mo = idx - count;
+                  return months[mo] + ' ' + yr;
+                }
+                count += rawData[yr].length;
+              }
+              return '';
+            },
+            label: function(item) {
+              return 'Term Premium: ' + item.parsed.y.toFixed(4) + '%';
+            }
+          }
+        },
+        annotation: {
+          annotations: recessionAnnotations
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: CB GOLD PURCHASES (SLIDE 14)
+// ==========================
+(function() {
+  const years = [];
+  for (let y = 2000; y <= 2025; y++) years.push(String(y));
+
+  const values = [-478,-520,-547,-617,-479,-663,-365,-484,-236,-34,77,457,544,409,584,577,416,375,656,650,255,463,1136,1037,1045,863];
+
+  const boldYears = ['2022','2023','2024'];
+
+  const barColors = values.map(v => v >= 0 ? 'rgba(42, 122, 140, 0.85)' : 'rgba(42, 122, 140, 0.35)');
+
+  const ctx = document.getElementById('cbGoldChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [{
+        data: values,
+        backgroundColor: barColors,
+        borderColor: barColors.map(c => c.replace(/[\d.]+\)$/, '1)')),
+        borderWidth: 1,
+        borderRadius: 2,
+        barPercentage: 0.7,
+        categoryPercentage: 0.85
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 30, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          min: -800,
+          max: 1200,
+          ticks: {
+            stepSize: 200,
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: {
+            color: 'rgba(0,0,0,0.06)',
+            drawBorder: false
+          }
+        },
+        y: {
+          ticks: {
+            font: function(context) {
+              const label = years[context.index];
+              const isBold = boldYears.includes(label);
+              return {
+                family: 'Inter',
+                size: 10,
+                weight: isBold ? '700' : '400'
+              };
+            },
+            color: function(context) {
+              const label = years[context.index];
+              return boldYears.includes(label) ? '#0d2137' : '#8a96a0';
+            }
+          },
+          grid: { display: false }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 12 },
+          bodyFont: { family: 'Inter', size: 12 },
+          callbacks: {
+            label: function(item) {
+              return item.parsed.x + ' tonnes';
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            zeroLine: {
+              type: 'line',
+              xMin: 0,
+              xMax: 0,
+              borderColor: '#0d2137',
+              borderWidth: 1.5,
+              drawTime: 'beforeDatasetsDraw'
+            },
+            thousandLine: {
+              type: 'line',
+              xMin: 1000,
+              xMax: 1000,
+              borderColor: '#2a7a8c',
+              borderWidth: 1.5,
+              borderDash: [6, 4],
+              drawTime: 'beforeDatasetsDraw',
+              label: {
+                display: true,
+                content: '1,000t',
+                position: 'start',
+                backgroundColor: 'rgba(42,122,140,0.1)',
+                color: '#2a7a8c',
+                font: { family: 'Inter', size: 10, weight: '600' },
+                padding: 4
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: FEDERAL DEBT AS % OF GDP (SLIDE 4)
+// ==========================
+(function() {
+  var allYears = [1900,1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053];
+  var allValues = [10,11,11,10,10,9,8,8,9,8,8,7,7,6,6,5,4,8,20,30,28,30,29,26,24,23,21,20,19,15,17,22,33,40,40,39,40,39,42,43,45,42,49,73,91,104,106,96,84,79,80,68,63,59,59,57,53,51,50,48,45,45,43,42,40,38,35,33,34,30,28,28,27,26,24,25,27,27,27,25,26,25,29,33,34,36,39,40,41,40,42,45,48,49,49,49,48,46,43,40,35,33,34,36,37,36,36,35,40,55,62,65,70,72,74,73,77,76,78,79,100,97,97,97,99,100,102,104,106,108,110,112,114,116,118,120,123,126,129,132,135,138,141,144,147,150,152,154,156,158,160,162,163,166];
+
+  var splitIdx = 126;
+  var actualValues = allValues.map(function(v, i) { return i < splitIdx ? v : null; });
+  var projectedValues = allValues.map(function(v, i) { return i >= splitIdx - 1 ? v : null; });
+  projectedValues[splitIdx - 1] = allValues[splitIdx - 1];
+
+  var labels = allYears.map(String);
+  function yearIdx(yr) { return yr - 1900; }
+
+  var ctxDebt = document.getElementById('debtChart').getContext('2d');
+
+  new Chart(ctxDebt, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Actual',
+          data: actualValues,
+          borderColor: '#2a7a8c',
+          backgroundColor: 'rgba(42, 122, 140, 0.25)',
+          borderWidth: 1.8,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          fill: true,
+          tension: 0.2,
+          spanGaps: false
+        },
+        {
+          label: 'Projected',
+          data: projectedValues,
+          borderColor: '#0d2137',
+          backgroundColor: 'rgba(13, 33, 55, 0.18)',
+          borderWidth: 1.8,
+          borderDash: [5, 3],
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          fill: true,
+          tension: 0.2,
+          spanGaps: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 28, right: 16, bottom: 4, left: 8 } },
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: {
+          ticks: {
+            maxRotation: 0,
+            autoSkip: false,
+            callback: function(value, index) {
+              var yr = allYears[index];
+              return yr % 10 === 0 ? String(yr) : null;
+            },
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: { display: false }
+        },
+        y: {
+          min: 0,
+          max: 180,
+          ticks: {
+            stepSize: 20,
+            callback: function(value) { return value + '%'; },
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true, position: 'top', align: 'end',
+          labels: { usePointStyle: true, pointStyle: 'line', font: { family: 'Inter', size: 10 }, color: '#5a6a78', padding: 12, boxWidth: 24 }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            title: function(items) { return items[0].label; },
+            label: function(item) { if (item.raw === null) return null; return item.dataset.label + ': ' + item.raw + '% of GDP'; }
+          }
+        },
+        annotation: {
+          annotations: {
+            ww1: { type: 'label', xValue: yearIdx(1918), yValue: 38, content: ['World War I'], font: { family: 'Inter', size: 9, weight: '600' }, color: '#0d2137', backgroundColor: 'rgba(255,255,255,0.8)', padding: 3 },
+            depression: { type: 'label', xValue: yearIdx(1933), yValue: 56, content: ['Great Depression'], font: { family: 'Inter', size: 9, weight: '600' }, color: '#0d2137', backgroundColor: 'rgba(255,255,255,0.8)', padding: 3 },
+            ww2: { type: 'label', xValue: yearIdx(1944), yValue: 122, content: ['World War II', '(Historical high 106% in 1946)'], font: { family: 'Inter', size: 9, weight: '600' }, color: '#0d2137', backgroundColor: 'rgba(255,255,255,0.8)', padding: 3 },
+            gfc: { type: 'label', xValue: yearIdx(2008), yValue: 72, content: ['2007\u20132009', 'Financial Crisis'], font: { family: 'Inter', size: 9, weight: '600' }, color: '#0d2137', backgroundColor: 'rgba(255,255,255,0.8)', padding: 3 },
+            covid: { type: 'label', xValue: yearIdx(2020), yValue: 118, content: ['COVID-19'], font: { family: 'Inter', size: 9, weight: '600' }, color: '#0d2137', backgroundColor: 'rgba(255,255,255,0.8)', padding: 3 }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: SPENDING + INTEREST + REVENUE (SLIDE 5)
+// ==========================
+(function() {
+  var sYears = [2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053];
+  var programSpending = [15.9,16.5,17.8,18.4,18.1,18.4,18.0,17.6,19.1,22.7,22.7,22.0,21.0,19.8,19.3,19.1,19.5,19.1,19.0,19.0,29.4,27.0,21.4,19.5,20.3,19.9,19.8,19.7,19.8,19.9,20.0,20.2,20.3,20.4,20.5,20.7,20.8,20.9,21.0,21.1,21.2,21.3,21.4,21.5,21.6,21.7,21.8,21.9,22.0,22.0,22.1,22.2,22.3,22.4];
+  var netInterest = [2.3,2.1,1.7,1.5,1.4,1.5,1.7,1.7,1.7,1.3,1.4,1.5,1.4,1.3,1.3,1.3,1.3,1.4,1.6,2.0,1.8,1.6,1.9,2.5,3.1,3.2,3.2,3.3,3.4,3.5,3.6,3.7,3.8,3.9,3.9,4.1,4.2,4.3,4.4,4.5,4.6,4.7,4.8,4.9,5.0,5.1,5.2,5.3,5.4,5.5,5.6,5.7,5.8,5.9];
+  var revenue = [20.0,19.8,17.6,16.2,16.1,17.3,18.2,18.0,17.5,14.6,14.9,15.0,15.2,16.7,17.2,18.0,17.6,17.2,16.4,16.3,16.3,17.7,19.6,16.5,17.1,17.2,18.0,18.2,18.3,18.1,18.0,18.2,18.3,18.4,18.5,18.6,18.6,18.6,18.7,18.7,18.7,18.7,18.8,18.8,18.8,18.8,18.8,18.9,18.9,18.9,18.9,18.9,19.0,19.0];
+
+  var sLabels = sYears.map(String);
+  var sDividerIdx = sYears.indexOf(2025);
+  var totalSI = programSpending.map(function(v, i) { return +(v + netInterest[i]).toFixed(1); });
+
+  var ctxSpend = document.getElementById('spendingChart').getContext('2d');
+
+  new Chart(ctxSpend, {
+    type: 'line',
+    data: {
+      labels: sLabels,
+      datasets: [
+        {
+          label: 'Program Spending',
+          data: programSpending,
+          borderColor: '#2a7a8c',
+          backgroundColor: 'rgba(42, 122, 140, 0.22)',
+          borderWidth: 1.5,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          fill: true,
+          tension: 0.25,
+          order: 2
+        },
+        {
+          label: 'Net Interest',
+          data: totalSI,
+          borderColor: '#0d2137',
+          backgroundColor: 'rgba(13, 33, 55, 0.22)',
+          borderWidth: 1.5,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          fill: '-1',
+          tension: 0.25,
+          order: 1
+        },
+        {
+          label: 'Revenue',
+          data: revenue,
+          borderColor: '#c05040',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          fill: false,
+          tension: 0.25,
+          order: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: {
+          ticks: {
+            maxRotation: 0, autoSkip: false,
+            callback: function(value, index) { var yr = sYears[index]; return yr % 5 === 0 ? String(yr) : null; },
+            font: { family: 'Inter', size: 10 }, color: '#8a96a0'
+          },
+          grid: { display: false }
+        },
+        y: {
+          min: 0, max: 35,
+          ticks: { stepSize: 5, callback: function(value) { return value + '%'; }, font: { family: 'Inter', size: 10 }, color: '#8a96a0' },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true, position: 'top', align: 'end',
+          labels: { usePointStyle: true, pointStyle: 'line', font: { family: 'Inter', size: 10 }, color: '#5a6a78', padding: 12, boxWidth: 24 }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            title: function(items) { return items[0].label; },
+            label: function(item) {
+              if (item.datasetIndex === 0) return 'Program Spending: ' + item.raw.toFixed(1) + '% of GDP';
+              if (item.datasetIndex === 1) return 'Spending + Interest: ' + item.raw.toFixed(1) + '% of GDP';
+              return 'Revenue: ' + item.raw.toFixed(1) + '% of GDP';
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            sDivLine: { type: 'line', xMin: sDividerIdx + 0.5, xMax: sDividerIdx + 0.5, borderColor: 'rgba(0, 0, 0, 0.25)', borderWidth: 1.5, borderDash: [6, 4], drawTime: 'beforeDatasetsDraw' },
+            sActLabel: { type: 'label', xValue: sDividerIdx - 4, yValue: 33, content: ['ACTUAL'], font: { family: 'Inter', size: 9, weight: '700' }, color: '#8a96a0', backgroundColor: 'transparent', padding: 2 },
+            sProjLabel: { type: 'label', xValue: sDividerIdx + 8, yValue: 33, content: ['PROJECTED'], font: { family: 'Inter', size: 9, weight: '700' }, color: '#8a96a0', backgroundColor: 'transparent', padding: 2 }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: INTEREST PAYMENTS AS % OF REVENUES (SLIDE 6)
+// ==========================
+(function() {
+  var iYears = [1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035];
+  var iValues = [7.3,7.0,7.2,7.5,7.8,8.5,8.4,8.0,8.4,9.5,10.5,10.8,10.7,10.9,11.6,13.1,14.8,16.5,15.8,16.5,17.5,17.2,16.4,16.1,16.4,16.5,16.8,15.8,14.8,14.0,15.3,15.4,14.6,13.2,11.8,11.5,10.6,9.6,9.3,8.7,8.7,9.3,9.4,9.7,8.9,9.4,10.0,9.2,7.8,7.6,7.2,7.4,8.1,9.8,12.3,11.0,9.0,9.7,15.2,18.1,19.0,17.8,18.1,18.6,19.3,20.0,20.3,20.8,21.2,21.1,22.0];
+  var isRecession = [0,0,0,0,1,1,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+  var iLabels = iYears.map(String);
+  var iSplitIdx = iYears.indexOf(2025);
+
+  var iActualData = iValues.map(function(v, i) { return i <= iSplitIdx ? v : null; });
+  var iProjectedData = iValues.map(function(v, i) { return i >= iSplitIdx ? v : null; });
+
+  var recAnns = {};
+  var rs = null;
+  for (var j = 0; j < isRecession.length; j++) {
+    if (isRecession[j] === 1 && rs === null) { rs = j; }
+    if ((isRecession[j] === 0 || j === isRecession.length - 1) && rs !== null) {
+      var re = isRecession[j] === 1 ? j : j - 1;
+      recAnns['rec_' + rs] = { type: 'box', xMin: rs - 0.5, xMax: re + 0.5, yMin: 4, yMax: 24, backgroundColor: 'rgba(42, 122, 140, 0.08)', borderWidth: 0, drawTime: 'beforeDatasetsDraw' };
+      rs = null;
+    }
+  }
+  recAnns['iDivLine'] = { type: 'line', xMin: iSplitIdx + 0.5, xMax: iSplitIdx + 0.5, borderColor: 'rgba(0, 0, 0, 0.25)', borderWidth: 1.5, borderDash: [6, 4], drawTime: 'beforeDatasetsDraw' };
+  recAnns['iActLabel'] = { type: 'label', xValue: iSplitIdx - 6, yValue: 23, content: ['ACTUAL'], font: { family: 'Inter', size: 9, weight: '700' }, color: '#8a96a0', backgroundColor: 'transparent', padding: 2 };
+  recAnns['iProjLabel'] = { type: 'label', xValue: iSplitIdx + 5, yValue: 23, content: ['PROJECTED'], font: { family: 'Inter', size: 9, weight: '700' }, color: '#8a96a0', backgroundColor: 'transparent', padding: 2 };
+
+  var ctxInt = document.getElementById('interestChart').getContext('2d');
+
+  new Chart(ctxInt, {
+    type: 'line',
+    data: {
+      labels: iLabels,
+      datasets: [
+        {
+          label: 'Actual',
+          data: iActualData,
+          borderColor: '#2a7a8c',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          fill: false,
+          tension: 0.25,
+          spanGaps: false
+        },
+        {
+          label: 'Projected',
+          data: iProjectedData,
+          borderColor: '#2a7a8c',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          borderDash: [5, 3],
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          fill: false,
+          tension: 0.25,
+          spanGaps: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: {
+          ticks: {
+            maxRotation: 0, autoSkip: false,
+            callback: function(value, index) { var yr = iYears[index]; return yr % 5 === 0 ? String(yr) : null; },
+            font: { family: 'Inter', size: 10 }, color: '#8a96a0'
+          },
+          grid: { display: false }
+        },
+        y: {
+          min: 5, max: 24,
+          ticks: { stepSize: 5, callback: function(value) { return value + '%'; }, font: { family: 'Inter', size: 10 }, color: '#8a96a0' },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true, position: 'top', align: 'end',
+          labels: { usePointStyle: true, pointStyle: 'line', font: { family: 'Inter', size: 10 }, color: '#5a6a78', padding: 12, boxWidth: 24 }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            title: function(items) { return items[0].label; },
+            label: function(item) { if (item.raw === null) return null; return 'Interest / Revenue: ' + item.raw.toFixed(1) + '%'; }
+          }
+        },
+        annotation: { annotations: recAnns }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 1: DM Core Inflation (Slide 8)
+// ==========================
+(function() {
+  var labels = [];
+  for (var y = 2019; y <= 2027; y++) {
+    for (var m = 1; m <= 12; m++) {
+      labels.push(y + '-' + (m < 10 ? '0' + m : m));
+    }
+  }
+  // 2019-01 to 2027-12 = 9 years * 12 = 108 months
+  // But we need exactly 106 data points based on the provided data (2019-01 to 2027-10)
+  // Actually the data has 110 entries each (corrected: 108 + 2 extra = 110? Let me count)
+  // The labels should match the data length. Data has 110 values per series (from spec).
+  // Actually re-counting: each series has exactly 110 values. 2019-01 to 2028-02? No.
+  // Let me just generate 110 labels: 2019-01 through 2028-02
+  // Wait - 9 years * 12 = 108. Let me trust that and trim data if needed.
+  // Re-checking: the US data provided has 110 entries. So labels = 2019-01 to 2028-02.
+  labels = [];
+  for (var y = 2019; y <= 2027; y++) {
+    for (var m = 1; m <= 12; m++) {
+      labels.push(y + '-' + (m < 10 ? '0' + m : m));
+    }
+  }
+  // That gives 108. But data has 110 values. Add 2028-01 and 2028-02.
+  labels.push('2028-01');
+  labels.push('2028-02');
+
+  var usData = [2.2,2.1,2.0,2.1,2.0,2.1,2.2,2.4,2.4,2.3,2.3,2.3, 2.3,2.4,2.1,1.4,1.2,1.2,1.6,1.7,1.7,1.6,1.6,1.6, 1.4,1.3,1.6,3.0,3.8,4.5,4.3,4.0,4.0,4.6,4.9,5.5, 6.0,6.4,6.5,6.2,6.0,5.9,5.9,6.3,6.6,6.3,6.0,5.7, 5.6,5.5,5.6,5.5,5.3,4.8,4.7,4.3,4.1,4.0,4.0,3.9, 3.9,3.8,3.8,3.6,3.4,3.3,3.2,3.2,3.3,3.3,3.3,3.2, 3.3,3.1,2.8,2.8,2.8,2.8,2.8,2.7,3.0,null,2.6,2.6, 2.5,2.5,2.5,2.6,2.6,2.6,2.7,2.7,2.7,2.7,2.7,2.7, 2.7,2.7,2.7,2.6,2.6,2.6,2.6,2.6,2.5,2.5];
+  var euroData = [1.1,1.0,0.8,1.3,0.8,1.1,0.9,0.9,1.0,1.1,1.3,1.3, 1.1,1.2,1.0,0.9,0.9,0.8,1.2,0.4,0.2,0.2,0.4,0.2, 1.4,1.1,0.9,0.7,0.9,0.9,0.7,1.6,1.9,2.0,2.6,2.6, 2.3,2.7,2.9,3.5,3.8,3.7,4.0,4.3,4.8,5.0,5.0,5.2, 5.2,5.6,5.7,5.6,5.3,5.5,5.5,5.3,4.5,4.2,3.6,3.4, 3.3,3.1,2.9,2.7,2.9,2.9,2.9,2.8,2.7,2.7,2.7,2.7, 2.7,2.6,2.4,2.4,2.3,2.5,2.5,2.5,2.7,2.6,2.4,2.3, 2.2,2.2,2.2,2.3,2.3,2.3,2.4,2.4,2.4,2.5,2.5,2.5, 2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5];
+  var ukData = [1.8,1.8,1.8,1.8,1.7,1.8,1.9,1.5,1.7,1.7,1.7,1.4, 1.6,1.7,1.6,1.4,1.2,1.4,1.8,0.9,1.3,1.5,1.1,1.4, 1.4,0.9,1.1,1.3,1.5,2.3,1.8,3.1,2.9,3.4,4.0,4.2, 4.4,5.2,5.7,6.2,5.9,5.8,6.2,6.3,6.5,6.5,6.3,6.3, 5.8,6.2,6.2,6.8,7.1,6.9,6.9,6.2,6.1,5.7,5.1,5.1, 5.1,4.5,4.2,3.9,3.5,3.5,3.3,3.6,3.2,3.3,3.5,3.2, 3.0,3.0,3.4,3.8,3.5,3.7,3.5,3.6,3.5,3.4,3.2,3.2, 3.0,2.9,2.8,2.7,2.7,2.7,2.8,2.8,2.8,2.8,2.8,2.8, 2.8,2.8,2.7,2.7,2.7,2.7,2.7,2.6,2.6,2.6];
+  var canadaData = [1.9,1.9,2.0,2.1,2.1,2.1,2.1,2.0,2.0,2.1,2.0,2.0, 2.0,1.9,1.7,1.6,1.5,1.5,1.5,1.5,1.5,1.6,1.5,1.5, 1.5,1.5,1.7,2.0,2.2,2.5,2.7,2.9,3.1,3.2,3.3,3.3, 3.5,3.6,3.8,4.1,4.5,5.0,5.5,5.3,5.2,5.0,4.8,4.7, 4.9,4.8,4.6,4.4,4.1,3.6,3.5,3.6,3.5,3.4,3.4,3.4, 3.3,3.1,2.9,2.7,2.6,2.6,2.7,2.6,2.5,2.5,2.5,2.6, 2.7,2.8,2.9,3.1,3.0,2.9,2.8,2.7,2.7,3.0,2.6,2.5, 2.5,2.5,2.5,2.5,2.5,2.6,2.6,2.6,2.6,2.6,2.6,2.6, 2.6,2.6,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5];
+  var ausData = [1.7,1.7,1.6,1.5,1.5,1.6,1.6,1.6,1.6,1.6,1.6,1.6, 1.6,1.6,1.8,1.5,1.3,1.2,1.3,1.3,1.2,1.3,1.3,1.2, 1.2,1.2,1.1,1.6,1.7,1.6,2.1,2.2,2.1,2.6,2.7,2.6, 2.8,3.0,3.7,4.0,4.3,4.9,5.3,5.6,6.1,6.5,6.7,6.8, 6.6,6.4,6.6,6.2,5.9,5.9,5.6,5.3,5.2,4.8,4.5,4.2, 3.9,3.7,3.6,3.5,3.5,3.4,3.3,3.3,3.2,3.2,3.2,3.2, 3.1,3.0,2.7,2.6,2.5,2.7,2.8,2.9,3.0,3.3,3.2,3.3, 3.1,3.0,2.9,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8, 2.8,2.8,2.7,2.7,2.7,2.7,2.7,2.7,2.7,2.7];
+
+  // Forecast divider: 2025-10 is index 81 (2019-01=0, so 2025-10 = 6*12+9 = 81)
+  var forecastIndex = 81;
+
+  var ctx = document.getElementById('inflationChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        { label: 'US', data: usData, borderColor: '#2a7a8c', backgroundColor: '#2a7a8c', borderWidth: 1.8, tension: 0.25, pointRadius: 0, pointHoverRadius: 3, spanGaps: true },
+        { label: 'Euro Area', data: euroData, borderColor: '#0d2137', backgroundColor: '#0d2137', borderWidth: 1.8, tension: 0.25, pointRadius: 0, pointHoverRadius: 3 },
+        { label: 'UK', data: ukData, borderColor: '#c05040', backgroundColor: '#c05040', borderWidth: 1.8, tension: 0.25, pointRadius: 0, pointHoverRadius: 3 },
+        { label: 'Canada', data: canadaData, borderColor: '#e8a838', backgroundColor: '#e8a838', borderWidth: 1.8, tension: 0.25, pointRadius: 0, pointHoverRadius: 3 },
+        { label: 'Australia', data: ausData, borderColor: '#6b5b95', backgroundColor: '#6b5b95', borderWidth: 1.8, tension: 0.25, pointRadius: 0, pointHoverRadius: 3 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            maxRotation: 0,
+            callback: function(value, index) {
+              var lbl = labels[index];
+              if (lbl && lbl.endsWith('-01')) return lbl.substring(0, 4);
+              return '';
+            },
+            autoSkip: false
+          },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        },
+        y: {
+          min: 0, max: 8,
+          ticks: {
+            stepSize: 1,
+            font: { family: 'Inter', size: 10 },
+            callback: function(value) { return value + '%'; }
+          },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        }
+      },
+      plugins: {
+        legend: { display: true, position: 'top', align: 'end', labels: { font: { family: 'Inter', size: 10 }, boxWidth: 12, padding: 10 } },
+        tooltip: { backgroundColor: '#0d2137', titleFont: { family: 'Inter', size: 11 }, bodyFont: { family: 'Inter', size: 11 }, callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; } } },
+        annotation: {
+          annotations: {
+            forecastLine: {
+              type: 'line',
+              xMin: forecastIndex,
+              xMax: forecastIndex,
+              borderColor: '#5a6a78',
+              borderWidth: 1.5,
+              borderDash: [5, 4],
+              label: { display: true, content: 'Forecast', position: 'start', font: { family: 'Inter', size: 9 }, color: '#5a6a78', backgroundColor: 'rgba(255,255,255,0.8)' }
+            },
+            targetLine: {
+              type: 'line',
+              yMin: 2.0,
+              yMax: 2.0,
+              borderColor: '#8a96a0',
+              borderWidth: 1,
+              borderDash: [4, 3],
+              label: { display: true, content: '2% Target', position: 'end', font: { family: 'Inter', size: 9 }, color: '#8a96a0', backgroundColor: 'rgba(255,255,255,0.85)' }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 2: Price Changes 2000-2025 (Slide 9)
+// ==========================
+(function() {
+  var categories = ['Hospital Services','College Tuition','College Textbooks','Childcare','Medical Care','Avg Hourly Wages','Housing','Food & Beverages','Overall CPI','New Cars','Household Furnishings','Clothing','Cell Phone Services','Computer Software','Toys','TVs'];
+  var values = [281.4, 196.7, 176.9, 158.8, 142.0, 131.1, 111.4, 105.7, 92.6, 25.8, 1.4, 1.3, -44.1, -73.0, -74.2, -98.1];
+  var cpiValue = 92.6;
+
+  var colors = values.map(function(v, i) {
+    if (categories[i] === 'Overall CPI') return '#0d2137';
+    if (v < 0) return '#c05040';
+    if (v > cpiValue) return '#2a7a8c';
+    return '#8a96a0';
+  });
+
+  var ctx = document.getElementById('priceChangesChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: categories,
+      datasets: [{
+        data: values,
+        backgroundColor: colors,
+        borderColor: colors,
+        borderWidth: 0,
+        barThickness: 16
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          min: -120, max: 300,
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            callback: function(value) { return value + '%'; }
+          },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        },
+        y: {
+          ticks: { font: { family: 'Inter', size: 9 } },
+          grid: { display: false, drawBorder: false }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { backgroundColor: '#0d2137', titleFont: { family: 'Inter', size: 11 }, bodyFont: { family: 'Inter', size: 11 }, callbacks: { label: function(ctx) { return ctx.parsed.x + '%'; } } },
+        annotation: {
+          annotations: {
+            cpiLine: {
+              type: 'line',
+              xMin: cpiValue,
+              xMax: cpiValue,
+              borderColor: '#0d2137',
+              borderWidth: 1.5,
+              borderDash: [5, 4],
+              label: { display: true, content: 'Overall CPI', position: 'start', font: { family: 'Inter', size: 9 }, color: '#0d2137', backgroundColor: 'rgba(255,255,255,0.85)' }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 3: Copper Supply/Demand (Slide 18)
+// ==========================
+(function() {
+  var years = [2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050];
+  var supply = [27.0,26.8,26.6,26.4,26.2,26.0,25.6,25.2,24.8,24.4,24.0,23.6,23.2,22.8,22.4,22.0,21.8,21.8,21.6,21.4,21.0,21.0,21.0,21.0,21.0,21.0];
+  var demand = [27.0,27.6,28.2,28.8,29.4,30.0,30.8,31.6,32.4,33.2,34.0,34.8,35.6,36.4,37.2,38.0,38.8,39.6,40.4,41.2,42.0,42.8,43.6,44.4,45.2,46.0];
+
+  var ctx = document.getElementById('copperChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: years.map(String),
+      datasets: [
+        {
+          label: 'Total Supply',
+          data: supply,
+          borderColor: '#2a7a8c',
+          backgroundColor: 'rgba(42, 122, 140, 0.15)',
+          fill: true,
+          borderWidth: 2,
+          tension: 0.25,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          order: 2
+        },
+        {
+          label: 'Demand',
+          data: demand,
+          borderColor: '#0d2137',
+          backgroundColor: 'rgba(13, 33, 55, 0.06)',
+          fill: true,
+          borderWidth: 2,
+          tension: 0.25,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          order: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          ticks: { font: { family: 'Inter', size: 10 }, maxRotation: 0 },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        },
+        y: {
+          min: 18, max: 48,
+          ticks: {
+            stepSize: 5,
+            font: { family: 'Inter', size: 10 },
+            callback: function(value) { return value + ' Mt'; }
+          },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        }
+      },
+      plugins: {
+        legend: { display: true, position: 'top', align: 'end', labels: { font: { family: 'Inter', size: 10 }, boxWidth: 12, padding: 10 } },
+        tooltip: { backgroundColor: '#0d2137', titleFont: { family: 'Inter', size: 11 }, bodyFont: { family: 'Inter', size: 11 }, callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + ' Mt'; } } },
+        filler: { propagate: false },
+        annotation: {
+          annotations: {
+            deficitLabel: {
+              type: 'label',
+              xValue: '2040',
+              yValue: 30,
+              content: ['DEFICIT'],
+              font: { family: 'Inter', size: 13, weight: 'bold' },
+              color: 'rgba(192, 80, 64, 0.7)',
+              backgroundColor: 'rgba(255,255,255,0)'
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 4: Critical Minerals Import Reliance (Slide 19)
+// ==========================
+(function() {
+  var minerals = ['Cesium','Rubidium','Scandium','Graphite','Manganese','Niobium','Tantalum','Gallium','Indium','Yttrium','Chromium','Fluorspar','Titanium Sponge','Dysprosium','Germanium','Al. Oxide Abrasives','Ti. Concentrates','Bismuth','Antimony','Cobalt'];
+  var values = [100,100,100,100,100,100,100,100,100,100,100,100,95,95,90,95,85,89,80,75];
+
+  var colors = values.map(function(v) {
+    return v === 100 ? '#2a7a8c' : 'rgba(42, 122, 140, 0.72)';
+  });
+
+  var ctx = document.getElementById('mineralsChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: minerals,
+      datasets: [{
+        data: values,
+        backgroundColor: colors,
+        borderColor: colors,
+        borderWidth: 0,
+        barThickness: 13
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          min: 0, max: 100,
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            callback: function(value) { return value + '%'; }
+          },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        },
+        y: {
+          ticks: { font: { family: 'Inter', size: 8.5 } },
+          grid: { display: false, drawBorder: false }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { backgroundColor: '#0d2137', titleFont: { family: 'Inter', size: 11 }, bodyFont: { family: 'Inter', size: 11 }, callbacks: { label: function(ctx) { return ctx.parsed.x + '% import reliance'; } } },
+        annotation: {
+          annotations: {
+            fullReliance: {
+              type: 'line',
+              xMin: 100,
+              xMax: 100,
+              borderColor: 'rgba(13, 33, 55, 0.3)',
+              borderWidth: 1,
+              borderDash: [4, 3]
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 5: IEA Mineral Demand Projections (Slide 20)
+// ==========================
+(function() {
+  var minerals = ['Lithium', 'Graphite', 'Cobalt', 'Rare Earths', 'Nickel', 'Copper'];
+  var actual2024 = [100, 100, 100, 100, 100, 100];
+  var statedPolicies = [222, 171, 129, 135, 130, 115];
+  var netZero = [300, 250, 157, 159, 152, 130];
+
+  var actualKt = [180, 1400, 210, 170, 3300, 26000];
+  var statedKt = [400, 2400, 270, 230, 4300, 30000];
+  var netZeroKt = [540, 3500, 330, 270, 5000, 33800];
+
+  var ctx = document.getElementById('mineralDemandChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: minerals,
+      datasets: [
+        { label: '2024 Actual', data: actual2024, backgroundColor: '#8a96a0', borderColor: '#8a96a0', borderWidth: 0 },
+        { label: '2030 Stated Policies', data: statedPolicies, backgroundColor: '#2a7a8c', borderColor: '#2a7a8c', borderWidth: 0 },
+        { label: '2030 Net Zero', data: netZero, backgroundColor: '#0d2137', borderColor: '#0d2137', borderWidth: 0 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          ticks: { font: { family: 'Inter', size: 10 } },
+          grid: { display: false, drawBorder: false }
+        },
+        y: {
+          min: 0, max: 320,
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            callback: function(value) { return value; }
+          },
+          grid: { color: 'rgba(0, 0, 0, 0.045)', drawBorder: false }
+        }
+      },
+      plugins: {
+        legend: { display: true, position: 'top', align: 'end', labels: { font: { family: 'Inter', size: 10 }, boxWidth: 12, padding: 10 } },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(context) {
+              var idx = context.dataIndex;
+              var dsIdx = context.datasetIndex;
+              var kt = dsIdx === 0 ? actualKt[idx] : (dsIdx === 1 ? statedKt[idx] : netZeroKt[idx]);
+              return context.dataset.label + ': ' + context.parsed.y + ' (index) / ' + kt.toLocaleString() + ' kt';
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            baselineLine: {
+              type: 'line',
+              yMin: 100,
+              yMax: 100,
+              borderColor: '#8a96a0',
+              borderWidth: 1.5,
+              borderDash: [5, 4],
+              label: { display: true, content: '2024 Baseline', position: 'start', font: { family: 'Inter', size: 9 }, color: '#8a96a0', backgroundColor: 'rgba(255,255,255,0.85)' }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// Initialize first slide display
+document.getElementById('slide-1').style.opacity = '1';
+</script>
+
+<script>
+// ==========================
+// CHART: GOLD vs TREASURIES IN CB RESERVES (SLIDE 13)
+// ==========================
+(function() {
+  const labels = [
+    'Q1 2020','Q2 2020','Q3 2020','Q4 2020',
+    'Q1 2021','Q2 2021','Q3 2021','Q4 2021',
+    'Q1 2022','Q2 2022','Q3 2022','Q4 2022',
+    'Q1 2023','Q2 2023','Q3 2023','Q4 2023',
+    'Q1 2024','Q2 2024','Q3 2024','Q4 2024',
+    'Q1 2025','Q2 2025','Q3 2025','Q4 2025'
+  ];
+
+  const goldData = [1.80,1.90,2.10,2.05,1.95,1.98,1.95,1.92,2.00,2.05,1.85,1.80,2.05,2.20,2.60,2.80,3.00,3.40,3.80,4.20,4.10,4.50,4.80,5.10];
+  const treasuryData = [4.05,3.98,4.08,4.10,4.10,4.08,4.05,4.02,3.98,3.92,3.85,3.82,3.80,3.78,3.76,3.75,3.73,3.72,3.71,3.70,3.68,3.70,3.65,3.60];
+
+  // Crossover between Q2 2024 (idx 17: gold=3.40, tsy=3.72) and Q3 2024 (idx 18: gold=3.80, tsy=3.71)
+  const crossIdx = 17.6;
+
+  const ctx = document.getElementById('goldTreasuriesChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Gold Holdings',
+          data: goldData,
+          borderColor: '#d4a843',
+          backgroundColor: 'rgba(212, 168, 67, 0.08)',
+          borderWidth: 2.5,
+          pointRadius: 3,
+          pointBackgroundColor: '#d4a843',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 1.5,
+          pointHoverRadius: 5,
+          tension: 0.3,
+          fill: false
+        },
+        {
+          label: 'Treasury Holdings',
+          data: treasuryData,
+          borderColor: '#0d2137',
+          backgroundColor: 'rgba(13, 33, 55, 0.08)',
+          borderWidth: 2.5,
+          pointRadius: 3,
+          pointBackgroundColor: '#0d2137',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 1.5,
+          pointHoverRadius: 5,
+          tension: 0.3,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 14, right: 20, bottom: 4, left: 8 } },
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      scales: {
+        x: {
+          ticks: {
+            maxRotation: 0,
+            autoSkip: true,
+            maxTicksLimit: 12,
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: { display: false }
+        },
+        y: {
+          min: 0,
+          max: 6,
+          ticks: {
+            stepSize: 1,
+            callback: function(value) { return '$' + value + 'T'; },
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: {
+            color: 'rgba(0,0,0,0.06)',
+            drawBorder: false
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'end',
+          labels: {
+            usePointStyle: true,
+            pointStyle: 'circle',
+            padding: 16,
+            font: { family: 'Inter', size: 11 },
+            color: '#5a6a78'
+          }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 12 },
+          bodyFont: { family: 'Inter', size: 12 },
+          callbacks: {
+            label: function(item) {
+              return item.dataset.label + ': $' + item.parsed.y.toFixed(2) + 'T';
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            crossover: {
+              type: 'line',
+              xMin: crossIdx,
+              xMax: crossIdx,
+              borderColor: 'rgba(212, 168, 67, 0.6)',
+              borderWidth: 1.5,
+              borderDash: [6, 4],
+              drawTime: 'afterDatasetsDraw',
+              label: {
+                display: true,
+                content: 'Gold overtakes Treasuries',
+                position: 'start',
+                backgroundColor: 'rgba(212, 168, 67, 0.12)',
+                color: '#0d2137',
+                font: { family: 'Inter', size: 10, weight: '600' },
+                padding: { top: 4, bottom: 4, left: 8, right: 8 },
+                yAdjust: -8
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: S&P 500 PRICED IN GOLD (SLIDE 15)
+// ==========================
+(function() {
+  const labels = [
+    'Q1 2006','Q2 2006','Q3 2006','Q4 2006',
+    'Q1 2007','Q2 2007','Q3 2007','Q4 2007',
+    'Q1 2008','Q2 2008','Q3 2008','Q4 2008',
+    'Q1 2009','Q2 2009','Q3 2009','Q4 2009',
+    'Q1 2010','Q2 2010','Q3 2010','Q4 2010',
+    'Q1 2011','Q2 2011','Q3 2011','Q4 2011',
+    'Q1 2012','Q2 2012','Q3 2012','Q4 2012',
+    'Q1 2013','Q2 2013','Q3 2013','Q4 2013',
+    'Q1 2014','Q2 2014','Q3 2014','Q4 2014',
+    'Q1 2015','Q2 2015','Q3 2015','Q4 2015',
+    'Q1 2016','Q2 2016','Q3 2016','Q4 2016',
+    'Q1 2017','Q2 2017','Q3 2017','Q4 2017',
+    'Q1 2018','Q2 2018','Q3 2018','Q4 2018',
+    'Q1 2019','Q2 2019','Q3 2019','Q4 2019',
+    'Q1 2020','Q2 2020','Q3 2020','Q4 2020',
+    'Q1 2021','Q2 2021','Q3 2021','Q4 2021',
+    'Q1 2022','Q2 2022','Q3 2022','Q4 2022',
+    'Q1 2023','Q2 2023','Q3 2023','Q4 2023',
+    'Q1 2024','Q2 2024','Q3 2024','Q4 2024',
+    'Q1 2025','Q2 2025','Q3 2025','Q4 2025',
+    'Q1 2026'
+  ];
+
+  const values = [
+    100.00,98.50,95.20,97.80,
+    96.50,97.00,95.00,90.50,
+    82.00,77.50,72.00,55.00,
+    49.00,47.50,51.00,52.50,
+    48.50,47.00,44.00,43.50,
+    43.00,42.00,38.50,38.00,
+    40.00,40.50,42.00,42.50,
+    46.00,53.00,55.00,56.50,
+    57.50,58.50,60.00,62.00,
+    61.50,62.00,63.50,62.50,
+    57.50,58.00,60.50,63.00,
+    64.50,66.00,68.00,71.00,
+    73.50,77.00,82.00,85.00,
+    73.00,78.00,74.50,72.00,
+    80.00,58.00,60.50,67.00,
+    75.00,82.00,88.00,105.00,
+    110.00,90.00,82.00,80.00,
+    78.00,76.50,82.00,78.00,
+    85.00,82.00,80.00,75.00,
+    68.00,55.00,62.00,65.00,
+    67.00
+  ];
+
+  // Lehman = Q4 2008 = index 11
+  // US downgrade = Q3 2011 = index 22
+  // Covid-19 = Q2 2020 = index 57
+  // Liberation Day = Q2 2025 = index 77
+
+  const ctx = document.getElementById('spGoldChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'S&P 500 / Gold',
+        data: values,
+        borderColor: '#2a7a8c',
+        backgroundColor: 'rgba(42, 122, 140, 0.10)',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        tension: 0.3,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 14, right: 20, bottom: 4, left: 8 } },
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      scales: {
+        x: {
+          ticks: {
+            maxRotation: 0,
+            autoSkip: true,
+            maxTicksLimit: 11,
+            callback: function(value, index) {
+              var lbl = labels[index];
+              if (lbl && lbl.startsWith('Q1')) {
+                return lbl.replace('Q1 ', '');
+              }
+              return null;
+            },
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: { display: false }
+        },
+        y: {
+          min: 20,
+          max: 120,
+          ticks: {
+            stepSize: 20,
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: {
+            color: 'rgba(0,0,0,0.06)',
+            drawBorder: false
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 12 },
+          bodyFont: { family: 'Inter', size: 12 },
+          callbacks: {
+            label: function(item) {
+              return 'S&P/Gold: ' + item.parsed.y.toFixed(1);
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            lehman: {
+              type: 'label',
+              xValue: 11,
+              yValue: 62,
+              content: ['Lehman'],
+              color: '#0d2137',
+              font: { family: 'Inter', size: 10, weight: '600' },
+              backgroundColor: 'rgba(255,255,255,0.85)',
+              borderColor: '#0d2137',
+              borderWidth: 1,
+              borderRadius: 3,
+              padding: { top: 3, bottom: 3, left: 6, right: 6 }
+            },
+            lehmanLine: {
+              type: 'line',
+              xMin: 11,
+              xMax: 11,
+              yMin: 55,
+              yMax: 59,
+              borderColor: '#0d2137',
+              borderWidth: 1
+            },
+            downgrade: {
+              type: 'label',
+              xValue: 22,
+              yValue: 28,
+              content: ['US downgrade'],
+              color: '#0d2137',
+              font: { family: 'Inter', size: 10, weight: '600' },
+              backgroundColor: 'rgba(255,255,255,0.85)',
+              borderColor: '#0d2137',
+              borderWidth: 1,
+              borderRadius: 3,
+              padding: { top: 3, bottom: 3, left: 6, right: 6 }
+            },
+            downgradeLine: {
+              type: 'line',
+              xMin: 22,
+              xMax: 22,
+              yMin: 32,
+              yMax: 38.5,
+              borderColor: '#0d2137',
+              borderWidth: 1
+            },
+            covid: {
+              type: 'label',
+              xValue: 57,
+              yValue: 48,
+              content: ['Covid-19'],
+              color: '#0d2137',
+              font: { family: 'Inter', size: 10, weight: '600' },
+              backgroundColor: 'rgba(255,255,255,0.85)',
+              borderColor: '#0d2137',
+              borderWidth: 1,
+              borderRadius: 3,
+              padding: { top: 3, bottom: 3, left: 6, right: 6 }
+            },
+            covidLine: {
+              type: 'line',
+              xMin: 57,
+              xMax: 57,
+              yMin: 51,
+              yMax: 58,
+              borderColor: '#0d2137',
+              borderWidth: 1
+            },
+            liberation: {
+              type: 'label',
+              xValue: 77,
+              yValue: 45,
+              content: ['Liberation Day'],
+              color: '#0d2137',
+              font: { family: 'Inter', size: 10, weight: '600' },
+              backgroundColor: 'rgba(255,255,255,0.85)',
+              borderColor: '#0d2137',
+              borderWidth: 1,
+              borderRadius: 3,
+              padding: { top: 3, bottom: 3, left: 6, right: 6 }
+            },
+            liberationLine: {
+              type: 'line',
+              xMin: 77,
+              xMax: 77,
+              yMin: 48,
+              yMax: 55,
+              borderColor: '#0d2137',
+              borderWidth: 1
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: GOLD PRICE vs REAL 10Y YIELD (SLIDE 16)
+// ==========================
+(function() {
+  const labels = [
+    'Q1 2003','Q2 2003','Q3 2003','Q4 2003',
+    'Q1 2004','Q2 2004','Q3 2004','Q4 2004',
+    'Q1 2005','Q2 2005','Q3 2005','Q4 2005',
+    'Q1 2006','Q2 2006','Q3 2006','Q4 2006',
+    'Q1 2007','Q2 2007','Q3 2007','Q4 2007',
+    'Q1 2008','Q2 2008','Q3 2008','Q4 2008',
+    'Q1 2009','Q2 2009','Q3 2009','Q4 2009',
+    'Q1 2010','Q2 2010','Q3 2010','Q4 2010',
+    'Q1 2011','Q2 2011','Q3 2011','Q4 2011',
+    'Q1 2012','Q2 2012','Q3 2012','Q4 2012',
+    'Q1 2013','Q2 2013','Q3 2013','Q4 2013',
+    'Q1 2014','Q2 2014','Q3 2014','Q4 2014',
+    'Q1 2015','Q2 2015','Q3 2015','Q4 2015',
+    'Q1 2016','Q2 2016','Q3 2016','Q4 2016',
+    'Q1 2017','Q2 2017','Q3 2017','Q4 2017',
+    'Q1 2018','Q2 2018','Q3 2018','Q4 2018',
+    'Q1 2019','Q2 2019','Q3 2019','Q4 2019',
+    'Q1 2020','Q2 2020','Q3 2020','Q4 2020',
+    'Q1 2021','Q2 2021','Q3 2021','Q4 2021',
+    'Q1 2022','Q2 2022','Q3 2022','Q4 2022',
+    'Q1 2023','Q2 2023','Q3 2023','Q4 2023',
+    'Q1 2024','Q2 2024','Q3 2024','Q4 2024',
+    'Q1 2025','Q2 2025','Q3 2025','Q4 2025',
+    'Q1 2026'
+  ];
+
+  const goldLn = [
+    5.88,5.87,5.89,5.95,
+    6.03,6.01,6.00,6.05,
+    6.05,6.06,6.06,6.13,
+    6.15,6.21,6.19,6.17,
+    6.21,6.23,6.22,6.34,
+    6.47,6.50,6.49,6.38,
+    6.42,6.46,6.47,6.57,
+    6.60,6.63,6.69,6.82,
+    6.84,6.89,7.01,7.08,
+    7.06,7.04,7.02,7.08,
+    7.06,6.95,6.89,6.88,
+    6.87,6.86,6.86,6.78,
+    6.79,6.77,6.74,6.74,
+    6.75,6.82,6.87,6.84,
+    6.80,6.83,6.84,6.85,
+    6.89,6.88,6.81,6.81,
+    6.85,6.85,6.93,7.01,
+    7.05,7.09,7.16,7.22,
+    7.22,7.20,7.19,7.17,
+    7.21,7.24,7.16,7.12,
+    7.22,7.24,7.27,7.27,
+    7.32,7.42,7.47,7.55,
+    7.57,7.78,7.90,8.01,
+    8.41
+  ];
+
+  const realYield = [
+    2.06,1.87,2.11,1.93,
+    1.70,1.84,1.95,1.65,
+    1.60,1.68,1.80,2.08,
+    2.00,2.22,2.30,2.20,
+    2.28,2.32,2.40,2.05,
+    1.53,1.32,1.59,2.62,
+    1.80,1.73,1.71,1.47,
+    1.34,1.49,1.17,0.60,
+    0.97,0.78,0.45,0.15,
+    -0.07,-0.14,-0.46,-0.72,
+    -0.53,-0.26,0.34,0.52,
+    0.35,0.32,0.25,0.39,
+    0.18,0.14,0.48,0.53,
+    0.56,0.20,-0.02,0.33,
+    0.47,0.40,0.43,0.47,
+    0.60,0.72,0.77,1.05,
+    0.90,0.60,0.32,0.10,
+    0.00,-0.42,-0.86,-0.94,
+    -1.04,-0.76,-1.02,-1.06,
+    -0.63,0.00,0.56,1.53,
+    1.38,1.24,1.62,2.25,
+    1.78,2.09,2.03,1.88,
+    2.10,1.85,1.92,1.98,
+    1.90
+  ];
+
+  // Mar 2022 = Q1 2022 = index 76
+  const breakIdx = 76;
+
+  const ctx = document.getElementById('goldYieldChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Gold Price (ln $/oz)',
+          data: goldLn,
+          borderColor: '#0d2137',
+          backgroundColor: 'rgba(13, 33, 55, 0.05)',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          tension: 0.3,
+          fill: false,
+          yAxisID: 'yLeft'
+        },
+        {
+          label: 'Real 10Y Yield (%)',
+          data: realYield,
+          borderColor: '#2a7a8c',
+          backgroundColor: 'rgba(42, 122, 140, 0.08)',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          tension: 0.3,
+          fill: false,
+          borderDash: [5, 3],
+          yAxisID: 'yRight'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 14, right: 8, bottom: 4, left: 8 } },
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      scales: {
+        x: {
+          ticks: {
+            maxRotation: 0,
+            autoSkip: true,
+            maxTicksLimit: 12,
+            callback: function(value, index) {
+              var lbl = labels[index];
+              if (lbl && lbl.startsWith('Q1')) {
+                return lbl.replace('Q1 ', '');
+              }
+              return null;
+            },
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: { display: false }
+        },
+        yLeft: {
+          type: 'linear',
+          position: 'left',
+          min: 5.5,
+          max: 8.5,
+          ticks: {
+            stepSize: 0.5,
+            callback: function(value) { return value.toFixed(1); },
+            font: { family: 'Inter', size: 10 },
+            color: '#0d2137'
+          },
+          grid: {
+            color: 'rgba(0,0,0,0.06)',
+            drawBorder: false
+          },
+          title: {
+            display: true,
+            text: 'Gold Price (ln $/oz)',
+            color: '#0d2137',
+            font: { family: 'Inter', size: 11, weight: '600' }
+          }
+        },
+        yRight: {
+          type: 'linear',
+          position: 'right',
+          min: -3,
+          max: 4,
+          reverse: true,
+          ticks: {
+            stepSize: 1,
+            callback: function(value) { return value.toFixed(0) + '%'; },
+            font: { family: 'Inter', size: 10 },
+            color: '#2a7a8c'
+          },
+          grid: { display: false },
+          title: {
+            display: true,
+            text: 'Real 10Y Yield (%, inverted)',
+            color: '#2a7a8c',
+            font: { family: 'Inter', size: 11, weight: '600' }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'end',
+          labels: {
+            usePointStyle: true,
+            pointStyle: 'line',
+            padding: 16,
+            font: { family: 'Inter', size: 11 },
+            color: '#5a6a78'
+          }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 12 },
+          bodyFont: { family: 'Inter', size: 12 },
+          callbacks: {
+            label: function(item) {
+              if (item.datasetIndex === 0) {
+                return 'Gold (ln): ' + item.parsed.y.toFixed(2);
+              } else {
+                return 'Real Yield: ' + item.parsed.y.toFixed(2) + '%';
+              }
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            breakLine: {
+              type: 'line',
+              xMin: breakIdx,
+              xMax: breakIdx,
+              borderColor: 'rgba(13, 33, 55, 0.4)',
+              borderWidth: 2,
+              borderDash: [8, 5],
+              drawTime: 'afterDatasetsDraw',
+              label: {
+                display: true,
+                content: "Mar '22",
+                position: 'start',
+                backgroundColor: 'rgba(13, 33, 55, 0.08)',
+                color: '#0d2137',
+                font: { family: 'Inter', size: 10, weight: '600' },
+                padding: { top: 4, bottom: 4, left: 8, right: 8 },
+                yAdjust: -4
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 1: FRONTIER DATACENTER POWER (SLIDE 26)
+// ==========================
+(function() {
+  var labels = ['2017','2018','2020','2020b','2022','2023','2023b','2024','2024b','2024c','2024d','2025','2025b','2026','2026b','2026c','2027','2027b','2028','2029'];
+  var displayLabels = ['2017','2018','2020','2020','2022','2023','2023','2024','2024','2024','2024','2025','2025','2026','2026','2026','2027','2027','2028','2029'];
+  var allValues = [10,13,15,30,30,50,65,100,150,250,300,350,1000,1000,1360,2000,2200,3300,5000,5000];
+  var operationalValues = [10,13,15,30,30,50,65,100,150,250,300,350,1000,null,null,null,null,null,null,null];
+  var plannedValues = [null,null,null,null,null,null,null,null,null,null,null,null,1000,1000,1360,2000,2200,3300,5000,5000];
+
+  new Chart(document.getElementById('frontierPowerChart').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: displayLabels,
+      datasets: [
+        {
+          label: 'Operational',
+          data: operationalValues,
+          borderColor: '#2a7a8c',
+          backgroundColor: '#2a7a8c',
+          pointRadius: 4,
+          pointHoverRadius: 5,
+          pointBackgroundColor: '#2a7a8c',
+          borderWidth: 2,
+          tension: 0.25,
+          spanGaps: false
+        },
+        {
+          label: 'Planned',
+          data: plannedValues,
+          borderColor: '#2a7a8c',
+          backgroundColor: 'rgba(42,122,140,0.3)',
+          pointRadius: 4,
+          pointHoverRadius: 5,
+          pointBackgroundColor: 'rgba(42,122,140,0.5)',
+          pointStyle: 'triangle',
+          borderWidth: 2,
+          borderDash: [6, 4],
+          tension: 0.25,
+          spanGaps: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 10 }, color: '#5a6a78', maxRotation: 0 }
+        },
+        y: {
+          type: 'logarithmic',
+          min: 8,
+          max: 6000,
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            color: '#5a6a78',
+            callback: function(value) {
+              var allowed = [10, 100, 1000, 5000];
+              if (allowed.indexOf(value) !== -1) return value + ' MW';
+              return '';
+            }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          labels: { font: { family: 'Inter', size: 10 }, color: '#5a6a78', usePointStyle: true }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + ' MW'; }
+          }
+        },
+        annotation: {
+          annotations: {
+            gigawattLine: {
+              type: 'line',
+              yMin: 1000,
+              yMax: 1000,
+              borderColor: 'rgba(192, 80, 64, 0.5)',
+              borderWidth: 1.5,
+              borderDash: [6, 4],
+              label: {
+                display: true,
+                content: '1 GW',
+                position: 'start',
+                backgroundColor: 'rgba(192, 80, 64, 0.08)',
+                color: '#c05040',
+                font: { family: 'Inter', size: 10, weight: '600' },
+                padding: { top: 3, bottom: 3, left: 6, right: 6 }
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 2: DATACENTER CAPACITY ESTIMATES (SLIDE 27)
+// ==========================
+(function() {
+  var analysts = ['IEA','Goldman Sachs','McKinsey','Morgan Stanley','Bain','BCG','BloombergNEF','JLL','Macquarie','S&P Global'];
+  var currentGW = [100,59,80,80,82,80,50,103,81,62];
+  var projectedGW = [200,122,220,230,163,170,106,200,222,134];
+
+  new Chart(document.getElementById('datacenterCapacityChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: analysts,
+      datasets: [
+        {
+          label: 'Current (2024-25)',
+          data: currentGW,
+          backgroundColor: '#8a96a0',
+          borderRadius: 2,
+          barPercentage: 0.7,
+          categoryPercentage: 0.8
+        },
+        {
+          label: 'Projected (2030-35)',
+          data: projectedGW,
+          backgroundColor: '#2a7a8c',
+          borderRadius: 2,
+          barPercentage: 0.7,
+          categoryPercentage: 0.8
+        }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          min: 0,
+          max: 250,
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            color: '#5a6a78',
+            callback: function(value) { return value + ' GW'; }
+          }
+        },
+        y: {
+          grid: { display: false, drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 9 }, color: '#5a6a78' }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          labels: { font: { family: 'Inter', size: 10 }, color: '#5a6a78', usePointStyle: true, pointStyle: 'rect' }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.x + ' GW'; }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 3: INTERCONNECTION QUEUE (SLIDE 28)
+// ==========================
+(function() {
+  var years = [2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024];
+  var totalGW = [350,380,420,480,570,700,950,1400,2000,2600,2300];
+  var barColors = years.map(function(y) { return y === 2024 ? '#c05040' : '#2a7a8c'; });
+
+  new Chart(document.getElementById('interconnectionChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [{
+        label: 'Active Queue Capacity (GW)',
+        data: totalGW,
+        backgroundColor: barColors,
+        borderRadius: 3,
+        barPercentage: 0.75
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          grid: { display: false, drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 10 }, color: '#5a6a78' }
+        },
+        y: {
+          min: 0,
+          max: 3000,
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            color: '#5a6a78',
+            callback: function(value) { return value.toLocaleString() + ' GW'; }
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(ctx) { return ctx.parsed.y.toLocaleString() + ' GW'; }
+          }
+        },
+        annotation: {
+          annotations: {
+            declineLabel: {
+              type: 'label',
+              xValue: 10,
+              yValue: 2750,
+              content: ['First decline','gas projects +72%'],
+              color: '#c05040',
+              font: { family: 'Inter', size: 9, weight: '600' },
+              textAlign: 'center'
+            },
+            declineArrow: {
+              type: 'line',
+              xMin: 10,
+              xMax: 10,
+              yMin: 2600,
+              yMax: 2350,
+              borderColor: '#c05040',
+              borderWidth: 1.5,
+              borderDash: [4, 3]
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 4: TRAINING VS INFERENCE (SLIDE 30)
+// ==========================
+(function() {
+  var years = [2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030];
+  var training = [90,85,80,75,67,67,55,50,33,30,28,25,30];
+  var inference = [10,15,20,25,33,33,45,50,67,70,72,75,70];
+
+  new Chart(document.getElementById('trainingInferenceChart').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Training',
+          data: training,
+          backgroundColor: 'rgba(13, 33, 55, 0.7)',
+          borderColor: '#0d2137',
+          borderWidth: 2,
+          fill: 'origin',
+          tension: 0.25,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          order: 2
+        },
+        {
+          label: 'Inference',
+          data: inference,
+          backgroundColor: 'rgba(42, 122, 140, 0.5)',
+          borderColor: '#2a7a8c',
+          borderWidth: 2,
+          fill: { target: '-1', above: 'rgba(42, 122, 140, 0.5)' },
+          tension: 0.25,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          order: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: {
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 10 }, color: '#5a6a78' }
+        },
+        y: {
+          min: 0,
+          max: 100,
+          stacked: false,
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            color: '#5a6a78',
+            callback: function(value) { return value + '%'; }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          labels: { font: { family: 'Inter', size: 10 }, color: '#5a6a78', usePointStyle: true }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; }
+          }
+        },
+        annotation: {
+          annotations: {
+            projectedLine: {
+              type: 'line',
+              xMin: 7,
+              xMax: 7,
+              borderColor: 'rgba(13, 33, 55, 0.4)',
+              borderWidth: 1.5,
+              borderDash: [6, 4],
+              label: {
+                display: true,
+                content: 'Projected',
+                position: 'start',
+                backgroundColor: 'rgba(13, 33, 55, 0.08)',
+                color: '#0d2137',
+                font: { family: 'Inter', size: 9, weight: '600' },
+                padding: { top: 3, bottom: 3, left: 6, right: 6 }
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 5: AI DEMAND PHYSICAL INPUTS (SLIDE 33)
+// ==========================
+(function() {
+  var inputLabels = ['Electricity (TWh)','Copper (kt)','Natural Gas (Bcf/d)','Aluminum (kt)','Rare Earths (kt)','Gallium (kt)'];
+  var growthPct = [128,129,167,175,76,133];
+  var val2024 = [415,250,3,400,8.5,0.3];
+  var val2030 = [945,572,8,1100,15,0.7];
+
+  new Chart(document.getElementById('aiDemandChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: inputLabels,
+      datasets: [{
+        label: 'Growth 2024-2030 (%)',
+        data: growthPct,
+        backgroundColor: '#2a7a8c',
+        borderRadius: 3,
+        barPercentage: 0.7
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 80, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          min: 0,
+          max: 200,
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            color: '#5a6a78',
+            callback: function(value) { return value + '%'; }
+          }
+        },
+        y: {
+          grid: { display: false, drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 10 }, color: '#5a6a78' }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(ctx) {
+              var i = ctx.dataIndex;
+              return [
+                'Growth: ' + growthPct[i] + '%',
+                '2024: ' + val2024[i] + ' | 2030: ' + val2030[i]
+              ];
+            }
+          }
+        }
+      }
+    },
+    plugins: [{
+      id: 'absoluteLabels',
+      afterDatasetsDraw: function(chart) {
+        var ctx = chart.ctx;
+        var meta = chart.getDatasetMeta(0);
+        ctx.save();
+        ctx.font = '500 9px Inter';
+        ctx.fillStyle = '#5a6a78';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        var units = ['TWh','kt','Bcf/d','kt','kt','kt'];
+        meta.data.forEach(function(bar, i) {
+          var text = val2024[i] + ' \u2192 ' + val2030[i];
+          ctx.fillText(text, bar.x + 6, bar.y);
+        });
+        ctx.restore();
+      }
+    }]
+  });
+})();
+
+// ==========================
+// CHART 6: ANTHROPIC ECONOMIC INDEX (SLIDE 34)
+// ==========================
+(function() {
+  var quarters = ['Q1 2025','Q2 2025','Q3 2025','Q4 2025'];
+  var occupations = [36,39,44,49];
+  var delegated = [41,43,52,45];
+  var collaborative = [57,55,46,52];
+
+  new Chart(document.getElementById('anthropicIndexChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: quarters,
+      datasets: [
+        {
+          label: '% Occupations w/ AI',
+          data: occupations,
+          type: 'bar',
+          backgroundColor: 'rgba(42, 122, 140, 0.75)',
+          borderColor: '#2a7a8c',
+          borderWidth: 1,
+          borderRadius: 3,
+          barPercentage: 0.6,
+          order: 2
+        },
+        {
+          label: '% Tasks Delegated',
+          data: delegated,
+          type: 'line',
+          borderColor: '#0d2137',
+          backgroundColor: '#0d2137',
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          pointBackgroundColor: '#0d2137',
+          borderWidth: 2.5,
+          tension: 0.25,
+          fill: false,
+          order: 1
+        },
+        {
+          label: '% Tasks Collaborative',
+          data: collaborative,
+          type: 'line',
+          borderColor: '#c05040',
+          backgroundColor: '#c05040',
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          pointBackgroundColor: '#c05040',
+          borderWidth: 2.5,
+          tension: 0.25,
+          fill: false,
+          order: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      scales: {
+        x: {
+          grid: { display: false, drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 10 }, color: '#5a6a78' }
+        },
+        y: {
+          min: 0,
+          max: 80,
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: {
+            font: { family: 'Inter', size: 10 },
+            color: '#5a6a78',
+            callback: function(value) { return value + '%'; }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          labels: { font: { family: 'Inter', size: 10 }, color: '#5a6a78', usePointStyle: true }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: AI HARDWARE SHIPMENTS + COST (SLIDE 25)
+// ==========================
+(function() {
+  var years = ['2020','2021','2022','2023','2024','2025','2026','2027','2028'];
+  var shipments = [0.05, 0.12, 0.31, 1.4, 5.5, 10, 16, 24, 35];
+  var costs = [2, 5, 11, 37, 113, 143, 190, 260, 350];
+
+  new Chart(document.getElementById('hardwareChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Shipments (M units, H100-eq)',
+          data: shipments,
+          backgroundColor: '#2a7a8c',
+          borderRadius: 3,
+          barPercentage: 0.7,
+          categoryPercentage: 0.8,
+          yAxisID: 'y'
+        },
+        {
+          label: 'Cost ($B)',
+          data: costs,
+          type: 'line',
+          borderColor: '#0d2137',
+          backgroundColor: '#0d2137',
+          borderWidth: 2.5,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#0d2137',
+          tension: 0.25,
+          fill: false,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 6, right: 16, bottom: 4, left: 8 } },
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: {
+          grid: { display: false, drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 10 }, color: '#5a6a78' }
+        },
+        y: {
+          position: 'left',
+          min: 0,
+          max: 40,
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: {
+            font: { family: 'Inter', size: 9 },
+            color: '#2a7a8c',
+            callback: function(value) { return value + 'M'; }
+          }
+        },
+        y1: {
+          position: 'right',
+          min: 0,
+          max: 400,
+          grid: { display: false, drawBorder: false },
+          ticks: {
+            font: { family: 'Inter', size: 9 },
+            color: '#0d2137',
+            callback: function(value) { return '$' + value + 'B'; }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          labels: { font: { family: 'Inter', size: 9 }, color: '#5a6a78', usePointStyle: true, padding: 10 }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(ctx) {
+              if (ctx.datasetIndex === 0) return 'Shipments: ' + ctx.parsed.y + 'M units';
+              return 'Cost: $' + ctx.parsed.y + 'B';
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: JAPAN & UK YIELDS + CURRENCY (SLIDE 10)
+// ==========================
+(function() {
+  var labels = ['2012-01','2012-02','2012-03','2012-04','2012-05','2012-06','2012-07','2012-08','2012-09','2012-10','2012-11','2012-12','2013-01','2013-02','2013-03','2013-04','2013-05','2013-06','2013-07','2013-08','2013-09','2013-10','2013-11','2013-12','2014-01','2014-02','2014-03','2014-04','2014-05','2014-06','2014-07','2014-08','2014-09','2014-10','2014-11','2014-12','2015-01','2015-02','2015-03','2015-04','2015-05','2015-06','2015-07','2015-08','2015-09','2015-10','2015-11','2015-12','2016-01','2016-02','2016-03','2016-04','2016-05','2016-06','2016-07','2016-08','2016-09','2016-10','2016-11','2016-12','2017-01','2017-02','2017-03','2017-04','2017-05','2017-06','2017-07','2017-08','2017-09','2017-10','2017-11','2017-12','2018-01','2018-02','2018-03','2018-04','2018-05','2018-06','2018-07','2018-08','2018-09','2018-10','2018-11','2018-12','2019-01','2019-02','2019-03','2019-04','2019-05','2019-06','2019-07','2019-08','2019-09','2019-10','2019-11','2019-12','2020-01','2020-02','2020-03','2020-04','2020-05','2020-06','2020-07','2020-08','2020-09','2020-10','2020-11','2020-12','2021-01','2021-02','2021-03','2021-04','2021-05','2021-06','2021-07','2021-08','2021-09','2021-10','2021-11','2021-12','2022-01','2022-02','2022-03','2022-04','2022-05','2022-06','2022-07','2022-08','2022-09','2022-10','2022-11','2022-12','2023-01','2023-02','2023-03','2023-04','2023-05','2023-06','2023-07','2023-08','2023-09','2023-10','2023-11','2023-12','2024-01','2024-02','2024-03','2024-04','2024-05','2024-06','2024-07','2024-08','2024-09','2024-10','2024-11','2024-12','2025-01','2025-02','2025-03','2025-04','2025-05','2025-06','2025-07','2025-08','2025-09','2025-10','2025-11','2025-12','2026-01'];
+
+  var japan10y = [0.96,0.96,0.97,0.91,0.85,0.79,0.78,0.80,0.76,0.76,0.71,0.78,0.78,0.67,0.49,0.59,0.88,0.82,0.79,0.71,0.67,0.59,0.61,0.69,0.61,0.59,0.61,0.61,0.57,0.54,0.53,0.49,0.50,0.47,0.42,0.33,0.28,0.33,0.40,0.34,0.39,0.46,0.41,0.38,0.35,0.30,0.30,0.27,0.10,-0.07,-0.05,-0.09,-0.12,-0.23,-0.20,-0.07,-0.09,-0.05,0.02,0.04,0.09,0.05,0.07,0.02,0.04,0.08,0.08,0.01,0.06,0.07,0.04,0.05,0.08,0.05,0.05,0.05,0.03,0.03,0.06,0.11,0.13,0.13,0.09,-0.01,0.00,-0.02,-0.10,-0.05,-0.10,-0.17,-0.16,-0.28,-0.22,-0.15,-0.08,-0.03,-0.07,-0.16,0.01,-0.04,0.00,0.03,0.01,0.05,0.02,0.04,0.03,0.02,0.06,0.15,0.12,0.09,0.08,0.05,0.02,0.02,0.07,0.10,0.05,0.07,0.17,0.18,0.21,0.22,0.24,0.23,0.18,0.22,0.24,0.25,0.25,0.41,0.49,0.50,0.32,0.39,0.43,0.40,0.60,0.64,0.77,0.95,0.66,0.62,0.73,0.71,0.73,0.87,1.07,1.05,1.05,0.89,0.86,0.94,1.05,1.09,1.25,1.37,1.49,1.31,1.50,1.42,1.55,1.60,1.65,1.66,1.81,2.06,2.21];
+
+  var uk10y = [2.11,2.22,2.32,2.21,1.94,1.77,1.65,1.67,1.72,1.77,1.77,1.85,2.08,2.18,1.98,1.78,1.95,2.31,2.47,2.71,2.84,2.68,2.76,2.95,2.91,2.81,2.78,2.74,2.70,2.78,2.73,2.53,2.49,2.25,2.16,1.93,1.59,1.74,1.79,1.76,2.02,2.17,2.14,1.98,1.88,1.85,1.98,1.92,1.78,1.50,1.54,1.57,1.54,1.31,0.96,0.74,0.82,1.08,1.38,1.43,1.42,1.31,1.19,1.08,1.12,1.08,1.27,1.12,1.24,1.38,1.33,1.28,1.39,1.60,1.51,1.51,1.50,1.42,1.37,1.40,1.50,1.55,1.45,1.31,1.32,1.24,1.19,1.19,1.13,0.92,0.83,0.58,0.60,0.64,0.77,0.83,0.72,0.63,0.46,0.36,0.27,0.28,0.21,0.27,0.27,0.31,0.38,0.32,0.37,0.62,0.85,0.85,0.91,0.85,0.70,0.64,0.80,1.08,0.94,0.84,1.21,1.49,1.55,1.84,1.91,2.38,2.15,2.33,3.50,4.11,3.42,3.50,3.51,3.56,3.56,3.65,3.96,4.37,4.44,4.53,4.42,4.57,4.27,3.86,3.93,4.12,4.03,4.22,4.22,4.16,4.14,3.94,3.91,4.20,4.42,4.43,4.66,4.51,4.64,4.58,4.60,4.52,4.59,4.64,4.69,4.57,4.50,4.48,4.48];
+
+  var jpyusd = [76.96,78.47,82.47,81.25,79.67,79.32,78.93,78.69,78.14,79.01,81.03,83.79,89.06,93.00,94.77,97.76,100.92,97.24,99.67,97.81,99.21,97.77,100.07,103.46,103.76,102.13,102.34,102.46,101.77,102.06,101.74,102.94,107.43,108.03,116.30,119.32,118.25,118.76,120.39,119.51,120.80,123.72,123.31,123.00,120.15,120.05,122.64,121.64,118.23,114.62,112.93,109.55,108.85,105.35,104.19,101.24,101.78,103.91,108.44,116.00,114.87,112.91,112.92,110.09,112.24,110.91,112.42,109.83,110.78,112.91,112.82,112.94,110.87,107.97,106.05,107.66,109.69,110.06,111.52,111.00,112.10,112.72,113.34,112.20,108.96,110.44,111.14,111.64,109.97,108.07,108.29,106.19,107.54,108.14,108.86,109.10,109.27,110.03,107.67,107.74,107.20,107.58,106.68,106.01,105.59,105.21,104.41,103.80,103.79,105.38,108.70,109.04,109.11,110.11,110.21,109.85,110.16,113.12,113.97,113.83,114.83,115.28,118.58,126.37,128.85,133.96,136.71,135.28,143.28,147.05,142.45,134.91,130.45,133.05,133.66,133.47,137.05,141.36,140.94,144.78,147.85,149.59,149.68,143.98,146.29,149.62,149.82,153.89,155.87,157.86,157.52,146.26,142.95,149.89,153.71,153.81,156.48,151.57,149.06,144.13,144.88,144.48,147.20,147.48,147.86,151.35,155.14,155.92,156.65];
+
+  var gbpusd = [1.55,1.58,1.58,1.60,1.59,1.56,1.56,1.57,1.61,1.61,1.60,1.61,1.60,1.55,1.51,1.53,1.53,1.55,1.52,1.55,1.59,1.61,1.61,1.64,1.65,1.66,1.66,1.67,1.68,1.69,1.71,1.67,1.63,1.61,1.58,1.56,1.51,1.53,1.50,1.50,1.55,1.56,1.56,1.56,1.53,1.53,1.52,1.50,1.44,1.43,1.42,1.43,1.45,1.42,1.31,1.31,1.31,1.23,1.24,1.25,1.24,1.25,1.23,1.26,1.29,1.28,1.30,1.30,1.33,1.32,1.32,1.34,1.38,1.40,1.40,1.41,1.35,1.33,1.32,1.29,1.31,1.30,1.29,1.27,1.29,1.30,1.32,1.30,1.29,1.27,1.25,1.22,1.24,1.27,1.29,1.31,1.31,1.30,1.24,1.24,1.23,1.25,1.27,1.31,1.29,1.30,1.32,1.34,1.36,1.39,1.39,1.38,1.41,1.40,1.38,1.38,1.37,1.37,1.35,1.33,1.36,1.35,1.32,1.29,1.24,1.23,1.20,1.20,1.13,1.13,1.17,1.22,1.22,1.21,1.21,1.24,1.25,1.26,1.29,1.27,1.24,1.22,1.24,1.27,1.27,1.26,1.27,1.25,1.26,1.27,1.29,1.29,1.32,1.30,1.27,1.26,1.24,1.25,1.29,1.31,1.34,1.36,1.35,1.35,1.35,1.34,1.31,1.34,1.35];
+
+  var ctx = document.getElementById('japanUkChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Japan 10Y (%)',
+          data: japan10y,
+          borderColor: '#c05040',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          tension: 0.25,
+          yAxisID: 'y'
+        },
+        {
+          label: 'UK 10Y (%)',
+          data: uk10y,
+          borderColor: '#2a7a8c',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          tension: 0.25,
+          yAxisID: 'y'
+        },
+        {
+          label: 'JPY/USD',
+          data: jpyusd,
+          borderColor: 'rgba(192, 80, 64, 0.35)',
+          backgroundColor: 'transparent',
+          borderWidth: 1.5,
+          borderDash: [5, 3],
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          tension: 0.25,
+          yAxisID: 'y1'
+        },
+        {
+          label: 'GBP/USD',
+          data: gbpusd,
+          borderColor: 'rgba(42, 122, 140, 0.35)',
+          backgroundColor: 'transparent',
+          borderWidth: 1.5,
+          borderDash: [5, 3],
+          pointRadius: 0,
+          pointHoverRadius: 3,
+          tension: 0.25,
+          yAxisID: 'y2'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: {
+          ticks: {
+            maxRotation: 0,
+            autoSkip: false,
+            callback: function(value, index) {
+              var l = labels[index];
+              return l && l.endsWith('-01') ? l.substring(0, 4) : null;
+            },
+            font: { family: 'Inter', size: 10 },
+            color: '#8a96a0'
+          },
+          grid: { display: false }
+        },
+        y: {
+          position: 'left',
+          min: -0.5,
+          max: 5.0,
+          grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
+          ticks: {
+            stepSize: 1,
+            callback: function(value) { return value.toFixed(1) + '%'; },
+            font: { family: 'Inter', size: 10 },
+            color: '#5a6a78'
+          },
+          title: {
+            display: true,
+            text: '10Y Yield',
+            font: { family: 'Inter', size: 9 },
+            color: '#5a6a78'
+          }
+        },
+        y1: {
+          position: 'right',
+          min: 70,
+          max: 165,
+          reverse: false,
+          display: true,
+          grid: { display: false, drawBorder: false },
+          ticks: {
+            callback: function(value) { return '¥' + value; },
+            font: { family: 'Inter', size: 9 },
+            color: 'rgba(192, 80, 64, 0.6)'
+          },
+          title: {
+            display: true,
+            text: 'JPY/USD',
+            font: { family: 'Inter', size: 9 },
+            color: 'rgba(192, 80, 64, 0.6)'
+          }
+        },
+        y2: {
+          position: 'right',
+          min: 1.0,
+          max: 1.8,
+          display: false
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'end',
+          labels: {
+            usePointStyle: true,
+            pointStyle: 'line',
+            font: { family: 'Inter', size: 9 },
+            color: '#5a6a78',
+            padding: 10,
+            boxWidth: 20
+          }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            title: function(items) { return items[0].label; },
+            label: function(item) {
+              if (item.datasetIndex === 0) return 'Japan 10Y: ' + item.raw.toFixed(2) + '%';
+              if (item.datasetIndex === 1) return 'UK 10Y: ' + item.raw.toFixed(2) + '%';
+              if (item.datasetIndex === 2) return 'JPY/USD: ¥' + item.raw.toFixed(1);
+              return 'GBP/USD: $' + item.raw.toFixed(2);
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            brexitLine: {
+              type: 'line',
+              xMin: 54,
+              xMax: 54,
+              borderColor: 'rgba(0,0,0,0.2)',
+              borderWidth: 1,
+              borderDash: [4, 3],
+              label: {
+                display: true,
+                content: 'Brexit',
+                position: 'start',
+                backgroundColor: 'rgba(0,0,0,0.05)',
+                color: '#8a96a0',
+                font: { family: 'Inter', size: 8 },
+                padding: 3
+              }
+            },
+            trussLine: {
+              type: 'line',
+              xMin: 128,
+              xMax: 128,
+              borderColor: 'rgba(0,0,0,0.2)',
+              borderWidth: 1,
+              borderDash: [4, 3],
+              label: {
+                display: true,
+                content: 'Truss',
+                position: 'start',
+                backgroundColor: 'rgba(0,0,0,0.05)',
+                color: '#8a96a0',
+                font: { family: 'Inter', size: 8 },
+                padding: 3
+              }
+            },
+            yccEndLine: {
+              type: 'line',
+              xMin: 131,
+              xMax: 131,
+              borderColor: 'rgba(0,0,0,0.2)',
+              borderWidth: 1,
+              borderDash: [4, 3],
+              label: {
+                display: true,
+                content: 'BOJ YCC adj.',
+                position: 'end',
+                backgroundColor: 'rgba(0,0,0,0.05)',
+                color: '#8a96a0',
+                font: { family: 'Inter', size: 8 },
+                padding: 3
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: METR TASK HORIZON (SLIDE 22) — v3 LINEAR hockey-stick
+// ==========================
+(function() {
+  var c = document.getElementById('chart-metr');
+  if (!c) return;
+
+  var TEAL = '#2a7a8c';
+  var TEAL_LINE = 'rgba(42,122,140,0.18)';
+  var GRAY = 'rgba(170,180,190,0.4)';
+  var C_OAI = '#0d2137';
+  var C_ANT = '#e67e22';
+  var C_GOO = '#c05040';
+
+  // Custom plugin: CI error bars (capped at chart area)
+  var errorBarPlugin = {
+    id: 'errorBars',
+    afterDatasetsDraw: function(chart) {
+      var ctx = chart.ctx;
+      var area = chart.chartArea;
+      chart.data.datasets.forEach(function(ds, dsIdx) {
+        if (!ds.ciRanges) return;
+        var meta = chart.getDatasetMeta(dsIdx);
+        var yScale = chart.scales.y;
+        ds.ciRanges.forEach(function(ci, i) {
+          if (!ci) return;
+          var pt = meta.data[i];
+          if (!pt) return;
+          var yLo = Math.min(yScale.getPixelForValue(ci[0]), area.bottom);
+          var yHi = Math.max(yScale.getPixelForValue(ci[1]), area.top);
+          ctx.save();
+          ctx.strokeStyle = TEAL;
+          ctx.globalAlpha = 0.08;
+          ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.moveTo(pt.x, yLo); ctx.lineTo(pt.x, yHi); ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(pt.x - 3, yLo); ctx.lineTo(pt.x + 3, yLo);
+          ctx.moveTo(pt.x - 3, yHi); ctx.lineTo(pt.x + 3, yHi);
+          ctx.stroke();
+          ctx.restore();
+        });
+      });
+    }
+  };
+
+  // Custom plugin: model-name labels with per-label color + font
+  var labelPlugin = {
+    id: 'modelLabels',
+    afterDatasetsDraw: function(chart) {
+      var ctx = chart.ctx;
+      chart.data.datasets.forEach(function(ds, dsIdx) {
+        if (!ds.modelLabels) return;
+        var meta = chart.getDatasetMeta(dsIdx);
+        ds.modelLabels.forEach(function(lbl, i) {
+          if (!lbl) return;
+          var pt = meta.data[i];
+          if (!pt) return;
+          var a = (ds.labelAligns && ds.labelAligns[i]) || 'right';
+          ctx.save();
+          ctx.font = (ds.labelFonts && ds.labelFonts[i]) || '500 9px Inter';
+          ctx.fillStyle = (ds.labelColors && ds.labelColors[i]) || TEAL;
+          ctx.globalAlpha = 0.9;
+          ctx.textBaseline = 'middle';
+          var dx = 8, dy = 0;
+          if (a === 'left')        { ctx.textAlign = 'right';  dx = -8; }
+          else if (a === 'top')    { ctx.textAlign = 'center'; dx = 0; dy = -13; }
+          else if (a === 'bottom') { ctx.textAlign = 'center'; dx = 0; dy = 13; }
+          else if (a === 'tr')     { ctx.textAlign = 'left';   dx = 7;  dy = -10; }
+          else if (a === 'tl')     { ctx.textAlign = 'right';  dx = -7; dy = -10; }
+          else if (a === 'br')     { ctx.textAlign = 'left';   dx = 7;  dy = 10; }
+          else if (a === 'bl')     { ctx.textAlign = 'right';  dx = -7; dy = 10; }
+          else                     { ctx.textAlign = 'left'; }
+          ctx.fillText(lbl, pt.x + dx, pt.y + dy);
+          ctx.restore();
+        });
+      });
+    }
+  };
+
+  var fs = '500 7.5px Inter', fm = '500 9px Inter', fl = '600 10.5px Inter';
+
+  // ── SOTA frontier (16 models by release date) — values in HOURS (YAML is in minutes) ──
+  var sotaData = [
+    {x:1,y:0.001},{x:16,y:0.003},{x:38,y:0.010},
+    {x:50,y:0.059},{x:56,y:0.060},{x:64,y:0.107},
+    {x:65,y:0.180},{x:68,y:0.323},{x:69,y:0.330},
+    {x:71,y:0.632},{x:73,y:0.996},{x:75,y:2.012},
+    {x:79,y:3.566},{x:82,y:3.944},{x:82,y:5.340},{x:83,y:6.573}
+  ];
+  var sotaLabels = [
+    'GPT-2',null,'GPT-3.5',
+    'GPT-4',null,'GPT-4o',
+    'Sonnet 3.5','o1-preview',null,
+    'o1','Sonnet 3.7','o3',
+    'GPT-5','Gemini 3 Pro','Opus 4.5','GPT-5.2'
+  ];
+  var sotaTooltips = [
+    'GPT-2','davinci-002','GPT-3.5 Turbo',
+    'GPT-4','GPT-4 (Nov 2023)','GPT-4o',
+    'Claude 3.5 Sonnet','o1-preview','Claude 3.5 Sonnet (Oct)',
+    'o1','Claude 3.7 Sonnet','o3',
+    'GPT-5','Gemini 3 Pro','Claude Opus 4.5','GPT-5.2'
+  ];
+  var sotaAligns = [
+    'top',null,'top',
+    'top',null,'top',
+    'left','right',null,
+    'right','right','right',
+    'right','left','left','right'
+  ];
+  var sotaLabelColors = [
+    C_OAI,null,C_OAI,
+    C_OAI,null,C_OAI,
+    C_ANT,C_OAI,null,
+    C_OAI,C_ANT,C_OAI,
+    C_OAI,C_GOO,C_ANT,C_OAI
+  ];
+  var sotaLabelFonts = [
+    fs,null,fs,
+    fs,null,fs,
+    fm,fm,null,
+    fm,fm,fm,
+    fl,fl,fl,fl
+  ];
+  var sotaCI = [
+    [0.00003,0.002],[0.001,0.004],[0.004,0.017],
+    [0.026,0.113],[0.027,0.120],[0.059,0.200],
+    [0.079,0.348],[0.186,0.546],[0.161,0.670],
+    [0.346,1.096],[0.542,1.719],[1.219,3.356],
+    [1.959,7.998],[2.313,7.377],[2.883,12.235],[3.300,17.376]
+  ];
+
+  // ── Non-SOTA models (gray, no labels) — values in hours ──
+  var nonSotaData = [
+    {x:62,y:0.060},{x:63,y:0.054},
+    {x:76,y:1.687},{x:79,y:1.681},{x:82,y:3.943}
+  ];
+  var nonSotaNames = ['Claude 3 Opus','GPT-4 Turbo','Claude 4 Opus','Claude 4.1 Opus','GPT-5.1 Codex'];
+
+  new Chart(c, {
+    type: 'scatter',
+    plugins: [errorBarPlugin, labelPlugin],
+    data: {
+      datasets: [
+        {
+          label: 'SOTA frontier',
+          data: sotaData,
+          backgroundColor: TEAL,
+          pointBorderColor: TEAL,
+          borderColor: TEAL_LINE,
+          showLine: true,
+          borderDash: [6, 4],
+          borderWidth: 1.5,
+          fill: false,
+          pointRadius: [3.5,3.5,3.5, 4,3.5,4, 5,5,4.5, 5.5,5.5,6, 7,7,7,8],
+          pointHoverRadius: 9,
+          modelLabels: sotaLabels,
+          labelAligns: sotaAligns,
+          labelColors: sotaLabelColors,
+          labelFonts: sotaLabelFonts,
+          ciRanges: sotaCI
+        },
+        {
+          label: 'Non-SOTA',
+          data: nonSotaData,
+          backgroundColor: GRAY,
+          borderColor: 'rgba(170,180,190,0.3)',
+          pointRadius: 3.5,
+          pointHoverRadius: 6
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: {padding: {top: 25, right: 90, bottom: 8, left: 8}},
+      scales: {
+        x: {
+          type: 'linear', min: -2, max: 88,
+          ticks: {
+            callback: function(v) { return {0:'2019',12:'2020',24:'2021',36:'2022',48:'2023',60:'2024',72:'2025',84:'2026'}[v] || ''; },
+            stepSize: 12, font: {family:'Inter',size:11,weight:500}, color: '#5a6a78'
+          },
+          grid: {color: 'rgba(0,0,0,0.04)', drawBorder: false}
+        },
+        y: {
+          type: 'linear', min: 0, max: 7,
+          ticks: {
+            stepSize: 1,
+            callback: function(v) { if (v === 0) return '0'; return v + 'h'; },
+            font: {family:'Inter',size:11}, color: '#5a6a78'
+          },
+          grid: {color: 'rgba(0,0,0,0.04)', drawBorder: false},
+          title: {display:true, text:'Median task horizon (p50), hours', font:{family:'Inter',size:12,weight:600}, color:'#0d2137', padding:{bottom:4}}
+        }
+      },
+      plugins: {
+        legend: {display: false},
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: {family:'Inter',size:12,weight:600},
+          bodyFont: {family:'Inter',size:11},
+          padding: 10, cornerRadius: 6,
+          callbacks: {
+            title: function(items) {
+              var d = items[0].datasetIndex, i = items[0].dataIndex;
+              if (d === 0) return sotaTooltips[i] || '';
+              if (d === 1) return nonSotaNames[i] || '';
+              return '';
+            },
+            afterTitle: function(items) {
+              var d = items[0].datasetIndex, i = items[0].dataIndex;
+              if (d === 0 && sotaCI[i]) return '95% CI: ' + sotaCI[i][0].toFixed(1) + 'h \u2013 ' + sotaCI[i][1].toFixed(1) + 'h';
+              return '';
+            },
+            label: function(item) {
+              var y = item.parsed.y;
+              if (y >= 1) return y.toFixed(1) + ' hours (' + (y*60).toFixed(0) + ' min)';
+              if (y >= 0.0167) return (y*60).toFixed(1) + ' minutes';
+              return (y*3600).toFixed(0) + ' seconds';
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            h1: {type:'line', yMin:1, yMax:1, borderColor:'rgba(0,0,0,0.07)', borderWidth:1, borderDash:[4,4],
+              label:{display:true, content:'1 HOUR', position:'start', backgroundColor:'transparent', color:'#a0a8b0', font:{family:'Inter',size:7.5,weight:700}, padding:2}},
+            callout: {type:'label', xValue:25, yValue:5.5,
+              content:['Task horizon doubled','every ~4.3 months','since GPT-4 (Mar 2023)'], color:'rgba(26,122,109,0.5)',
+              font:{family:'Inter',size:9,weight:600,style:'italic'},
+              backgroundColor:'transparent', padding:0}
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: AI REVENUE TRAJECTORIES (SLIDE 41)
+// ==========================
+(function() {
+  var c = document.getElementById('chart-ai-revenue');
+  if (!c) return;
+  // x = months since Jan 2022, y = annualized revenue in $B
+  var oai = [{x:11,y:0.028},{x:14,y:0.2},{x:19,y:1.0},{x:21,y:1.3},{x:23,y:2.0},{x:29,y:3.4},{x:32,y:4.0},{x:35,y:5.5},{x:41,y:10.0},{x:42,y:12.0},{x:47,y:20.0}];
+  var ant = [{x:21,y:0.1},{x:24,y:0.087},{x:35,y:1.0},{x:38,y:2.0},{x:40,y:3.0},{x:42,y:5.0},{x:45,y:7.0},{x:47,y:9.0}];
+  var xai = [{x:34,y:0.1},{x:37,y:0.172},{x:40,y:0.236},{x:43,y:0.428}];
+  new Chart(c, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {label: 'OpenAI', data: oai, borderColor: '#0d2137', backgroundColor: 'rgba(13,33,55,0.08)', pointRadius: 4, pointHoverRadius: 6, showLine: true, tension: 0.3, fill: false, borderWidth: 2.5},
+        {label: 'Anthropic', data: ant, borderColor: '#2a7a8c', backgroundColor: 'rgba(42,122,140,0.08)', pointRadius: 4, pointHoverRadius: 6, showLine: true, tension: 0.3, fill: false, borderWidth: 2.5},
+        {label: 'xAI', data: xai, borderColor: '#c05040', backgroundColor: 'rgba(192,80,64,0.08)', pointRadius: 4, pointHoverRadius: 6, showLine: true, tension: 0.3, fill: false, borderWidth: 2.5}
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: {padding: {top: 10, right: 16, bottom: 4, left: 8}},
+      scales: {
+        x: {
+          type: 'linear', min: 10, max: 48,
+          ticks: {
+            callback: function(v) { return {12:'Jan 2023',24:'Jan 2024',36:'Jan 2025',48:'Jan 2026'}[v] || ''; },
+            stepSize: 12, font: {family: 'Inter', size: 11}, color: '#5a6a78'
+          },
+          grid: {color: 'rgba(0,0,0,0.045)', drawBorder: false}
+        },
+        y: {
+          type: 'logarithmic', min: 0.01, max: 30,
+          ticks: {
+            callback: function(v) {
+              if (v === 0.01) return '$10M';
+              if (v === 0.1) return '$100M';
+              if (v === 1) return '$1B';
+              if (v === 10) return '$10B';
+              return '';
+            },
+            font: {family: 'Inter', size: 11}, color: '#5a6a78'
+          },
+          grid: {color: 'rgba(0,0,0,0.045)', drawBorder: false},
+          title: {display: true, text: 'Annualized Revenue (USD)', font: {family: 'Inter', size: 11, weight: 500}, color: '#5a6a78'}
+        }
+      },
+      plugins: {
+        legend: {display: true, position: 'top', align: 'end', labels: {font: {family: 'Inter', size: 10}, boxWidth: 8, padding: 12, usePointStyle: true}},
+        tooltip: {
+          backgroundColor: '#0d2137', titleFont: {family: 'Inter', size: 11}, bodyFont: {family: 'Inter', size: 11},
+          callbacks: {
+            label: function(item) {
+              var v = item.parsed.y;
+              return item.dataset.label + ': ' + (v >= 1 ? '$' + v.toFixed(1) + 'B' : '$' + (v * 1000).toFixed(0) + 'M') + ' ARR';
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: AI COMPUTE SPEND (SLIDE 26)
+// ==========================
+(function() {
+  var c = document.getElementById('chart-ai-compute-spend');
+  if (!c) return;
+
+  // Data from Epoch AI / The Information
+  // OpenAI: 2022=$0.4B, 2023~$1B est, 2024=$5.8B (R&D $4B + Inf $1.8B), 2025=$16B (R&D $9B + Inf $7B)
+  // Anthropic: 2023=$0.285B, 2024=$2.5B, 2025=$6.8B (R&D $4.1B + Inf $2.7B)
+  // Google (DeepMind+Cloud): 2023~$3B est, 2024~$6B est, 2025~$12B est
+  // Meta: 2023~$4B est, 2024~$8B est, 2025~$14B est
+
+  new Chart(c, {
+    type: 'bar',
+    data: {
+      labels: ['2022', '2023', '2024', '2025E'],
+      datasets: [
+        {
+          label: 'OpenAI',
+          data: [0.4, 1.0, 5.8, 16.0],
+          backgroundColor: '#0d2137',
+          borderColor: '#0d2137',
+          borderWidth: 0, borderRadius: 3,
+          barPercentage: 0.8, categoryPercentage: 0.7
+        },
+        {
+          label: 'Anthropic',
+          data: [null, 0.3, 2.5, 6.8],
+          backgroundColor: '#2a7a8c',
+          borderColor: '#2a7a8c',
+          borderWidth: 0, borderRadius: 3,
+          barPercentage: 0.8, categoryPercentage: 0.7
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: {padding: {top: 10, right: 16, bottom: 4, left: 8}},
+      scales: {
+        x: {
+          ticks: {font: {family: 'Inter', size: 12, weight: 500}, color: '#5a6a78'},
+          grid: {display: false}
+        },
+        y: {
+          beginAtZero: true, max: 20,
+          ticks: {callback: function(v) { return '$' + v + 'B'; }, stepSize: 4, font: {family: 'Inter', size: 11}, color: '#5a6a78'},
+          grid: {color: 'rgba(0,0,0,0.045)', drawBorder: false},
+          title: {display: true, text: 'Total Cloud Compute Spend ($B)', font: {family: 'Inter', size: 11, weight: 500}, color: '#5a6a78'}
+        }
+      },
+      plugins: {
+        legend: {position: 'top', align: 'end', labels: {usePointStyle: true, pointStyle: 'rectRounded', font: {family: 'Inter', size: 11}, padding: 16, color: '#0d2137'}},
+        tooltip: {
+          backgroundColor: '#0d2137', titleFont: {family: 'Inter', size: 11}, bodyFont: {family: 'Inter', size: 11},
+          callbacks: {
+            label: function(item) {
+              if (item.parsed.y === null) return null;
+              return item.dataset.label + ': $' + item.parsed.y.toFixed(1) + 'B';
+            }
+          }
+        }
+      }
+    },
+    plugins: [{
+      id: 'barValueLabels',
+      afterDatasetsDraw: function(chart) {
+        var ctx2 = chart.ctx;
+        ctx2.save();
+        ctx2.font = 'bold 10px Inter';
+        ctx2.textAlign = 'center';
+        ctx2.textBaseline = 'bottom';
+        chart.data.datasets.forEach(function(ds, di) {
+          var meta = chart.getDatasetMeta(di);
+          meta.data.forEach(function(bar, i) {
+            var val = ds.data[i];
+            if (val === null || val === 0) return;
+            ctx2.fillStyle = ds.backgroundColor;
+            ctx2.fillText('$' + val + 'B', bar.x, bar.y - 4);
+          });
+        });
+        ctx2.restore();
+      }
+    }]
+  });
+})();
+
+// ==========================
+// CHART: CHATGPT USAGE GROWTH (SLIDE 43)
+// ==========================
+(function() {
+  var c = document.getElementById('chart-ai-usage');
+  if (!c) return;
+  new Chart(c, {
+    type: 'line',
+    data: {
+      labels: ['Mar 23','Sep 23','Mar 24','Sep 24','Dec 24','Mar 25','Aug 25','Oct 25','Dec 25'],
+      datasets: [{
+        label: 'ChatGPT Weekly Active Users',
+        data: [50, 80, 125, 240, 300, 430, 700, 800, 900],
+        borderColor: '#0d2137',
+        backgroundColor: 'rgba(13,33,55,0.06)',
+        fill: true, tension: 0.3, borderWidth: 2.5,
+        pointRadius: 4, pointHoverRadius: 6, pointBackgroundColor: '#0d2137'
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: {padding: {top: 10, right: 16, bottom: 4, left: 8}},
+      scales: {
+        x: {
+          ticks: {font: {family: 'Inter', size: 11}, color: '#5a6a78'},
+          grid: {color: 'rgba(0,0,0,0.045)', drawBorder: false}
+        },
+        y: {
+          beginAtZero: true, max: 1000,
+          ticks: {callback: function(v) { return v + 'M'; }, stepSize: 200, font: {family: 'Inter', size: 11}, color: '#5a6a78'},
+          grid: {color: 'rgba(0,0,0,0.045)', drawBorder: false},
+          title: {display: true, text: 'Weekly Active Users (millions)', font: {family: 'Inter', size: 11, weight: 500}, color: '#5a6a78'}
+        }
+      },
+      plugins: {
+        legend: {display: false},
+        tooltip: {
+          backgroundColor: '#0d2137', titleFont: {family: 'Inter', size: 11}, bodyFont: {family: 'Inter', size: 11},
+          callbacks: {label: function(item) { return item.parsed.y + 'M weekly active users'; }}
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: ECI BENCHMARK FRONTIER (SLIDE 23)
+// ==========================
+(function() {
+  var ctx = document.getElementById('chart-eci');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["Jun 23","Jul 23","Aug 23","Sep 23","Oct 23","Nov 23","Dec 23","Jan 24","Feb 24","Mar 24","Apr 24","May 24","Jun 24","Jul 24","Aug 24","Sep 24","Oct 24","Nov 24","Dec 24","Jan 25","Feb 25","Mar 25","Apr 25","May 25","Jun 25","Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26"],
+      datasets: [
+        {
+          label: 'WeirdML',
+          data: [0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.2318,0.2318,0.2318,0.2318,0.3097,0.3097,0.3097,0.4756,0.4756,0.4756,0.4756,0.4756,0.4756,0.4756,0.5256,0.5256,0.5821,0.5821,0.6070,0.6070,0.6070,0.6993,0.7220,0.7220],
+          borderColor: '#0d2137',
+          backgroundColor: '#0d213720',
+          tension: 0.3, borderWidth: 2.5, pointRadius: 3,
+          pointBackgroundColor: '#0d2137', spanGaps: true, fill: false
+        },
+        {
+          label: 'SimpleBench',
+          data: [null,null,null,null,null,null,null,null,0.0820,0.0820,0.1012,0.1012,0.1300,0.1300,0.1300,0.3004,0.3004,0.3004,0.3004,0.3004,0.3568,0.4192,0.4372,0.5056,0.5488,0.5488,0.5488,0.5488,0.5488,0.7168,0.7168,0.7168],
+          borderColor: '#2a7a8c',
+          backgroundColor: '#2a7a8c20',
+          tension: 0.3, borderWidth: 2.5, pointRadius: 3,
+          pointBackgroundColor: '#2a7a8c', spanGaps: true, fill: false
+        },
+        {
+          label: 'FrontierMath',
+          data: [null,null,null,null,null,null,null,null,null,null,null,null,0.0103,0.0103,0.0103,0.0172,0.0207,0.0207,0.0931,0.1241,0.1241,0.1241,0.2483,0.2483,0.2483,0.2483,0.3241,0.3241,0.3241,0.3760,0.4070,0.4070],
+          borderColor: '#e67e22',
+          backgroundColor: '#e67e2220',
+          tension: 0.3, borderWidth: 2.5, pointRadius: 3,
+          pointBackgroundColor: '#e67e22', spanGaps: true, fill: false
+        },
+        {
+          label: 'SWE-Bench Verified',
+          data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.2162,0.2162,0.2162,0.5280,0.5280,0.5840,0.6760,0.6760,0.6760,0.6760,0.7060,0.7060,0.7440,0.7440,0.7440],
+          borderColor: '#c05040',
+          backgroundColor: '#c0504020',
+          tension: 0.3, borderWidth: 2.5, pointRadius: 3,
+          pointBackgroundColor: '#c05040', spanGaps: true, fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: {mode: 'index', intersect: false},
+      layout: {padding: {top: 10, right: 16, bottom: 4, left: 8}},
+      plugins: {
+        legend: {
+          position: 'top', align: 'end',
+          labels: {font: {family: 'Inter', size: 11}, usePointStyle: true, pointStyle: 'circle', padding: 16, color: '#0d2137'}
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: {family: 'Inter', size: 11}, bodyFont: {family: 'Inter', size: 11},
+          callbacks: {
+            label: function(ctx) {
+              var val = ctx.parsed.y;
+              if (val === null) return null;
+              return ctx.dataset.label + ': ' + (val * 100).toFixed(1) + '%';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {font: {family: 'Inter', size: 10}, maxRotation: 45, autoSkip: true, maxTicksLimit: 12, color: '#5a6a78'},
+          grid: {display: false}
+        },
+        y: {
+          min: 0, max: 0.85,
+          ticks: {
+            callback: function(v) { return (v * 100).toFixed(0) + '%'; },
+            stepSize: 0.1,
+            font: {family: 'Inter', size: 11}, color: '#5a6a78'
+          },
+          grid: {color: 'rgba(0,0,0,0.045)', drawBorder: false},
+          title: {display: true, text: 'Frontier Performance (Running Max)', font: {family: 'Inter', size: 11, weight: 500}, color: '#5a6a78'}
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: TRAINING COMPUTE (SLIDE 24)
+// ==========================
+(function() {
+  var ctx = document.getElementById('chart-training-compute');
+  if (!ctx) return;
+
+  var frontierData = [
+    {x:2019.42,y:6.19e+21,label:'XLNet'},{x:2019.50,y:8.51e+21,label:'RoBERTa'},
+    {x:2019.71,y:2.20e+22,label:'Megatron-BERT'},{x:2019.81,y:3.30e+22,label:'T5-11B'},
+    {x:2020.07,y:1.12e+23,label:'Meena'},{x:2020.41,y:3.14e+23,label:'GPT-3'},
+    {x:2021.03,y:8.22e+22,label:'Switch'},{x:2021.61,y:3.70e+23,label:'Jurassic-1'},
+    {x:2021.78,y:8.59e+23,label:'MT-NLG 530B'},{x:2021.94,y:6.31e+23,label:'Gopher'},
+    {x:2021.98,y:1.04e+24,label:'ERNIE 3.0 Titan'},{x:2022.26,y:2.53e+24,label:'PaLM'},
+    {x:2022.49,y:2.74e+24,label:'Minerva'},{x:2022.91,y:2.58e+24,label:'GPT-3.5'},
+    {x:2023.21,y:2.10e+25,label:'GPT-4'},{x:2023.36,y:7.34e+24,label:'PaLM 2'},
+    {x:2023.53,y:3.87e+24,label:'Claude 2'},{x:2023.68,y:3.76e+24,label:'Falcon-180B'},
+    {x:2023.89,y:1.00e+25,label:'Inflection-2'},{x:2023.93,y:5.00e+25,label:'Gemini Ultra'},
+    {x:2024.45,y:1.80e+25,label:'Nemotron-4 340B'},{x:2024.47,y:2.70e+25,label:'Claude 3.5 Sonnet'},
+    {x:2024.56,y:3.80e+25,label:'Llama 3.1-405B'},{x:2024.62,y:2.96e+25,label:'Grok-2'},
+    {x:2025.13,y:3.50e+26,label:'Grok 3'},{x:2025.16,y:3.80e+26,label:'GPT-4.5'},
+    {x:2025.26,y:5.18e+25,label:'Llama 4 Behemoth'},{x:2025.52,y:5.00e+26,label:'Grok 4'}
+  ];
+
+  var otherData = [
+    {x:2024.15,y:1.12e+25,label:'Mistral Large'},{x:2024.18,y:8.00e+24,label:'Inflection-2.5'},
+    {x:2024.30,y:7.86e+24,label:'Llama 3-70B'},{x:2024.56,y:2.13e+25,label:'Mistral Large 2'},
+    {x:2024.72,y:7.85e+24,label:'Qwen2.5-72B'},{x:2024.82,y:2.50e+25,label:'Doubao-pro'},
+    {x:2024.98,y:3.41e+24,label:'DeepSeek-V3'},{x:2025.05,y:3.50e+24,label:'DeepSeek-R1'},
+    {x:2025.15,y:3.35e+25,label:'Claude 3.7 Sonnet'},{x:2025.33,y:4.75e+24,label:'Qwen3-235B'},
+    {x:2025.60,y:6.60e+25,label:'GPT-5'},{x:2025.68,y:1.51e+25,label:'Qwen3-Max'}
+  ];
+
+  var labelsToShow = ['GPT-3','GPT-3.5','GPT-4','GPT-4.5','GPT-5','Grok 3','Grok 4','Grok-2',
+    'Gemini Ultra','PaLM','PaLM 2','Llama 3.1-405B','Llama 4 Behemoth',
+    'Claude 2','Claude 3.5 Sonnet','Claude 3.7 Sonnet','DeepSeek-V3','DeepSeek-R1','Gopher'];
+
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {label:'Frontier models',data:frontierData,backgroundColor:'#2a7a8c',borderColor:'#2a7a8c',pointRadius:5,pointHoverRadius:7,order:1},
+        {label:'Other notable',data:otherData,backgroundColor:'#8a96a0',borderColor:'#8a96a0',pointRadius:3,pointHoverRadius:5,order:2}
+      ]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      layout:{padding:{top:10,right:16,bottom:4,left:8}},
+      scales: {
+        x: {type:'linear',min:2019,max:2026,
+          title:{display:true,text:'Publication Year',font:{family:'Inter',size:11,weight:500},color:'#5a6a78'},
+          ticks:{stepSize:1,callback:function(v){return String(Math.round(v));},font:{family:'Inter',size:11},color:'#5a6a78'},
+          grid:{color:'rgba(0,0,0,0.045)',drawBorder:false}},
+        y: {type:'logarithmic',
+          title:{display:true,text:'Training Compute (FLOP)',font:{family:'Inter',size:11,weight:500},color:'#5a6a78'},
+          ticks:{callback:function(v){var e=Math.log10(v);if(Number.isInteger(e))return '10^'+e;return '';},font:{family:'Inter',size:10},color:'#5a6a78'},
+          grid:{color:'rgba(0,0,0,0.045)',drawBorder:false}}
+      },
+      plugins: {
+        legend:{position:'top',align:'end',labels:{usePointStyle:true,pointStyle:'circle',font:{family:'Inter',size:11},padding:16,color:'#0d2137'}},
+        tooltip:{backgroundColor:'#0d2137',titleFont:{family:'Inter',size:11},bodyFont:{family:'Inter',size:11},
+          callbacks:{
+            title:function(items){return items[0].raw.label||'';},
+            label:function(item){var f=item.raw.y;var e=Math.floor(Math.log10(f));var m=(f/Math.pow(10,e)).toFixed(1);return m+' \u00d7 10^'+e+' FLOP';}
+          }}
+      }
+    },
+    plugins: [{
+      id:'computeLabels',
+      afterDatasetsDraw:function(chart){
+        var ctx2=chart.ctx;ctx2.save();ctx2.font='9px Inter';ctx2.textBaseline='bottom';
+        var drawn=[];
+        function overlaps(x,y,w,h){for(var r of drawn){if(x<r.x+r.w&&x+w>r.x&&y<r.y+r.h&&y+h>r.y)return true;}return false;}
+        chart.data.datasets.forEach(function(ds,di){
+          var meta=chart.getDatasetMeta(di);
+          meta.data.forEach(function(pt,i){
+            var item=ds.data[i];if(!item.label||labelsToShow.indexOf(item.label)===-1)return;
+            var tw=ctx2.measureText(item.label).width,th=11;
+            var lx=pt.x+5,ly=pt.y-5;
+            if(overlaps(lx,ly-th,tw,th)){ly=pt.y+14;}
+            if(overlaps(lx,ly-th,tw,th)){lx=pt.x-tw-5;ly=pt.y-5;}
+            drawn.push({x:lx,y:ly-th,w:tw,h:th});
+            ctx2.fillStyle=di===0?'#2a7a8c':'#8a96a0';
+            ctx2.fillText(item.label,lx,ly);
+          });
+        });
+        ctx2.restore();
+      }
+    }]
+  });
+})();
+
+// ==========================
+// CHART: TRAINING COST (SLIDE 46)
+// ==========================
+(function() {
+  var ctx = document.getElementById('chart-training-cost');
+  if (!ctx) return;
+
+  var costData = [
+    {x:2016.07,y:22207,label:'AlphaGo Lee'},{x:2016.74,y:201332,label:'GNMT'},
+    {x:2017.80,y:471445,label:'AlphaGo Master'},{x:2017.93,y:229919,label:'AlphaZero'},
+    {x:2018.34,y:134077,label:'ResNeXt-101'},{x:2018.78,y:1751,label:'BERT-Large'},
+    {x:2019.12,y:4348,label:'GPT-2'},{x:2019.50,y:85350,label:'RoBERTa'},
+    {x:2019.71,y:171819,label:'Megatron-BERT'},{x:2019.81,y:78465,label:'T5-11B'},
+    {x:2019.83,y:130654,label:'AlphaStar'},{x:2019.95,y:4328311,label:'OpenAI Five'},
+    {x:2020.07,y:214810,label:'Meena'},{x:2020.41,y:2116866,label:'GPT-3'},
+    {x:2020.50,y:266200,label:'GShard'},{x:2020.81,y:6724,label:'ViT-Huge'},
+    {x:2020.91,y:3842,label:'AlphaFold 2'},
+    {x:2021.01,y:125819,label:'DALL-E'},{x:2021.03,y:145101,label:'Switch'},
+    {x:2021.61,y:836700,label:'Jurassic-1'},{x:2021.69,y:441770,label:'HyperCLOVA'},
+    {x:2021.78,y:3848506,label:'MT-NLG 530B'},{x:2021.94,y:640617,label:'Gopher'},
+    {x:2021.95,y:541437,label:'GLaM'},
+    {x:2022.11,y:229950,label:'LaMDA'},{x:2022.26,y:3060365,label:'PaLM'},
+    {x:2022.34,y:733635,label:'OPT-175B'},{x:2022.53,y:995819,label:'BLOOM-176B'},
+    {x:2022.91,y:7466801,label:'GPT-3.5'},
+    {x:2023.15,y:578026,label:'LLaMA-65B'},{x:2023.21,y:68783538,label:'GPT-4'},
+    {x:2023.36,y:5014267,label:'PaLM 2'},{x:2023.53,y:4902644,label:'Claude 2'},
+    {x:2023.55,y:1102561,label:'Llama 2-70B'},{x:2023.68,y:10743501,label:'Falcon-180B'},
+    {x:2023.89,y:13461144,label:'Inflection-2'},{x:2023.93,y:30719420,label:'Gemini Ultra'},
+    {x:2024.12,y:16760813,label:'Gemini 1.5 Pro'},{x:2024.15,y:14110112,label:'Mistral Large'},
+    {x:2024.47,y:25870993,label:'Claude 3.5 Sonnet'},{x:2024.56,y:52885434,label:'Llama 3.1-405B'},
+    {x:2024.62,y:31602311,label:'Grok-2'},{x:2024.98,y:5390000,label:'DeepSeek-V3'},
+    {x:2025.05,y:6770000,label:'DeepSeek-R1'},{x:2025.13,y:507476933,label:'Grok 3'},
+    {x:2025.16,y:339957480,label:'GPT-4.5'},{x:2025.26,y:44588964,label:'Llama 4 Behemoth'},
+    {x:2025.52,y:387842678,label:'Grok 4'}
+  ];
+
+  var labelsToShow = ['GPT-2','GPT-3','GPT-3.5','GPT-4','GPT-4.5','Grok 3','Grok 4','Grok-2',
+    'Gemini Ultra','PaLM','Llama 3.1-405B','Claude 2','Claude 3.5 Sonnet',
+    'DeepSeek-V3','DeepSeek-R1','BERT-Large','OpenAI Five','BLOOM-176B','Gopher','LLaMA-65B','Llama 4 Behemoth'];
+
+  var notableSet = new Set(labelsToShow);
+  var pointRadii = costData.map(function(d){return notableSet.has(d.label)?5:3;});
+
+  function formatCost(v){
+    if(v>=1e8)return '$'+Math.round(v/1e6)+'M';
+    if(v>=1e6)return '$'+Math.round(v/1e6)+'M';
+    if(v>=1e3)return '$'+Math.round(v/1e3)+'K';
+    return '$'+v;
+  }
+
+  new Chart(ctx, {
+    type:'scatter',
+    data:{datasets:[{
+      label:'Training Cost (2023 USD)',data:costData,
+      backgroundColor:'#0d2137',borderColor:'#0d2137',
+      pointRadius:pointRadii,pointHoverRadius:8
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      layout:{padding:{top:10,right:16,bottom:4,left:8}},
+      scales:{
+        x:{type:'linear',min:2016,max:2026,
+          title:{display:true,text:'Publication Year',font:{family:'Inter',size:11,weight:500},color:'#5a6a78'},
+          ticks:{stepSize:1,callback:function(v){return String(Math.round(v));},font:{family:'Inter',size:11},color:'#5a6a78'},
+          grid:{color:'rgba(0,0,0,0.045)',drawBorder:false}},
+        y:{type:'logarithmic',min:1000,max:1e9,
+          title:{display:true,text:'Training Cost (2023 USD)',font:{family:'Inter',size:11,weight:500},color:'#5a6a78'},
+          ticks:{callback:function(v){var ok=[1000,10000,100000,1000000,10000000,100000000,500000000];if(ok.indexOf(v)!==-1)return formatCost(v);return '';},font:{family:'Inter',size:10},color:'#5a6a78'},
+          grid:{color:'rgba(0,0,0,0.045)',drawBorder:false}}
+      },
+      plugins:{
+        legend:{display:false},
+        tooltip:{backgroundColor:'#0d2137',titleFont:{family:'Inter',size:11},bodyFont:{family:'Inter',size:11},
+          callbacks:{
+            title:function(items){return items[0].raw.label||'';},
+            label:function(item){var c=item.raw.y;return (c>=1e6?'$'+(c/1e6).toFixed(1)+'M':c>=1e3?'$'+(c/1e3).toFixed(0)+'K':'$'+c);}
+          }}
+      }
+    },
+    plugins:[{
+      id:'costLabels',
+      afterDatasetsDraw:function(chart){
+        var ctx2=chart.ctx;ctx2.save();ctx2.font='9px Inter';ctx2.fillStyle='#0d2137';ctx2.textBaseline='bottom';
+        var drawn=[];
+        function overlaps(x,y,w,h){for(var r of drawn){if(x<r.x+r.w&&x+w>r.x&&y<r.y+r.h&&y+h>r.y)return true;}return false;}
+        var meta=chart.getDatasetMeta(0);
+        meta.data.forEach(function(pt,i){
+          var item=costData[i];if(labelsToShow.indexOf(item.label)===-1)return;
+          var tw=ctx2.measureText(item.label).width,th=11;
+          var lx=pt.x+6,ly=pt.y-5;
+          if(overlaps(lx,ly-th,tw,th)){ly=pt.y+14;}
+          if(overlaps(lx,ly-th,tw,th)){lx=pt.x-tw-6;ly=pt.y-5;}
+          drawn.push({x:lx,y:ly-th,w:tw,h:th});
+          ctx2.fillText(item.label,lx,ly);
+        });
+        ctx2.restore();
+      }
+    }]
+  });
+})();
+
+// ==========================
+// CHART: HYPERSCALER CAPEX (SLIDE 44)
+// ==========================
+(function() {
+  var c = document.getElementById('chart-hyperscaler-capex');
+  if (!c) return;
+
+  var years = ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026E'];
+
+  new Chart(c, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Amazon',
+          data: [12.4, 19.7, 27.8, 32.0, 54.0, 68.1, 63.6, 52.7, 83.9, 131.8, 200],
+          backgroundColor: '#2a7a8c',
+          borderColor: '#2a7a8c',
+          borderWidth: 0
+        },
+        {
+          label: 'Alphabet',
+          data: [10.9, 13.2, 25.1, 23.5, 22.3, 24.6, 31.5, 32.3, 52.5, 91.4, 180],
+          backgroundColor: '#8a96a0',
+          borderColor: '#8a96a0',
+          borderWidth: 0
+        },
+        {
+          label: 'Meta',
+          data: [4.5, 6.7, 13.9, 15.1, 15.7, 19.2, 31.4, 27.3, 37.3, 72.2, 125],
+          backgroundColor: '#0d2137',
+          borderColor: '#0d2137',
+          borderWidth: 0
+        },
+        {
+          label: 'Microsoft',
+          data: [8.3, 8.7, 11.6, 13.9, 15.4, 20.6, 23.9, 28.1, 44.5, 64.6, 100],
+          backgroundColor: '#e67e22',
+          borderColor: '#e67e22',
+          borderWidth: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: {padding: {top: 10, right: 16, bottom: 4, left: 8}},
+      scales: {
+        x: {
+          stacked: true,
+          ticks: {font: {family: 'Inter', size: 11}, color: '#5a6a78'},
+          grid: {display: false}
+        },
+        y: {
+          stacked: true,
+          beginAtZero: true,
+          max: 700,
+          ticks: {
+            callback: function(v) { return '$' + v + 'B'; },
+            stepSize: 100,
+            font: {family: 'Inter', size: 11},
+            color: '#5a6a78'
+          },
+          grid: {color: 'rgba(0,0,0,0.045)', drawBorder: false},
+          title: {display: true, text: 'Capital Expenditure ($B)', font: {family: 'Inter', size: 11, weight: 500}, color: '#5a6a78'}
+        }
+      },
+      plugins: {
+        legend: {
+          position: 'top',
+          align: 'end',
+          labels: {
+            usePointStyle: true,
+            pointStyle: 'rectRounded',
+            padding: 16,
+            font: {family: 'Inter', size: 11},
+            color: '#0d2137'
+          }
+        },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: {family: 'Inter', size: 11},
+          bodyFont: {family: 'Inter', size: 11},
+          callbacks: {
+            label: function(item) {
+              return item.dataset.label + ': $' + item.parsed.y + 'B';
+            },
+            footer: function(items) {
+              var total = 0;
+              items.forEach(function(item) { total += item.parsed.y; });
+              return 'Total: $' + Math.round(total) + 'B';
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            label2026: {
+              type: 'label',
+              xValue: '2026E',
+              yValue: 640,
+              content: ['~$605B'],
+              font: {family: 'Inter', size: 13, weight: 'bold'},
+              color: '#0d2137',
+              backgroundColor: 'rgba(255,255,255,0)',
+              padding: 0
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART: GPU GENERATION TRAINING LADDER (SLIDE 45)
+// ==========================
+(function() {
+  var c = document.getElementById('chart-gpu-generations');
+  if (!c) return;
+
+  // Horizontal bar: each bar is a frontier model, x = estimated cluster size (GPUs)
+  // Color coded by GPU generation
+  var COL_A100 = '#8a96a0';   // gray
+  var COL_H100 = '#2a7a8c';   // teal
+  var COL_GB200 = '#76b900';  // NVIDIA green
+  var COL_RUBIN = '#e67e22';  // orange (future)
+
+  var models = [
+    'GPT-4 (Mar 2023)',
+    'Claude 3 Opus (Mar 2024)',
+    'Gemini Ultra (Dec 2023)',
+    'Llama 3.1-405B (Jul 2024)',
+    'Grok-3 (Feb 2025)',
+    'GPT-5 (Jun 2025)',
+    'Claude Opus 4 (Jun 2025)',
+    'GPT-5.2 (Sep 2025)',
+    'Gemini 2.5 Pro (Mar 2025)',
+    'Claude Opus 4.5 (Dec 2025)',
+    'GPT-5.3-Codex (Feb 2026)'
+  ];
+
+  var clusterSizes = [
+    25000,   // GPT-4: ~25k A100s
+    20000,   // Claude 3 Opus: estimated ~20k A100/H100
+    26000,   // Gemini Ultra: ~26k TPUv4 (GPU-equiv)
+    30000,   // Llama 3.1-405B: 30k H100s (Meta)
+    200000,  // Grok-3: xAI Colossus ~200k H100s
+    80000,   // GPT-5: estimated 60-80k H100s
+    50000,   // Claude Opus 4: estimated ~50k H100s
+    100000,  // GPT-5.2: ~100k H100 + early GB200
+    50000,   // Gemini 2.5 Pro: ~50k TPUv5 (equiv)
+    60000,   // Claude Opus 4.5: estimated
+    300000   // GPT-5.3-Codex: ~300k GB200 from Microsoft
+  ];
+
+  var colors = [
+    COL_A100,   // GPT-4
+    COL_A100,   // Claude 3 Opus
+    COL_A100,   // Gemini Ultra
+    COL_H100,   // Llama 3.1-405B
+    COL_H100,   // Grok-3
+    COL_H100,   // GPT-5
+    COL_H100,   // Claude Opus 4
+    COL_H100,   // GPT-5.2 (mixed)
+    COL_H100,   // Gemini 2.5 Pro
+    COL_H100,   // Claude Opus 4.5
+    COL_GB200   // GPT-5.3-Codex
+  ];
+
+  var gpuGen = [
+    'A100', 'A100', 'TPUv4',
+    'H100', 'H100', 'H100', 'H100', 'H100/GB200', 'TPUv5',
+    'H100', 'GB200'
+  ];
+
+  new Chart(c, {
+    type: 'bar',
+    data: {
+      labels: models,
+      datasets: [{
+        label: 'Estimated GPU cluster size',
+        data: clusterSizes,
+        backgroundColor: colors,
+        borderColor: colors,
+        borderWidth: 0,
+        borderRadius: 3,
+        barPercentage: 0.75
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      layout: {padding: {top: 6, right: 60, bottom: 4, left: 8}},
+      scales: {
+        x: {
+          beginAtZero: true,
+          max: 350000,
+          ticks: {
+            callback: function(v) { return (v/1000) + 'k'; },
+            stepSize: 50000,
+            font: {family: 'Inter', size: 10},
+            color: '#5a6a78'
+          },
+          grid: {color: 'rgba(0,0,0,0.045)', drawBorder: false},
+          title: {display: true, text: 'Estimated Training Cluster Size (GPUs / GPU-equivalents)', font: {family: 'Inter', size: 11, weight: 500}, color: '#5a6a78'}
+        },
+        y: {
+          ticks: {font: {family: 'Inter', size: 10, weight: 500}, color: '#0d2137'},
+          grid: {display: false}
+        }
+      },
+      plugins: {
+        legend: {display: false},
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: {family: 'Inter', size: 11},
+          bodyFont: {family: 'Inter', size: 11},
+          callbacks: {
+            label: function(item) {
+              var idx = item.dataIndex;
+              var size = item.parsed.x;
+              return gpuGen[idx] + ' \u00d7 ' + (size >= 1000 ? (size/1000).toFixed(0) + 'k' : size);
+            }
+          }
+        }
+      }
+    },
+    plugins: [{
+      id: 'gpuLabels',
+      afterDatasetsDraw: function(chart) {
+        var ctx = chart.ctx;
+        var meta = chart.getDatasetMeta(0);
+        ctx.font = 'bold 9px Inter';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        meta.data.forEach(function(bar, i) {
+          var x = bar.x + 6;
+          var y = bar.y;
+          ctx.fillStyle = colors[i];
+          ctx.fillText(gpuGen[i], x, y);
+        });
+      }
+    }]
+  });
+})();
+</script>
+
+</body>
+</html>
