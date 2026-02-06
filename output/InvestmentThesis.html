@@ -562,6 +562,598 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-4">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
+  <div class="slide-title">Target triple-net lease properties</div>
+  <div class="slide-subtitle">Investment-grade tenants &middot; Long-duration contractual cash flows &middot; AAA credit</div>
+  <div style="flex:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:12px; min-height:0;">
+    <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+      <div style="width:100%; height:100%; background:var(--light-blue); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+        <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--source-gray); font-style:italic; text-align:center; padding:20px;">Property example 1<br><span style="font-size:12px;">Image to be added</span></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+      <div style="width:100%; height:100%; background:var(--light-blue); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+        <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--source-gray); font-style:italic; text-align:center; padding:20px;">Property example 2<br><span style="font-size:12px;">Image to be added</span></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+      <div style="width:100%; height:100%; background:var(--light-blue); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+        <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--source-gray); font-style:italic; text-align:center; padding:20px;">Property example 3<br><span style="font-size:12px;">Image to be added</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-5">
+  <div class="section-label">EXECUTIVE SUMMARY</div>
+  <div class="slide-title">Two foundational macro views.</div>
+  <div style="flex:1; min-height:0; display:flex; flex-direction:column; gap:14px; margin-top:12px;">
+    <div style="flex:1; display:flex; gap:18px;">
+      <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center;">
+        <div class="card-label" style="font-size:13px; margin-bottom:14px;">THESIS A &mdash; REGIME SHIFT</div>
+        <div class="card-text" style="font-size:16px; line-height:1.8;">The post-1950s monetary and institutional order is entering a regime of binding constraint. Outcomes bias toward accommodation, financial repression, and the repricing of real assets over nominal claims.</div>
+        <div style="display:flex; gap:16px; margin-top:20px;">
+          <div class="stat-card" style="padding:14px 16px; flex:1;">
+            <div class="stat-number" style="font-size:22px;">122%</div>
+            <div class="stat-label">Debt-to-GDP</div>
+          </div>
+          <div class="stat-card" style="padding:14px 16px; flex:1;">
+            <div class="stat-number" style="font-size:22px;">$1.1T</div>
+            <div class="stat-label">Annual Interest</div>
+          </div>
+          <div class="stat-card" style="padding:14px 16px; flex:1;">
+            <div class="stat-number" style="font-size:22px;">+281%</div>
+            <div class="stat-label">Hospital Costs Since 2000</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center; border-left-color:#0d2137;">
+        <div class="card-label" style="font-size:13px; margin-bottom:14px; color:#0d2137;">THESIS B &mdash; AI INFRASTRUCTURE</div>
+        <div class="card-text" style="font-size:16px; line-height:1.8;">AI is the commoditization of cognitive labor and the most capital-intensive infrastructure buildout in history. The binding constraint is physical: power, packaging, memory, metals.</div>
+        <div style="display:flex; gap:16px; margin-top:20px;">
+          <div class="stat-card" style="padding:14px 16px; flex:1;">
+            <div class="stat-number" style="font-size:22px;">$325B</div>
+            <div class="stat-label">Hyperscaler Capex 2025</div>
+          </div>
+          <div class="stat-card" style="padding:14px 16px; flex:1;">
+            <div class="stat-number" style="font-size:22px;">$16B</div>
+            <div class="stat-label">OpenAI Compute 2025</div>
+          </div>
+          <div class="stat-card" style="padding:14px 16px; flex:1;">
+            <div class="stat-number" style="font-size:22px;">394 min</div>
+            <div class="stat-label">GPT-5 Task Horizon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-text" style="margin-top:auto; font-size:18px; text-align:center;"><strong class="bold-accent">These forces do not offset. They compound.</strong></div>
+  </div>
+</div>
+
+<div class="slide" id="slide-6">
+  <div class="slide-divider">
+    <div class="divider-title">REGIME SHIFT</div>
+    <div class="divider-subtitle">The repricing of real assets</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-7">
+  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
+  <div class="slide-title">Federal debt is no longer cyclical. It's structural.</div>
+  <div class="chart-area" id="debt-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('debtChart','MI_federal_debt_gdp.png')" title="Download as PNG">&darr;</button>
+    <canvas id="debtChart"></canvas>
+  </div>
+  <div class="source-line">Source: Congressional Budget Office data and GAO simulation</div>
+</div>
+
+<div class="slide" id="slide-8">
+  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
+  <div class="slide-title">Interest expense is now a major budget item</div>
+  <div class="chart-area" id="spending-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('spendingChart','MI_spending_interest_revenue.png')" title="Download as PNG">&darr;</button>
+    <canvas id="spendingChart"></canvas>
+  </div>
+  <div class="source-line">Source: Congressional Budget Office data and GAO simulation</div>
+</div>
+
+<div class="slide" id="slide-9">
+  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
+  <div class="slide-title">For every $5 the government collects, $1 goes to interest</div>
+  <div class="chart-area" id="interest-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('interestChart','MI_interest_pct_revenues.png')" title="Download as PNG">&darr;</button>
+    <canvas id="interestChart"></canvas>
+  </div>
+  <div class="source-line">Source: U.S. Congressional Budget Office, Macrobond, Apollo Chief Economist</div>
+</div>
+
+<div class="slide" id="slide-10">
+  <div class="section-label">THESIS A &mdash; ASSET PRICING</div>
+  <div class="slide-title">The term premium is back</div>
+  <div class="slide-subtitle">Duration risk is no longer a tail event</div>
+  <div class="chart-area" id="term-premium-container">
+    <button class="chart-download-btn" onclick="downloadChart('termPremiumChart','MI_term_premium.png')" title="Download as PNG">&darr;</button>
+    <canvas id="termPremiumChart"></canvas>
+  </div>
+  <div class="source-line">Source: Board of Governors of the Federal Reserve System (US) via FRED. Shaded areas indicate U.S. recessions.</div>
+</div>
+
+<div class="slide" id="slide-11">
+  <div class="section-label">THESIS A &mdash; INFLATION REGIME</div>
+  <div class="slide-title">Core inflation has settled higher than pre-2020 across every major DM economy</div>
+  <div class="chart-area" id="inflation-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('inflationChart','MI_dm_core_inflation.png')" title="Download as PNG">&darr;</button>
+    <canvas id="inflationChart"></canvas>
+  </div>
+  <div class="source-line">Source: Goldman Sachs. Dashed lines indicate GS forecasts.</div>
+</div>
+
+<div class="slide" id="slide-12">
+  <div class="section-label">THESIS A &mdash; INFLATION REGIME</div>
+  <div class="slide-title">Inflation concentrates where supply can't scale</div>
+  <div class="chart-area" id="price-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('priceChangesChart','MI_price_changes.png')" title="Download as PNG">&darr;</button>
+    <canvas id="priceChangesChart"></canvas>
+  </div>
+  <div class="source-line">Source: Bureau of Labor Statistics</div>
+</div>
+
+<div class="slide" id="slide-13">
+  <div class="section-label">THESIS A &mdash; GLOBAL</div>
+  <div class="slide-title">This is not just the US</div>
+  <div class="slide-subtitle">Japan and the UK are repricing long-run constraints</div>
+  <div class="chart-area" id="japan-uk-container">
+    <button class="chart-download-btn" onclick="downloadChart('japanUkChart','MI_japan_uk_yields.png')" title="Download as PNG">&darr;</button>
+    <canvas id="japanUkChart"></canvas>
+  </div>
+  <div class="source-line">Source: FRED, Bank of Japan, Bank of England</div>
+</div>
+
+<div class="slide" id="slide-14">
+  <div class="section-label">THESIS A &mdash; POLICY</div>
+  <div class="slide-title">Policy volatility is a tax on nominal assets and a subsidy to real ones</div>
+  <div class="body-text" style="margin-top:12px;">When fiscal space narrows, every incremental shock forces larger tradeoffs &mdash; tariffs, subsidies, export controls, energy policy swings. Markets still price these as episodic. We believe they're structural.</div>
+  <div class="body-text">Over time, persistent policy volatility compresses duration and expands the value of optionality embedded in real assets and supply chain control points.</div>
+</div>
+
+<div class="slide" id="slide-15">
+  <div class="slide-divider">
+    <div class="divider-title">THE CASE FOR REAL ASSETS</div>
+    <div class="divider-subtitle">Scarcity plus credibility</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-16">
+  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
+  <div class="slide-title">Gold has overtaken Treasuries in central bank reserves</div>
+  <div class="chart-area" id="gold-treasuries-container">
+    <button class="chart-download-btn" onclick="downloadChart('goldTreasuriesChart','MI_gold_vs_treasuries.png')" title="Download as PNG">&darr;</button>
+    <canvas id="goldTreasuriesChart"></canvas>
+  </div>
+  <div class="source-line">Source: IMF, Department of Treasury</div>
+</div>
+
+<div class="slide" id="slide-17">
+  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
+  <div class="slide-title">Central banks bought 1,000+ tonnes per year for three consecutive years</div>
+  <div class="slide-subtitle">Annual net change in central-bank gold holdings (tonnes)</div>
+  <div class="chart-area" id="cb-gold-container">
+    <button class="chart-download-btn" onclick="downloadChart('cbGoldChart','MI_cb_gold_purchases.png')" title="Download as PNG">&darr;</button>
+    <canvas id="cbGoldChart"></canvas>
+  </div>
+  <div class="source-line">Source: World Gold Council, Gold Demand Trends FY2025</div>
+  <div class="small-note">2025 figure reflects full-year data (863t). Net purchases include reported and estimated unreported activity.</div>
+</div>
+
+<div class="slide" id="slide-18">
+  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
+  <div class="slide-title">Priced in gold, US equities have made no progress since the GFC</div>
+  <div class="chart-area" id="sp-gold-container">
+    <button class="chart-download-btn" onclick="downloadChart('spGoldChart','MI_sp500_gold_ratio.png')" title="Download as PNG">&darr;</button>
+    <canvas id="spGoldChart"></canvas>
+  </div>
+  <div class="source-line">Source: Bloomberg</div>
+</div>
+
+<div class="slide" id="slide-19">
+  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
+  <div class="slide-title">The gold-real yield relationship broke in 2022</div>
+  <div class="slide-subtitle">Gold is now priced as a hedge against institutional risk, not rates</div>
+  <div class="chart-area" id="gold-yield-container">
+    <button class="chart-download-btn" onclick="downloadChart('goldYieldChart','MI_gold_vs_real_yield.png')" title="Download as PNG">&darr;</button>
+    <canvas id="goldYieldChart"></canvas>
+  </div>
+  <div class="source-line">Source: Federal Reserve, Bloomberg</div>
+</div>
+
+<div class="slide" id="slide-20">
+  <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+    <div class="giant-number">29 years</div>
+    <div class="slide-subtitle" style="font-size:20px;margin-bottom:32px;">Average time from discovery to production for a US mine</div>
+    <div class="card-row">
+      <div class="stat-card">
+        <div class="stat-number">24.1 yrs</div>
+        <div class="stat-label">Copper &mdash; global average</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">31.8 yrs</div>
+        <div class="stat-label">Copper &mdash; United States</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">34 yrs</div>
+        <div class="stat-label">Zambia &mdash; longest globally</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-21">
+  <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
+  <div class="slide-title">Even if every announced project proceeds, copper supply meets ~70% of demand by 2035</div>
+  <div class="chart-area" id="copper-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('copperChart','MI_copper_supply_demand.png')" title="Download as PNG">&darr;</button>
+    <canvas id="copperChart"></canvas>
+  </div>
+  <div class="source-line">Source: BloombergNEF</div>
+</div>
+
+<div class="slide" id="slide-22">
+  <div class="section-label">REAL ASSETS &mdash; CONCENTRATION RISK</div>
+  <div class="slide-title">China refines 19 of the 20 strategic minerals the IEA tracks</div>
+  <div class="slide-subtitle">Average market share: ~70%. Gallium: 98.7%. Magnesium: 95%. Rare earths: ~90%.</div>
+  <div class="chart-area" id="minerals-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('mineralsChart','MI_critical_minerals.png')" title="Download as PNG">&darr;</button>
+    <canvas id="mineralsChart"></canvas>
+  </div>
+  <div class="source-line">Source: Various. See IEA Critical Minerals report.</div>
+</div>
+
+<div class="slide" id="slide-23">
+  <div class="section-label">REAL ASSETS &mdash; DEMAND</div>
+  <div class="slide-title">Lithium demand rose 30% in 2024 alone</div>
+  <div class="slide-subtitle">Under transition scenarios, critical mineral demand triples by 2030 and quadruples by 2040</div>
+  <div class="chart-area" id="mineral-demand-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('mineralDemandChart','MI_mineral_demand.png')" title="Download as PNG">&darr;</button>
+    <canvas id="mineralDemandChart"></canvas>
+  </div>
+  <div class="source-line">Source: IEA World Energy Outlook / Critical Minerals report</div>
+</div>
+
+<div class="slide" id="slide-24">
+  <div class="slide-divider">
+    <div class="divider-title">AI AS PRODUCTIVE INFRASTRUCTURE</div>
+    <div class="divider-subtitle">The commoditization of cognitive labor</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-25">
+  <div class="section-label">THESIS B &mdash; SCALING</div>
+  <div class="slide-title">The task horizon is doubling every 7 months</div>
+  <div class="slide-subtitle">METR-Horizon v1.1 &mdash; GPT-5.2 can now complete tasks that take humans ~6.5 hours</div>
+  <div class="chart-area"><canvas id="chart-metr"></canvas></div>
+  <div class="source-line">Source: METR Horizon v1.1 benchmark; p50 = median task duration where AI succeeds 50% of the time</div>
+</div>
+
+<div class="slide" id="slide-26">
+  <div class="section-label">THESIS B &mdash; CAPABILITY</div>
+  <div class="slide-title">Harder benchmarks show capabilities still climbing steeply</div>
+  <div class="slide-subtitle">Frontier running max on non-saturated benchmarks &mdash; FrontierMath went from 1% to 41% in 18 months</div>
+  <div class="chart-area"><canvas id="chart-eci"></canvas></div>
+  <div class="source-line">Source: Epoch AI Capabilities Index (ECI); performance = best-ever score as of each month</div>
+</div>
+
+<div class="slide" id="slide-27">
+  <div class="section-label">AI PRODUCTIVE INFRASTRUCTURE &mdash; ADOPTION</div>
+  <div class="slide-title">900M weekly users in under 3 years</div>
+  <div class="slide-subtitle">ChatGPT weekly active users &mdash; fastest consumer technology adoption in history</div>
+  <div class="chart-area"><canvas id="chart-ai-usage"></canvas></div>
+  <div class="source-line">Source: OpenAI; Epoch AI</div>
+</div>
+
+
+<div class="slide" id="slide-28">
+  <div class="section-label">AI PRODUCTIVE INFRASTRUCTURE &mdash; BUSINESS</div>
+  <div class="slide-title">AI revenue is scaling at unprecedented speed</div>
+  <div class="slide-subtitle">OpenAI: $28M &rarr; $20B in 3 years. Anthropic: $100M &rarr; $9B in 2 years.</div>
+  <div class="chart-area"><canvas id="chart-ai-revenue"></canvas></div>
+  <div class="source-line">Source: Epoch AI; company disclosures; The Information; Bloomberg; CNBC</div>
+</div>
+
+<div class="slide" id="slide-29">
+  <div class="section-label">THESIS B &mdash; COMPUTE SPEND</div>
+  <div class="slide-title">AI lab compute spend is doubling every year</div>
+  <div class="slide-subtitle">Total cloud compute spend by company &mdash; training + inference (excludes one-off datacenter payments)</div>
+  <div class="chart-area"><canvas id="chart-ai-compute-spend"></canvas></div>
+  <div class="source-line">Source: Epoch AI; The Information; company disclosures</div>
+</div>
+
+<div class="slide" id="slide-30">
+  <div class="section-label">THESIS B &mdash; COMPUTE</div>
+  <div class="slide-title">Training compute has grown 10 orders of magnitude since 2017</div>
+  <div class="slide-subtitle">Frontier language models: from ~10<sup>21</sup> FLOP to ~5&times;10<sup>26</sup> FLOP in 8 years</div>
+  <div class="chart-area"><canvas id="chart-training-compute"></canvas></div>
+  <div class="source-line">Source: Epoch AI Notable AI Models database</div>
+</div>
+
+<div class="slide" id="slide-31">
+  <div class="section-label">THESIS B &mdash; AI COMPUTE</div>
+  <div class="slide-title">Training costs have crossed $500M &mdash; approaching $1B per run</div>
+  <div class="slide-subtitle">Estimated training compute cost in 2023 USD for notable AI models (2012&ndash;2025)</div>
+  <div class="chart-area"><canvas id="chart-training-cost"></canvas></div>
+  <div class="source-line">Source: Epoch AI Notable AI Models database; costs in 2023 USD</div>
+</div>
+
+
+<div class="slide" id="slide-32">
+  <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
+  <div class="slide-title">Each GPU generation unlocks a new frontier of training scale</div>
+  <div class="slide-subtitle">GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72</div>
+  <div class="chart-area"><canvas id="chart-gpu-generations"></canvas></div>
+  <div class="source-line">Source: OpenAI, NVIDIA, SemiAnalysis, The Information; cluster sizes are best public estimates</div>
+</div>
+
+
+<div class="slide" id="slide-33">
+  <div class="section-label">THESIS B &mdash; HARDWARE</div>
+  <div class="slide-title">32&times; more chips shipped in three years</div>
+  <div class="stat-row-label" style="margin-top:18px;">AI ACCELERATORS SHIPPED (H100 EQUIV.)</div>
+  <div class="card-row">
+    <div class="stat-card"><div class="stat-number">310K</div><div class="stat-label">2022</div></div>
+    <div class="stat-card"><div class="stat-number">1.4M</div><div class="stat-label">2023</div></div>
+    <div class="stat-card"><div class="stat-number">5.5M</div><div class="stat-label">2024</div></div>
+    <div class="stat-card"><div class="stat-number">10M+</div><div class="stat-label">2025</div></div>
+  </div>
+  <div class="stat-row-label">ASSOCIATED CHIP COST</div>
+  <div class="card-row">
+    <div class="stat-card"><div class="stat-number">$11B</div><div class="stat-label">2022</div></div>
+    <div class="stat-card"><div class="stat-number">$37B</div><div class="stat-label">2023</div></div>
+    <div class="stat-card"><div class="stat-number">$113B</div><div class="stat-label">2024</div></div>
+    <div class="stat-card"><div class="stat-number">$143B</div><div class="stat-label">2025</div></div>
+  </div>
+  <div class="small-note" style="margin-top:8px;">5.96 GW shipped chip power draw in 2025 &mdash; roughly six large nuclear plants.</div>
+  <div class="chart-area" id="hardware-chart-container" style="flex: 1; min-height: 120px; margin-top: 12px;">
+    <button class="chart-download-btn" onclick="downloadChart('hardwareChart','MI_hardware_shipments.png')" title="Download as PNG">&darr;</button>
+    <canvas id="hardwareChart"></canvas>
+  </div>
+</div>
+
+<div class="slide" id="slide-34">
+  <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
+  <div class="slide-title">Hyperscaler capex is entering escape velocity</div>
+  <div class="slide-subtitle">Microsoft, Meta, Alphabet and Amazon are expected to spend &gt;$600B this year &mdash; almost double the ~$350B spent last year</div>
+  <div class="chart-area"><canvas id="chart-hyperscaler-capex"></canvas></div>
+  <div class="source-line">Source: Company earnings (Q4 2025 / Q2 FY2026); 2026E = company guidance (META, GOOGL, AMZN) &amp; Bloomberg consensus (MSFT)</div>
+</div>
+
+
+<div class="slide" id="slide-35">
+  <div class="section-label">THESIS B &mdash; INFRASTRUCTURE</div>
+  <div class="slide-title">The datacenter buildout is at megaproject scale</div>
+  <div class="stat-row-label" style="margin-top:14px;">OPERATIONAL POWER (GW)</div>
+  <div class="card-row">
+    <div class="stat-card"><div class="stat-number">0.8</div><div class="stat-label">2023</div></div>
+    <div class="stat-card"><div class="stat-number">4.5</div><div class="stat-label">2025</div></div>
+    <div class="stat-card"><div class="stat-number">21</div><div class="stat-label">2029</div></div>
+  </div>
+  <div class="stat-row-label">ASSOCIATED CAPEX</div>
+  <div class="card-row">
+    <div class="stat-card"><div class="stat-number">$26B</div><div class="stat-label">2023</div></div>
+    <div class="stat-card"><div class="stat-number">$138B*</div><div class="stat-label">2025</div></div>
+    <div class="stat-card"><div class="stat-number">$646B</div><div class="stat-label">2029</div></div>
+  </div>
+  <div class="chart-area" id="frontier-power-container" style="height:200px;">
+    <button class="chart-download-btn" onclick="downloadChart('frontierPowerChart','MI_frontier_datacenter_power.png')" title="Download as PNG">&darr;</button>
+    <canvas id="frontierPowerChart"></canvas>
+  </div>
+  <div class="source-line">Source: Epoch AI</div>
+</div>
+
+<div class="slide" id="slide-36">
+  <div class="section-label">THESIS B &mdash; POWER</div>
+  <div class="slide-title">US datacenter load doubles to 130 GW by 2030</div>
+  <div class="slide-subtitle">62 GW consumed in 2025 &mdash; PJM capacity market prices up 10&times; in two years ($29 &rarr; $329 / MW-day)</div>
+  <div class="chart-area">
+    <canvas id="datacenterCapacityChart"></canvas>
+  </div>
+  <div class="source-line">Source: Energy Institute, JPMAM, PJM Interconnection</div>
+</div>
+
+<div class="slide" id="slide-37">
+  <div class="section-label">THESIS B &mdash; POWER</div>
+  <div class="slide-title">Interconnection queues stretch 5&ndash;7 years</div>
+  <div class="slide-subtitle">The grid cannot accommodate the demand without massive new investment</div>
+  <div class="chart-area" id="interconnection-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('interconnectionChart','MI_interconnection_queue.png')" title="Download as PNG">&darr;</button>
+    <canvas id="interconnectionChart"></canvas>
+  </div>
+  <div class="source-line">Source: Lawrence Berkeley National Lab, PJM, EIA</div>
+</div>
+
+<div class="slide" id="slide-38">
+  <div class="section-label">THESIS B &mdash; SUPPLY CHAIN</div>
+  <div class="slide-title">GPU supply is a packaging story, not just a wafer story</div>
+  <div class="slide-subtitle">CoWoS + HBM = the second chokepoint</div>
+  <div class="card-row" style="margin-top:12px;">
+    <div class="card">
+      <div class="card-label">CoWoS PACKAGING</div>
+      <div class="card-text">TSMC dominant supplier. Integrates GPU die + HBM stacks via silicon interposer. Despite record capex, capacity remains supply-constrained. Packaging throughput gates finished accelerator output.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">HIGH-BANDWIDTH MEMORY</div>
+      <div class="card-text">SK Hynix + Samsung oligopoly. Each GPU generation requires more HBM per chip. Blackwell &gt; Hopper. Rubin &gt; Blackwell. Lead times extending, allocation tightening.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-39">
+  <div class="section-label">THESIS B &mdash; ECONOMICS</div>
+  <div class="slide-title">Inference is 45% of compute spend and growing</div>
+  <div class="slide-subtitle">Agentic workloads turn every task into hours of sustained reasoning</div>
+  <div class="body-text">Efficiency gains accelerate total consumption &mdash; a Jevons dynamic. As usage shifts from simple queries to autonomous multi-step operation, inference becomes the dominant share of compute expenditure. The capital intensity of AI compounds with deployment as long as demand grows faster than the reduced cost of inference.</div>
+  <div class="chart-area" id="training-inference-container" style="height:220px;">
+    <button class="chart-download-btn" onclick="downloadChart('trainingInferenceChart','MI_training_vs_inference.png')" title="Download as PNG">&darr;</button>
+    <canvas id="trainingInferenceChart"></canvas>
+  </div>
+  <div class="source-line">Source: Semi Analysis, company disclosures, Epoch AI</div>
+</div>
+
+<div class="slide" id="slide-40">
+  <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
+  <div class="slide-title">Margin accrues to bottlenecks, not the most visible layer</div>
+  <div style="margin-top:14px;">
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label">APPLICATION / PLATFORM</div>
+      <div class="card-text">Largest upside, most competitive. Margin protected by distribution, data, workflow lock-in.</div>
+    </div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label">DATA CENTERS</div>
+      <div class="card-text">Hybrid &mdash; moat migrates from space to power + interconnection + speed to deliver.</div>
+    </div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label">POWER &amp; GRID INFRASTRUCTURE</div>
+      <div class="card-text">Contracted, regulated. Quasi-bond cash flows with equity upside. Capacity markets + long-term PPAs.</div>
+    </div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-label">SEMICONDUCTORS &mdash; FAB &middot; CoWoS &middot; HBM</div>
+      <div class="card-text">Scarcity rent: allocation pricing, persistent gross margin expansion, contracted demand.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-41">
+  <div class="slide-divider">
+    <div class="divider-title">WHY THESE FORCES COMPOUND</div>
+    <div class="divider-subtitle">The intersection of regime shift and AI infrastructure</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-42">
+  <div class="section-label">INTERSECTION</div>
+  <div class="slide-title">AI is deflationary in cognition. Inflationary in everything it needs to run.</div>
+  <div class="body-text" style="margin-top:12px;">Electricity. Copper. Grid hardware. Aluminum. Advanced packaging. Specialized memory. All in a system where permitting, geopolitics, and supply chain concentration constrain elasticity.</div>
+  <div class="chart-area" id="ai-demand-container">
+    <button class="chart-download-btn" onclick="downloadChart('aiDemandChart','MI_ai_demand_inputs.png')" title="Download as PNG">&darr;</button>
+    <canvas id="aiDemandChart"></canvas>
+  </div>
+  <div class="source-line">Source: IEA, McKinsey, Goldman Sachs commodity research</div>
+</div>
+
+<div class="slide" id="slide-43">
+  <div class="section-label">INTERSECTION &mdash; LABOR</div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+    <div class="giant-number">49%</div>
+    <div class="slide-subtitle" style="font-size:18px;">of occupations now involve AI across at least a quarter of their tasks</div>
+    <div class="body-text">Up from 36% in early 2025. The trend favors full task delegation over collaboration.</div>
+    <div class="chart-area" id="anthropic-index-container" style="height:240px;">
+      <button class="chart-download-btn" onclick="downloadChart('anthropicIndexChart','MI_anthropic_index.png')" title="Download as PNG">&darr;</button>
+      <canvas id="anthropicIndexChart"></canvas>
+    </div>
+    <div class="source-line">Source: Anthropic Economic Index</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-44">
+  <div class="section-label">INTERSECTION &mdash; FISCAL</div>
+  <div class="slide-title">There is no fiscally neutral path through AI displacement</div>
+  <div class="card-row" style="margin-top:14px;">
+    <div class="card">
+      <div class="card-label">WORKFORCE ADJUSTMENT</div>
+      <div class="card-text">Automation Adjustment Assistance, compute taxes, token-generation levies &mdash; all with escalation mechanisms tied to displacement pace.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">INCOME SUPPORT</div>
+      <div class="card-text">UBI proposals, sovereign wealth funds, AI-funded citizen dividends. Each requires new claims: automation taxes, data rents, equity participation.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">INDUSTRIAL POLICY</div>
+      <div class="card-text">AI as national security terrain. China: ~$900B on AI over the past decade. Subsidy and procurement commitments embedded in structural budgets indefinitely.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-45">
+  <div class="section-label">INTERSECTION &mdash; ENDGAME</div>
+  <div class="slide-title">Every prior episode of sovereign overextension at this scale resolved through financial repression</div>
+  <div class="body-text" style="margin-top:12px;">Real rates held below nominal growth, transferring wealth from holders of nominal claims to the government.</div>
+  <div class="slide-hr"></div>
+  <div class="body-text">The same physical bottlenecks, energy assets, and supply-constrained materials that capture value from the AI buildout constitute the natural hedge against the monetary regime that the buildout's sociopolitical consequences will produce.</div>
+  <div class="card-row" style="margin-top:16px;">
+    <div class="stat-card">
+      <div class="stat-label" style="font-size:13px;"><strong>OECD working-age pop:</strong><br>&minus;8% by 2060</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label" style="font-size:13px;"><strong>US-born working-age</strong><br>shrinks every year to 2035</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label" style="font-size:13px;"><strong>Demographics reduce global growth</strong><br>~1.1pp/yr through 2050</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-46">
+  <div class="slide-divider">
+    <div class="divider-title">PORTFOLIO CONSTRUCTION</div>
+    <div class="divider-subtitle">Built to compound through volatility</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-47">
+  <div class="section-label">PORTFOLIO</div>
+  <div class="slide-title">Built to compound through volatility, not avoid it</div>
+  <div class="body-text" style="margin-top:14px;">Long-duration structure. No redemption pressure. Concentrated positions across public equities, commodities, and real asset-linked infrastructure.</div>
+  <div class="body-text">Conviction is high, but conditional. We expect significant volatility as markets oscillate between pricing the AI buildout as a bubble and pricing it as an inevitability, and as macro conditions generate episodic dislocations across rate, currency, and commodity complexes.</div>
+  <div class="chart-placeholder" style="height:240px;"><span>Chart: Portfolio allocation breakdown</span></div>
+</div>
+
+<div class="slide" id="slide-48">
+  <div class="section-label">PORTFOLIO &mdash; LEADING INDICATORS</div>
+  <div class="slide-title">What we track</div>
+  <div class="card-row" style="margin-top:14px;">
+    <div class="card">
+      <div class="card-label">AI BUILDOUT</div>
+      <ul class="bullet-list">
+        <li>Hyperscaler capex trajectories</li>
+        <li>Datacenter energization rates</li>
+        <li>Packaging &amp; memory lead times</li>
+        <li>Capacity market pricing</li>
+        <li>Agentic AI adoption in enterprise</li>
+        <li>AI capability advancements</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-label">MACRO REGIME</div>
+      <ul class="bullet-list">
+        <li>Term premium dynamics</li>
+        <li>Sovereign debt trajectory vs GDP</li>
+        <li>Real rate behavior across G7</li>
+        <li>Capital Flows</li>
+        <li>Commodity supply response</li>
+        <li>Industrial Policy (Tariffs, strategic reserves)</li>
+        <li>Central Banks Policies and Balance Sheets</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-49">
+  <div class="section-label">PORTFOLIO &mdash; PROCESS</div>
+  <div class="slide-title">How we underwrite</div>
+  <div class="body-text" style="margin-top:14px;">Cost curves. Reinvestment rates. Incremental returns on capital. Free cash flow sensitivity to volume and price across the cycle.</div>
+  <div class="body-text">Balance sheet structure is co-equal with operating quality. Scarcity rents are most valuable during dislocations &mdash; a forced seller cannot capture them.</div>
+  <div class="body-text">Capital allocation discipline is a first-order variable. The historical base rate for value destruction through pro-cyclical overbuilding in commodity and infrastructure businesses is high enough to constitute a structural risk.</div>
+  <div class="slide-hr"></div>
+  <div class="body-text italic-accent">"Exit discipline is valuation-driven. Every constraint eventually attracts the capital that resolves it. We own the period of maximum rent extraction."</div>
+</div>
+
+<div class="slide" id="slide-50">
+  <div class="slide-divider">
+    <div class="divider-title">FUND TERMS</div>
+    <div class="divider-subtitle">Structure, governance, and alignment</div>
+  </div>
+</div>
+
+<div class="slide" id="slide-51">
+  <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">Scenario analysis</div>
   <div class="slide-subtitle">Adjust assumptions to model projected returns &middot; NOI escalates 2% annually (NNN lease) &middot; 10-year fund life</div>
   <div class="scenario-slider-group">
@@ -616,7 +1208,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Projections are illustrative &middot; 2% mgmt fee (Yr 1&ndash;5 on committed capital, Yr 6&ndash;10 on NAV) &middot; 20% carry above 8% hurdle &middot; Past performance is not indicative of future results</div>
 </div>
 
-<div class="slide" id="slide-5">
+<div class="slide" id="slide-52">
   <div class="section-label">FUND TERMS</div>
   <div class="slide-title">Terms at a glance</div>
   <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:14px; flex:1; min-height:0; margin-top:8px;">
@@ -682,7 +1274,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-53">
   <div class="section-label">RISK MANAGEMENT</div>
   <div class="slide-title">Risk architecture</div>
   <div class="slide-subtitle">Every risk has a structural mitigation built into the fund design</div>
@@ -734,7 +1326,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="body-text" style="margin-top:8px; font-size:15px;"><strong class="bold-accent">The real estate collar creates a structural floor. The structural long portfolio creates the upside.</strong></div>
 </div>
 
-<div class="slide" id="slide-7">
+<div class="slide" id="slide-54">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">Traditional portfolio construction was designed for a regime that no longer exists.</div>
   <div style="flex:1; min-height:0; display:flex; gap:18px; margin-top:12px;">
@@ -783,569 +1375,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="body-text" style="margin-top:8px; font-size:15px;"><strong class="bold-accent">This portfolio is both a diversifier and a returns driver &mdash; because the assets that diversify best in this regime are the same ones with the strongest secular tailwinds.</strong></div>
 </div>
 
-<div class="slide" id="slide-8">
-  <div class="section-label">EXECUTIVE SUMMARY</div>
-  <div class="slide-title">Two foundational macro views.</div>
-  <div style="flex:1; min-height:0; display:flex; flex-direction:column; gap:14px; margin-top:12px;">
-    <div style="flex:1; display:flex; gap:18px;">
-      <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center;">
-        <div class="card-label" style="font-size:13px; margin-bottom:14px;">THESIS A &mdash; REGIME SHIFT</div>
-        <div class="card-text" style="font-size:16px; line-height:1.8;">The post-1950s monetary and institutional order is entering a regime of binding constraint. Outcomes bias toward accommodation, financial repression, and the repricing of real assets over nominal claims.</div>
-        <div style="display:flex; gap:16px; margin-top:20px;">
-          <div class="stat-card" style="padding:14px 16px; flex:1;">
-            <div class="stat-number" style="font-size:22px;">122%</div>
-            <div class="stat-label">Debt-to-GDP</div>
-          </div>
-          <div class="stat-card" style="padding:14px 16px; flex:1;">
-            <div class="stat-number" style="font-size:22px;">$1.1T</div>
-            <div class="stat-label">Annual Interest</div>
-          </div>
-          <div class="stat-card" style="padding:14px 16px; flex:1;">
-            <div class="stat-number" style="font-size:22px;">+281%</div>
-            <div class="stat-label">Hospital Costs Since 2000</div>
-          </div>
-        </div>
-      </div>
-      <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center; border-left-color:#0d2137;">
-        <div class="card-label" style="font-size:13px; margin-bottom:14px; color:#0d2137;">THESIS B &mdash; AI INFRASTRUCTURE</div>
-        <div class="card-text" style="font-size:16px; line-height:1.8;">AI is the commoditization of cognitive labor and the most capital-intensive infrastructure buildout in history. The binding constraint is physical: power, packaging, memory, metals.</div>
-        <div style="display:flex; gap:16px; margin-top:20px;">
-          <div class="stat-card" style="padding:14px 16px; flex:1;">
-            <div class="stat-number" style="font-size:22px;">$325B</div>
-            <div class="stat-label">Hyperscaler Capex 2025</div>
-          </div>
-          <div class="stat-card" style="padding:14px 16px; flex:1;">
-            <div class="stat-number" style="font-size:22px;">$16B</div>
-            <div class="stat-label">OpenAI Compute 2025</div>
-          </div>
-          <div class="stat-card" style="padding:14px 16px; flex:1;">
-            <div class="stat-number" style="font-size:22px;">394 min</div>
-            <div class="stat-label">GPT-5 Task Horizon</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="body-text" style="margin-top:auto; font-size:18px; text-align:center;"><strong class="bold-accent">These forces do not offset. They compound.</strong></div>
-  </div>
-</div>
-
-<div class="slide" id="slide-9">
-  <div class="slide-divider">
-    <div class="divider-title">REGIME SHIFT</div>
-    <div class="divider-subtitle">The repricing of real assets</div>
-  </div>
-</div>
-
-<div class="slide" id="slide-10">
-  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
-  <div class="slide-title">Federal debt is no longer cyclical. It's structural.</div>
-  <div class="chart-area" id="debt-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('debtChart','MI_federal_debt_gdp.png')" title="Download as PNG">&darr;</button>
-    <canvas id="debtChart"></canvas>
-  </div>
-  <div class="source-line">Source: Congressional Budget Office data and GAO simulation</div>
-</div>
-
-<div class="slide" id="slide-11">
-  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
-  <div class="slide-title">Interest expense is now a major budget item</div>
-  <div class="chart-area" id="spending-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('spendingChart','MI_spending_interest_revenue.png')" title="Download as PNG">&darr;</button>
-    <canvas id="spendingChart"></canvas>
-  </div>
-  <div class="source-line">Source: Congressional Budget Office data and GAO simulation</div>
-</div>
-
-<div class="slide" id="slide-12">
-  <div class="section-label">THESIS A &mdash; FISCAL CONSTRAINT</div>
-  <div class="slide-title">For every $5 the government collects, $1 goes to interest</div>
-  <div class="chart-area" id="interest-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('interestChart','MI_interest_pct_revenues.png')" title="Download as PNG">&darr;</button>
-    <canvas id="interestChart"></canvas>
-  </div>
-  <div class="source-line">Source: U.S. Congressional Budget Office, Macrobond, Apollo Chief Economist</div>
-</div>
-
-<div class="slide" id="slide-13">
-  <div class="section-label">THESIS A &mdash; ASSET PRICING</div>
-  <div class="slide-title">The term premium is back</div>
-  <div class="slide-subtitle">Duration risk is no longer a tail event</div>
-  <div class="chart-area" id="term-premium-container">
-    <button class="chart-download-btn" onclick="downloadChart('termPremiumChart','MI_term_premium.png')" title="Download as PNG">&darr;</button>
-    <canvas id="termPremiumChart"></canvas>
-  </div>
-  <div class="source-line">Source: Board of Governors of the Federal Reserve System (US) via FRED. Shaded areas indicate U.S. recessions.</div>
-</div>
-
-<div class="slide" id="slide-14">
-  <div class="section-label">THESIS A &mdash; INFLATION REGIME</div>
-  <div class="slide-title">Core inflation has settled higher than pre-2020 across every major DM economy</div>
-  <div class="chart-area" id="inflation-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('inflationChart','MI_dm_core_inflation.png')" title="Download as PNG">&darr;</button>
-    <canvas id="inflationChart"></canvas>
-  </div>
-  <div class="source-line">Source: Goldman Sachs. Dashed lines indicate GS forecasts.</div>
-</div>
-
-<div class="slide" id="slide-15">
-  <div class="section-label">THESIS A &mdash; INFLATION REGIME</div>
-  <div class="slide-title">Inflation concentrates where supply can't scale</div>
-  <div class="chart-area" id="price-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('priceChangesChart','MI_price_changes.png')" title="Download as PNG">&darr;</button>
-    <canvas id="priceChangesChart"></canvas>
-  </div>
-  <div class="source-line">Source: Bureau of Labor Statistics</div>
-</div>
-
-<div class="slide" id="slide-16">
-  <div class="section-label">THESIS A &mdash; GLOBAL</div>
-  <div class="slide-title">This is not just the US</div>
-  <div class="slide-subtitle">Japan and the UK are repricing long-run constraints</div>
-  <div class="chart-area" id="japan-uk-container">
-    <button class="chart-download-btn" onclick="downloadChart('japanUkChart','MI_japan_uk_yields.png')" title="Download as PNG">&darr;</button>
-    <canvas id="japanUkChart"></canvas>
-  </div>
-  <div class="source-line">Source: FRED, Bank of Japan, Bank of England</div>
-</div>
-
-<div class="slide" id="slide-17">
-  <div class="section-label">THESIS A &mdash; POLICY</div>
-  <div class="slide-title">Policy volatility is a tax on nominal assets and a subsidy to real ones</div>
-  <div class="body-text" style="margin-top:12px;">When fiscal space narrows, every incremental shock forces larger tradeoffs &mdash; tariffs, subsidies, export controls, energy policy swings. Markets still price these as episodic. We believe they're structural.</div>
-  <div class="body-text">Over time, persistent policy volatility compresses duration and expands the value of optionality embedded in real assets and supply chain control points.</div>
-</div>
-
-<div class="slide" id="slide-18">
-  <div class="slide-divider">
-    <div class="divider-title">THE CASE FOR REAL ASSETS</div>
-    <div class="divider-subtitle">Scarcity plus credibility</div>
-  </div>
-</div>
-
-<div class="slide" id="slide-19">
-  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
-  <div class="slide-title">Gold has overtaken Treasuries in central bank reserves</div>
-  <div class="chart-area" id="gold-treasuries-container">
-    <button class="chart-download-btn" onclick="downloadChart('goldTreasuriesChart','MI_gold_vs_treasuries.png')" title="Download as PNG">&darr;</button>
-    <canvas id="goldTreasuriesChart"></canvas>
-  </div>
-  <div class="source-line">Source: IMF, Department of Treasury</div>
-</div>
-
-<div class="slide" id="slide-20">
-  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
-  <div class="slide-title">Central banks bought 1,000+ tonnes per year for three consecutive years</div>
-  <div class="slide-subtitle">Annual net change in central-bank gold holdings (tonnes)</div>
-  <div class="chart-area" id="cb-gold-container">
-    <button class="chart-download-btn" onclick="downloadChart('cbGoldChart','MI_cb_gold_purchases.png')" title="Download as PNG">&darr;</button>
-    <canvas id="cbGoldChart"></canvas>
-  </div>
-  <div class="source-line">Source: World Gold Council, Gold Demand Trends FY2025</div>
-  <div class="small-note">2025 figure reflects full-year data (863t). Net purchases include reported and estimated unreported activity.</div>
-</div>
-
-<div class="slide" id="slide-21">
-  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
-  <div class="slide-title">Priced in gold, US equities have made no progress since the GFC</div>
-  <div class="chart-area" id="sp-gold-container">
-    <button class="chart-download-btn" onclick="downloadChart('spGoldChart','MI_sp500_gold_ratio.png')" title="Download as PNG">&darr;</button>
-    <canvas id="spGoldChart"></canvas>
-  </div>
-  <div class="source-line">Source: Bloomberg</div>
-</div>
-
-<div class="slide" id="slide-22">
-  <div class="section-label">REAL ASSETS &mdash; GOLD</div>
-  <div class="slide-title">The gold-real yield relationship broke in 2022</div>
-  <div class="slide-subtitle">Gold is now priced as a hedge against institutional risk, not rates</div>
-  <div class="chart-area" id="gold-yield-container">
-    <button class="chart-download-btn" onclick="downloadChart('goldYieldChart','MI_gold_vs_real_yield.png')" title="Download as PNG">&darr;</button>
-    <canvas id="goldYieldChart"></canvas>
-  </div>
-  <div class="source-line">Source: Federal Reserve, Bloomberg</div>
-</div>
-
-<div class="slide" id="slide-23">
-  <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
-  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-    <div class="giant-number">29 years</div>
-    <div class="slide-subtitle" style="font-size:20px;margin-bottom:32px;">Average time from discovery to production for a US mine</div>
-    <div class="card-row">
-      <div class="stat-card">
-        <div class="stat-number">24.1 yrs</div>
-        <div class="stat-label">Copper &mdash; global average</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">31.8 yrs</div>
-        <div class="stat-label">Copper &mdash; United States</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">34 yrs</div>
-        <div class="stat-label">Zambia &mdash; longest globally</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="slide-24">
-  <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
-  <div class="slide-title">Even if every announced project proceeds, copper supply meets ~70% of demand by 2035</div>
-  <div class="chart-area" id="copper-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('copperChart','MI_copper_supply_demand.png')" title="Download as PNG">&darr;</button>
-    <canvas id="copperChart"></canvas>
-  </div>
-  <div class="source-line">Source: BloombergNEF</div>
-</div>
-
-<div class="slide" id="slide-25">
-  <div class="section-label">REAL ASSETS &mdash; CONCENTRATION RISK</div>
-  <div class="slide-title">China refines 19 of the 20 strategic minerals the IEA tracks</div>
-  <div class="slide-subtitle">Average market share: ~70%. Gallium: 98.7%. Magnesium: 95%. Rare earths: ~90%.</div>
-  <div class="chart-area" id="minerals-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('mineralsChart','MI_critical_minerals.png')" title="Download as PNG">&darr;</button>
-    <canvas id="mineralsChart"></canvas>
-  </div>
-  <div class="source-line">Source: Various. See IEA Critical Minerals report.</div>
-</div>
-
-<div class="slide" id="slide-26">
-  <div class="section-label">REAL ASSETS &mdash; DEMAND</div>
-  <div class="slide-title">Lithium demand rose 30% in 2024 alone</div>
-  <div class="slide-subtitle">Under transition scenarios, critical mineral demand triples by 2030 and quadruples by 2040</div>
-  <div class="chart-area" id="mineral-demand-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('mineralDemandChart','MI_mineral_demand.png')" title="Download as PNG">&darr;</button>
-    <canvas id="mineralDemandChart"></canvas>
-  </div>
-  <div class="source-line">Source: IEA World Energy Outlook / Critical Minerals report</div>
-</div>
-
-<div class="slide" id="slide-27">
-  <div class="slide-divider">
-    <div class="divider-title">AI AS PRODUCTIVE INFRASTRUCTURE</div>
-    <div class="divider-subtitle">The commoditization of cognitive labor</div>
-  </div>
-</div>
-
-<div class="slide" id="slide-28">
-  <div class="section-label">THESIS B &mdash; SCALING</div>
-  <div class="slide-title">The task horizon is doubling every 7 months</div>
-  <div class="slide-subtitle">METR-Horizon v1.1 &mdash; GPT-5.2 can now complete tasks that take humans ~6.5 hours</div>
-  <div class="chart-area"><canvas id="chart-metr"></canvas></div>
-  <div class="source-line">Source: METR Horizon v1.1 benchmark; p50 = median task duration where AI succeeds 50% of the time</div>
-</div>
-
-<div class="slide" id="slide-29">
-  <div class="section-label">THESIS B &mdash; CAPABILITY</div>
-  <div class="slide-title">Harder benchmarks show capabilities still climbing steeply</div>
-  <div class="slide-subtitle">Frontier running max on non-saturated benchmarks &mdash; FrontierMath went from 1% to 41% in 18 months</div>
-  <div class="chart-area"><canvas id="chart-eci"></canvas></div>
-  <div class="source-line">Source: Epoch AI Capabilities Index (ECI); performance = best-ever score as of each month</div>
-</div>
-
-<div class="slide" id="slide-30">
-  <div class="section-label">AI PRODUCTIVE INFRASTRUCTURE &mdash; ADOPTION</div>
-  <div class="slide-title">900M weekly users in under 3 years</div>
-  <div class="slide-subtitle">ChatGPT weekly active users &mdash; fastest consumer technology adoption in history</div>
-  <div class="chart-area"><canvas id="chart-ai-usage"></canvas></div>
-  <div class="source-line">Source: OpenAI; Epoch AI</div>
-</div>
-
-
-<div class="slide" id="slide-31">
-  <div class="section-label">AI PRODUCTIVE INFRASTRUCTURE &mdash; BUSINESS</div>
-  <div class="slide-title">AI revenue is scaling at unprecedented speed</div>
-  <div class="slide-subtitle">OpenAI: $28M &rarr; $20B in 3 years. Anthropic: $100M &rarr; $9B in 2 years.</div>
-  <div class="chart-area"><canvas id="chart-ai-revenue"></canvas></div>
-  <div class="source-line">Source: Epoch AI; company disclosures; The Information; Bloomberg; CNBC</div>
-</div>
-
-<div class="slide" id="slide-32">
-  <div class="section-label">THESIS B &mdash; COMPUTE SPEND</div>
-  <div class="slide-title">AI lab compute spend is doubling every year</div>
-  <div class="slide-subtitle">Total cloud compute spend by company &mdash; training + inference (excludes one-off datacenter payments)</div>
-  <div class="chart-area"><canvas id="chart-ai-compute-spend"></canvas></div>
-  <div class="source-line">Source: Epoch AI; The Information; company disclosures</div>
-</div>
-
-<div class="slide" id="slide-33">
-  <div class="section-label">THESIS B &mdash; COMPUTE</div>
-  <div class="slide-title">Training compute has grown 10 orders of magnitude since 2017</div>
-  <div class="slide-subtitle">Frontier language models: from ~10<sup>21</sup> FLOP to ~5&times;10<sup>26</sup> FLOP in 8 years</div>
-  <div class="chart-area"><canvas id="chart-training-compute"></canvas></div>
-  <div class="source-line">Source: Epoch AI Notable AI Models database</div>
-</div>
-
-<div class="slide" id="slide-34">
-  <div class="section-label">THESIS B &mdash; AI COMPUTE</div>
-  <div class="slide-title">Training costs have crossed $500M &mdash; approaching $1B per run</div>
-  <div class="slide-subtitle">Estimated training compute cost in 2023 USD for notable AI models (2012&ndash;2025)</div>
-  <div class="chart-area"><canvas id="chart-training-cost"></canvas></div>
-  <div class="source-line">Source: Epoch AI Notable AI Models database; costs in 2023 USD</div>
-</div>
-
-
-<div class="slide" id="slide-35">
-  <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
-  <div class="slide-title">Each GPU generation unlocks a new frontier of training scale</div>
-  <div class="slide-subtitle">GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72</div>
-  <div class="chart-area"><canvas id="chart-gpu-generations"></canvas></div>
-  <div class="source-line">Source: OpenAI, NVIDIA, SemiAnalysis, The Information; cluster sizes are best public estimates</div>
-</div>
-
-
-<div class="slide" id="slide-36">
-  <div class="section-label">THESIS B &mdash; HARDWARE</div>
-  <div class="slide-title">32&times; more chips shipped in three years</div>
-  <div class="stat-row-label" style="margin-top:18px;">AI ACCELERATORS SHIPPED (H100 EQUIV.)</div>
-  <div class="card-row">
-    <div class="stat-card"><div class="stat-number">310K</div><div class="stat-label">2022</div></div>
-    <div class="stat-card"><div class="stat-number">1.4M</div><div class="stat-label">2023</div></div>
-    <div class="stat-card"><div class="stat-number">5.5M</div><div class="stat-label">2024</div></div>
-    <div class="stat-card"><div class="stat-number">10M+</div><div class="stat-label">2025</div></div>
-  </div>
-  <div class="stat-row-label">ASSOCIATED CHIP COST</div>
-  <div class="card-row">
-    <div class="stat-card"><div class="stat-number">$11B</div><div class="stat-label">2022</div></div>
-    <div class="stat-card"><div class="stat-number">$37B</div><div class="stat-label">2023</div></div>
-    <div class="stat-card"><div class="stat-number">$113B</div><div class="stat-label">2024</div></div>
-    <div class="stat-card"><div class="stat-number">$143B</div><div class="stat-label">2025</div></div>
-  </div>
-  <div class="small-note" style="margin-top:8px;">5.96 GW shipped chip power draw in 2025 &mdash; roughly six large nuclear plants.</div>
-  <div class="chart-area" id="hardware-chart-container" style="flex: 1; min-height: 120px; margin-top: 12px;">
-    <button class="chart-download-btn" onclick="downloadChart('hardwareChart','MI_hardware_shipments.png')" title="Download as PNG">&darr;</button>
-    <canvas id="hardwareChart"></canvas>
-  </div>
-</div>
-
-<div class="slide" id="slide-37">
-  <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
-  <div class="slide-title">Hyperscaler capex is entering escape velocity</div>
-  <div class="slide-subtitle">Microsoft, Meta, Alphabet and Amazon are expected to spend &gt;$600B this year &mdash; almost double the ~$350B spent last year</div>
-  <div class="chart-area"><canvas id="chart-hyperscaler-capex"></canvas></div>
-  <div class="source-line">Source: Company earnings (Q4 2025 / Q2 FY2026); 2026E = company guidance (META, GOOGL, AMZN) &amp; Bloomberg consensus (MSFT)</div>
-</div>
-
-
-<div class="slide" id="slide-38">
-  <div class="section-label">THESIS B &mdash; INFRASTRUCTURE</div>
-  <div class="slide-title">The datacenter buildout is at megaproject scale</div>
-  <div class="stat-row-label" style="margin-top:14px;">OPERATIONAL POWER (GW)</div>
-  <div class="card-row">
-    <div class="stat-card"><div class="stat-number">0.8</div><div class="stat-label">2023</div></div>
-    <div class="stat-card"><div class="stat-number">4.5</div><div class="stat-label">2025</div></div>
-    <div class="stat-card"><div class="stat-number">21</div><div class="stat-label">2029</div></div>
-  </div>
-  <div class="stat-row-label">ASSOCIATED CAPEX</div>
-  <div class="card-row">
-    <div class="stat-card"><div class="stat-number">$26B</div><div class="stat-label">2023</div></div>
-    <div class="stat-card"><div class="stat-number">$138B*</div><div class="stat-label">2025</div></div>
-    <div class="stat-card"><div class="stat-number">$646B</div><div class="stat-label">2029</div></div>
-  </div>
-  <div class="chart-area" id="frontier-power-container" style="height:200px;">
-    <button class="chart-download-btn" onclick="downloadChart('frontierPowerChart','MI_frontier_datacenter_power.png')" title="Download as PNG">&darr;</button>
-    <canvas id="frontierPowerChart"></canvas>
-  </div>
-  <div class="source-line">Source: Epoch AI</div>
-</div>
-
-<div class="slide" id="slide-39">
-  <div class="section-label">THESIS B &mdash; POWER</div>
-  <div class="slide-title">US datacenter load doubles to 130 GW by 2030</div>
-  <div class="slide-subtitle">62 GW consumed in 2025 &mdash; PJM capacity market prices up 10&times; in two years ($29 &rarr; $329 / MW-day)</div>
-  <div class="chart-area">
-    <canvas id="datacenterCapacityChart"></canvas>
-  </div>
-  <div class="source-line">Source: Energy Institute, JPMAM, PJM Interconnection</div>
-</div>
-
-<div class="slide" id="slide-40">
-  <div class="section-label">THESIS B &mdash; POWER</div>
-  <div class="slide-title">Interconnection queues stretch 5&ndash;7 years</div>
-  <div class="slide-subtitle">The grid cannot accommodate the demand without massive new investment</div>
-  <div class="chart-area" id="interconnection-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('interconnectionChart','MI_interconnection_queue.png')" title="Download as PNG">&darr;</button>
-    <canvas id="interconnectionChart"></canvas>
-  </div>
-  <div class="source-line">Source: Lawrence Berkeley National Lab, PJM, EIA</div>
-</div>
-
-<div class="slide" id="slide-41">
-  <div class="section-label">THESIS B &mdash; SUPPLY CHAIN</div>
-  <div class="slide-title">GPU supply is a packaging story, not just a wafer story</div>
-  <div class="slide-subtitle">CoWoS + HBM = the second chokepoint</div>
-  <div class="card-row" style="margin-top:12px;">
-    <div class="card">
-      <div class="card-label">CoWoS PACKAGING</div>
-      <div class="card-text">TSMC dominant supplier. Integrates GPU die + HBM stacks via silicon interposer. Despite record capex, capacity remains supply-constrained. Packaging throughput gates finished accelerator output.</div>
-    </div>
-    <div class="card">
-      <div class="card-label">HIGH-BANDWIDTH MEMORY</div>
-      <div class="card-text">SK Hynix + Samsung oligopoly. Each GPU generation requires more HBM per chip. Blackwell &gt; Hopper. Rubin &gt; Blackwell. Lead times extending, allocation tightening.</div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="slide-42">
-  <div class="section-label">THESIS B &mdash; ECONOMICS</div>
-  <div class="slide-title">Inference is 45% of compute spend and growing</div>
-  <div class="slide-subtitle">Agentic workloads turn every task into hours of sustained reasoning</div>
-  <div class="body-text">Efficiency gains accelerate total consumption &mdash; a Jevons dynamic. As usage shifts from simple queries to autonomous multi-step operation, inference becomes the dominant share of compute expenditure. The capital intensity of AI compounds with deployment as long as demand grows faster than the reduced cost of inference.</div>
-  <div class="chart-area" id="training-inference-container" style="height:220px;">
-    <button class="chart-download-btn" onclick="downloadChart('trainingInferenceChart','MI_training_vs_inference.png')" title="Download as PNG">&darr;</button>
-    <canvas id="trainingInferenceChart"></canvas>
-  </div>
-  <div class="source-line">Source: Semi Analysis, company disclosures, Epoch AI</div>
-</div>
-
-<div class="slide" id="slide-43">
-  <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
-  <div class="slide-title">Margin accrues to bottlenecks, not the most visible layer</div>
-  <div style="margin-top:14px;">
-    <div class="card" style="margin-bottom:10px;">
-      <div class="card-label">APPLICATION / PLATFORM</div>
-      <div class="card-text">Largest upside, most competitive. Margin protected by distribution, data, workflow lock-in.</div>
-    </div>
-    <div class="card" style="margin-bottom:10px;">
-      <div class="card-label">DATA CENTERS</div>
-      <div class="card-text">Hybrid &mdash; moat migrates from space to power + interconnection + speed to deliver.</div>
-    </div>
-    <div class="card" style="margin-bottom:10px;">
-      <div class="card-label">POWER &amp; GRID INFRASTRUCTURE</div>
-      <div class="card-text">Contracted, regulated. Quasi-bond cash flows with equity upside. Capacity markets + long-term PPAs.</div>
-    </div>
-    <div class="card" style="margin-bottom:10px;">
-      <div class="card-label">SEMICONDUCTORS &mdash; FAB &middot; CoWoS &middot; HBM</div>
-      <div class="card-text">Scarcity rent: allocation pricing, persistent gross margin expansion, contracted demand.</div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="slide-44">
-  <div class="slide-divider">
-    <div class="divider-title">WHY THESE FORCES COMPOUND</div>
-    <div class="divider-subtitle">The intersection of regime shift and AI infrastructure</div>
-  </div>
-</div>
-
-<div class="slide" id="slide-45">
-  <div class="section-label">INTERSECTION</div>
-  <div class="slide-title">AI is deflationary in cognition. Inflationary in everything it needs to run.</div>
-  <div class="body-text" style="margin-top:12px;">Electricity. Copper. Grid hardware. Aluminum. Advanced packaging. Specialized memory. All in a system where permitting, geopolitics, and supply chain concentration constrain elasticity.</div>
-  <div class="chart-area" id="ai-demand-container">
-    <button class="chart-download-btn" onclick="downloadChart('aiDemandChart','MI_ai_demand_inputs.png')" title="Download as PNG">&darr;</button>
-    <canvas id="aiDemandChart"></canvas>
-  </div>
-  <div class="source-line">Source: IEA, McKinsey, Goldman Sachs commodity research</div>
-</div>
-
-<div class="slide" id="slide-46">
-  <div class="section-label">INTERSECTION &mdash; LABOR</div>
-  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-    <div class="giant-number">49%</div>
-    <div class="slide-subtitle" style="font-size:18px;">of occupations now involve AI across at least a quarter of their tasks</div>
-    <div class="body-text">Up from 36% in early 2025. The trend favors full task delegation over collaboration.</div>
-    <div class="chart-area" id="anthropic-index-container" style="height:240px;">
-      <button class="chart-download-btn" onclick="downloadChart('anthropicIndexChart','MI_anthropic_index.png')" title="Download as PNG">&darr;</button>
-      <canvas id="anthropicIndexChart"></canvas>
-    </div>
-    <div class="source-line">Source: Anthropic Economic Index</div>
-  </div>
-</div>
-
-<div class="slide" id="slide-47">
-  <div class="section-label">INTERSECTION &mdash; FISCAL</div>
-  <div class="slide-title">There is no fiscally neutral path through AI displacement</div>
-  <div class="card-row" style="margin-top:14px;">
-    <div class="card">
-      <div class="card-label">WORKFORCE ADJUSTMENT</div>
-      <div class="card-text">Automation Adjustment Assistance, compute taxes, token-generation levies &mdash; all with escalation mechanisms tied to displacement pace.</div>
-    </div>
-    <div class="card">
-      <div class="card-label">INCOME SUPPORT</div>
-      <div class="card-text">UBI proposals, sovereign wealth funds, AI-funded citizen dividends. Each requires new claims: automation taxes, data rents, equity participation.</div>
-    </div>
-    <div class="card">
-      <div class="card-label">INDUSTRIAL POLICY</div>
-      <div class="card-text">AI as national security terrain. China: ~$900B on AI over the past decade. Subsidy and procurement commitments embedded in structural budgets indefinitely.</div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="slide-48">
-  <div class="section-label">INTERSECTION &mdash; ENDGAME</div>
-  <div class="slide-title">Every prior episode of sovereign overextension at this scale resolved through financial repression</div>
-  <div class="body-text" style="margin-top:12px;">Real rates held below nominal growth, transferring wealth from holders of nominal claims to the government.</div>
-  <div class="slide-hr"></div>
-  <div class="body-text">The same physical bottlenecks, energy assets, and supply-constrained materials that capture value from the AI buildout constitute the natural hedge against the monetary regime that the buildout's sociopolitical consequences will produce.</div>
-  <div class="card-row" style="margin-top:16px;">
-    <div class="stat-card">
-      <div class="stat-label" style="font-size:13px;"><strong>OECD working-age pop:</strong><br>&minus;8% by 2060</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label" style="font-size:13px;"><strong>US-born working-age</strong><br>shrinks every year to 2035</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label" style="font-size:13px;"><strong>Demographics reduce global growth</strong><br>~1.1pp/yr through 2050</div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="slide-49">
-  <div class="slide-divider">
-    <div class="divider-title">PORTFOLIO CONSTRUCTION</div>
-    <div class="divider-subtitle">Built to compound through volatility</div>
-  </div>
-</div>
-
-<div class="slide" id="slide-50">
-  <div class="section-label">PORTFOLIO</div>
-  <div class="slide-title">Built to compound through volatility, not avoid it</div>
-  <div class="body-text" style="margin-top:14px;">Long-duration structure. No redemption pressure. Concentrated positions across public equities, commodities, and real asset-linked infrastructure.</div>
-  <div class="body-text">Conviction is high, but conditional. We expect significant volatility as markets oscillate between pricing the AI buildout as a bubble and pricing it as an inevitability, and as macro conditions generate episodic dislocations across rate, currency, and commodity complexes.</div>
-  <div class="chart-placeholder" style="height:240px;"><span>Chart: Portfolio allocation breakdown</span></div>
-</div>
-
-<div class="slide" id="slide-51">
-  <div class="section-label">PORTFOLIO &mdash; LEADING INDICATORS</div>
-  <div class="slide-title">What we track</div>
-  <div class="card-row" style="margin-top:14px;">
-    <div class="card">
-      <div class="card-label">AI BUILDOUT</div>
-      <ul class="bullet-list">
-        <li>Hyperscaler capex trajectories</li>
-        <li>Datacenter energization rates</li>
-        <li>Packaging &amp; memory lead times</li>
-        <li>Capacity market pricing</li>
-        <li>Agentic AI adoption in enterprise</li>
-        <li>AI capability advancements</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-label">MACRO REGIME</div>
-      <ul class="bullet-list">
-        <li>Term premium dynamics</li>
-        <li>Sovereign debt trajectory vs GDP</li>
-        <li>Real rate behavior across G7</li>
-        <li>Capital Flows</li>
-        <li>Commodity supply response</li>
-        <li>Industrial Policy (Tariffs, strategic reserves)</li>
-        <li>Central Banks Policies and Balance Sheets</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="slide-52">
-  <div class="section-label">PORTFOLIO &mdash; PROCESS</div>
-  <div class="slide-title">How we underwrite</div>
-  <div class="body-text" style="margin-top:14px;">Cost curves. Reinvestment rates. Incremental returns on capital. Free cash flow sensitivity to volume and price across the cycle.</div>
-  <div class="body-text">Balance sheet structure is co-equal with operating quality. Scarcity rents are most valuable during dislocations &mdash; a forced seller cannot capture them.</div>
-  <div class="body-text">Capital allocation discipline is a first-order variable. The historical base rate for value destruction through pro-cyclical overbuilding in commodity and infrastructure businesses is high enough to constitute a structural risk.</div>
-  <div class="slide-hr"></div>
-  <div class="body-text italic-accent">"Exit discipline is valuation-driven. Every constraint eventually attracts the capital that resolves it. We own the period of maximum rent extraction."</div>
-</div>
-
-<div class="slide" id="slide-53">
+<div class="slide" id="slide-55">
   <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center; max-width:900px; margin:0 auto;">
     <div style="font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--teal); margin-bottom:24px;">CLOSING</div>
     <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--navy); margin-bottom:48px; line-height:1.2;">What if we are right?</div>
@@ -1363,14 +1393,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 <!-- Controls -->
 <div class="controls">
   <button class="fs-btn" onclick="toggleFullscreen()" title="Press F">&#9723; Fullscreen</button>
-  <div class="slide-counter" id="slideCounter">1 / 53</div>
+  <div class="slide-counter" id="slideCounter">1 / 55</div>
 </div>
 
 <script>
 // ==========================
 // PRESENTATION ENGINE
 // ==========================
-const TOTAL_SLIDES = 53;
+const TOTAL_SLIDES = 55;
 let currentSlide = 1;
 let isAnimating = false;
 
