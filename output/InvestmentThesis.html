@@ -518,7 +518,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         </div>
       </div>
       <div class="card" style="flex:1;">
-        <div class="card-label">THE ENGINE &mdash; THEMATIC ALPHA (~55%)</div>
+        <div class="card-label">THE ENGINE &mdash; STRUCTURAL LONG PORTFOLIO (~55%)</div>
         <div class="card-text">Deployed into secular macro shifts with decade-long runways. Commodities, infrastructure, real assets, and technology positions designed to capture asymmetric upside from structural change.</div>
         <div class="card-text" style="margin-top:8px; font-size:12px; color:var(--navy);">
           <strong>Permitted:</strong> Equities, ETFs, bonds, commodities, FX, futures, options, crypto<br>
@@ -549,7 +549,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 <div class="slide" id="slide-3">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">How capital flows through the structure</div>
-  <div class="slide-subtitle">100% equity acquisition &rarr; 55% LTV cash-out refinance &rarr; net deployment to thematic alpha</div>
+  <div class="slide-subtitle">100% equity acquisition &rarr; 55% LTV cash-out refinance &rarr; net deployment to structural long portfolio</div>
   <div class="chart-area"><canvas id="chart-capital-waterfall"></canvas></div>
   <div class="source-line">Illustrative deployment &middot; $20M LP capital &middot; Upfront costs include formation, acquisition, and origination fees</div>
 </div>
@@ -557,15 +557,15 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 <div class="slide" id="slide-4">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">Scenario analysis</div>
-  <div class="slide-subtitle">Adjust assumptions to model projected returns over the 10-year fund life</div>
+  <div class="slide-subtitle">Adjust assumptions to model projected returns &middot; NOI escalates 2% annually (NNN lease) &middot; 10-year fund life</div>
   <div class="scenario-slider-group">
     <div class="scenario-slider">
-      <label>RE Appreciation</label>
-      <div class="slider-value" id="val-re">3.0%</div>
-      <input type="range" id="slider-re" min="0" max="8" step="0.5" value="3">
+      <label>Exit Cap Rate (Yr 10)</label>
+      <div class="slider-value" id="val-re">6.0%</div>
+      <input type="range" id="slider-re" min="4" max="10" step="0.25" value="6">
     </div>
     <div class="scenario-slider">
-      <label>Alpha Return</label>
+      <label>Structural Long Return</label>
       <div class="slider-value" id="val-alpha">12.0%</div>
       <input type="range" id="slider-alpha" min="0" max="25" step="0.5" value="12">
     </div>
@@ -642,7 +642,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       <div class="card-label">BENCHMARKS</div>
       <div class="card-text" style="font-size:13px; line-height:2.0;">
         <strong style="color:var(--navy);">Real Estate (~45%):</strong> NCREIF Property Index<br>
-        <strong style="color:var(--navy);">Thematic Alpha (~55%):</strong> S&P 500 Total Return<br>
+        <strong style="color:var(--navy);">Structural Long Portfolio (~55%):</strong> S&P 500 Total Return<br>
         <strong style="color:var(--navy);">Fund Level:</strong> Weighted composite<br>
         <strong style="color:var(--navy);">Reporting:</strong> Quarterly NAV + annual letter<br>
         <strong style="color:var(--navy);">Access:</strong> Direct LP-to-GP communication
@@ -662,7 +662,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         <strong style="color:var(--navy);">Property value decline</strong> &mdash; affecting refinancing ability<br>
         <strong style="color:var(--navy);">Tenant default</strong> &mdash; loss of contractual cash flow<br>
         <strong style="color:var(--navy);">Interest rate risk</strong> &mdash; balloon refinancing at Year 10<br>
-        <strong style="color:var(--navy);">Market risk</strong> &mdash; across thematic alpha positions<br>
+        <strong style="color:var(--navy);">Market risk</strong> &mdash; across structural long portfolio positions<br>
         <strong style="color:var(--navy);">Crypto / FX volatility</strong> &mdash; position-level drawdowns<br>
         <strong style="color:var(--navy);">Structural leverage</strong> &mdash; through real estate debt
       </div>
@@ -679,7 +679,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       </div>
     </div>
   </div>
-  <div class="body-text" style="margin-top:auto;"><strong class="bold-accent">The real estate collar creates a structural floor. The thematic alpha portfolio creates the upside.</strong></div>
+  <div class="body-text" style="margin-top:auto;"><strong class="bold-accent">The real estate collar creates a structural floor. The structural long portfolio creates the upside.</strong></div>
 </div>
 
 <div class="slide" id="slide-7">
@@ -1312,7 +1312,7 @@ function downloadChart(canvasId, filename) {
   new Chart(c, {
     type: 'doughnut',
     data: {
-      labels: ['RE Equity (45%)', 'Thematic Alpha (51%)', 'Costs (4%)'],
+      labels: ['RE Equity (45%)', 'Structural Long Portfolio (51%)', 'Costs (4%)'],
       datasets: [{
         data: [9.0, 10.18, 0.82],
         backgroundColor: ['#2a7a8c', '#0d2137', '#8a96a0'],
@@ -1368,33 +1368,40 @@ function downloadChart(canvasId, filename) {
   var sCap = document.getElementById('slider-cap');
   if (!sRE || !sAlpha || !sLoan || !sCap) return;
 
-  function calc(reA, alphaR, loanR, capR) {
+  function calc(exitCap, slReturn, loanR, entryCap) {
     var lp = 20, prop = 20, loan = prop * 0.55, costs = 0.82;
-    var alpha0 = loan - costs, feeRate = 0.02, tRate = 0.04;
+    var sl0 = loan - costs, feeRate = 0.02, tRate = 0.04, noiGr = 0.02;
+    var noi0 = prop * entryCap; // Year 1 NOI from entry cap rate
     var mr = loanR / 12, np = 360;
     var mp = loan * mr * Math.pow(1 + mr, np) / (Math.pow(1 + mr, np) - 1);
     var aDS = mp * 12;
-    var navH = [], reH = [], alphaH = [];
-    var reV = prop, aV = alpha0, cash = 0, lb = loan;
-    navH.push(reV + aV + cash - lb);
-    reH.push(reV - lb);
-    alphaH.push(aV + cash);
+    var navH = [], reH = [], slH = [];
+    var slV = sl0, cash = 0, lb = loan;
+    navH.push(prop + slV + cash - lb);
+    reH.push(prop - lb);
+    slH.push(slV + cash);
     for (var y = 1; y <= 10; y++) {
-      reV *= (1 + reA);
-      var noi = reV * capR;
-      var exNOI = Math.max(0, noi - aDS);
+      var noiY = noi0 * Math.pow(1 + noiGr, y); // NOI escalates 2%/yr
+      var exNOI = Math.max(0, noiY - aDS);
       cash = cash * (1 + tRate) + exNOI;
       var py = y * 12;
       lb = loan * (Math.pow(1 + mr, np) - Math.pow(1 + mr, py)) / (Math.pow(1 + mr, np) - 1);
-      var bNAV = reV + aV + cash - lb;
+      // Interim RE value = current NOI / entry cap rate
+      var reV = noiY / entryCap;
+      var bNAV = reV + slV + cash - lb;
       var fee = Math.max(0, bNAV) * feeRate;
-      aV = aV * (1 + alphaR) - fee;
-      if (aV < 0) aV = 0;
-      navH.push(reV + aV + cash - lb);
-      reH.push(reV - lb);
-      alphaH.push(aV + cash);
+      slV = slV * (1 + slReturn) - fee;
+      if (slV < 0) slV = 0;
+      // Year 10: use exit cap rate for property sale valuation
+      var chartReV = (y === 10) ? (noiY / exitCap) : reV;
+      navH.push(chartReV + slV + cash - lb);
+      reH.push(chartReV - lb);
+      slH.push(slV + cash);
     }
-    var total = reV + aV + cash - lb;
+    // Exit proceeds at Year 10
+    var noi10 = noi0 * Math.pow(1 + noiGr, 10);
+    var exitReV = noi10 / exitCap;
+    var total = exitReV + slV + cash - lb;
     var profit = total - lp;
     var hurdle = lp * (Math.pow(1.08, 10) - 1);
     var carry = 0;
@@ -1407,7 +1414,7 @@ function downloadChart(canvasId, filename) {
     var lProfit = dist - lp;
     var moic = dist / lp;
     var irr = Math.pow(Math.max(0.01, dist) / lp, 0.1) - 1;
-    return { navH: navH, reH: reH, alphaH: alphaH, irr: irr, moic: moic, dist: dist, profit: lProfit };
+    return { navH: navH, reH: reH, alphaH: slH, irr: irr, moic: moic, dist: dist, profit: lProfit };
   }
 
   var chart = new Chart(canvas, {
@@ -1417,7 +1424,7 @@ function downloadChart(canvasId, filename) {
       datasets: [
         { label: 'Total NAV', data: [], borderColor: '#0d2137', backgroundColor: 'rgba(13,33,55,0.06)', borderWidth: 2.5, tension: 0.3, fill: true, pointRadius: 4, pointBackgroundColor: '#0d2137' },
         { label: 'RE Equity', data: [], borderColor: '#2a7a8c', backgroundColor: 'rgba(42,122,140,0.04)', borderWidth: 2, tension: 0.3, fill: true, pointRadius: 3, pointBackgroundColor: '#2a7a8c' },
-        { label: 'Alpha + Cash', data: [], borderColor: '#e67e22', backgroundColor: 'rgba(230,126,34,0.04)', borderWidth: 2, tension: 0.3, fill: true, pointRadius: 3, pointBackgroundColor: '#e67e22' }
+        { label: 'Structural Long + Cash', data: [], borderColor: '#e67e22', backgroundColor: 'rgba(230,126,34,0.04)', borderWidth: 2, tension: 0.3, fill: true, pointRadius: 3, pointBackgroundColor: '#e67e22' }
       ]
     },
     options: {
@@ -1442,15 +1449,15 @@ function downloadChart(canvasId, filename) {
   });
 
   function update() {
-    var re = parseFloat(sRE.value) / 100;
-    var al = parseFloat(sAlpha.value) / 100;
+    var exitCap = parseFloat(sRE.value) / 100;
+    var sl = parseFloat(sAlpha.value) / 100;
     var lo = parseFloat(sLoan.value) / 100;
-    var ca = parseFloat(sCap.value) / 100;
+    var entryCap = parseFloat(sCap.value) / 100;
     document.getElementById('val-re').textContent = parseFloat(sRE.value).toFixed(1) + '%';
     document.getElementById('val-alpha').textContent = parseFloat(sAlpha.value).toFixed(1) + '%';
     document.getElementById('val-loan').textContent = parseFloat(sLoan.value).toFixed(1) + '%';
     document.getElementById('val-cap').textContent = parseFloat(sCap.value).toFixed(1) + '%';
-    var r = calc(re, al, lo, ca);
+    var r = calc(exitCap, sl, lo, entryCap);
     chart.data.datasets[0].data = r.navH;
     chart.data.datasets[1].data = r.reH;
     chart.data.datasets[2].data = r.alphaH;
@@ -1475,7 +1482,7 @@ function downloadChart(canvasId, filename) {
   var c = document.getElementById('chart-capital-waterfall');
   if (!c) return;
 
-  var labels = ['LP Capital', 'Property\nAcquisition', 'Cash-Out\nRefi (55%)', 'Upfront\nCosts', 'Net to\nThematic Alpha'];
+  var labels = ['LP Capital', 'Property\nAcquisition', 'Cash-Out\nRefi (55%)', 'Upfront\nCosts', 'Net to\nStructural Long'];
 
   // Waterfall: base (transparent spacer) + increase (teal) + decrease (coral) + total (navy)
   new Chart(c, {
@@ -1530,7 +1537,7 @@ function downloadChart(canvasId, filename) {
             color: '#0d2137',
             maxRotation: 0,
             callback: function(value, index) {
-              var labels = ['LP Capital', ['Property', 'Acquisition'], ['Cash-Out', 'Refi (55%)'], ['Upfront', 'Costs'], ['Net to', 'Thematic Alpha']];
+              var labels = ['LP Capital', ['Property', 'Acquisition'], ['Cash-Out', 'Refi (55%)'], ['Upfront', 'Costs'], ['Net to', 'Structural Long']];
               return labels[index];
             }
           },
