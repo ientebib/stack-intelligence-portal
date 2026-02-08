@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MI Capital Partners — Investment Thesis</title>
+<title>Novocene Capital — Investment Thesis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -556,10 +556,9 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 <!-- ========== SLIDE 1: TITLE ========== -->
 <div class="slide active" id="slide-1">
   <div class="title-slide">
-    <div class="title-main">INVESTMENT THESIS</div>
+    <div class="title-main">NOVOCENE CAPITAL</div>
     <div class="title-underline"></div>
-    <div class="title-sub1">Regime Shift &times; AI Infrastructure</div>
-    <div class="title-sub2">A Dual-Thesis Macro Portfolio</div>
+    <div class="title-sub2">A dual-thesis macro portfolio collateralized with real estate</div>
     <div class="title-confidential">CONFIDENTIAL &middot; FEBRUARY 2026</div>
   </div>
 </div>
@@ -808,9 +807,12 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-14">
   <div class="section-label">THESIS A &mdash; POLICY</div>
-  <div class="slide-title">Policy volatility is a tax on nominal assets and a subsidy to real ones</div>
-  <div class="body-text" style="margin-top:12px;">When fiscal space narrows, every incremental shock forces larger tradeoffs &mdash; tariffs, subsidies, export controls, energy policy swings. Markets still price these as episodic. We believe they're structural.</div>
-  <div class="body-text">Over time, persistent policy volatility compresses duration and expands the value of optionality embedded in real assets and supply chain control points.</div>
+  <div class="slide-title">Policy uncertainty is structural, not episodic</div>
+  <div class="chart-area" id="epu-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('epuChart','Novocene_policy_uncertainty.png')" title="Download as PNG">&darr;</button>
+    <canvas id="epuChart"></canvas>
+  </div>
+  <div class="source-line">Source: Baker, Bloom &amp; Davis &middot; Economic Policy Uncertainty Index &middot; policyuncertainty.com</div>
 </div>
 
 <div class="slide" id="slide-15">
@@ -865,24 +867,30 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-20">
   <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
-  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-    <div class="giant-number">29 years</div>
-    <div class="slide-subtitle" style="font-size:20px;margin-bottom:32px;">Average time from discovery to production for a US mine</div>
-    <div class="card-row">
-      <div class="stat-card">
-        <div class="stat-number">24.1 yrs</div>
-        <div class="stat-label">Copper &mdash; global average</div>
+  <div class="slide-title">Mine development timelines have tripled in three decades</div>
+  <div class="slide-subtitle">Even if demand signals are clear today, new supply cannot respond for 18&ndash;29 years</div>
+  <div style="flex:1; min-height:0; display:flex; gap:24px;">
+    <div style="flex:3; display:flex; flex-direction:column;">
+      <div class="chart-area" style="flex:1;">
+        <canvas id="chart-mine-lead"></canvas>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">31.8 yrs</div>
-        <div class="stat-label">Copper &mdash; United States</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:10px; justify-content:center;">
+      <div class="stat-card" style="padding:16px;">
+        <div class="stat-number" style="font-size:28px; color:#c05040;">29 yrs</div>
+        <div class="stat-label">US average &mdash; all minerals</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">34 yrs</div>
+      <div class="stat-card" style="padding:16px;">
+        <div class="stat-number" style="font-size:28px;">31.8 yrs</div>
+        <div class="stat-label">US copper specifically</div>
+      </div>
+      <div class="stat-card" style="padding:16px;">
+        <div class="stat-number" style="font-size:28px;">34 yrs</div>
         <div class="stat-label">Zambia &mdash; longest globally</div>
       </div>
     </div>
   </div>
+  <div class="source-line">Source: S&amp;P Global Market Intelligence &middot; Study of 268 mines across 23 countries (2024)</div>
 </div>
 
 <div class="slide" id="slide-21">
@@ -924,7 +932,110 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
+
 <div class="slide" id="slide-25">
+  <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
+  <div class="slide-title">The AI value chain: from mining to inference</div>
+  <div class="slide-subtitle">Every layer depends on physically constrained inputs &mdash; bottlenecks compound upstream</div>
+  <div style="flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; gap:16px; margin-top:4px;">
+    <!-- Main flow -->
+    <div style="display:flex; align-items:stretch; gap:0; padding:0 8px;">
+      <!-- Step 1: Mining -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative;">
+        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#c05040,#d06050); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(192,80,64,0.25);">
+          <span style="font-size:24px;">&#9935;</span>
+        </div>
+        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">MINING</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">Copper, Lithium<br>Cobalt, REEs</div>
+        <div style="font-family:Inter; font-size:8px; color:#c05040; margin-top:4px; font-weight:600;">29 yr lead time</div>
+      </div>
+      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
+      <!-- Step 2: Refining -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#e67e22,#f09030); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(230,126,34,0.25);">
+          <span style="font-size:24px;">&#9878;</span>
+        </div>
+        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">REFINING</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">Smelting, purification<br>Polysilicon</div>
+        <div style="font-family:Inter; font-size:8px; color:#e67e22; margin-top:4px; font-weight:600;">China: 80% share</div>
+      </div>
+      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
+      <!-- Step 3: Wafers -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#2a7a8c,#3a9aac); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(42,122,140,0.25);">
+          <span style="font-size:22px; color:#fff;">&#11044;</span>
+        </div>
+        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">WAFERS</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">TSMC, Samsung<br>Advanced node fab</div>
+        <div style="font-family:Inter; font-size:8px; color:#2a7a8c; margin-top:4px; font-weight:600;">TSMC: 90% leading</div>
+      </div>
+      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
+      <!-- Step 4: Packaging -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#c05040,#d06050); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(192,80,64,0.25);">
+          <span style="font-size:22px; color:#fff;">&#9649;</span>
+        </div>
+        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">PACKAGING</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">CoWoS + HBM<br>Silicon interposer</div>
+        <div style="font-family:Inter; font-size:8px; color:#c05040; margin-top:4px; font-weight:600;">Key bottleneck</div>
+      </div>
+      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
+      <!-- Step 5: Servers -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#0d2137,#1a3a5c); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(13,33,55,0.25);">
+          <span style="font-size:22px; color:#fff;">&#128421;</span>
+        </div>
+        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">SERVERS</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">GPU racks, networking<br>Power delivery</div>
+        <div style="font-family:Inter; font-size:8px; color:#0d2137; margin-top:4px; font-weight:600;">1+ GW clusters</div>
+      </div>
+      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
+      <!-- Step 6: Data Centers -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#0d2137,#1a3a5c); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(13,33,55,0.25);">
+          <span style="font-size:22px; color:#fff;">&#127970;</span>
+        </div>
+        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">DATA CENTERS</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">Power, cooling<br>Land + permits</div>
+        <div style="font-family:Inter; font-size:8px; color:#0d2137; margin-top:4px; font-weight:600;">$50B+/yr capex</div>
+      </div>
+      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
+      <!-- Step 7: Training -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#2a7a8c,#3a9aac); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(42,122,140,0.25);">
+          <span style="font-size:22px; color:#fff;">&#9881;</span>
+        </div>
+        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">TRAINING</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">Foundation models<br>$1B+ per run</div>
+        <div style="font-family:Inter; font-size:8px; color:#2a7a8c; margin-top:4px; font-weight:600;">10&times;/yr scaling</div>
+      </div>
+      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
+      <!-- Step 8: Inference -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#76b900,#5a9000); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(118,185,0,0.25);">
+          <span style="font-size:22px; color:#fff;">&#128161;</span>
+        </div>
+        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">INFERENCE</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">API serving<br>Agentic workloads</div>
+        <div style="font-family:Inter; font-size:8px; color:#76b900; margin-top:4px; font-weight:600;">45% of spend</div>
+      </div>
+    </div>
+    <!-- Bottom: bottleneck callout bar -->
+    <div style="display:flex; gap:8px; padding:0 8px;">
+      <div style="flex:3; background:rgba(192,80,64,0.08); border:1px solid rgba(192,80,64,0.2); border-radius:8px; padding:10px 16px; display:flex; align-items:center; gap:12px;">
+        <div style="font-family:Inter; font-size:10px; font-weight:700; color:#c05040; letter-spacing:1px; white-space:nowrap;">PHYSICAL BOTTLENECK</div>
+        <div style="font-family:Inter; font-size:12px; color:#0d2137; line-height:1.4;">Mining &rarr; Refining &rarr; Packaging: geographically concentrated, permit-constrained, 2&ndash;5 year expansion cycles. These layers set the ceiling on global AI compute capacity.</div>
+      </div>
+      <div style="flex:2; background:rgba(42,122,140,0.08); border:1px solid rgba(42,122,140,0.2); border-radius:8px; padding:10px 16px; display:flex; align-items:center; gap:12px;">
+        <div style="font-family:Inter; font-size:10px; font-weight:700; color:#2a7a8c; letter-spacing:1px; white-space:nowrap;">INVESTMENT THESIS</div>
+        <div style="font-family:Inter; font-size:12px; color:#0d2137; line-height:1.4;">Margin accrues to supply-constrained layers. Bottleneck owners capture disproportionate value as demand scales exponentially.</div>
+      </div>
+    </div>
+  </div>
+  <div class="source-line">Novocene Capital analysis &middot; Value chain framework</div>
+</div>
+
+<div class="slide" id="slide-26">
   <div class="section-label">THESIS B &mdash; SCALING</div>
   <div class="slide-title">The task horizon is doubling every 7 months</div>
   <div class="slide-subtitle">METR-Horizon v1.1 &mdash; GPT-5.2 can now complete tasks that take humans ~6.5 hours</div>
@@ -932,15 +1043,15 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: METR Horizon v1.1 benchmark; p50 = median task duration where AI succeeds 50% of the time</div>
 </div>
 
-<div class="slide" id="slide-26">
+<div class="slide" id="slide-27">
   <div class="section-label">THESIS B &mdash; CAPABILITY</div>
   <div class="slide-title">Harder benchmarks show capabilities still climbing steeply</div>
-  <div class="slide-subtitle">Frontier running max on non-saturated benchmarks &mdash; FrontierMath went from 1% to 41% in 18 months</div>
+  <div class="slide-subtitle">Frontier running max on non-saturated benchmarks &mdash; SWE-bench broke 80% (Opus 4.5), FrontierMath 1%&rarr;41% in 18 months</div>
   <div class="chart-area"><canvas id="chart-eci"></canvas></div>
   <div class="source-line">Source: Epoch AI Capabilities Index (ECI); performance = best-ever score as of each month</div>
 </div>
 
-<div class="slide" id="slide-27">
+<div class="slide" id="slide-28">
   <div class="section-label">AI PRODUCTIVE INFRASTRUCTURE &mdash; ADOPTION</div>
   <div class="slide-title">900M weekly users in under 3 years</div>
   <div class="slide-subtitle">ChatGPT weekly active users &mdash; fastest consumer technology adoption in history</div>
@@ -949,7 +1060,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-28">
+<div class="slide" id="slide-29">
   <div class="section-label">AI PRODUCTIVE INFRASTRUCTURE &mdash; BUSINESS</div>
   <div class="slide-title">AI revenue is scaling at unprecedented speed</div>
   <div class="slide-subtitle">OpenAI: $28M &rarr; $20B in 3 years. Anthropic: $100M &rarr; $9B in 2 years.</div>
@@ -957,7 +1068,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Epoch AI; company disclosures; The Information; Bloomberg; CNBC</div>
 </div>
 
-<div class="slide" id="slide-29">
+<div class="slide" id="slide-30">
   <div class="section-label">THESIS B &mdash; COMPUTE SPEND</div>
   <div class="slide-title">AI lab compute spend is doubling every year</div>
   <div class="slide-subtitle">Total cloud compute spend by company &mdash; training + inference (excludes one-off datacenter payments)</div>
@@ -965,7 +1076,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Epoch AI; The Information; company disclosures</div>
 </div>
 
-<div class="slide" id="slide-30">
+<div class="slide" id="slide-31">
   <div class="section-label">THESIS B &mdash; COMPUTE</div>
   <div class="slide-title">Training compute has grown 10 orders of magnitude since 2017</div>
   <div class="slide-subtitle">Frontier language models: from ~10<sup>21</sup> FLOP to ~5&times;10<sup>26</sup> FLOP in 8 years</div>
@@ -973,7 +1084,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Epoch AI Notable AI Models database</div>
 </div>
 
-<div class="slide" id="slide-31">
+<div class="slide" id="slide-32">
   <div class="section-label">THESIS B &mdash; AI COMPUTE</div>
   <div class="slide-title">Training costs have crossed $500M &mdash; approaching $1B per run</div>
   <div class="slide-subtitle">Estimated training compute cost in 2023 USD for notable AI models (2012&ndash;2025)</div>
@@ -982,7 +1093,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-32">
+<div class="slide" id="slide-33">
   <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
   <div class="slide-title">Each GPU generation unlocks a new frontier of training scale</div>
   <div class="slide-subtitle">GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72</div>
@@ -991,7 +1102,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-33">
+<div class="slide" id="slide-34">
   <div class="section-label">THESIS B &mdash; HARDWARE</div>
   <div class="slide-title">32&times; more chips shipped in three years</div>
   <div class="stat-row-label" style="margin-top:18px;">AI ACCELERATORS SHIPPED (H100 EQUIV.)</div>
@@ -1015,7 +1126,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-34">
+<div class="slide" id="slide-35">
   <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
   <div class="slide-title">Hyperscaler capex is entering escape velocity</div>
   <div class="slide-subtitle">Microsoft, Meta, Alphabet and Amazon are expected to spend &gt;$600B this year &mdash; almost double the ~$350B spent last year</div>
@@ -1024,7 +1135,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-35">
+<div class="slide" id="slide-36">
   <div class="section-label">THESIS B &mdash; INFRASTRUCTURE</div>
   <div class="slide-title">The datacenter buildout is at megaproject scale</div>
   <div class="stat-row-label" style="margin-top:14px;">OPERATIONAL POWER (GW)</div>
@@ -1046,7 +1157,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Epoch AI</div>
 </div>
 
-<div class="slide" id="slide-36">
+<div class="slide" id="slide-37">
   <div class="section-label">THESIS B &mdash; POWER</div>
   <div class="slide-title">US datacenter load doubles to 130 GW by 2030</div>
   <div class="slide-subtitle">62 GW consumed in 2025 &mdash; PJM capacity market prices up 10&times; in two years ($29 &rarr; $329 / MW-day)</div>
@@ -1056,7 +1167,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Energy Institute, JPMAM, PJM Interconnection</div>
 </div>
 
-<div class="slide" id="slide-37">
+<div class="slide" id="slide-38">
   <div class="section-label">THESIS B &mdash; POWER</div>
   <div class="slide-title">Interconnection queues stretch 5&ndash;7 years</div>
   <div class="slide-subtitle">The grid cannot accommodate the demand without massive new investment</div>
@@ -1067,23 +1178,91 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Lawrence Berkeley National Lab, PJM, EIA</div>
 </div>
 
-<div class="slide" id="slide-38">
+<div class="slide" id="slide-39">
   <div class="section-label">THESIS B &mdash; SUPPLY CHAIN</div>
   <div class="slide-title">GPU supply is a packaging story, not just a wafer story</div>
   <div class="slide-subtitle">CoWoS + HBM = the second chokepoint</div>
-  <div class="card-row" style="margin-top:12px;">
-    <div class="card">
-      <div class="card-label">CoWoS PACKAGING</div>
-      <div class="card-text">TSMC dominant supplier. Integrates GPU die + HBM stacks via silicon interposer. Despite record capex, capacity remains supply-constrained. Packaging throughput gates finished accelerator output.</div>
+  <div style="flex:1; min-height:0; display:flex; flex-direction:column; gap:14px; margin-top:8px;">
+    <!-- GPU Package Anatomy Diagram -->
+    <div style="flex:2; background:linear-gradient(135deg, #f8fafb 0%, #edf4f7 100%); border-radius:14px; padding:24px 32px; display:flex; flex-direction:column; justify-content:center; position:relative; border:1px solid rgba(42,122,140,0.12);">
+      <div style="display:flex; align-items:center; justify-content:center; gap:0; position:relative;">
+        <!-- Substrate -->
+        <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:88%; height:32px; background:linear-gradient(90deg,#b8c4ce,#8a96a0); border-radius:0 0 8px 8px; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:Inter; font-size:10px; font-weight:600; color:#fff; letter-spacing:1.5px;">ORGANIC SUBSTRATE</span>
+        </div>
+        <!-- Silicon Interposer -->
+        <div style="position:absolute; bottom:32px; left:50%; transform:translateX(-50%); width:80%; height:24px; background:linear-gradient(90deg,#2a7a8c,#3a9aac); border-radius:4px 4px 0 0; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:Inter; font-size:10px; font-weight:600; color:#fff; letter-spacing:1.5px;">SILICON INTERPOSER (CoWoS)</span>
+        </div>
+        <!-- Components on interposer -->
+        <div style="display:flex; align-items:flex-end; gap:8px; margin-bottom:56px; position:relative; z-index:2;">
+          <div style="width:48px; height:56px; background:linear-gradient(135deg,#0d2137,#1a3a5c); border-radius:6px 6px 2px 2px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid rgba(42,122,140,0.4);">
+            <span style="font-family:Inter; font-size:7px; font-weight:700; color:#fff; letter-spacing:0.5px;">HBM3e</span>
+            <span style="font-family:Inter; font-size:6px; color:rgba(255,255,255,0.6);">SK Hynix</span>
+          </div>
+          <div style="width:48px; height:56px; background:linear-gradient(135deg,#0d2137,#1a3a5c); border-radius:6px 6px 2px 2px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid rgba(42,122,140,0.4);">
+            <span style="font-family:Inter; font-size:7px; font-weight:700; color:#fff; letter-spacing:0.5px;">HBM3e</span>
+            <span style="font-family:Inter; font-size:6px; color:rgba(255,255,255,0.6);">SK Hynix</span>
+          </div>
+          <div style="width:120px; height:80px; background:linear-gradient(135deg,#76b900,#5a9000); border-radius:8px 8px 2px 2px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid rgba(118,185,0,0.5); box-shadow:0 2px 12px rgba(118,185,0,0.15);">
+            <span style="font-family:Inter; font-size:11px; font-weight:800; color:#fff; letter-spacing:1px;">GPU DIE</span>
+            <span style="font-family:Inter; font-size:8px; color:rgba(255,255,255,0.8);">NVIDIA Blackwell</span>
+            <span style="font-family:Inter; font-size:7px; color:rgba(255,255,255,0.6);">TSMC 4nm</span>
+          </div>
+          <div style="width:48px; height:56px; background:linear-gradient(135deg,#0d2137,#1a3a5c); border-radius:6px 6px 2px 2px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid rgba(42,122,140,0.4);">
+            <span style="font-family:Inter; font-size:7px; font-weight:700; color:#fff; letter-spacing:0.5px;">HBM3e</span>
+            <span style="font-family:Inter; font-size:6px; color:rgba(255,255,255,0.6);">SK Hynix</span>
+          </div>
+          <div style="width:48px; height:56px; background:linear-gradient(135deg,#0d2137,#1a3a5c); border-radius:6px 6px 2px 2px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px solid rgba(42,122,140,0.4);">
+            <span style="font-family:Inter; font-size:7px; font-weight:700; color:#fff; letter-spacing:0.5px;">HBM3e</span>
+            <span style="font-family:Inter; font-size:6px; color:rgba(255,255,255,0.6);">SK Hynix</span>
+          </div>
+        </div>
+      </div>
+      <!-- Labels -->
+      <div style="position:absolute; top:10px; left:24px; font-family:Inter; font-size:10px; font-weight:600; color:#2a7a8c; letter-spacing:1.5px;">GPU PACKAGE ANATOMY</div>
+      <div style="position:absolute; top:10px; right:24px; font-family:Inter; font-size:9px; color:#8a96a0;">TSMC CoWoS-S &middot; ~100 wafer starts/mo capacity</div>
     </div>
-    <div class="card">
-      <div class="card-label">HIGH-BANDWIDTH MEMORY</div>
-      <div class="card-text">SK Hynix + Samsung oligopoly. Each GPU generation requires more HBM per chip. Blackwell &gt; Hopper. Rubin &gt; Blackwell. Lead times extending, allocation tightening.</div>
+    <!-- HBM progression + bottleneck stats -->
+    <div style="flex:1; display:flex; gap:14px;">
+      <div class="card" style="flex:2; margin-bottom:0; padding:16px 20px;">
+        <div class="card-label" style="font-size:10px;">HBM CAPACITY PER GPU &mdash; EACH GENERATION REQUIRES MORE</div>
+        <div style="display:flex; align-items:center; gap:16px; margin-top:10px;">
+          <div style="text-align:center; flex:1;">
+            <div style="font-family:Inter; font-size:22px; font-weight:700; color:#0d2137;">80 GB</div>
+            <div style="font-family:Inter; font-size:11px; color:#8a96a0; margin-top:2px;">H100 (Hopper)</div>
+            <div style="font-family:Inter; font-size:9px; color:#2a7a8c;">5 &times; HBM3</div>
+          </div>
+          <div style="font-size:18px; color:#8a96a0;">&rarr;</div>
+          <div style="text-align:center; flex:1;">
+            <div style="font-family:Inter; font-size:22px; font-weight:700; color:#0d2137;">192 GB</div>
+            <div style="font-family:Inter; font-size:11px; color:#8a96a0; margin-top:2px;">B200 (Blackwell)</div>
+            <div style="font-family:Inter; font-size:9px; color:#2a7a8c;">8 &times; HBM3e</div>
+          </div>
+          <div style="font-size:18px; color:#8a96a0;">&rarr;</div>
+          <div style="text-align:center; flex:1;">
+            <div style="font-family:Inter; font-size:22px; font-weight:700; color:#c05040;">288 GB</div>
+            <div style="font-family:Inter; font-size:11px; color:#8a96a0; margin-top:2px;">R100 (Rubin)</div>
+            <div style="font-family:Inter; font-size:9px; color:#c05040;">12 &times; HBM4</div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+        <div class="stat-card" style="flex:1; padding:12px 16px; margin:0;">
+          <div class="stat-number" style="font-size:20px;">~90%</div>
+          <div class="stat-label">SK Hynix HBM3e share</div>
+        </div>
+        <div class="stat-card" style="flex:1; padding:12px 16px; margin:0;">
+          <div class="stat-number" style="font-size:20px;">12&ndash;18 mo</div>
+          <div class="stat-label">HBM allocation lead time</div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="source-line">Source: TSMC earnings, SK Hynix disclosures, SemiAnalysis</div>
 </div>
 
-<div class="slide" id="slide-39">
+<div class="slide" id="slide-40">
   <div class="section-label">THESIS B &mdash; ECONOMICS</div>
   <div class="slide-title">Inference is 45% of compute spend and growing</div>
   <div class="slide-subtitle">Agentic workloads turn every task into hours of sustained reasoning</div>
@@ -1095,7 +1274,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Semi Analysis, company disclosures, Epoch AI</div>
 </div>
 
-<div class="slide" id="slide-40">
+<div class="slide" id="slide-41">
   <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
   <div class="slide-title">Margin accrues to bottlenecks, not the most visible layer</div>
   <div style="margin-top:14px;">
@@ -1118,14 +1297,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-41">
+<div class="slide" id="slide-42">
   <div class="slide-divider">
     <div class="divider-title">WHY THESE FORCES COMPOUND</div>
     <div class="divider-subtitle">The intersection of regime shift and AI infrastructure</div>
   </div>
 </div>
 
-<div class="slide" id="slide-42">
+<div class="slide" id="slide-43">
   <div class="section-label">INTERSECTION</div>
   <div class="slide-title">AI is deflationary in cognition. Inflationary in everything it needs to run.</div>
   <div class="body-text" style="margin-top:12px;">Electricity. Copper. Grid hardware. Aluminum. Advanced packaging. Specialized memory. All in a system where permitting, geopolitics, and supply chain concentration constrain elasticity.</div>
@@ -1136,7 +1315,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: IEA, McKinsey, Goldman Sachs commodity research</div>
 </div>
 
-<div class="slide" id="slide-43">
+<div class="slide" id="slide-44">
   <div class="section-label">INTERSECTION &mdash; LABOR</div>
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
     <div class="giant-number">49%</div>
@@ -1150,7 +1329,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-44">
+<div class="slide" id="slide-45">
   <div class="section-label">INTERSECTION &mdash; FISCAL</div>
   <div class="slide-title">There is no fiscally neutral path through AI displacement</div>
   <div class="card-row" style="margin-top:14px;">
@@ -1169,7 +1348,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-45">
+<div class="slide" id="slide-46">
   <div class="section-label">INTERSECTION &mdash; ENDGAME</div>
   <div class="slide-title">Every prior episode of sovereign overextension at this scale resolved through financial repression</div>
   <div class="body-text" style="margin-top:12px;">Real rates held below nominal growth, transferring wealth from holders of nominal claims to the government.</div>
@@ -1188,14 +1367,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-46">
+<div class="slide" id="slide-47">
   <div class="slide-divider">
     <div class="divider-title">PORTFOLIO CONSTRUCTION</div>
     <div class="divider-subtitle">Built to compound through volatility</div>
   </div>
 </div>
 
-<div class="slide" id="slide-47">
+<div class="slide" id="slide-48">
   <div class="section-label">PORTFOLIO</div>
   <div class="slide-title">Built to compound through volatility, not avoid it</div>
   <div style="flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; gap:28px; margin-top:14px;">
@@ -1205,7 +1384,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-48">
+<div class="slide" id="slide-49">
   <div class="section-label">PORTFOLIO &mdash; LEADING INDICATORS</div>
   <div class="slide-title">What we track</div>
   <div style="display:flex; gap:24px; flex:1; min-height:0; margin-top:18px;">
@@ -1235,7 +1414,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-49">
+<div class="slide" id="slide-50">
   <div class="section-label">PORTFOLIO &mdash; PROCESS</div>
   <div class="slide-title">How we underwrite</div>
   <div style="flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; gap:28px; margin-top:14px;">
@@ -1247,14 +1426,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-50">
+<div class="slide" id="slide-51">
   <div class="slide-divider">
     <div class="divider-title">FUND TERMS</div>
     <div class="divider-subtitle">Structure, governance, and alignment</div>
   </div>
 </div>
 
-<div class="slide" id="slide-51">
+<div class="slide" id="slide-52">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">Scenario analysis</div>
   <div class="slide-subtitle">Adjust assumptions to model projected returns &middot; NOI escalates 2% annually (NNN lease) &middot; 10-year fund life</div>
@@ -1310,7 +1489,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Projections are illustrative &middot; 2% mgmt fee (Yr 1&ndash;5 on committed capital, Yr 6&ndash;10 on NAV) &middot; 20% carry above 8% hurdle &middot; Past performance is not indicative of future results</div>
 </div>
 
-<div class="slide" id="slide-52">
+<div class="slide" id="slide-53">
   <div class="section-label">FUND TERMS</div>
   <div class="slide-title">Terms at a glance</div>
   <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:18px; flex:1; min-height:0; margin-top:12px;">
@@ -1376,7 +1555,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-53">
+<div class="slide" id="slide-54">
   <div class="section-label">RISK MANAGEMENT</div>
   <div class="slide-title">Risk architecture</div>
   <div class="slide-subtitle">Every risk has a structural mitigation built into the fund design</div>
@@ -1428,7 +1607,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="body-text" style="margin-top:12px; font-size:18px;"><strong class="bold-accent">The real estate collar creates a structural floor. The structural long portfolio creates the upside.</strong></div>
 </div>
 
-<div class="slide" id="slide-54">
+<div class="slide" id="slide-55">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">Traditional portfolio construction was designed for a regime that no longer exists.</div>
   <div style="flex:1; min-height:0; display:flex; gap:24px; margin-top:14px;">
@@ -1477,7 +1656,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="body-text" style="margin-top:12px; font-size:18px;"><strong class="bold-accent">This portfolio is both a diversifier and a returns driver &mdash; because the assets that diversify best in this regime are the same ones with the strongest secular tailwinds.</strong></div>
 </div>
 
-<div class="slide" id="slide-55">
+<div class="slide" id="slide-56">
   <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center; max-width:900px; margin:0 auto;">
     <div style="font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--teal); margin-bottom:24px;">CLOSING</div>
     <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--navy); margin-bottom:48px; line-height:1.2;">What if we are right?</div>
@@ -1505,28 +1684,28 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="section-nav-sep"></div>
   <button class="section-nav-btn" onclick="showSlide(15)" data-from="15" data-to="23">Real Assets</button>
   <div class="section-nav-sep"></div>
-  <button class="section-nav-btn" onclick="showSlide(24)" data-from="24" data-to="40">AI Infra</button>
+  <button class="section-nav-btn" onclick="showSlide(24)" data-from="24" data-to="41">AI Infra</button>
   <div class="section-nav-sep"></div>
-  <button class="section-nav-btn" onclick="showSlide(41)" data-from="41" data-to="45">Compounding</button>
+  <button class="section-nav-btn" onclick="showSlide(42)" data-from="42" data-to="46">Compounding</button>
   <div class="section-nav-sep"></div>
-  <button class="section-nav-btn" onclick="showSlide(46)" data-from="46" data-to="49">Portfolio</button>
+  <button class="section-nav-btn" onclick="showSlide(47)" data-from="47" data-to="50">Portfolio</button>
   <div class="section-nav-sep"></div>
-  <button class="section-nav-btn" onclick="showSlide(50)" data-from="50" data-to="54">Fund Terms</button>
+  <button class="section-nav-btn" onclick="showSlide(51)" data-from="51" data-to="55">Fund Terms</button>
   <div class="section-nav-sep"></div>
-  <button class="section-nav-btn" onclick="showSlide(55)" data-from="55" data-to="55">Close</button>
+  <button class="section-nav-btn" onclick="showSlide(56)" data-from="56" data-to="56">Close</button>
 </div>
 
 <!-- Controls -->
 <div class="controls">
   <button class="fs-btn" onclick="toggleFullscreen()" title="Press F">&#9723; Fullscreen</button>
-  <div class="slide-counter" id="slideCounter">1 / 55</div>
+  <div class="slide-counter" id="slideCounter">1 / 56</div>
 </div>
 
 <script>
 // ==========================
 // PRESENTATION ENGINE
 // ==========================
-const TOTAL_SLIDES = 55;
+const TOTAL_SLIDES = 56;
 let currentSlide = 1;
 let isAnimating = false;
 
@@ -1612,6 +1791,69 @@ function downloadChart(canvasId, filename) {
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
+
+// ==========================
+// CHART: ECONOMIC POLICY UNCERTAINTY (SLIDE 14)
+// ==========================
+(function() {
+  var c = document.getElementById('epuChart');
+  if (!c) return;
+  var epuLabels = ['1985-01','1985-04','1985-07','1985-10','1986-01','1986-04','1986-07','1986-10','1987-01','1987-04','1987-07','1987-10','1988-01','1988-04','1988-07','1988-10','1989-01','1989-04','1989-07','1989-10','1990-01','1990-04','1990-07','1990-10','1991-01','1991-04','1991-07','1991-10','1992-01','1992-04','1992-07','1992-10','1993-01','1993-04','1993-07','1993-10','1994-01','1994-04','1994-07','1994-10','1995-01','1995-04','1995-07','1995-10','1996-01','1996-04','1996-07','1996-10','1997-01','1997-04','1997-07','1997-10','1998-01','1998-04','1998-07','1998-10','1999-01','1999-04','1999-07','1999-10','2000-01','2000-04','2000-07','2000-10','2001-01','2001-04','2001-07','2001-10','2002-01','2002-04','2002-07','2002-10','2003-01','2003-04','2003-07','2003-10','2004-01','2004-04','2004-07','2004-10','2005-01','2005-04','2005-07','2005-10','2006-01','2006-04','2006-07','2006-10','2007-01','2007-04','2007-07','2007-10','2008-01','2008-04','2008-07','2008-10','2009-01','2009-04','2009-07','2009-10','2010-01','2010-04','2010-07','2010-10','2011-01','2011-04','2011-07','2011-10','2012-01','2012-04','2012-07','2012-10','2013-01','2013-04','2013-07','2013-10','2014-01','2014-04','2014-07','2014-10','2015-01','2015-04','2015-07','2015-10','2016-01','2016-04','2016-07','2016-10','2017-01','2017-04','2017-07','2017-10','2018-01','2018-04','2018-07','2018-10','2019-01','2019-04','2019-07','2019-10','2020-01','2020-04','2020-07','2020-10','2021-01','2021-04','2021-07','2021-10','2022-01','2022-04','2022-07','2022-10','2023-01','2023-04','2023-07','2023-10','2024-01','2024-04','2024-07','2024-10','2025-01','2025-04','2025-07','2025-10','2026-01'];
+  var epuValues = [103.8,84.8,111.4,93.1,144.3,102.5,130.8,91.8,110.4,79.5,81.4,170.3,142.9,97.9,80.8,98.2,87.4,92.4,78.3,76.5,92.3,88.5,86.3,137.7,204.0,93.0,80.7,108.1,116.4,89.8,119.6,161.2,83.5,89.7,106.5,78.8,82.3,106.3,75.4,61.7,122.4,66.0,81.7,79.9,101.6,70.9,69.7,55.7,75.5,71.1,76.7,92.9,108.0,74.5,101.4,145.0,123.3,69.8,86.5,65.3,89.0,70.6,86.7,89.9,142.6,148.8,120.3,247.3,148.4,106.2,139.7,129.0,185.6,176.6,103.8,78.6,88.3,79.7,89.0,118.3,66.7,78.4,71.9,79.8,75.1,81.7,84.5,55.6,74.5,59.8,44.8,90.6,177.0,98.2,115.1,241.8,184.8,107.9,104.4,86.2,136.9,123.7,196.9,154.8,111.5,124.8,207.2,137.8,154.4,97.0,180.8,166.1,199.4,135.4,91.4,225.4,107.7,97.0,78.5,113.3,120.5,103.5,98.7,110.7,154.9,96.4,164.5,108.1,195.0,157.7,141.1,125.9,161.0,139.0,176.2,136.1,284.1,109.7,207.8,159.5,164.8,400.9,427.9,305.8,261.3,141.3,182.2,136.9,155.3,168.8,222.8,207.3,161.4,165.4,132.7,133.6,131.3,139.4,144.9,109.3,236.8,724.9,372.1,308.3,386.6];
+  new Chart(c, {
+    type: 'line',
+    data: {
+      labels: epuLabels,
+      datasets: [{
+        label: 'Economic Policy Uncertainty Index',
+        data: epuValues,
+        borderColor: '#2a7a8c',
+        backgroundColor: 'rgba(42,122,140,0.08)',
+        borderWidth: 1.5,
+        pointRadius: 1.5,
+        pointHoverRadius: 6,
+        pointBackgroundColor: '#2a7a8c',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 1,
+        pointHitRadius: 8,
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { family: 'Inter', size: 11 }, color: '#8a96a0', maxTicksLimit: 10,
+            callback: function(v, i) { var l = this.getLabelForValue(v); return l ? l.substring(0, 4) : ''; }
+          }
+        },
+        y: {
+          grid: { color: 'rgba(0,0,0,0.06)' },
+          ticks: { font: { family: 'Inter', size: 11 }, color: '#8a96a0' },
+          title: { display: true, text: 'EPU Index (100 = 1985\u20132009 avg)', font: { family: 'Inter', size: 11 }, color: '#8a96a0' }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137', titleFont: { family: 'Inter', size: 12 }, bodyFont: { family: 'Inter', size: 13, weight: '600' },
+          callbacks: { title: function(items) { return 'Q' + (Math.floor(items[0].dataIndex % 4) + 1) + ' ' + items[0].label.substring(0,4); }, label: function(ctx) { return 'EPU: ' + ctx.parsed.y.toFixed(1); } }
+        },
+        annotation: {
+          annotations: {
+            gfc: { type: 'label', xValue: '2008-10', yValue: 260, content: ['GFC'], font: { family: 'Inter', size: 10, weight: '600' }, color: '#c05040' },
+            covid: { type: 'label', xValue: '2020-04', yValue: 450, content: ['COVID'], font: { family: 'Inter', size: 10, weight: '600' }, color: '#c05040' },
+            tariffs: { type: 'label', xValue: '2025-04', yValue: 740, content: ['Tariffs'], font: { family: 'Inter', size: 10, weight: '600' }, color: '#c05040' },
+            avgLine: { type: 'line', yMin: 100, yMax: 100, borderColor: 'rgba(13,33,55,0.3)', borderWidth: 1, borderDash: [6, 4], label: { display: true, content: 'Historical avg (100)', position: 'start', font: { family: 'Inter', size: 10 }, backgroundColor: 'transparent', color: '#8a96a0' } }
+          }
+        }
+      }
+    }
+  });
+})();
 
 // ==========================
 // CHART: CAPITAL STRUCTURE DONUT (SLIDE 2)
@@ -2713,6 +2955,58 @@ function downloadChart(canvasId, filename) {
 // ==========================
 // CHART 3: Copper Supply/Demand (Slide 18)
 // ==========================
+// ==========================
+// CHART: MINE LEAD TIMES (SLIDE 20)
+// ==========================
+(function() {
+  var ctx = document.getElementById('chart-mine-lead');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['1990\u20131999', '2005\u20132009', '2020\u20132024', 'Non-Operating\n(Projected)'],
+      datasets: [{
+        label: 'Avg. Years from Discovery to Production',
+        data: [6, 12.7, 17.9, 28],
+        backgroundColor: ['rgba(42,122,140,0.7)', 'rgba(42,122,140,0.8)', 'rgba(42,122,140,0.9)', 'rgba(192,80,64,0.85)'],
+        borderColor: ['#2a7a8c', '#2a7a8c', '#2a7a8c', '#c05040'],
+        borderWidth: 2,
+        borderRadius: 6,
+        barPercentage: 0.65
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: { padding: { top: 20, right: 16, bottom: 4, left: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 12 }, bodyFont: { family: 'Inter', size: 13, weight: '600' },
+          callbacks: { label: function(ctx) { return ctx.parsed.y + ' years'; } }
+        },
+        annotation: {
+          annotations: {
+            tripled: { type: 'label', xValue: 1, yValue: 20, content: ['3\u00d7 increase'], font: { family: 'Inter', size: 12, weight: '600' }, color: '#c05040' },
+            arrow1: { type: 'line', xMin: 0, xMax: 2, yMin: 7.5, yMax: 19.4, borderColor: 'rgba(192,80,64,0.3)', borderWidth: 1.5, borderDash: [4,3] }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { family: 'Inter', size: 12, weight: '500' }, color: '#0d2137' }
+        },
+        y: {
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: { font: { family: 'Inter', size: 11 }, color: '#8a96a0', callback: function(v) { return v + ' yrs'; } },
+          title: { display: true, text: 'Years from Discovery to Production', font: { family: 'Inter', size: 11 }, color: '#8a96a0' }
+        }
+      }
+    }
+  });
+})();
+
 (function() {
   var years = [2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050];
   var supply = [27.0,26.8,26.6,26.4,26.2,26.0,25.6,25.2,24.8,24.4,24.0,23.6,23.2,22.8,22.4,22.0,21.8,21.8,21.6,21.4,21.0,21.0,21.0,21.0,21.0,21.0];
@@ -4827,11 +5121,11 @@ document.getElementById('slide-1').style.opacity = '1';
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ["Jun 23","Jul 23","Aug 23","Sep 23","Oct 23","Nov 23","Dec 23","Jan 24","Feb 24","Mar 24","Apr 24","May 24","Jun 24","Jul 24","Aug 24","Sep 24","Oct 24","Nov 24","Dec 24","Jan 25","Feb 25","Mar 25","Apr 25","May 25","Jun 25","Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26"],
+      labels: ["Jun 23","Jul 23","Aug 23","Sep 23","Oct 23","Nov 23","Dec 23","Jan 24","Feb 24","Mar 24","Apr 24","May 24","Jun 24","Jul 24","Aug 24","Sep 24","Oct 24","Nov 24","Dec 24","Jan 25","Feb 25","Mar 25","Apr 25","May 25","Jun 25","Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26"],
       datasets: [
         {
           label: 'WeirdML',
-          data: [0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.2318,0.2318,0.2318,0.2318,0.3097,0.3097,0.3097,0.4756,0.4756,0.4756,0.4756,0.4756,0.4756,0.4756,0.5256,0.5256,0.5821,0.5821,0.6070,0.6070,0.6070,0.6993,0.7220,0.7220],
+          data: [0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.1244,0.2318,0.2318,0.2318,0.2318,0.3097,0.3097,0.3097,0.4756,0.4756,0.4756,0.4756,0.4756,0.4756,0.4756,0.5256,0.5256,0.5821,0.5821,0.6070,0.6070,0.6070,0.6993,0.7220,0.7220,0.7220],
           borderColor: '#0d2137',
           backgroundColor: '#0d213720',
           tension: 0.3, borderWidth: 2.5, pointRadius: 3,
@@ -4839,7 +5133,7 @@ document.getElementById('slide-1').style.opacity = '1';
         },
         {
           label: 'SimpleBench',
-          data: [null,null,null,null,null,null,null,null,0.0820,0.0820,0.1012,0.1012,0.1300,0.1300,0.1300,0.3004,0.3004,0.3004,0.3004,0.3004,0.3568,0.4192,0.4372,0.5056,0.5488,0.5488,0.5488,0.5488,0.5488,0.7168,0.7168,0.7168],
+          data: [null,null,null,null,null,null,null,null,0.0820,0.0820,0.1012,0.1012,0.1300,0.1300,0.1300,0.3004,0.3004,0.3004,0.3004,0.3004,0.3568,0.4192,0.4372,0.5056,0.5488,0.5488,0.5488,0.5488,0.5488,0.7168,0.7168,0.7168,0.7168],
           borderColor: '#2a7a8c',
           backgroundColor: '#2a7a8c20',
           tension: 0.3, borderWidth: 2.5, pointRadius: 3,
@@ -4847,7 +5141,7 @@ document.getElementById('slide-1').style.opacity = '1';
         },
         {
           label: 'FrontierMath',
-          data: [null,null,null,null,null,null,null,null,null,null,null,null,0.0103,0.0103,0.0103,0.0172,0.0207,0.0207,0.0931,0.1241,0.1241,0.1241,0.2483,0.2483,0.2483,0.2483,0.3241,0.3241,0.3241,0.3760,0.4070,0.4070],
+          data: [null,null,null,null,null,null,null,null,null,null,null,null,0.0103,0.0103,0.0103,0.0172,0.0207,0.0207,0.0931,0.1241,0.1241,0.1241,0.2483,0.2483,0.2483,0.2483,0.3241,0.3241,0.3241,0.3760,0.4070,0.4070,0.4070],
           borderColor: '#e67e22',
           backgroundColor: '#e67e2220',
           tension: 0.3, borderWidth: 2.5, pointRadius: 3,
@@ -4855,7 +5149,7 @@ document.getElementById('slide-1').style.opacity = '1';
         },
         {
           label: 'SWE-Bench Verified',
-          data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.2162,0.2162,0.2162,0.5280,0.5280,0.5840,0.6760,0.6760,0.6760,0.6760,0.7060,0.7060,0.7440,0.7440,0.7440],
+          data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.2162,0.2162,0.2162,0.5280,0.5280,0.6910,0.7250,0.7250,0.7250,0.7490,0.7720,0.7720,0.8090,0.8090,0.8090,0.8090],
           borderColor: '#c05040',
           backgroundColor: '#c0504020',
           tension: 0.3, borderWidth: 2.5, pointRadius: 3,
@@ -4890,7 +5184,7 @@ document.getElementById('slide-1').style.opacity = '1';
           grid: {display: false}
         },
         y: {
-          min: 0, max: 0.85,
+          min: 0, max: 0.90,
           ticks: {
             callback: function(v) { return (v * 100).toFixed(0) + '%'; },
             stepSize: 0.1,
