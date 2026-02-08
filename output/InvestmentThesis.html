@@ -547,6 +547,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   .divider-title { font-size: 42px; }
   .title-main { font-size: 44px; }
 }
+.vc-node:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+.vc-node.vc-active { box-shadow:0 4px 20px rgba(42,122,140,0.25); transform:translateY(-2px); }
+.vc-stat-card { background:#fff; border-radius:8px; padding:10px 12px; border:1px solid rgba(0,0,0,0.05); text-align:center; display:flex; flex-direction:column; justify-content:center; }
+.vc-stat-num { font-family:Inter; font-size:18px; font-weight:800; color:#0d2137; }
+.vc-stat-label { font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.2; }
+.vc-player { font-family:Inter; font-size:11px; color:#0d2137; padding:4px 0; border-bottom:1px solid rgba(0,0,0,0.04); line-height:1.35; }
+.vc-player:last-child { border-bottom:none; }
+.vc-player strong { color:#2a7a8c; font-weight:600; }
 </style>
 </head>
 <body>
@@ -935,104 +943,102 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-25">
   <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
-  <div class="slide-title">The AI value chain: from mining to inference</div>
-  <div class="slide-subtitle">Every layer depends on physically constrained inputs &mdash; bottlenecks compound upstream</div>
-  <div style="flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; gap:16px; margin-top:4px;">
-    <!-- Main flow -->
-    <div style="display:flex; align-items:stretch; gap:0; padding:0 8px;">
-      <!-- Step 1: Mining -->
-      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#c05040,#d06050); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(192,80,64,0.25);">
-          <span style="font-size:24px;">&#9935;</span>
-        </div>
-        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">MINING</div>
-        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">Copper, Lithium<br>Cobalt, REEs</div>
-        <div style="font-family:Inter; font-size:8px; color:#c05040; margin-top:4px; font-weight:600;">29 yr lead time</div>
+  <div class="slide-title" style="margin-bottom:2px;">The AI value chain: from mining to inference</div>
+  <div class="slide-subtitle" style="margin-bottom:8px; font-size:13px;">Click any stage to explore players, market data, and bottleneck dynamics</div>
+  <div style="flex:1; min-height:0; display:flex; flex-direction:column; gap:8px;">
+    <!-- Row 1: Physical Layer -->
+    <div style="display:flex; align-items:center; gap:0; padding:0 4px;">
+      <div class="vc-node" data-vc="mining" onclick="showVCDetail('mining')" style="flex:1; cursor:pointer; background:#fff; border:2px solid rgba(192,80,64,0.3); border-radius:10px; padding:12px 10px; text-align:center; transition:all 0.2s; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#c05040; border-radius:10px 10px 0 0;"></div>
+        <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; letter-spacing:0.8px; margin-top:2px;">MINING</div>
+        <div style="font-family:Inter; font-size:10px; color:#8a96a0; margin-top:4px; line-height:1.3;">Copper, Lithium, Cobalt, REEs</div>
+        <div style="font-family:Inter; font-size:18px; font-weight:800; color:#c05040; margin-top:6px;">29 yr</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0;">avg. lead time (US)</div>
       </div>
-      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
-      <!-- Step 2: Refining -->
-      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#e67e22,#f09030); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(230,126,34,0.25);">
-          <span style="font-size:24px;">&#9878;</span>
-        </div>
-        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">REFINING</div>
-        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">Smelting, purification<br>Polysilicon</div>
-        <div style="font-family:Inter; font-size:8px; color:#e67e22; margin-top:4px; font-weight:600;">China: 80% share</div>
+      <div style="color:#8a96a0; font-size:16px; padding:0 2px; flex-shrink:0;">&rarr;</div>
+      <div class="vc-node" data-vc="refining" onclick="showVCDetail('refining')" style="flex:1; cursor:pointer; background:#fff; border:2px solid rgba(230,126,34,0.3); border-radius:10px; padding:12px 10px; text-align:center; transition:all 0.2s; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#e67e22; border-radius:10px 10px 0 0;"></div>
+        <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; letter-spacing:0.8px; margin-top:2px;">REFINING</div>
+        <div style="font-family:Inter; font-size:10px; color:#8a96a0; margin-top:4px; line-height:1.3;">Smelting, processing, polysilicon</div>
+        <div style="font-family:Inter; font-size:18px; font-weight:800; color:#e67e22; margin-top:6px;">70%</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0;">China avg. share</div>
       </div>
-      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
-      <!-- Step 3: Wafers -->
-      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#2a7a8c,#3a9aac); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(42,122,140,0.25);">
-          <span style="font-size:22px; color:#fff;">&#11044;</span>
-        </div>
-        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">WAFERS</div>
-        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">TSMC, Samsung<br>Advanced node fab</div>
-        <div style="font-family:Inter; font-size:8px; color:#2a7a8c; margin-top:4px; font-weight:600;">TSMC: 90% leading</div>
+      <div style="color:#8a96a0; font-size:16px; padding:0 2px; flex-shrink:0;">&rarr;</div>
+      <div class="vc-node" data-vc="fabrication" onclick="showVCDetail('fabrication')" style="flex:1; cursor:pointer; background:#fff; border:2px solid rgba(42,122,140,0.3); border-radius:10px; padding:12px 10px; text-align:center; transition:all 0.2s; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#2a7a8c; border-radius:10px 10px 0 0;"></div>
+        <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; letter-spacing:0.8px; margin-top:2px;">FABRICATION</div>
+        <div style="font-family:Inter; font-size:10px; color:#8a96a0; margin-top:4px; line-height:1.3;">Advanced node wafer production</div>
+        <div style="font-family:Inter; font-size:18px; font-weight:800; color:#2a7a8c; margin-top:6px;">90%</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0;">TSMC leading-edge share</div>
       </div>
-      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
-      <!-- Step 4: Packaging -->
-      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#c05040,#d06050); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(192,80,64,0.25);">
-          <span style="font-size:22px; color:#fff;">&#9649;</span>
-        </div>
-        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">PACKAGING</div>
-        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">CoWoS + HBM<br>Silicon interposer</div>
-        <div style="font-family:Inter; font-size:8px; color:#c05040; margin-top:4px; font-weight:600;">Key bottleneck</div>
-      </div>
-      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
-      <!-- Step 5: Servers -->
-      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#0d2137,#1a3a5c); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(13,33,55,0.25);">
-          <span style="font-size:22px; color:#fff;">&#128421;</span>
-        </div>
-        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">SERVERS</div>
-        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">GPU racks, networking<br>Power delivery</div>
-        <div style="font-family:Inter; font-size:8px; color:#0d2137; margin-top:4px; font-weight:600;">1+ GW clusters</div>
-      </div>
-      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
-      <!-- Step 6: Data Centers -->
-      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#0d2137,#1a3a5c); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(13,33,55,0.25);">
-          <span style="font-size:22px; color:#fff;">&#127970;</span>
-        </div>
-        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">DATA CENTERS</div>
-        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">Power, cooling<br>Land + permits</div>
-        <div style="font-family:Inter; font-size:8px; color:#0d2137; margin-top:4px; font-weight:600;">$50B+/yr capex</div>
-      </div>
-      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
-      <!-- Step 7: Training -->
-      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#2a7a8c,#3a9aac); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(42,122,140,0.25);">
-          <span style="font-size:22px; color:#fff;">&#9881;</span>
-        </div>
-        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">TRAINING</div>
-        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">Foundation models<br>$1B+ per run</div>
-        <div style="font-family:Inter; font-size:8px; color:#2a7a8c; margin-top:4px; font-weight:600;">10&times;/yr scaling</div>
-      </div>
-      <div style="display:flex; align-items:center; padding-bottom:30px; color:#8a96a0; font-size:18px;">&rarr;</div>
-      <!-- Step 8: Inference -->
-      <div style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#76b900,#5a9000); display:flex; align-items:center; justify-content:center; box-shadow:0 3px 12px rgba(118,185,0,0.25);">
-          <span style="font-size:22px; color:#fff;">&#128161;</span>
-        </div>
-        <div style="font-family:Inter; font-size:11px; font-weight:700; color:#0d2137; margin-top:8px; letter-spacing:0.5px;">INFERENCE</div>
-        <div style="font-family:Inter; font-size:9px; color:#8a96a0; margin-top:3px; line-height:1.3;">API serving<br>Agentic workloads</div>
-        <div style="font-family:Inter; font-size:8px; color:#76b900; margin-top:4px; font-weight:600;">45% of spend</div>
+      <div style="color:#8a96a0; font-size:16px; padding:0 2px; flex-shrink:0;">&rarr;</div>
+      <div class="vc-node" data-vc="packaging" onclick="showVCDetail('packaging')" style="flex:1; cursor:pointer; background:#fff; border:2px solid rgba(192,80,64,0.3); border-radius:10px; padding:12px 10px; text-align:center; transition:all 0.2s; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#c05040; border-radius:10px 10px 0 0;"></div>
+        <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; letter-spacing:0.8px; margin-top:2px;">PACKAGING</div>
+        <div style="font-family:Inter; font-size:10px; color:#8a96a0; margin-top:4px; line-height:1.3;">CoWoS + HBM integration</div>
+        <div style="font-family:Inter; font-size:18px; font-weight:800; color:#c05040; margin-top:6px;">Sold out</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0;">through 2026</div>
       </div>
     </div>
-    <!-- Bottom: bottleneck callout bar -->
-    <div style="display:flex; gap:8px; padding:0 8px;">
-      <div style="flex:3; background:rgba(192,80,64,0.08); border:1px solid rgba(192,80,64,0.2); border-radius:8px; padding:10px 16px; display:flex; align-items:center; gap:12px;">
-        <div style="font-family:Inter; font-size:10px; font-weight:700; color:#c05040; letter-spacing:1px; white-space:nowrap;">PHYSICAL BOTTLENECK</div>
-        <div style="font-family:Inter; font-size:12px; color:#0d2137; line-height:1.4;">Mining &rarr; Refining &rarr; Packaging: geographically concentrated, permit-constrained, 2&ndash;5 year expansion cycles. These layers set the ceiling on global AI compute capacity.</div>
+    <!-- Connector -->
+    <div style="display:flex; justify-content:flex-end; padding-right:60px;">
+      <div style="width:2px; height:8px; background:#8a96a0; border-radius:1px;"></div>
+    </div>
+    <!-- Row 2: Compute Layer (reversed) -->
+    <div style="display:flex; align-items:center; gap:0; padding:0 4px; flex-direction:row-reverse;">
+      <div class="vc-node" data-vc="inference" onclick="showVCDetail('inference')" style="flex:1; cursor:pointer; background:#fff; border:2px solid rgba(42,122,140,0.3); border-radius:10px; padding:12px 10px; text-align:center; transition:all 0.2s; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#2a7a8c; border-radius:10px 10px 0 0;"></div>
+        <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; letter-spacing:0.8px; margin-top:2px;">INFERENCE</div>
+        <div style="font-family:Inter; font-size:10px; color:#8a96a0; margin-top:4px; line-height:1.3;">API serving, agentic workloads</div>
+        <div style="font-family:Inter; font-size:18px; font-weight:800; color:#2a7a8c; margin-top:6px;">45%</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0;">of compute spend</div>
       </div>
-      <div style="flex:2; background:rgba(42,122,140,0.08); border:1px solid rgba(42,122,140,0.2); border-radius:8px; padding:10px 16px; display:flex; align-items:center; gap:12px;">
-        <div style="font-family:Inter; font-size:10px; font-weight:700; color:#2a7a8c; letter-spacing:1px; white-space:nowrap;">INVESTMENT THESIS</div>
-        <div style="font-family:Inter; font-size:12px; color:#0d2137; line-height:1.4;">Margin accrues to supply-constrained layers. Bottleneck owners capture disproportionate value as demand scales exponentially.</div>
+      <div style="color:#8a96a0; font-size:16px; padding:0 2px; flex-shrink:0;">&larr;</div>
+      <div class="vc-node" data-vc="training" onclick="showVCDetail('training')" style="flex:1; cursor:pointer; background:#fff; border:2px solid rgba(42,122,140,0.3); border-radius:10px; padding:12px 10px; text-align:center; transition:all 0.2s; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#2a7a8c; border-radius:10px 10px 0 0;"></div>
+        <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; letter-spacing:0.8px; margin-top:2px;">TRAINING</div>
+        <div style="font-family:Inter; font-size:10px; color:#8a96a0; margin-top:4px; line-height:1.3;">Pre-train, post-train, RLHF</div>
+        <div style="font-family:Inter; font-size:18px; font-weight:800; color:#2a7a8c; margin-top:6px;">$9B</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0;">OpenAI R&amp;D compute &rsquo;25</div>
+      </div>
+      <div style="color:#8a96a0; font-size:16px; padding:0 2px; flex-shrink:0;">&larr;</div>
+      <div class="vc-node" data-vc="datacenters" onclick="showVCDetail('datacenters')" style="flex:1; cursor:pointer; background:#fff; border:2px solid rgba(13,33,55,0.3); border-radius:10px; padding:12px 10px; text-align:center; transition:all 0.2s; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#0d2137; border-radius:10px 10px 0 0;"></div>
+        <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; letter-spacing:0.8px; margin-top:2px;">DATA CENTERS</div>
+        <div style="font-family:Inter; font-size:10px; color:#8a96a0; margin-top:4px; line-height:1.3;">Power, cooling, land, permits</div>
+        <div style="font-family:Inter; font-size:18px; font-weight:800; color:#0d2137; margin-top:6px;">$635B</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0;">hyperscaler capex &rsquo;26</div>
+      </div>
+      <div style="color:#8a96a0; font-size:16px; padding:0 2px; flex-shrink:0;">&larr;</div>
+      <div class="vc-node" data-vc="gpus" onclick="showVCDetail('gpus')" style="flex:1; cursor:pointer; background:#fff; border:2px solid rgba(13,33,55,0.3); border-radius:10px; padding:12px 10px; text-align:center; transition:all 0.2s; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#0d2137; border-radius:10px 10px 0 0;"></div>
+        <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; letter-spacing:0.8px; margin-top:2px;">GPU / ACCELERATORS</div>
+        <div style="font-family:Inter; font-size:10px; color:#8a96a0; margin-top:4px; line-height:1.3;">NVIDIA, AMD, custom silicon</div>
+        <div style="font-family:Inter; font-size:18px; font-weight:800; color:#0d2137; margin-top:6px;">~80%</div>
+        <div style="font-family:Inter; font-size:9px; color:#8a96a0;">NVIDIA market share</div>
+      </div>
+    </div>
+    <!-- Detail Panel -->
+    <div id="vc-detail-panel" style="flex:1; min-height:0; background:linear-gradient(135deg,#f8fafb,#edf4f7); border-radius:10px; border:1px solid rgba(42,122,140,0.12); padding:14px 20px; display:flex; flex-direction:column; overflow:hidden; transition:all 0.3s;">
+      <div id="vc-detail-default" style="flex:1; display:flex; align-items:center; justify-content:center;">
+        <div style="text-align:center;">
+          <div style="font-family:Inter; font-size:13px; color:#8a96a0; letter-spacing:1px;">SELECT A STAGE ABOVE TO EXPLORE</div>
+          <div style="font-family:Inter; font-size:11px; color:#b0b8c0; margin-top:6px;">Each layer reveals key players, market concentration, and bottleneck data</div>
+        </div>
+      </div>
+      <div id="vc-detail-content" style="display:none; flex:1; min-height:0;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+          <div id="vc-detail-title" style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137; letter-spacing:1px;"></div>
+          <div id="vc-detail-badge" style="font-family:Inter; font-size:9px; font-weight:600; padding:2px 8px; border-radius:10px; letter-spacing:0.5px;"></div>
+        </div>
+        <div style="display:flex; gap:14px; flex:1; min-height:0;">
+          <div id="vc-detail-stats" style="flex:3; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;"></div>
+          <div id="vc-detail-players" style="flex:2; background:#fff; border-radius:8px; padding:10px 14px; border:1px solid rgba(0,0,0,0.05); overflow-y:auto;"></div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="source-line">Novocene Capital analysis &middot; Value chain framework</div>
+  <div class="source-line">Sources: S&amp;P Global, IEA, TSMC, NVIDIA, ASML, SemiAnalysis, company filings &middot; Click nodes to explore</div>
 </div>
 
 <div class="slide" id="slide-26">
@@ -2955,6 +2961,200 @@ function downloadChart(canvasId, filename) {
 // ==========================
 // CHART 3: Copper Supply/Demand (Slide 18)
 // ==========================
+// ==========================
+// INTERACTIVE VALUE CHAIN (SLIDE 25)
+// ==========================
+var vcData = {
+  mining: {
+    title: 'MINING',
+    badge: 'CRITICAL BOTTLENECK', badgeColor: '#c05040',
+    stats: [
+      {num:'29 yrs', label:'US avg. discovery to production'},
+      {num:'18 yrs', label:'Global avg. (2020\u20132024 mines)'},
+      {num:'3\u00d7', label:'Lead time increase since 1990s'},
+      {num:'268', label:'Mines studied (S&P Global)'},
+      {num:'$85B', label:'Cost to replace China copper refining'},
+      {num:'60%', label:'Cobalt price decline 2022\u20132025'}
+    ],
+    players: [
+      '<strong>Codelco</strong> (Chile) \u2014 #1 copper miner, 1.7M MT/yr',
+      '<strong>Freeport-McMoRan</strong> (US) \u2014 #2 copper, 1.6M MT/yr',
+      '<strong>BHP</strong> (Australia) \u2014 Diversified; copper, lithium, nickel',
+      '<strong>Glencore</strong> (Switzerland) \u2014 13% cobalt, major copper/zinc',
+      '<strong>Albemarle</strong> (US) \u2014 Leading Western lithium producer',
+      '<strong>SQM</strong> (Chile) \u2014 Major brine-based lithium'
+    ]
+  },
+  refining: {
+    title: 'REFINING & PROCESSING',
+    badge: 'CONCENTRATION RISK', badgeColor: '#e67e22',
+    stats: [
+      {num:'98%', label:'China gallium production share'},
+      {num:'93%', label:'China polysilicon share'},
+      {num:'90%', label:'China rare earth processing'},
+      {num:'65%', label:'China lithium refining'},
+      {num:'45%', label:'China copper refining (up 83% since 2020)'},
+      {num:'19/20', label:'Strategic minerals led by China (IEA)'}
+    ],
+    players: [
+      '<strong>Jiangxi Copper</strong> (China) \u2014 World\'s #1 refinery, 1.1M MT/yr',
+      '<strong>Ganfeng Lithium</strong> (China) \u2014 #1 lithium metals/hydroxide',
+      '<strong>Tianqi Lithium</strong> (China) \u2014 Co-owns Greenbushes (Australia)',
+      '<strong>China Northern Rare Earth</strong> \u2014 $19.5B, largest REE company',
+      '<strong>MP Materials</strong> (US) \u2014 Only US integrated REE producer',
+      '<strong>Lynas</strong> (Australia) \u2014 Largest non-China REE, 4% global'
+    ]
+  },
+  fabrication: {
+    title: 'WAFER FABRICATION',
+    badge: 'MONOPOLY DYNAMICS', badgeColor: '#2a7a8c',
+    stats: [
+      {num:'72%', label:'TSMC foundry market share (Q3 \u201925)'},
+      {num:'90%', label:'TSMC share of 3nm production'},
+      {num:'$123B', label:'TSMC 2025 revenue (+36% YoY)'},
+      {num:'$53B', label:'TSMC 2026 capex guidance'},
+      {num:'100%', label:'ASML EUV lithography monopoly'},
+      {num:'\u20ac39B', label:'ASML order backlog'}
+    ],
+    players: [
+      '<strong>TSMC</strong> (Taiwan) \u2014 72% foundry share, 90% leading-edge, 60% gross margin',
+      '<strong>Samsung</strong> (Korea) \u2014 8% share, ~50% yield on 3nm (vs TSMC 90%)',
+      '<strong>ASML</strong> (Netherlands) \u2014 100% EUV monopoly, $200\u2013400M per tool',
+      '<strong>Intel Foundry</strong> (US) \u2014 Retrenching; capex cut to $12\u201314B',
+      '<strong>SMIC</strong> (China) \u2014 5% share, US-sanctioned, limited to 7nm+'
+    ]
+  },
+  packaging: {
+    title: 'ADVANCED PACKAGING + HBM',
+    badge: 'CRITICAL BOTTLENECK', badgeColor: '#c05040',
+    stats: [
+      {num:'130K', label:'CoWoS wafers/mo target (2026)'},
+      {num:'60%', label:'NVIDIA share of 2026 CoWoS supply'},
+      {num:'~90%', label:'SK Hynix HBM3e market share'},
+      {num:'192 GB', label:'HBM per B200 (vs 80 GB H100)'},
+      {num:'288 GB', label:'HBM4 per Rubin (2026)'},
+      {num:'12\u201318 mo', label:'HBM allocation lead time'}
+    ],
+    players: [
+      '<strong>TSMC CoWoS</strong> \u2014 Dominant; 4\u00d7 capacity ramp 2024\u20132026, still sold out',
+      '<strong>SK Hynix</strong> (Korea) \u2014 ~90% HBM3e share, sole HBM4 leader',
+      '<strong>Samsung</strong> (Korea) \u2014 Distant #2 in HBM, catching up on HBM4',
+      '<strong>Amkor</strong> \u2014 OSAT partner, 180\u2013190K CoWoS wafers allocated',
+      '<strong>Micron</strong> (US) \u2014 #3 HBM, sold out through 2025'
+    ]
+  },
+  gpus: {
+    title: 'GPU / AI ACCELERATORS',
+    badge: 'SUPPLY CONSTRAINED', badgeColor: '#0d2137',
+    stats: [
+      {num:'~80%', label:'NVIDIA AI accelerator market share'},
+      {num:'$170B', label:'NVIDIA DC revenue FY26 (est.)'},
+      {num:'$3.1M', label:'GB200 NVL72 rack price'},
+      {num:'$5\u201310B', label:'AMD MI300 series revenue \u201925'},
+      {num:'500K', label:'AWS Trainium2 chips for Anthropic'},
+      {num:'H2 2026', label:'NVIDIA Rubin (VR200) launch'}
+    ],
+    players: [
+      '<strong>NVIDIA</strong> \u2014 86% DC AI revenue share; Blackwell \u2192 Rubin \u2192 Feynman',
+      '<strong>AMD</strong> \u2014 #2 at ~7\u201310% share; MI300X \u2192 MI350 ramp',
+      '<strong>Google TPU</strong> \u2014 Ironwood (v7), 1M chips for Anthropic deal',
+      '<strong>AWS Trainium</strong> \u2014 150% QoQ growth, 35% internal workload target',
+      '<strong>Microsoft Maia</strong> \u2014 Maia 200 for inference (Jan 2026)',
+      '<strong>Broadcom</strong> \u2014 15% of 2026 CoWoS; custom ASIC for hyperscalers'
+    ]
+  },
+  datacenters: {
+    title: 'DATA CENTERS',
+    badge: 'POWER CONSTRAINED', badgeColor: '#0d2137',
+    stats: [
+      {num:'$635B', label:'Big 4 hyperscaler capex 2026'},
+      {num:'$455B', label:'Global DC capex 2024 (+51% YoY)'},
+      {num:'~96 GW', label:'Global DC power capacity 2026'},
+      {num:'~2%', label:'DC share of global electricity (2026)'},
+      {num:'150 kW', label:'AI rack power density (vs 10 kW legacy)'},
+      {num:'6.6%', label:'Global DC vacancy rate (falling)'}
+    ],
+    players: [
+      '<strong>Amazon</strong> \u2014 $200B capex guided 2026',
+      '<strong>Google</strong> \u2014 $175\u2013185B capex guided 2026',
+      '<strong>Microsoft</strong> \u2014 ~$145B annualized; Azure + OpenAI',
+      '<strong>Meta</strong> \u2014 $115\u2013135B capex guided 2026',
+      '<strong>CoreWeave</strong> \u2014 250K+ GPUs, $30B backlog, 62% from Microsoft',
+      '<strong>Equinix</strong> \u2014 270+ DCs, $4\u20135B/yr capex, record bookings'
+    ]
+  },
+  training: {
+    title: 'MODEL TRAINING',
+    badge: 'SCALING RAPIDLY', badgeColor: '#2a7a8c',
+    stats: [
+      {num:'$9B', label:'OpenAI R&D compute 2025'},
+      {num:'$4.1B', label:'Anthropic training spend 2025'},
+      {num:'$16B', label:'OpenAI total cloud compute 2025'},
+      {num:'10\u00d7/yr', label:'Training compute scaling rate'},
+      {num:'3.8\u00d710\u00b2\u2076', label:'Grok 4 training FLOP (frontier)'},
+      {num:'$1B+', label:'Single frontier model training cost'}
+    ],
+    players: [
+      '<strong>OpenAI</strong> \u2014 $16B total compute; GPT-5.2, o3 models',
+      '<strong>Anthropic</strong> \u2014 $6.8B total compute 2025; Claude Opus 4.6',
+      '<strong>Google DeepMind</strong> \u2014 Gemini Ultra/2.0; internal TPU fleet',
+      '<strong>xAI</strong> \u2014 Grok 3/4; Memphis 100K GPU cluster',
+      '<strong>Meta AI</strong> \u2014 Llama 4; open-source strategy',
+      '<strong>Mistral</strong> (France) \u2014 Leading EU lab; Large 2'
+    ]
+  },
+  inference: {
+    title: 'INFERENCE & DEPLOYMENT',
+    badge: 'FASTEST GROWING', badgeColor: '#2a7a8c',
+    stats: [
+      {num:'45%', label:'Inference share of total compute spend'},
+      {num:'$7B', label:'OpenAI inference compute 2025'},
+      {num:'$2.7B', label:'Anthropic inference costs 2025'},
+      {num:'60%', label:'Anthropic gross margin (mid-2025)'},
+      {num:'$5B', label:'Anthropic annualized revenue run rate'},
+      {num:'$12B', label:'OpenAI annualized revenue'}
+    ],
+    players: [
+      '<strong>OpenAI</strong> \u2014 $12B ARR; ChatGPT 700M+ weekly users',
+      '<strong>Anthropic</strong> \u2014 $5B ARR; Claude API + consumer',
+      '<strong>Google</strong> \u2014 Gemini integrated across Workspace, Search, Cloud',
+      '<strong>AWS Bedrock</strong> \u2014 Multi-model inference platform',
+      '<strong>Microsoft Azure AI</strong> \u2014 OpenAI + Phi models; Copilot',
+      '<strong>Together AI, Fireworks</strong> \u2014 Open-source model serving'
+    ]
+  }
+};
+
+function showVCDetail(stage) {
+  var d = vcData[stage];
+  if (!d) return;
+  // Highlight active node
+  document.querySelectorAll('.vc-node').forEach(function(n) { n.classList.remove('vc-active'); });
+  var activeNode = document.querySelector('.vc-node[data-vc="' + stage + '"]');
+  if (activeNode) activeNode.classList.add('vc-active');
+  // Hide default, show content
+  var def = document.getElementById('vc-detail-default');
+  var cont = document.getElementById('vc-detail-content');
+  if (def) def.style.display = 'none';
+  if (cont) cont.style.display = 'flex';
+  cont.style.flexDirection = 'column';
+  // Set title + badge
+  document.getElementById('vc-detail-title').textContent = d.title;
+  var badge = document.getElementById('vc-detail-badge');
+  badge.textContent = d.badge;
+  badge.style.background = d.badgeColor + '18';
+  badge.style.color = d.badgeColor;
+  // Stats grid
+  var statsEl = document.getElementById('vc-detail-stats');
+  statsEl.innerHTML = d.stats.map(function(s) {
+    return '<div class="vc-stat-card"><div class="vc-stat-num">' + s.num + '</div><div class="vc-stat-label">' + s.label + '</div></div>';
+  }).join('');
+  // Players
+  var playersEl = document.getElementById('vc-detail-players');
+  playersEl.innerHTML = '<div style="font-family:Inter;font-size:10px;font-weight:600;color:#8a96a0;letter-spacing:1px;margin-bottom:6px;">KEY PLAYERS</div>' +
+    d.players.map(function(p) { return '<div class="vc-player">' + p + '</div>'; }).join('');
+}
+
 // ==========================
 // CHART: MINE LEAD TIMES (SLIDE 20)
 // ==========================
