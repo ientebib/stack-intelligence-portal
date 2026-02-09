@@ -1,0 +1,7 @@
+{
+  "outputDirectory": "output",
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/deck", "destination": "/InvestmentThesis.html" }
+  ]
+}
