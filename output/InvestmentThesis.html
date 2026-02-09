@@ -7,6 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+// Auth gate — redirect to login if not authenticated
+if (sessionStorage.getItem('deck_auth') !== '1' && window.location.hostname !== 'localhost' && window.location.protocol !== 'file:') {
+  window.location.href = '/';
+}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
 <style>
@@ -689,7 +695,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     </div>
     <div style="flex:1; padding:10px 16px;">
       <div style="font-family:Inter; font-size:10px; font-weight:700; color:var(--teal); letter-spacing:1px; margin-bottom:3px;">4. MANAGE &amp; REFI</div>
-      <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45;">Collect rent, season the asset, refinance to recycle equity into next acquisition</div>
+      <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45;">Collect rent, season the asset, optimize the debt profile whenever possible</div>
     </div>
   </div>
   <div class="source-line" style="margin-top:4px;">Illustrative opportunities only &mdash; not indicative of current fund holdings &middot; Specific terms subject to negotiation and due diligence</div>
@@ -794,43 +800,20 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div style="flex:1; min-height:0; display:flex; flex-direction:column; gap:16px; margin-top:10px;">
     <!-- Two thesis cards -->
     <div style="display:flex; gap:20px; flex:3;">
-      <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center; padding:30px 34px;">
-        <div class="card-label" style="font-size:14px; margin-bottom:14px; letter-spacing:2.5px;">THESIS A &mdash; MACRO SHIFT</div>
-        <div class="card-text" style="font-size:20px; line-height:1.85; color:var(--gray);">Governments owe more than they can repay without inflating it away. Debt levels, entitlement spending, and political incentives all point the same direction: real assets appreciate, nominal claims erode.</div>
+      <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center; padding:32px 38px;">
+        <div class="card-label" style="font-size:14px; margin-bottom:14px; letter-spacing:2.5px;">THESIS A &mdash; MACRO CONSTRAINT</div>
+        <div class="card-text" style="font-size:18px; line-height:1.85; color:var(--gray);">The post&#8209;1950s monetary and political order is entering a regime of tightening constraint. Public debt is high, interest burdens are rising, geopolitics are fragmenting, and institutional credibility is weakening. Policy flexibility narrows: sustaining restrictive real financial conditions becomes progressively more costly. The adjustment path is a structural repricing toward assets with direct claims on real resources and productive capacity, and away from purely nominal financial claims.</div>
       </div>
-      <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center; padding:30px 34px; border-left-color:#0d2137;">
+      <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center; padding:32px 38px; border-left-color:#0d2137;">
         <div class="card-label" style="font-size:14px; margin-bottom:14px; color:#0d2137; letter-spacing:2.5px;">THESIS B &mdash; AI INFRASTRUCTURE</div>
-        <div class="card-text" style="font-size:20px; line-height:1.85; color:var(--gray);">AI is the largest infrastructure buildout since electrification. The bottlenecks are physical &mdash; power, chips, cooling, minerals, and land. Every dollar of AI capex is a dollar of commodity demand.</div>
+        <div class="card-text" style="font-size:18px; line-height:1.85; color:var(--gray);">Frontier AI is shifting from incremental software gains to a general&#8209;purpose production technology that substitutes for economically productive cognitive labor. Productivity gains can be real &mdash; while the buildout becomes capital&#8209; and energy&#8209;intensive, constrained by physical bottlenecks: power, chips, cooling, grid capacity, minerals, and land. The result is a mixed macro impulse: deflationary in cognition, inflationary in the physical layer that enables it.</div>
       </div>
     </div>
     <!-- Intersection card -->
-    <div style="background:var(--navy); border-radius:6px; padding:24px 36px; color:white; flex-shrink:0;">
-      <div style="font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--teal); margin-bottom:10px;">THE INTERSECTION</div>
-      <div style="font-family:'Inter',sans-serif; font-size:18px; line-height:1.75; color:rgba(255,255,255,0.92);">These trends reinforce each other. AI is driving unprecedented demand for energy, copper, and industrial capacity &mdash; the same resources that fiscal stress and supply constraints are making scarcer. One thesis amplifies the other.</div>
-    </div>
-    <!-- Why now -->
-    <div style="display:flex; gap:20px; flex:1; min-height:80px;">
-      <div style="flex-shrink:0; display:flex; align-items:center;">
-        <div style="font-family:'Playfair Display',serif; font-size:30px; font-weight:700; color:var(--navy); white-space:nowrap;">Why now?</div>
-      </div>
-      <div style="display:flex; gap:14px; flex:1;">
-        <div style="flex:1; border-left:3px solid var(--teal); padding:10px 16px; display:flex; flex-direction:column; justify-content:center;">
-          <div style="font-family:'Inter',sans-serif; font-size:15px; color:var(--navy); font-weight:600; margin-bottom:5px;">Bonds no longer hedge equities</div>
-          <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); line-height:1.55;">Stocks and bonds fall together now. The 60/40 portfolio is broken.</div>
-        </div>
-        <div style="flex:1; border-left:3px solid var(--teal); padding:10px 16px; display:flex; flex-direction:column; justify-content:center;">
-          <div style="font-family:'Inter',sans-serif; font-size:15px; color:var(--navy); font-weight:600; margin-bottom:5px;">AI capex is committed</div>
-          <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); line-height:1.55;">$600B+ in hyperscaler spend this year alone. Multi-year contracts are signed. The demand is locked in.</div>
-        </div>
-        <div style="flex:1; border-left:3px solid var(--teal); padding:10px 16px; display:flex; flex-direction:column; justify-content:center;">
-          <div style="font-family:'Inter',sans-serif; font-size:15px; color:var(--navy); font-weight:600; margin-bottom:5px;">Central banks are buying gold</div>
-          <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); line-height:1.55;">1,000+ tonnes per year in 2022-2024, with 2025 still elevated at 863 tonnes. Sovereigns are moving out of Treasuries and into hard assets.</div>
-        </div>
-        <div style="flex:1; border-left:3px solid var(--teal); padding:10px 16px; display:flex; flex-direction:column; justify-content:center;">
-          <div style="font-family:'Inter',sans-serif; font-size:15px; color:var(--navy); font-weight:600; margin-bottom:5px;">Supply takes years to build</div>
-          <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); line-height:1.55;">New mines take 18+ years. Power plants take 5&ndash;7. The supply gap is already open and widening.</div>
-        </div>
-      </div>
+    <div style="background:var(--navy); border-radius:6px; padding:28px 38px; color:white; flex:1;">
+      <div style="font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--teal); margin-bottom:12px;">THE INTERSECTION</div>
+      <div style="font-family:'Inter',sans-serif; font-size:18px; line-height:1.8; color:rgba(255,255,255,0.92);">These forces are not offsetting &mdash; they compound. AI raises potential output, but it also increases capital intensity and strains scarce inputs (power, grid hardware, chips, and minerals) inside a macro regime with less policy room to absorb shocks. As AI displaces labor, the political response skews toward redistribution and industrial policy &mdash; further widening structural deficits and reinforcing the drift toward real&#8209;asset repricing.</div>
+      <div style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.7; color:rgba(255,255,255,0.55); margin-top:14px; font-style:italic;">Net: deflationary in cognition, inflationary in resources &mdash; creating convexity in hard assets and physical bottlenecks, while compressing returns in undifferentiated information and &ldquo;model&#8209;only&rdquo; layers.</div>
     </div>
   </div>
   <div class="source-line">Source: World Gold Council Gold Demand Trends FY2025; hyperscaler earnings/guidance (Q4 2025 to Q2 FY2026); S&amp;P Global Market Intelligence (2024)</div>
@@ -1107,16 +1090,6 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 <div class="slide" id="slide-23">
-  <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
-  <div class="slide-title">Even if every announced project proceeds, copper faces a ~27% supply deficit by 2035</div>
-  <div class="chart-area" id="copper-chart-container">
-    <button class="chart-download-btn" onclick="downloadChart('copperChart','MI_copper_supply_demand.png')" title="Download as PNG">&darr;</button>
-    <canvas id="copperChart"></canvas>
-  </div>
-  <div class="source-line">Source: IEA Global Critical Minerals Outlook 2025 (STEPS); BloombergNEF</div>
-</div>
-
-<div class="slide" id="slide-24">
   <div class="section-label">REAL ASSETS &mdash; CONCENTRATION RISK</div>
   <div class="slide-title">China refines 19 of the 20 strategic minerals the IEA tracks</div>
   <div class="slide-subtitle">Average market share: ~70%. Gallium: 98.7%. Magnesium: 95%. Rare earths: ~90%.</div>
@@ -1127,7 +1100,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Various. See IEA Critical Minerals report.</div>
 </div>
 
-<div class="slide" id="slide-25">
+<div class="slide" id="slide-24">
   <div class="section-label">REAL ASSETS &mdash; DEMAND</div>
   <div class="slide-title">Critical mineral demand is accelerating across the board</div>
   <div class="slide-subtitle">Under stated policies, lithium demand more than doubles by 2030 and quadruples by 2040. Every mineral on this chart faces a supply gap.</div>
@@ -1139,7 +1112,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-26">
+<div class="slide" id="slide-25">
   <div class="section-label">THESIS A &mdash; COMMODITIES</div>
   <div class="slide-title">Beyond gold: silver, copper, and uranium are repricing on structural demand</div>
   <div class="slide-subtitle">Electrification, AI infrastructure, and reshoring are converging on the same constrained supply chains</div>
@@ -1293,7 +1266,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 })();
 </script>
 
-<div class="slide" id="slide-27">
+<div class="slide" id="slide-26">
   <div class="slide-divider">
     <div class="divider-title">THE AI BUILDOUT</div>
     <div class="divider-subtitle">The largest infrastructure deployment since electrification &mdash; compounding the fiscal, energy, and commodity pressures already in motion</div>
@@ -1489,7 +1462,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 })();
 </script>
 
-<div class="slide" id="slide-29">
+<div class="slide" id="slide-27">
   <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
   <div class="slide-title" style="margin-bottom:4px;">AI Value Chain: Constraint to Cash-Flow Map</div>
   <div class="slide-subtitle" style="margin-bottom:10px;">Investment framing: physical bottlenecks first, capability conversion second, recurring monetization last.</div>
@@ -1511,23 +1484,27 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         </div>
         <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:7px; align-items:stretch; min-height:0;">
           <div style="background:#f8fbfe; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #5f7892; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Mining</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Copper, lithium, rare earths</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Mining</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Copper, lithium, rare earths</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">Codelco 12% &middot; Freeport &middot; BHP &middot; Albemarle &middot; SQM &middot; Lynas &middot; MP Materials</div>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
           <div style="background:#f8fbfe; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #5f7892; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Refining</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Chemical processing and purification</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Refining</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Chemical processing and purification</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">China: 90% rare earths &middot; 70% lithium &middot; 40% copper. US &lt;3% refined lithium</div>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
           <div style="background:#f8fbfe; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #5f7892; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Semiconductors</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Fab capacity and advanced packaging</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Semiconductors</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Fab capacity and advanced packaging</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">TSMC 70% foundry &middot; NVIDIA 90% AI GPU &middot; Samsung 7% &middot; NVIDIA 60% CoWoS</div>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
           <div style="background:#f8fbfe; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #5f7892; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Data Centers</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Power, cooling, networking</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Data Centers</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Power, cooling, networking</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">AWS $125B &middot; Azure $88B &middot; Google $85B &middot; Meta $72B capex (2025). Digital Realty 15% US power</div>
           </div>
         </div>
       </div>
@@ -1539,18 +1516,21 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         </div>
         <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:7px; align-items:stretch; min-height:0;">
           <div style="background:#f4f9fd; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #3f6686; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Pre-Training</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Foundation capability from large-scale compute and data</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Pre-Training</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Foundation capability from large-scale compute and data</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">xAI 1M+ GPUs &middot; Meta 1.3M &middot; OpenAI/Stargate 400K &middot; Google DeepMind &middot; Anthropic. 5 frontier labs only</div>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
           <div style="background:#f4f9fd; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2f5d82; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Post-Training</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">SFT + preference optimization + RLHF/RLAIF</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Post-Training</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">SFT + preference optimization + RLHF/RLAIF</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">Scale AI $14B val (Meta 49% stake) &middot; Mercor $450M ARR &middot; Labelbox &middot; Surge AI. Market $1.9B &rarr; $5.5B by 2030</div>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
           <div style="background:#f4f9fd; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2f5d82; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Deployment</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Latency, reliability, safety, routing and eval loops</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Deployment</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Latency, reliability, safety, routing and eval loops</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">NVIDIA 90%+ workloads &middot; Groq $6.9B val &middot; Cerebras &middot; AWS Bedrock 4.7x growth &middot; Azure 80K+ customers</div>
           </div>
         </div>
       </div>
@@ -1562,18 +1542,21 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         </div>
         <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:7px; align-items:stretch; min-height:0;">
           <div style="background:#eef6fc; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2a5a7a; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Inference</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Token consumption from agents, copilots and APIs</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Inference</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Token consumption from agents, copilots and APIs</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">Enterprise API: Anthropic 40% &middot; OpenAI 27% &middot; Google 21%. Spend $3.5B &rarr; $8.4B in two quarters</div>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
           <div style="background:#eef6fc; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2a5a7a; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Applications</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Distribution and workflow ownership drive pricing power</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Applications</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Distribution and workflow ownership drive pricing power</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">MSFT Copilot $13B 175% YoY &middot; Salesforce Agentforce $1.4B &middot; ServiceNow $500M+ &middot; 150M Copilot MAU</div>
           </div>
           <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
           <div style="background:#eef6fc; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2a5a7a; border-radius:8px; padding:9px;">
-            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Cash Flow</div>
-            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Recurring gross profit reinvested into next model cycle</div>
+            <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">Cash Flow</div>
+            <div style="font-family:Inter; font-size:10px; color:#5a6a78; margin-top:3px; line-height:1.3;">Recurring gross profit reinvested into next model cycle</div>
+            <div style="font-family:Inter; font-size:9.5px; color:#2a7a8c; margin-top:5px; line-height:1.35; font-weight:500;">NVIDIA $170B DC run rate &middot; AWS 35% margin &middot; Azure $75B+ &middot; Google Cloud 21% margin. Labs still unprofitable</div>
           </div>
         </div>
       </div>
@@ -1581,10 +1564,10 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
   </div>
 
-  <div class="source-line">Sources: S&amp;P Global Market Intelligence (June 2024); IEA Energy and AI (April 2025); OpenAI InstructGPT paper (2022), OpenAI alignment research (2022), OpenAI o1 reasoning report (2024), Anthropic Constitutional AI (2022)</div>
+  <div class="source-line">Sources: TrendForce Q2 2025; IEA Global Critical Minerals Outlook 2025; Menlo Ventures State of GenAI in Enterprise (Jan 2026); public earnings (MSFT, AWS, GOOG, META, NVDA FY2025&ndash;26); Mordor Intelligence; S&amp;P Global</div>
 </div>
 
-<div class="slide" id="slide-30">
+<div class="slide" id="slide-29">
   <div class="section-label">THESIS B &mdash; CAPABILITY</div>
   <div class="slide-title">Harder benchmarks show capabilities still climbing steeply</div>
   <div class="slide-subtitle">Frontier running max on non-saturated benchmarks &mdash; SWE-bench broke 80% (Opus 4.5), FrontierMath 1%&rarr;41% in 18 months</div>
@@ -1592,7 +1575,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Epoch AI Capabilities Index (ECI); performance = best-ever score as of each month</div>
 </div>
 
-<div class="slide" id="slide-31">
+<div class="slide" id="slide-30">
   <div class="section-label">THESIS B &mdash; SCALING</div>
   <div class="slide-title">The task horizon is doubling every 4.3 months</div>
   <div class="slide-subtitle">METR-Horizon v1.1 &mdash; GPT-5.2 can now complete tasks that take humans ~6.5 hours</div>
@@ -1600,7 +1583,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: METR Horizon v1.1 benchmark; p50 = median task duration where AI succeeds 50% of the time</div>
 </div>
 
-<div class="slide" id="slide-32">
+<div class="slide" id="slide-31">
   <div class="section-label">THE AI BUILDOUT &mdash; ADOPTION</div>
   <div class="slide-title">AI adoption is unprecedented &mdash; consumer and enterprise</div>
   <div class="slide-subtitle">~900M weekly consumer users. 1.3M+ business customers across the two leading AI labs. OpenAI has more enterprise customers; Anthropic captures 40% of enterprise LLM spend vs OpenAI&rsquo;s 27%.</div>
@@ -1616,7 +1599,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-33">
+<div class="slide" id="slide-32">
   <div class="section-label">THE AI BUILDOUT &mdash; BUSINESS</div>
   <div class="slide-title">Revenue is already materializing &mdash; faster than any prior technology wave</div>
   <div class="slide-subtitle">The market is already paying for what these models produce. OpenAI: $28M &rarr; $20B in 3 years. Anthropic: $100M &rarr; $9B in 2 years.</div>
@@ -1624,7 +1607,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Epoch AI; company disclosures; The Information; Bloomberg; CNBC</div>
 </div>
 
-<div class="slide" id="slide-34">
+<div class="slide" id="slide-33">
   <div class="section-label">THESIS B &mdash; COMPUTE</div>
   <div class="slide-title">Training compute has grown 5 orders of magnitude since 2017</div>
   <div class="slide-subtitle">Each generation of model requires exponentially more hardware &mdash; from ~10<sup>21</sup> to ~5&times;10<sup>26</sup> FLOP in 8 years</div>
@@ -1632,7 +1615,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Epoch AI Notable AI Models database</div>
 </div>
 
-<div class="slide" id="slide-35">
+<div class="slide" id="slide-34">
   <div class="section-label">THESIS B &mdash; AI COMPUTE</div>
   <div class="slide-title">Training costs have crossed $500M &mdash; approaching $1B per run</div>
   <div class="slide-subtitle">More compute per model means more chips, more power, more cooling &mdash; each run is a megaproject</div>
@@ -1641,7 +1624,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-36">
+<div class="slide" id="slide-35">
   <div class="section-label">THESIS B &mdash; HARDWARE</div>
   <div class="slide-title">32&times; more chips shipped in three years</div>
   <div class="stat-row-label" style="margin-top:18px;">AI ACCELERATORS SHIPPED (H100 EQUIV.)</div>
@@ -1665,7 +1648,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-37">
+<div class="slide" id="slide-36">
   <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
   <div class="slide-title">Hyperscaler capex is entering escape velocity</div>
   <div class="slide-subtitle">Microsoft, Meta, Alphabet and Amazon are expected to spend &gt;$600B this year &mdash; up from roughly $360B spent in 2025</div>
@@ -1674,7 +1657,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-38">
+<div class="slide" id="slide-37">
   <div class="section-label">THESIS B &mdash; INFRASTRUCTURE</div>
   <div class="slide-title">The datacenter buildout is at megaproject scale</div>
   <div class="stat-row-label" style="margin-top:14px;">TOTAL AI DATACENTER OPERATIONAL POWER (GW)</div>
@@ -1690,7 +1673,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: RAND / SemiAnalysis / Epoch AI</div>
 </div>
 
-<div class="slide" id="slide-39">
+<div class="slide" id="slide-38">
   <div class="section-label">THESIS B &mdash; POWER</div>
   <div class="slide-title">US datacenter load doubles to 130 GW by 2030</div>
   <div class="slide-subtitle">62 GW consumed in 2025 &mdash; PJM capacity market prices up 10&times; in two years ($29 &rarr; $329 / MW-day)</div>
@@ -1700,7 +1683,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Energy Institute, JPMAM, PJM Interconnection</div>
 </div>
 
-<div class="slide" id="slide-40">
+<div class="slide" id="slide-39">
   <div class="section-label">THESIS B &mdash; ECONOMICS</div>
   <div class="slide-title">Inference is 45% of compute spend and growing</div>
   <div class="slide-subtitle">Agentic workloads turn every task into hours of sustained reasoning</div>
@@ -1712,37 +1695,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Semi Analysis, company disclosures, Epoch AI</div>
 </div>
 
-<div class="slide" id="slide-41">
-  <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
-  <div class="slide-title">Margin accrues to bottlenecks, not the most visible layer</div>
-  <div style="margin-top:14px;">
-    <div class="card" style="margin-bottom:10px;">
-      <div class="card-label">APPLICATION / PLATFORM</div>
-      <div class="card-text">Largest upside, most competitive. Margin protected by distribution, data, workflow lock-in.</div>
-    </div>
-    <div class="card" style="margin-bottom:10px;">
-      <div class="card-label">DATA CENTERS</div>
-      <div class="card-text">Hybrid &mdash; moat migrates from space to power + interconnection + speed to deliver.</div>
-    </div>
-    <div class="card" style="margin-bottom:10px;">
-      <div class="card-label">POWER &amp; GRID INFRASTRUCTURE</div>
-      <div class="card-text">Contracted, regulated. Quasi-bond cash flows with equity upside. Capacity markets + long-term PPAs.</div>
-    </div>
-    <div class="card" style="margin-bottom:10px;">
-      <div class="card-label">SEMICONDUCTORS &mdash; FAB &middot; CoWoS &middot; HBM</div>
-      <div class="card-text">Scarcity rent: allocation pricing, persistent gross margin expansion, contracted demand.</div>
-    </div>
-  </div>
-</div>
-
-<div class="slide" id="slide-42">
+<div class="slide" id="slide-40">
   <div class="slide-divider">
     <div class="divider-title">WHY THESE FORCES COMPOUND</div>
     <div class="divider-subtitle">The intersection of macro shift and AI infrastructure</div>
   </div>
 </div>
 
-<div class="slide" id="slide-43">
+<div class="slide" id="slide-62">
   <div class="section-label">INTERSECTION</div>
   <div class="slide-title">AI is deflationary in cognition. Inflationary in everything it needs to run.</div>
   <div class="body-text" style="margin-top:12px;">Electricity. Copper. Grid hardware. Aluminum. Advanced packaging. Specialized memory. All in a system where permitting, geopolitics, and supply chain concentration constrain elasticity.</div>
@@ -1753,7 +1713,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: IEA, McKinsey, Goldman Sachs commodity research</div>
 </div>
 
-<div class="slide" id="slide-44">
+<div class="slide" id="slide-42">
   <div class="section-label">INTERSECTION &mdash; LABOR</div>
   <div class="slide-title">Labor exposure is broad and automation plans are accelerating</div>
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
@@ -1767,7 +1727,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-45">
+<div class="slide" id="slide-43">
   <div class="section-label">INTERSECTION &mdash; FISCAL</div>
   <div class="slide-title" style="font-size:32px; line-height:1.2;">There is no fiscally neutral path through AI displacement</div>
   <div style="font-family:Inter; font-size:15px; color:var(--gray); line-height:1.55; margin-top:6px; max-width:90%;">60% of advanced-economy jobs are exposed to AI. UBI-style responses are possible in theory, but the U.S. still relies on labor-heavy taxes and has not enacted a replacement tax base at comparable scale.</div>
@@ -1815,7 +1775,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-46">
+<div class="slide" id="slide-63">
   <div class="section-label" style="font-size:12px; letter-spacing:3px;">INTERSECTION &mdash; ENDGAME</div>
   <div class="slide-title" style="font-size:32px; margin-bottom:8px;">Financial repression is the proven playbook for sovereign deleveraging</div>
   <div class="body-text" style="font-size:15px; margin-bottom:0; line-height:1.55;">Real rates held below nominal growth for decades, silently transferring wealth from holders of nominal claims to the government. The same real assets that capture value from the AI buildout are the natural hedge.</div>
@@ -1860,14 +1820,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line" style="margin-top:8px;">Sources: Federal Reserve, BLS, Ibbotson SBBI, Dimson-Marsh-Staunton Global Returns; Dalio, <em>Principles for Navigating Big Debt Crises</em> (2018)</div>
 </div>
 
-<div class="slide" id="slide-47">
+<div class="slide" id="slide-45">
   <div class="slide-divider">
     <div class="divider-title">PORTFOLIO CONSTRUCTION</div>
     <div class="divider-subtitle">Built to compound through volatility</div>
   </div>
 </div>
 
-<div class="slide" id="slide-48">
+<div class="slide" id="slide-46">
   <div class="section-label">PORTFOLIO &mdash; RESEARCH INFRASTRUCTURE</div>
   <div class="slide-title">Proprietary research system powered by a long-horizon AI agent</div>
   <div class="slide-subtitle">A CLI-based autonomous agent ingests live data from financial APIs, semiconductor supply chain trackers, on-chain feeds, and independent research &mdash; then executes structured analytical skills to produce equity research, risk analysis, and supply chain intelligence. Every output is reviewed by a human expert before informing portfolio decisions.</div>
@@ -1876,7 +1836,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   </div>
 </div>
 
-<div class="slide" id="slide-49">
+<div class="slide" id="slide-47">
   <div class="section-label">PORTFOLIO &mdash; LEADING INDICATORS</div>
   <div class="slide-title">What we track</div>
   <div class="slide-subtitle" style="margin-bottom:14px;">Three signal towers feed one decision engine: buildout velocity, macro constraints, and market regime.</div>
@@ -1975,94 +1935,19 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
           <div style="font-family:Inter; font-size:14px; color:var(--gray); border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;">Re-underwrite, re-rank, and approve adds/exits.</div>
         </div>
       </div>
-      <div class="card" style="margin-bottom:0; padding:14px; border-left-color:var(--navy);">
-        <div class="card-label" style="font-size:12px; color:var(--navy); margin-bottom:8px;">DECISION HOOK</div>
-        <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy); line-height:1.35; margin-bottom:8px;">If two towers deteriorate together, conviction is cut and the position is re-underwritten.</div>
-        <div style="font-family:Inter; font-size:14px; color:var(--gray); line-height:1.5;">This prevents single-metric anchoring and forces alignment between fundamental, macro, and market evidence before capital is added.</div>
-      </div>
     </div>
   </div>
   <div class="source-line">Source: Internal investment committee dashboard schema and linked public data feeds (market, macro, and AI infrastructure series)</div>
 </div>
 
-<div class="slide" id="slide-50">
-  <div class="section-label">PORTFOLIO &mdash; PROCESS</div>
-  <div class="slide-title">How we underwrite</div>
-  <div class="slide-subtitle">Institutional gate-based underwriting with explicit failure conditions, kill-switches, and non-negotiable risk rails.</div>
-  <div style="flex:1; min-height:0; display:grid; grid-template-columns:1.2fr 0.8fr; gap:14px; margin-top:10px;">
-    <div style="display:grid; grid-template-rows:repeat(4,1fr); gap:10px; min-height:0;">
-      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
-        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">1</div>
-        <div>
-          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Structural Demand Quality</div>
-          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">End-market growth must remain durable through an entire cycle.</div>
-          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if demand depends on one-off policy, subsidy, or single-buyer concentration.</div>
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
-        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">2</div>
-        <div>
-          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Supply-Constraint Persistence</div>
-          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">Scarcity duration must exceed what current valuation already discounts.</div>
-          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if supply response can normalize before demand compounding peaks.</div>
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
-        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">3</div>
-        <div>
-          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Balance-Sheet &amp; Liquidity Integrity</div>
-          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">No plausible forced-seller path under adverse rates, spreads, or volumes.</div>
-          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if covenant stress, refinancing fragility, or liquidity mismatch is material.</div>
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
-        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">4</div>
-        <div>
-          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Entry Multiple &amp; Exit Optionality</div>
-          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">Return profile must clear hurdle rates without multiple expansion heroics.</div>
-          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if the thesis requires precise timing to crystallize value.</div>
-        </div>
-      </div>
-    </div>
-    <div style="display:grid; grid-template-rows:1fr 1fr 1fr; gap:10px; min-height:0;">
-      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#2a7a8c;">
-        <div class="card-label" style="font-size:12px; color:var(--teal); margin-bottom:8px;">IC DECISION STATES</div>
-        <div style="font-family:Inter; font-size:16px; color:var(--navy); line-height:1.55;">
-          <strong>Go:</strong> all gates pass and no trigger is active.<br>
-          <strong>Watch:</strong> thesis intact, but one gate is degrading.<br>
-          <strong>Pass / Exit:</strong> gate break persists beyond tolerance.
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#c05040;">
-        <div class="card-label" style="font-size:12px; color:#c05040; margin-bottom:8px;">KILL-SWITCH PROTOCOL</div>
-        <div style="font-family:Inter; font-size:15px; color:var(--navy); line-height:1.55;">
-          Structural demand downgrade.<br>
-          Scarcity unwind faster than underwriting case.<br>
-          Balance-sheet stress above approved limits.
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#0d2137;">
-        <div class="card-label" style="font-size:12px; color:#0d2137; margin-bottom:8px;">NON-NEGOTIABLE RISK RAILS</div>
-        <div style="font-family:Inter; font-size:15px; color:var(--navy); line-height:1.55;">
-          Max single position: <strong>10% NAV</strong>.<br>
-          Margin / borrowing: <strong>prohibited</strong>.<br>
-          Outright shorts: <strong>prohibited</strong>.<br>
-          Mandatory re-underwrite on material signal break.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="source-line">Source: Internal IC underwriting playbook (v2026.02), linked to leading-indicator dashboard (slide 49) and portfolio limits in fund terms</div>
-</div>
-
-<div class="slide" id="slide-51">
+<div class="slide" id="slide-48">
   <div class="slide-divider">
     <div class="divider-title">FUND TERMS</div>
     <div class="divider-subtitle">Structure, governance, and alignment</div>
   </div>
 </div>
 
-<div class="slide" id="slide-52">
+<div class="slide" id="slide-50">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">Scenario analysis</div>
   <div class="slide-subtitle">Adjust assumptions to model projected returns &middot; NOI escalates 2% annually (NNN lease) &middot; 10-year fund life</div>
@@ -2118,7 +2003,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Projections are illustrative &middot; 2% mgmt fee (Yr 1&ndash;5 on committed capital, Yr 6&ndash;10 on NAV) &middot; 20% carry above 9% preferred &middot; Past performance is not indicative of future results</div>
 </div>
 
-<div class="slide" id="slide-53">
+<div class="slide" id="slide-51">
   <div class="section-label">FUND TERMS</div>
   <div class="slide-title">Terms at a glance</div>
   <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:18px; flex:1; min-height:0; margin-top:12px;">
@@ -2185,7 +2070,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Draft fund term sheet and LPA framework (internal working draft, Feb 2026)</div>
 </div>
 
-<div class="slide" id="slide-54">
+<div class="slide" id="slide-52">
   <div class="section-label">RISK MANAGEMENT</div>
   <div class="slide-title">Risk architecture</div>
   <div class="slide-subtitle">Every risk has a structural mitigation built into the fund design</div>
@@ -2238,7 +2123,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Internal underwriting policy and portfolio risk limits (v2026.02)</div>
 </div>
 
-<div class="slide" id="slide-55">
+<div class="slide" id="slide-53">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">Traditional portfolio construction was designed for a regime that no longer exists.</div>
   <div class="slide-subtitle">At current starting valuations, historical forward real return base rates for broad equity beta are materially compressed.</div>
@@ -2306,7 +2191,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Robert Shiller online data (Yale, sheet updated Sep 2023; monthly 1881-2013 start cohorts for realized 10Y forward real returns) and multpl.com valuation series (captured Monday, February 9, 2026 at 9:02 AM ET; latest close-based print 4:00 PM EST, Friday, February 6, 2026)</div>
 </div>
 
-<div class="slide" id="slide-56">
+<div class="slide" id="slide-54">
   <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center; max-width:900px; margin:0 auto;">
     <div style="font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--teal); margin-bottom:24px;">CLOSING</div>
     <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--navy); margin-bottom:48px; line-height:1.2;">What if we are right?</div>
@@ -2320,14 +2205,14 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-57">
+<div class="slide" id="slide-55">
   <div class="slide-divider">
     <div class="divider-title">APPENDIX</div>
     <div class="divider-subtitle">Supporting detail and technical reference</div>
   </div>
 </div>
 
-<div class="slide" id="slide-58">
+<div class="slide" id="slide-56">
   <div class="section-label">APPENDIX &mdash; AI INFRASTRUCTURE</div>
   <div class="slide-title">Each GPU generation unlocks a new frontier of training scale</div>
   <div class="slide-subtitle">GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72</div>
@@ -2335,7 +2220,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: OpenAI, NVIDIA, SemiAnalysis, The Information; cluster sizes are best public estimates</div>
 </div>
 
-<div class="slide" id="slide-59">
+<div class="slide" id="slide-57">
   <div class="section-label">APPENDIX &mdash; POWER</div>
   <div class="slide-title">Interconnection queues stretch 5&ndash;7 years</div>
   <div class="slide-subtitle">The grid cannot accommodate the demand without massive new investment</div>
@@ -2346,7 +2231,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Lawrence Berkeley National Lab, PJM, EIA</div>
 </div>
 
-<div class="slide" id="slide-60">
+<div class="slide" id="slide-58">
   <div class="section-label">APPENDIX &mdash; SUPPLY CHAIN</div>
   <div class="slide-title">GPU supply is a packaging story, not just a wafer story</div>
   <div class="slide-subtitle">CoWoS + HBM = the second chokepoint</div>
@@ -2426,7 +2311,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 </div>
 
 
-<div class="slide" id="slide-61">
+<div class="slide" id="slide-59">
   <div class="section-label">APPENDIX</div>
   <div class="slide-title">How large language models work</div>
   <div class="slide-subtitle">A simplified view of the architecture behind frontier AI systems</div>
@@ -2487,12 +2372,92 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="source-line">Source: Vaswani et al. (2017); Kaplan et al. (2020); Epoch AI</div>
 </div>
 
-<div class="slide" id="slide-62">
+<div class="slide" id="slide-60">
   <div class="section-label">APPENDIX &mdash; COMPUTE SPEND</div>
   <div class="slide-title">AI lab compute spend is doubling every year</div>
   <div class="slide-subtitle">Every dollar here flows into chips, power, and cooling &mdash; the physical layer of the AI stack</div>
   <div class="chart-area"><canvas id="chart-ai-compute-spend"></canvas></div>
   <div class="source-line">Source: Epoch AI; The Information; company disclosures</div>
+</div>
+
+<div class="slide" id="slide-61">
+  <div class="section-label">APPENDIX &mdash; COPPER</div>
+  <div class="slide-title">Even if every announced project proceeds, copper faces a ~27% supply deficit by 2035</div>
+  <div class="chart-area" id="copper-chart-container">
+    <button class="chart-download-btn" onclick="downloadChart('copperChart','MI_copper_supply_demand.png')" title="Download as PNG">&darr;</button>
+    <canvas id="copperChart"></canvas>
+  </div>
+  <div class="source-line">Source: IEA Global Critical Minerals Outlook 2025 (STEPS); BloombergNEF</div>
+</div>
+
+<div class="slide" id="slide-61">
+  <div class="section-label">APPENDIX &mdash; UNDERWRITING</div>
+  <div class="slide-title">How we underwrite</div>
+  <div class="slide-subtitle">Institutional gate-based underwriting with explicit failure conditions, kill-switches, and non-negotiable risk rails.</div>
+  <div style="flex:1; min-height:0; display:grid; grid-template-columns:1.2fr 0.8fr; gap:14px; margin-top:10px;">
+    <div style="display:grid; grid-template-rows:repeat(4,1fr); gap:10px; min-height:0;">
+      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">1</div>
+        <div>
+          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Structural Demand Quality</div>
+          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">End-market growth must remain durable through an entire cycle.</div>
+          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if demand depends on one-off policy, subsidy, or single-buyer concentration.</div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">2</div>
+        <div>
+          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Supply-Constraint Persistence</div>
+          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">Scarcity duration must exceed what current valuation already discounts.</div>
+          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if supply response can normalize before demand compounding peaks.</div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">3</div>
+        <div>
+          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Balance-Sheet &amp; Liquidity Integrity</div>
+          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">No plausible forced-seller path under adverse rates, spreads, or volumes.</div>
+          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if covenant stress, refinancing fragility, or liquidity mismatch is material.</div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">4</div>
+        <div>
+          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Entry Multiple &amp; Exit Optionality</div>
+          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">Return profile must clear hurdle rates without multiple expansion heroics.</div>
+          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if the thesis requires precise timing to crystallize value.</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-rows:1fr 1fr 1fr; gap:10px; min-height:0;">
+      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#2a7a8c;">
+        <div class="card-label" style="font-size:12px; color:var(--teal); margin-bottom:8px;">IC DECISION STATES</div>
+        <div style="font-family:Inter; font-size:16px; color:var(--navy); line-height:1.55;">
+          <strong>Go:</strong> all gates pass and no trigger is active.<br>
+          <strong>Watch:</strong> thesis intact, but one gate is degrading.<br>
+          <strong>Pass / Exit:</strong> gate break persists beyond tolerance.
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#c05040;">
+        <div class="card-label" style="font-size:12px; color:#c05040; margin-bottom:8px;">KILL-SWITCH PROTOCOL</div>
+        <div style="font-family:Inter; font-size:15px; color:var(--navy); line-height:1.55;">
+          Structural demand downgrade.<br>
+          Scarcity unwind faster than underwriting case.<br>
+          Balance-sheet stress above approved limits.
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#0d2137;">
+        <div class="card-label" style="font-size:12px; color:#0d2137; margin-bottom:8px;">NON-NEGOTIABLE RISK RAILS</div>
+        <div style="font-family:Inter; font-size:15px; color:var(--navy); line-height:1.55;">
+          Max single position: <strong>10% NAV</strong>.<br>
+          Margin / borrowing: <strong>prohibited</strong>.<br>
+          Outright shorts: <strong>prohibited</strong>.<br>
+          Mandatory re-underwrite on material signal break.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="source-line">Source: Internal IC underwriting playbook (v2026.02)</div>
 </div>
 
 </div><!-- end .presentation -->
@@ -2510,7 +2475,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="section-nav-sep"></div>
   <button class="section-nav-btn" onclick="showSlide(17)" data-from="17" data-to="26">Real Assets</button>
   <div class="section-nav-sep"></div>
-  <button class="section-nav-btn" onclick="showSlide(27)" data-from="27" data-to="41">AI Infra</button>
+  <button class="section-nav-btn" onclick="showSlide(27)" data-from="27" data-to="40">AI Infra</button>
   <div class="section-nav-sep"></div>
   <button class="section-nav-btn" onclick="showSlide(42)" data-from="42" data-to="46">Compounding</button>
   <div class="section-nav-sep"></div>
@@ -2520,20 +2485,20 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   <div class="section-nav-sep"></div>
   <button class="section-nav-btn" onclick="showSlide(56)" data-from="56" data-to="56">Close</button>
   <div class="section-nav-sep"></div>
-  <button class="section-nav-btn" onclick="showSlide(57)" data-from="57" data-to="62">Appendix</button>
+  <button class="section-nav-btn" onclick="showSlide(57)" data-from="57" data-to="63">Appendix</button>
 </div>
 
 <!-- Controls -->
 <div class="controls">
   <button class="fs-btn" onclick="toggleFullscreen()" title="Press F">&#9723; Fullscreen</button>
-  <div class="slide-counter" id="slideCounter">1 / 62</div>
+  <div class="slide-counter" id="slideCounter">1 / 63</div>
 </div>
 
 <script>
 // ==========================
 // PRESENTATION ENGINE
 // ==========================
-const TOTAL_SLIDES = 62;
+const TOTAL_SLIDES = 63;
 let currentSlide = 1;
 let isAnimating = false;
 
