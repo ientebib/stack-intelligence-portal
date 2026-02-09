@@ -547,14 +547,6 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
   .divider-title { font-size: 42px; }
   .title-main { font-size: 44px; }
 }
-.vc-node:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,0.1) !important; }
-.vc-node.vc-active { box-shadow:0 4px 20px rgba(42,122,140,0.3) !important; transform:translateY(-2px); background:#f4fafb !important; }
-.vc-stat-card { background:#fff; border-radius:8px; padding:14px 16px; border:1px solid rgba(0,0,0,0.05); text-align:center; display:flex; flex-direction:column; justify-content:center; }
-.vc-stat-num { font-family:Inter; font-size:22px; font-weight:800; color:#0d2137; }
-.vc-stat-label { font-family:Inter; font-size:11px; color:#8a96a0; margin-top:4px; line-height:1.3; }
-.vc-player { font-family:Inter; font-size:13px; color:#0d2137; padding:6px 0; border-bottom:1px solid rgba(0,0,0,0.04); line-height:1.4; }
-.vc-player:last-child { border-bottom:none; }
-.vc-player strong { color:#2a7a8c; font-weight:600; }
 </style>
 </head>
 <body>
@@ -601,6 +593,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       <canvas id="chart-capital-split" style="max-width:480px; max-height:480px;"></canvas>
     </div>
   </div>
+  <div class="source-line">Source: Internal fund construction model (target allocation and constraints), Feb 2026</div>
 </div>
 
 <div class="slide" id="slide-3">
@@ -619,7 +612,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     <!-- Property 1: Chase Bank & Chipotle -->
     <div style="background:var(--light-blue); border-radius:6px; display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(42,122,140,0.15);">
       <div style="position:relative; height:200px; overflow:hidden;">
-        <img src="assets/triple-net/chase_chipotle.jpeg" style="width:100%; height:100%; object-fit:cover;" alt="Chase Bank & Chipotle NNN Property">
+        <img src="assets/triple-net/chase_chipotle.jpeg" style="width:100%; height:100%; object-fit:cover; object-position:center 18%;" alt="Chase Bank & Chipotle NNN Property">
         <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(13,33,55,0.9)); padding:10px 18px 12px;">
           <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:2px;">RETAIL NNN</div>
           <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:white;">Chase Bank &amp; Chipotle</div>
@@ -636,7 +629,6 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
           <tr><td style="padding:7px 0; color:var(--gray);">Remaining Lease Term</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">15 Years</td></tr>
         </table>
       </div>
-      <div style="padding:10px 18px; background:rgba(42,122,140,0.08); font-family:'Inter',sans-serif; font-size:11px; color:var(--teal); font-weight:600; text-align:center; letter-spacing:0.5px;">ABSOLUTE NNN &middot; 100% OCCUPANCY</div>
     </div>
 
     <!-- Property 2: Wendy's -->
@@ -659,7 +651,6 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
           <tr><td style="padding:7px 0; color:var(--gray);">Remaining Lease Term</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">20.6 Years</td></tr>
         </table>
       </div>
-      <div style="padding:10px 18px; background:rgba(42,122,140,0.08); font-family:'Inter',sans-serif; font-size:11px; color:var(--teal); font-weight:600; text-align:center; letter-spacing:0.5px;">ABSOLUTE NNN &middot; UPCOMING 2026 REMODEL</div>
     </div>
     <!-- Property 3: TD Bank -->
     <div style="background:var(--light-blue); border-radius:6px; display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(42,122,140,0.15);">
@@ -668,20 +659,19 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(13,33,55,0.9)); padding:10px 18px 12px;">
           <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:2px;">SINGLE TENANT NNN</div>
           <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:white;">TD Bank</div>
-          <div style="font-family:'Inter',sans-serif; font-size:11px; color:rgba(255,255,255,0.8);">Target Outparcel &middot; Address TBD</div>
+          <div style="font-family:'Inter',sans-serif; font-size:11px; color:rgba(255,255,255,0.8);">Target Outparcel &middot; 14995 SW 88TH STREET, MIAMI, FL</div>
         </div>
       </div>
       <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; justify-content:center;">
         <table style="width:100%; font-family:'Inter',sans-serif; font-size:13px; border-collapse:collapse;">
           <tr style="border-bottom:1px solid rgba(42,122,140,0.12);"><td style="padding:7px 0; color:var(--gray);">Tenant</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">TD Bank</td></tr>
-          <tr style="border-bottom:1px solid rgba(42,122,140,0.12);"><td style="padding:7px 0; color:var(--gray);">Location</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">Target Outparcel (Address TBD)</td></tr>
+          <tr style="border-bottom:1px solid rgba(42,122,140,0.12);"><td style="padding:7px 0; color:var(--gray);">Location</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">14995 SW 88TH STREET, MIAMI, FL</td></tr>
           <tr style="border-bottom:1px solid rgba(42,122,140,0.12);"><td style="padding:7px 0; color:var(--gray);">Acquisition Price</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">$6,509,803</td></tr>
           <tr style="border-bottom:1px solid rgba(42,122,140,0.12);"><td style="padding:7px 0; color:var(--gray);">Cap Rate</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">5.11%</td></tr>
           <tr style="border-bottom:1px solid rgba(42,122,140,0.12);"><td style="padding:7px 0; color:var(--gray);">NOI</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">$332,750</td></tr>
           <tr><td style="padding:7px 0; color:var(--gray);">Remaining Lease Term</td><td style="padding:7px 0; text-align:right; color:var(--navy); font-weight:600;">12.1 Years</td></tr>
         </table>
       </div>
-      <div style="padding:10px 18px; background:rgba(42,122,140,0.08); font-family:'Inter',sans-serif; font-size:11px; color:var(--teal); font-weight:600; text-align:center; letter-spacing:0.5px;">ABSOLUTE NNN &middot; STRONG DEPOSITS</div>
     </div>
   </div>
   <div style="display:flex; gap:0; margin-top:8px; background:rgba(42,122,140,0.04); border-radius:6px; border:1px solid rgba(42,122,140,0.08); overflow:hidden;">
@@ -834,7 +824,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         </div>
         <div style="flex:1; border-left:3px solid var(--teal); padding:10px 16px; display:flex; flex-direction:column; justify-content:center;">
           <div style="font-family:'Inter',sans-serif; font-size:15px; color:var(--navy); font-weight:600; margin-bottom:5px;">Central banks are buying gold</div>
-          <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); line-height:1.55;">1,000+ tonnes per year for three years running. Sovereigns are moving out of Treasuries and into hard assets.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); line-height:1.55;">1,000+ tonnes per year in 2022-2024, with 2025 still elevated at 863 tonnes. Sovereigns are moving out of Treasuries and into hard assets.</div>
         </div>
         <div style="flex:1; border-left:3px solid var(--teal); padding:10px 16px; display:flex; flex-direction:column; justify-content:center;">
           <div style="font-family:'Inter',sans-serif; font-size:15px; color:var(--navy); font-weight:600; margin-bottom:5px;">Supply takes years to build</div>
@@ -843,6 +833,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       </div>
     </div>
   </div>
+  <div class="source-line">Source: World Gold Council Gold Demand Trends FY2025; hyperscaler earnings/guidance (Q4 2025 to Q2 FY2026); S&amp;P Global Market Intelligence (2024)</div>
 </div>
 
 <div class="slide" id="slide-7">
@@ -947,7 +938,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     <div style="background:var(--light-blue); border-radius:8px; padding:12px 14px 6px; display:flex; flex-direction:column; border-top:3px solid #c05040;">
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2px;">
         <div style="font-family:Inter; font-size:10px; font-weight:700; color:#c05040; letter-spacing:1.5px;">TRADE POLICY UNCERTAINTY</div>
-        <div><span style="font-family:Playfair Display; font-size:20px; font-weight:700; color:#c05040;">2,205</span><span style="font-family:Inter; font-size:9px; color:var(--gray); margin-left:4px;">Q1 2026</span></div>
+        <div><span style="font-family:Playfair Display; font-size:20px; font-weight:700; color:#c05040;">2,205</span><span style="font-family:Inter; font-size:9px; color:var(--gray); margin-left:4px;">Jan 2026</span></div>
       </div>
       <div style="flex:1; min-height:0; position:relative;"><canvas id="tpuChart"></canvas></div>
     </div>
@@ -956,7 +947,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     <div style="background:var(--light-blue); border-radius:8px; padding:12px 14px 6px; display:flex; flex-direction:column; border-top:3px solid var(--navy);">
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2px;">
         <div style="font-family:Inter; font-size:10px; font-weight:700; color:var(--navy); letter-spacing:1.5px;">GEOPOLITICAL RISK INDEX</div>
-        <div><span style="font-family:Playfair Display; font-size:20px; font-weight:700; color:var(--navy);">164</span><span style="font-family:Inter; font-size:9px; color:var(--gray); margin-left:4px;">Q1 2026</span></div>
+        <div><span style="font-family:Playfair Display; font-size:20px; font-weight:700; color:var(--navy);">164</span><span style="font-family:Inter; font-size:9px; color:var(--gray); margin-left:4px;">Jan 2026</span></div>
       </div>
       <div style="flex:1; min-height:0; position:relative;"><canvas id="gprChart"></canvas></div>
     </div>
@@ -965,7 +956,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     <div style="background:var(--light-blue); border-radius:8px; padding:12px 14px 6px; display:flex; flex-direction:column; border-top:3px solid var(--teal);">
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2px;">
         <div style="font-family:Inter; font-size:10px; font-weight:700; color:var(--teal); letter-spacing:1.5px;">FISCAL POLICY UNCERTAINTY</div>
-        <div><span style="font-family:Playfair Display; font-size:20px; font-weight:700; color:var(--teal);">438</span><span style="font-family:Inter; font-size:9px; color:var(--gray); margin-left:4px;">Q1 2026</span></div>
+        <div><span style="font-family:Playfair Display; font-size:20px; font-weight:700; color:var(--teal);">438</span><span style="font-family:Inter; font-size:9px; color:var(--gray); margin-left:4px;">Jan 2026</span></div>
       </div>
       <div style="flex:1; min-height:0; position:relative;"><canvas id="fiscalChart"></canvas></div>
     </div>
@@ -974,13 +965,13 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     <div style="background:var(--light-blue); border-radius:8px; padding:12px 14px 6px; display:flex; flex-direction:column; border-top:3px solid #8b6914;">
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2px;">
         <div style="font-family:Inter; font-size:10px; font-weight:700; color:#8b6914; letter-spacing:1.5px;">CBOE VIX</div>
-        <div><span style="font-family:Playfair Display; font-size:20px; font-weight:700; color:#8b6914;">22</span><span style="font-family:Inter; font-size:9px; color:var(--gray); margin-left:4px;">Q1 2026</span></div>
+        <div><span style="font-family:Playfair Display; font-size:20px; font-weight:700; color:#8b6914;">22</span><span style="font-family:Inter; font-size:9px; color:var(--gray); margin-left:4px;">Jan 2026</span></div>
       </div>
       <div style="flex:1; min-height:0; position:relative;"><canvas id="vixChart"></canvas></div>
     </div>
 
   </div>
-  <div class="source-line">Source: Baker, Bloom &amp; Davis (EPU, TPU, Fiscal); Caldara &amp; Iacoviello (GPR); CBOE (VIX) &middot; policyuncertainty.com</div>
+  <div class="source-line">Source: Baker, Bloom &amp; Davis (EPU, TPU, Fiscal); Caldara &amp; Iacoviello (GPR); CBOE (VIX) &middot; policyuncertainty.com &middot; latest panel values shown as Jan 2026 readings</div>
 </div>
 
 
@@ -1011,7 +1002,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         <li><span style="color:#c05040; font-weight:700;">90%</span> of advanced chips manufactured in Taiwan</li>
         <li><span style="color:#c05040; font-weight:700;">100%</span> import-reliant for gallium and graphite</li>
         <li><span style="color:#c05040; font-weight:700;">80%</span> of pharmaceutical APIs sourced overseas</li>
-        <li><span style="color:#c05040; font-weight:700;">$918B</span> goods trade deficit in 2024</li>
+        <li><span style="color:#c05040; font-weight:700;">$918B</span> goods-and-services trade deficit in 2024</li>
         <li><span style="color:#c05040; font-weight:700;">0.1%</span> share of global commercial shipbuilding</li>
         <li><span style="color:#c05040; font-weight:700;">$40B</span> first agriculture trade deficit in 60 years</li>
       </ul>
@@ -1039,7 +1030,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       <div style="font-family:Inter; font-size:14px; color:var(--gray); line-height:1.6;">USD share of global reserves &mdash; steady decline over two decades</div>
       <ul style="margin:0; padding-left:18px; font-family:Inter; font-size:13px; color:var(--gray); line-height:1.9; flex:1; display:flex; flex-direction:column; justify-content:center;">
         <li>BRICS+ nations settling bilateral trade in local currencies</li>
-        <li><span style="color:#c05040; font-weight:700;">1,000+ tonnes/yr</span> of central bank gold purchases, three years running</li>
+        <li><span style="color:#c05040; font-weight:700;">1,000+ tonnes/yr</span> in 2022-2024; <span style="color:#c05040; font-weight:700;">863 tonnes</span> in 2025</li>
         <li>The forces that grow GDP &mdash; AI capex, fiscal expansion &mdash; also widen deficits and accelerate reserve diversification</li>
       </ul>
     </div>
@@ -1075,7 +1066,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-19">
   <div class="section-label">REAL ASSETS &mdash; GOLD</div>
-  <div class="slide-title">Central banks bought 1,000+ tonnes per year for three consecutive years</div>
+  <div class="slide-title">Central-bank buying stayed elevated in 2025 after three 1,000t+ years</div>
   <div class="slide-subtitle">Annual net change in central-bank gold holdings (tonnes)</div>
   <div class="chart-area" id="cb-gold-container">
     <button class="chart-download-btn" onclick="downloadChart('cbGoldChart','MI_cb_gold_purchases.png')" title="Download as PNG">&darr;</button>
@@ -1117,7 +1108,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-23">
   <div class="section-label">REAL ASSETS &mdash; SUPPLY INELASTICITY</div>
-  <div class="slide-title">Even if every announced project proceeds, copper faces a 30% supply deficit by 2035</div>
+  <div class="slide-title">Even if every announced project proceeds, copper faces a ~27% supply deficit by 2035</div>
   <div class="chart-area" id="copper-chart-container">
     <button class="chart-download-btn" onclick="downloadChart('copperChart','MI_copper_supply_demand.png')" title="Download as PNG">&darr;</button>
     <canvas id="copperChart"></canvas>
@@ -1159,7 +1150,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       <div style="flex:1; background:var(--light-blue); border-radius:8px; padding:16px 20px; border-left:4px solid #8b8b8b;">
         <div style="display:flex; justify-content:space-between; align-items:baseline;">
           <div style="font-family:Inter; font-size:13px; font-weight:700; color:#6b6b6b; letter-spacing:1px;">SILVER</div>
-          <div style="font-family:Inter; font-size:12px; color:var(--gray);">$16/oz &rarr; $32+</div>
+          <div style="font-family:Inter; font-size:12px; color:var(--gray);">$26.4/oz &rarr; $79.1/oz</div>
         </div>
         <div style="font-family:Inter; font-size:12.5px; color:var(--navy); line-height:1.6; margin-top:6px;">
           Industrial demand exceeds mine supply for the fourth consecutive year. Solar PV consumes 20% of annual production. Monetary demand rising alongside gold. Above-ground inventories at multi-decade lows.
@@ -1168,7 +1159,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       <div style="flex:1; background:var(--light-blue); border-radius:8px; padding:16px 20px; border-left:4px solid #c05040;">
         <div style="display:flex; justify-content:space-between; align-items:baseline;">
           <div style="font-family:Inter; font-size:13px; font-weight:700; color:#c05040; letter-spacing:1px;">COPPER</div>
-          <div style="font-family:Inter; font-size:12px; color:var(--gray);">$2.20/lb &rarr; $4.80+</div>
+          <div style="font-family:Inter; font-size:12px; color:var(--gray);">$4.09/lb &rarr; $5.88/lb</div>
         </div>
         <div style="font-family:Inter; font-size:12.5px; color:var(--navy); line-height:1.6; margin-top:6px;">
           Every EV uses 3&ndash;4x more copper than ICE. Every MW of solar needs 5 tonnes. Data centers use 5&ndash;10x more per MW than offices. No major new mine delivers before 2030.
@@ -1177,7 +1168,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       <div style="flex:1; background:var(--light-blue); border-radius:8px; padding:16px 20px; border-left:4px solid var(--teal);">
         <div style="display:flex; justify-content:space-between; align-items:baseline;">
           <div style="font-family:Inter; font-size:13px; font-weight:700; color:var(--teal); letter-spacing:1px;">URANIUM</div>
-          <div style="font-family:Inter; font-size:12px; color:var(--gray);">$21/lb &rarr; $80+</div>
+          <div style="font-family:Inter; font-size:12px; color:var(--gray);">$28.7/lb &rarr; $63.5/lb</div>
         </div>
         <div style="font-family:Inter; font-size:12.5px; color:var(--navy); line-height:1.6; margin-top:6px;">
           30+ countries pledged to triple nuclear capacity by 2050. Hyperscalers signing SMR PPAs for baseload data center power. A decade of underinvestment meets surging demand.
@@ -1199,17 +1190,17 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     </div>
 
   </div>
-  <div class="source-line">Source: S&amp;P Global; World Nuclear Association; Silver Institute; Macrotrends; TradeTech; White House fact sheets</div>
+  <div class="source-line">Source: Yahoo Finance futures monthly closes (SI=F, HG=F) through February 9, 2026; FRED PURANUSDM (IMF uranium price) through December 2025</div>
 </div>
 <script>
 (function() {
   var ctx = document.getElementById('metalPricesChart');
   if (!ctx) return;
-  var labels = ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026'];
-  /* Indexed to 100 in 2016. Base: Silver $17.14/oz, Copper $2.21/lb, Uranium $26/lb */
-  var silver  = [100, 99, 92, 95, 120, 147, 127, 137, 165, 181, 187];
-  var copper  = [100, 127, 134, 123, 127, 191, 181, 176, 186, 204, 217];
-  var uranium = [100, 81, 92, 98, 112, 123, 150, 188, 331, 288, 308];
+  var labels = ["2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02"];
+  /* Indexed to 100 in Feb 2021. */
+  var silver  = [100.00, 92.86, 97.92, 106.03, 99.10, 96.69, 90.75, 83.41, 90.69, 86.22, 88.36, 84.82, 92.27, 95.15, 87.27, 82.01, 76.82, 76.34, 67.28, 71.81, 72.44, 81.62, 90.38, 89.95, 79.39, 91.19, 94.69, 88.91, 86.39, 94.14, 92.69, 84.22, 86.51, 95.80, 90.35, 87.31, 85.85, 93.92, 99.96, 114.75, 110.74, 109.00, 108.82, 118.04, 123.68, 116.22, 109.61, 121.69, 118.24, 130.51, 123.21, 124.58, 135.79, 138.44, 152.26, 175.19, 181.78, 213.79, 265.64, 296.53, 299.41];
+  var copper  = [100.00, 97.77, 109.39, 114.36, 104.93, 109.43, 106.48, 99.89, 106.86, 104.48, 108.80, 105.46, 108.55, 115.84, 107.34, 104.90, 90.72, 87.53, 85.93, 84.06, 83.37, 91.09, 92.94, 103.27, 100.07, 100.24, 94.52, 88.68, 91.37, 97.56, 92.14, 91.00, 88.94, 93.52, 94.77, 95.31, 93.65, 97.78, 111.48, 112.59, 107.23, 101.60, 101.23, 109.81, 105.35, 99.66, 97.35, 104.09, 110.26, 122.60, 111.37, 113.63, 122.85, 105.76, 110.36, 117.35, 123.71, 126.65, 137.50, 144.02, 143.56];
+  var uranium = [100.00, 98.86, 103.80, 105.56, 112.14, 112.83, 112.16, 157.27, 134.24, 108.50, 126.05, 128.65, 125.01, 158.80, 169.92, 142.67, 140.71, 135.85, 138.87, 142.87, 144.10, 142.88, 136.69, 139.78, 144.14, 142.14, 145.70, 151.64, 159.44, 157.86, 161.80, 185.62, 201.12, 217.31, 244.43, 280.38, 283.71, 250.55, 249.94, 258.00, 241.39, 238.12, 227.78, 225.49, 232.05, 220.35, 210.10, 205.70, 189.50, 180.85, 183.81, 199.93, 207.86, 205.66, 205.73, 219.36, 223.14, 217.15, 221.59, null, null];
   new Chart(ctx, {
     type: 'line',
     data: {
@@ -1256,7 +1247,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       plugins: {
         title: {
           display: true,
-          text: 'Indexed price performance (2016 = 100)',
+          text: '5Y indexed monthly price performance (Feb 2021 = 100)',
           font: { family: 'Inter', size: 12, weight: '600' },
           color: '#5a6a78',
           padding: { bottom: 8 }
@@ -1280,7 +1271,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
           bodyFont: { family: 'Inter', size: 12 },
           callbacks: {
             label: function(ctx) {
-              return ctx.dataset.label + ': ' + ctx.parsed.y;
+              return ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(1);
             }
           }
         }
@@ -1293,8 +1284,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
         y: {
           grid: { color: 'rgba(0,0,0,0.06)' },
           ticks: { font: { family: 'Inter', size: 11 }, color: '#5a6a78' },
-          min: 50,
-          max: 380
+          min: 60,
+          max: 320
         }
       }
     }
@@ -1500,89 +1491,97 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-29">
   <div class="section-label">THESIS B &mdash; VALUE CHAIN</div>
-  <div class="slide-title" style="margin-bottom:4px;">The AI value chain: from mining to inference</div>
-  <div style="flex:1; min-height:0; display:flex; flex-direction:column; gap:6px;">
-    <!-- Row 1: Physical Layer -->
-    <div style="display:flex; align-items:center; gap:8px;">
-      <div style="width:72px; flex-shrink:0; text-align:right; padding-right:6px;">
-        <div style="font-family:Inter; font-size:9px; font-weight:700; color:#c05040; letter-spacing:1.5px; line-height:1.2;">PHYSICAL<br>LAYER</div>
-      </div>
-      <div class="vc-node" data-vc="mining" onclick="showVCDetail('mining')" style="flex:1; cursor:pointer; background:#fff; border-left:4px solid #c05040; border-radius:8px; padding:14px 16px; transition:all 0.2s; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
-        <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">MINING</div>
-        <div style="font-family:Inter; font-size:12px; color:#5a6a78; margin-top:4px; line-height:1.4;">Copper, lithium, cobalt, rare earths extracted from deposits</div>
-        <div style="margin-top:6px;"><span style="font-family:Inter; font-size:10px; font-weight:600; color:#c05040; background:rgba(192,80,64,0.08); padding:2px 8px; border-radius:4px;">29-yr US lead time</span></div>
-      </div>
-      <div style="color:#8a96a0; font-size:20px; flex-shrink:0;">&rarr;</div>
-      <div class="vc-node" data-vc="refining" onclick="showVCDetail('refining')" style="flex:1; cursor:pointer; background:#fff; border-left:4px solid #e67e22; border-radius:8px; padding:14px 16px; transition:all 0.2s; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
-        <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">REFINING</div>
-        <div style="font-family:Inter; font-size:12px; color:#5a6a78; margin-top:4px; line-height:1.4;">Smelting, purification, polysilicon production</div>
-        <div style="margin-top:6px;"><span style="font-family:Inter; font-size:10px; font-weight:600; color:#e67e22; background:rgba(230,126,34,0.08); padding:2px 8px; border-radius:4px;">China: 70% avg share</span></div>
-      </div>
-      <div style="color:#8a96a0; font-size:20px; flex-shrink:0;">&rarr;</div>
-      <div class="vc-node" data-vc="fabrication" onclick="showVCDetail('fabrication')" style="flex:1; cursor:pointer; background:#fff; border-left:4px solid #2a7a8c; border-radius:8px; padding:14px 16px; transition:all 0.2s; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
-        <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">FABRICATION</div>
-        <div style="font-family:Inter; font-size:12px; color:#5a6a78; margin-top:4px; line-height:1.4;">Wafers etched at 3&ndash;5nm nodes via EUV lithography</div>
-        <div style="margin-top:6px;"><span style="font-family:Inter; font-size:10px; font-weight:600; color:#2a7a8c; background:rgba(42,122,140,0.08); padding:2px 8px; border-radius:4px;">TSMC: 90% leading edge</span></div>
-      </div>
-      <div style="color:#8a96a0; font-size:20px; flex-shrink:0;">&rarr;</div>
-      <div class="vc-node" data-vc="packaging" onclick="showVCDetail('packaging')" style="flex:1; cursor:pointer; background:#fff; border-left:4px solid #c05040; border-radius:8px; padding:14px 16px; transition:all 0.2s; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
-        <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">PACKAGING</div>
-        <div style="font-family:Inter; font-size:12px; color:#5a6a78; margin-top:4px; line-height:1.4;">GPU die + HBM stacks bonded on silicon interposer</div>
-        <div style="margin-top:6px;"><span style="font-family:Inter; font-size:10px; font-weight:600; color:#c05040; background:rgba(192,80,64,0.08); padding:2px 8px; border-radius:4px;">Sold out through 2026</span></div>
-      </div>
+  <div class="slide-title" style="margin-bottom:4px;">AI Value Chain: Constraint to Cash-Flow Map</div>
+  <div class="slide-subtitle" style="margin-bottom:10px;">Investment framing: physical bottlenecks first, capability conversion second, recurring monetization last.</div>
+
+  <div style="flex:1; min-height:0; display:grid; grid-template-rows:auto 1fr; gap:10px;">
+    <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; gap:8px; padding:10px 12px; border:1px solid rgba(42,122,140,0.2); border-radius:10px; background:linear-gradient(130deg,#f5fafd,#e9f2f8);">
+      <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; text-transform:uppercase; letter-spacing:1px; text-align:center; background:#edf4fa; border-radius:7px; padding:7px 6px;">1. Physical Constraints</div>
+      <div style="font-family:Inter; font-size:22px; color:#7f93a6;">&rarr;</div>
+      <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; text-transform:uppercase; letter-spacing:1px; text-align:center; background:#e5f0f8; border-radius:7px; padding:7px 6px;">2. Model Conversion</div>
+      <div style="font-family:Inter; font-size:22px; color:#7f93a6;">&rarr;</div>
+      <div style="font-family:Inter; font-size:12px; font-weight:700; color:#0d2137; text-transform:uppercase; letter-spacing:1px; text-align:center; background:#dcebf6; border-radius:7px; padding:7px 6px;">3. Revenue Capture</div>
     </div>
-    <!-- Connector arrow -->
-    <div style="display:flex; padding-left:72px;"><div style="flex:1;"></div><div style="display:flex; flex-direction:column; align-items:center; padding-right:40px;"><div style="width:1.5px; height:4px; background:#8a96a0;"></div><div style="color:#8a96a0; font-size:12px; line-height:1;">&darr;</div></div></div>
-    <!-- Row 2: Compute Layer (left to right) -->
-    <div style="display:flex; align-items:center; gap:8px;">
-      <div style="width:72px; flex-shrink:0; text-align:right; padding-right:6px;">
-        <div style="font-family:Inter; font-size:9px; font-weight:700; color:#0d2137; letter-spacing:1.5px; line-height:1.2;">COMPUTE<br>LAYER</div>
-      </div>
-      <div class="vc-node" data-vc="gpus" onclick="showVCDetail('gpus')" style="flex:1; cursor:pointer; background:#fff; border-left:4px solid #0d2137; border-radius:8px; padding:14px 16px; transition:all 0.2s; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
-        <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">ACCELERATORS</div>
-        <div style="font-family:Inter; font-size:12px; color:#5a6a78; margin-top:4px; line-height:1.4;">GPUs, TPUs, custom AI chips assembled into servers</div>
-        <div style="margin-top:6px;"><span style="font-family:Inter; font-size:10px; font-weight:600; color:#0d2137; background:rgba(13,33,55,0.06); padding:2px 8px; border-radius:4px;">NVIDIA: ~80% share</span></div>
-      </div>
-      <div style="color:#8a96a0; font-size:20px; flex-shrink:0;">&rarr;</div>
-      <div class="vc-node" data-vc="datacenters" onclick="showVCDetail('datacenters')" style="flex:1; cursor:pointer; background:#fff; border-left:4px solid #0d2137; border-radius:8px; padding:14px 16px; transition:all 0.2s; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
-        <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">DATA CENTERS</div>
-        <div style="font-family:Inter; font-size:12px; color:#5a6a78; margin-top:4px; line-height:1.4;">Racks deployed with power, cooling, and networking</div>
-        <div style="margin-top:6px;"><span style="font-family:Inter; font-size:10px; font-weight:600; color:#0d2137; background:rgba(13,33,55,0.06); padding:2px 8px; border-radius:4px;">Power-constrained</span></div>
-      </div>
-      <div style="color:#8a96a0; font-size:20px; flex-shrink:0;">&rarr;</div>
-      <div class="vc-node" data-vc="training" onclick="showVCDetail('training')" style="flex:1; cursor:pointer; background:#fff; border-left:4px solid #2a7a8c; border-radius:8px; padding:14px 16px; transition:all 0.2s; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
-        <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">TRAINING</div>
-        <div style="font-family:Inter; font-size:12px; color:#5a6a78; margin-top:4px; line-height:1.4;">Models learn from data across thousands of GPUs</div>
-        <div style="margin-top:6px;"><span style="font-family:Inter; font-size:10px; font-weight:600; color:#2a7a8c; background:rgba(42,122,140,0.08); padding:2px 8px; border-radius:4px;">10&times;/yr compute scaling</span></div>
-      </div>
-      <div style="color:#8a96a0; font-size:20px; flex-shrink:0;">&rarr;</div>
-      <div class="vc-node" data-vc="inference" onclick="showVCDetail('inference')" style="flex:1; cursor:pointer; background:#fff; border-left:4px solid #2a7a8c; border-radius:8px; padding:14px 16px; transition:all 0.2s; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
-        <div style="font-family:Inter; font-size:14px; font-weight:700; color:#0d2137;">INFERENCE</div>
-        <div style="font-family:Inter; font-size:12px; color:#5a6a78; margin-top:4px; line-height:1.4;">Trained models serve predictions and agentic workflows</div>
-        <div style="margin-top:6px;"><span style="font-family:Inter; font-size:10px; font-weight:600; color:#2a7a8c; background:rgba(42,122,140,0.08); padding:2px 8px; border-radius:4px;">45% of compute spend</span></div>
-      </div>
-    </div>
-    <!-- Detail Panel -->
-    <div id="vc-detail-panel" style="flex:1; min-height:0; background:linear-gradient(135deg,#f8fafb,#edf4f7); border-radius:10px; border:1px solid rgba(42,122,140,0.12); padding:16px 24px; display:flex; flex-direction:column; overflow:hidden;">
-      <div id="vc-detail-default" style="flex:1; display:flex; align-items:center; justify-content:center;">
-        <div style="text-align:center;">
-          <div style="font-family:Inter; font-size:14px; color:#8a96a0; letter-spacing:1px;">SELECT A STAGE ABOVE TO EXPLORE</div>
-          <div style="font-family:Inter; font-size:12px; color:#b0b8c0; margin-top:8px;">Each layer reveals key players, market data, and bottleneck dynamics</div>
+
+    <div style="min-height:0; display:grid; grid-template-rows:1fr 1fr 1fr; gap:10px;">
+      <div style="display:grid; grid-template-columns:190px 1fr; gap:10px; min-height:0; background:#f2f7fb; border:1px solid rgba(61,102,134,0.18); border-radius:11px; padding:9px;">
+        <div style="background:#e8f1f8; border-left:4px solid #5f7892; border-radius:8px; padding:9px 10px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:Inter; font-size:10px; font-weight:700; color:#4a6784; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:4px;">Physical Layer</div>
+          <div style="font-family:Inter; font-size:13px; font-weight:600; color:#0d2137; line-height:1.25;">Hard assets and permitting cadence set the supply ceiling.</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:7px; align-items:stretch; min-height:0;">
+          <div style="background:#f8fbfe; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #5f7892; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Mining</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Copper, lithium, rare earths</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
+          <div style="background:#f8fbfe; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #5f7892; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Refining</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Chemical processing and purification</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
+          <div style="background:#f8fbfe; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #5f7892; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Semiconductors</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Fab capacity and advanced packaging</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
+          <div style="background:#f8fbfe; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #5f7892; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Data Centers</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Power, cooling, networking</div>
+          </div>
         </div>
       </div>
-      <div id="vc-detail-content" style="display:none; flex:1; min-height:0;">
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-          <div id="vc-detail-title" style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137; letter-spacing:1px;"></div>
-          <div id="vc-detail-badge" style="font-family:Inter; font-size:10px; font-weight:600; padding:3px 10px; border-radius:10px; letter-spacing:0.5px;"></div>
+
+      <div style="display:grid; grid-template-columns:190px 1fr; gap:10px; min-height:0; background:#e9f2f8; border:1px solid rgba(42,122,140,0.2); border-radius:11px; padding:9px;">
+        <div style="background:#dfeaf4; border-left:4px solid #3f6686; border-radius:8px; padding:9px 10px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:Inter; font-size:10px; font-weight:700; color:#2f5d82; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:4px;">Model Layer</div>
+          <div style="font-family:Inter; font-size:13px; font-weight:600; color:#0d2137; line-height:1.25;">Post-training is where base capability becomes product-grade behavior.</div>
         </div>
-        <div style="display:flex; gap:16px; flex:1; min-height:0;">
-          <div id="vc-detail-stats" style="flex:2; display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;"></div>
-          <div id="vc-detail-players" style="flex:1; background:#fff; border-radius:8px; padding:14px 18px; border:1px solid rgba(0,0,0,0.05); overflow-y:auto;"></div>
+        <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:7px; align-items:stretch; min-height:0;">
+          <div style="background:#f4f9fd; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #3f6686; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Pre-Training</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Foundation capability from large-scale compute and data</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
+          <div style="background:#f4f9fd; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2f5d82; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Post-Training</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">SFT + preference optimization + RLHF/RLAIF</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
+          <div style="background:#f4f9fd; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2f5d82; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Deployment</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Latency, reliability, safety, routing and eval loops</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:190px 1fr; gap:10px; min-height:0; background:#dcebf6; border:1px solid rgba(42,122,140,0.22); border-radius:11px; padding:9px;">
+        <div style="background:#d1e4f2; border-left:4px solid #2a5a7a; border-radius:8px; padding:9px 10px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:Inter; font-size:10px; font-weight:700; color:#2a5a7a; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:4px;">Revenue Layer</div>
+          <div style="font-family:Inter; font-size:13px; font-weight:600; color:#0d2137; line-height:1.25;">Monetization compounds when inference is embedded in real workflows.</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:7px; align-items:stretch; min-height:0;">
+          <div style="background:#eef6fc; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2a5a7a; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Inference</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Token consumption from agents, copilots and APIs</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
+          <div style="background:#eef6fc; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2a5a7a; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Applications</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Distribution and workflow ownership drive pricing power</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-family:Inter; font-size:23px; color:#7f93a6;">&rarr;</div>
+          <div style="background:#eef6fc; border:1px solid rgba(13,33,55,0.1); border-left:4px solid #2a5a7a; border-radius:8px; padding:9px;">
+            <div style="font-family:Inter; font-size:16px; font-weight:700; color:#0d2137;">Cash Flow</div>
+            <div style="font-family:Inter; font-size:11px; color:#5a6a78; margin-top:4px; line-height:1.3;">Recurring gross profit reinvested into next model cycle</div>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
-  <div class="source-line">Sources: S&amp;P Global, IEA, TSMC, NVIDIA, ASML, SemiAnalysis, company filings &middot; Click any stage to explore</div>
+
+  <div class="source-line">Sources: S&amp;P Global Market Intelligence (June 2024); IEA Energy and AI (April 2025); OpenAI InstructGPT paper (2022), OpenAI alignment research (2022), OpenAI o1 reasoning report (2024), Anthropic Constitutional AI (2022)</div>
 </div>
 
 <div class="slide" id="slide-30">
@@ -1595,7 +1594,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-31">
   <div class="section-label">THESIS B &mdash; SCALING</div>
-  <div class="slide-title">The task horizon is doubling every 7 months</div>
+  <div class="slide-title">The task horizon is doubling every 4.3 months</div>
   <div class="slide-subtitle">METR-Horizon v1.1 &mdash; GPT-5.2 can now complete tasks that take humans ~6.5 hours</div>
   <div class="chart-area"><canvas id="chart-metr"></canvas></div>
   <div class="source-line">Source: METR Horizon v1.1 benchmark; p50 = median task duration where AI succeeds 50% of the time</div>
@@ -1659,7 +1658,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     <div class="stat-card"><div class="stat-number">$113B</div><div class="stat-label">2024</div></div>
     <div class="stat-card"><div class="stat-number">$143B</div><div class="stat-label">2025</div></div>
   </div>
-  <div class="small-note" style="margin-top:8px;">5.96 GW shipped chip power draw in 2025 &mdash; roughly six large nuclear plants.</div>
+  <div class="source-line" style="margin-top:8px;">5.96 GW shipped chip power draw in 2025 (assuming ~600W per accelerator) &mdash; roughly six large nuclear plants. Source: company filings and SemiAnalysis estimates.</div>
   <div class="chart-area" id="hardware-chart-container" style="flex: 1; min-height: 120px; margin-top: 12px;">
     <button class="chart-download-btn" onclick="downloadChart('hardwareChart','MI_hardware_shipments.png')" title="Download as PNG">&darr;</button>
     <canvas id="hardwareChart"></canvas>
@@ -1669,7 +1668,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 <div class="slide" id="slide-37">
   <div class="section-label">THESIS B &mdash; AI INFRASTRUCTURE</div>
   <div class="slide-title">Hyperscaler capex is entering escape velocity</div>
-  <div class="slide-subtitle">Microsoft, Meta, Alphabet and Amazon are expected to spend &gt;$600B this year &mdash; almost double the ~$350B spent last year</div>
+  <div class="slide-subtitle">Microsoft, Meta, Alphabet and Amazon are expected to spend &gt;$600B this year &mdash; up from roughly $360B spent in 2025</div>
   <div class="chart-area"><canvas id="chart-hyperscaler-capex"></canvas></div>
   <div class="source-line">Source: Company earnings (Q4 2025 / Q2 FY2026); 2026E = company guidance (META, GOOGL, AMZN) &amp; Bloomberg consensus (MSFT)</div>
 </div>
@@ -1756,54 +1755,109 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
 <div class="slide" id="slide-44">
   <div class="section-label">INTERSECTION &mdash; LABOR</div>
+  <div class="slide-title">Labor exposure is broad and automation plans are accelerating</div>
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-    <div class="giant-number">49%</div>
-    <div class="slide-subtitle" style="font-size:18px;">of occupations now involve AI across at least a quarter of their tasks</div>
-    <div class="body-text">Up from 36% in early 2025. The trend favors full task delegation over collaboration.</div>
-    <div class="chart-area" id="anthropic-index-container" style="height:240px;">
-      <button class="chart-download-btn" onclick="downloadChart('anthropicIndexChart','MI_anthropic_index.png')" title="Download as PNG">&darr;</button>
-      <canvas id="anthropicIndexChart"></canvas>
+    <div class="slide-subtitle" style="font-size:18px;">Sourced values only: 2025 labor exposure and 2030 employer labor-planning signals</div>
+    <div class="body-text">ILO's 2025 index puts exposure at 25% globally (34% in high-income economies; 11% in low-income). WEF reports 73% of employers plan task automation and 41% expect workforce reductions by 2030.</div>
+    <div class="chart-area" id="labor-signals-container" style="height:240px;">
+      <button class="chart-download-btn" onclick="downloadChart('laborSignalsChart','MI_labor_ai_signals.png')" title="Download as PNG">&darr;</button>
+      <canvas id="laborSignalsChart"></canvas>
     </div>
-    <div class="source-line">Source: Anthropic Economic Index</div>
+    <div class="source-line">Source: ILO-NASK Generative AI and Jobs Index (2025); World Economic Forum Future of Jobs Report 2025</div>
   </div>
 </div>
 
 <div class="slide" id="slide-45">
   <div class="section-label">INTERSECTION &mdash; FISCAL</div>
-  <div class="slide-title">There is no fiscally neutral path through AI displacement</div>
-  <div class="card-row" style="margin-top:14px;">
-    <div class="card">
-      <div class="card-label">WORKFORCE ADJUSTMENT</div>
-      <div class="card-text">Automation Adjustment Assistance, compute taxes, token-generation levies &mdash; all with escalation mechanisms tied to displacement pace.</div>
+  <div class="slide-title" style="font-size:32px; line-height:1.2;">There is no fiscally neutral path through AI displacement</div>
+  <div style="font-family:Inter; font-size:15px; color:var(--gray); line-height:1.55; margin-top:6px; max-width:90%;">60% of advanced-economy jobs are exposed to AI. UBI-style responses are possible in theory, but the U.S. still relies on labor-heavy taxes and has not enacted a replacement tax base at comparable scale.</div>
+
+  <div style="flex:1; min-height:0; display:flex; gap:32px; margin-top:18px;">
+    <!-- Left: OECD ALMP chart -->
+    <div style="flex:1.3; display:flex; flex-direction:column; min-height:0;">
+      <div style="font-family:Inter; font-size:11px; font-weight:700; letter-spacing:2px; color:var(--teal); margin-bottom:10px;">PUBLIC SPENDING ON ACTIVE LABOR MARKET POLICIES (% OF GDP, 2019)</div>
+      <div class="chart-area" style="flex:1; min-height:0; max-height:none; background:var(--light-blue); border-radius:8px; padding:6px;">
+        <canvas id="fiscalALMPChart"></canvas>
+      </div>
+      <div class="source-line" style="margin-top:6px;">Source: OECD Social Expenditure Database (SOCX), 2019 pre-pandemic baseline</div>
     </div>
-    <div class="card">
-      <div class="card-label">INCOME SUPPORT</div>
-      <div class="card-text">UBI proposals, sovereign wealth funds, AI-funded citizen dividends. Each requires new claims: automation taxes, data rents, equity participation.</div>
-    </div>
-    <div class="card">
-      <div class="card-label">INDUSTRIAL POLICY</div>
-      <div class="card-text">AI as national security terrain. China: ~$900B on AI over the past decade. Subsidy and procurement commitments embedded in structural budgets indefinitely.</div>
+
+    <!-- Right: Three stacked cards -->
+    <div style="flex:0.7; display:flex; flex-direction:column; gap:14px;">
+      <div style="flex:1; background:var(--light-blue); border-left:4px solid var(--teal); border-radius:6px; padding:20px 24px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-family:Inter; font-size:10px; font-weight:700; letter-spacing:2px; color:var(--teal); margin-bottom:6px;">REVENUE CONCENTRATION</div>
+        <div style="display:flex; align-items:baseline; gap:10px;">
+          <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--navy); line-height:1;">84%</div>
+          <div style="font-family:Inter; font-size:13px; color:var(--gray);">of FY2024 receipts tied to labor taxes</div>
+        </div>
+        <div style="font-family:Inter; font-size:13px; color:var(--navy); margin-top:8px; line-height:1.5;">Individual income + social insurance receipts were $4.136T of $4.919T. VAT, AI-rent, and automation-tax ideas are still exploratory in U.S. federal policy.</div>
+        <div class="source-line" style="margin-top:6px;">Sources: U.S. Treasury FY2024 Table 2 (Receipts by Source); RAND, &ldquo;Federal Revenue When AI Replaces Labor,&rdquo; 2025</div>
+      </div>
+      <div style="flex:1; background:var(--light-blue); border-left:4px solid var(--teal); border-radius:6px; padding:20px 24px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-family:Inter; font-size:10px; font-weight:700; letter-spacing:2px; color:var(--teal); margin-bottom:6px;">SAFETY NET IS POLICY-SENSITIVE</div>
+        <div style="display:flex; align-items:baseline; gap:10px;">
+          <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--navy); line-height:1;">$187B</div>
+          <div style="font-family:Inter; font-size:13px; color:var(--gray);">SNAP cuts (2025-2034 est.)</div>
+        </div>
+        <div style="font-family:Inter; font-size:13px; color:var(--navy); margin-top:8px; line-height:1.5;">P.L. 119-21 tightened eligibility/work rules and shifted costs to states. CBO estimates 2.4M fewer SNAP participants in an average month.</div>
+        <div class="source-line" style="margin-top:6px;">Sources: CRS R48552 (Aug 15, 2025), summarizing CBO estimates (Jul 21 and Aug 11, 2025)</div>
+      </div>
+      <div style="flex:1; background:rgba(13,33,55,0.04); border-left:4px solid var(--navy); border-radius:6px; padding:20px 24px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-family:Inter; font-size:10px; font-weight:700; letter-spacing:2px; color:var(--navy); margin-bottom:6px;">WORKFORCE ADJUSTMENT UNDERFUNDED</div>
+        <div style="display:flex; align-items:baseline; gap:10px;">
+          <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--navy); line-height:1;">~$20B</div>
+          <div style="font-family:Inter; font-size:13px; color:var(--gray);">federal workforce programs today</div>
+        </div>
+        <div style="font-family:Inter; font-size:13px; color:var(--navy); margin-top:8px; line-height:1.5;">Down from roughly <strong>$60B</strong> (inflation-adjusted) in 1979 while the labor force grew ~50%. Core WIOA Titles I/II are about $6B.</div>
+        <div class="source-line" style="margin-top:6px;">Sources: Brookings (May 23, 2023), citing GAO-19-200</div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="slide" id="slide-46">
-  <div class="section-label">INTERSECTION &mdash; ENDGAME</div>
-  <div class="slide-title">Every prior episode of sovereign overextension at this scale resolved through financial repression</div>
-  <div class="body-text" style="margin-top:12px;">Real rates held below nominal growth, transferring wealth from holders of nominal claims to the government.</div>
-  <div class="slide-hr"></div>
-  <div class="body-text">The same physical bottlenecks, energy assets, and supply-constrained materials that capture value from the AI buildout constitute the natural hedge against the monetary regime that the buildout's sociopolitical consequences will produce.</div>
-  <div class="card-row" style="margin-top:16px;">
-    <div class="stat-card">
-      <div class="stat-label" style="font-size:13px;"><strong>OECD working-age pop:</strong><br>&minus;8% by 2060</div>
+  <div class="section-label" style="font-size:12px; letter-spacing:3px;">INTERSECTION &mdash; ENDGAME</div>
+  <div class="slide-title" style="font-size:32px; margin-bottom:8px;">Financial repression is the proven playbook for sovereign deleveraging</div>
+  <div class="body-text" style="font-size:15px; margin-bottom:0; line-height:1.55;">Real rates held below nominal growth for decades, silently transferring wealth from holders of nominal claims to the government. The same real assets that capture value from the AI buildout are the natural hedge.</div>
+  <div class="slide-hr" style="margin:10px 0;"></div>
+
+  <div style="flex:1; display:flex; gap:32px; min-height:0; margin-top:4px;">
+
+    <!-- LEFT: Chart -->
+    <div style="flex:1.3; display:flex; flex-direction:column; min-height:0;">
+      <div style="font-family:Inter; font-size:11px; font-weight:700; color:var(--teal); letter-spacing:2px; margin-bottom:10px;">REAL ANNUALIZED RETURNS DURING FINANCIAL REPRESSION (1946&ndash;1980)</div>
+      <div style="flex:1; position:relative; min-height:0;">
+        <canvas id="repressionChart"></canvas>
+      </div>
+      <div style="font-family:Inter; font-size:10px; color:var(--source-gray); margin-top:6px; line-height:1.4;">Nominal returns deflated by CPI. Treasury = long-term government bonds. Equities = S&amp;P 500 total return. Real estate = NCREIF-equivalent residential. Commodities = broad commodity index.</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-label" style="font-size:13px;"><strong>US-born working-age</strong><br>shrinks every year to 2035</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label" style="font-size:13px;"><strong>Demographics reduce global growth</strong><br>~1.1pp/yr through 2050</div>
+
+    <!-- RIGHT: Mechanism cards + Dalio quote -->
+    <div style="flex:0.75; display:flex; flex-direction:column; gap:14px; justify-content:center;">
+
+      <!-- Card: The Precedent -->
+      <div style="background:var(--light-blue); border-radius:10px; padding:22px 24px; border-left:4px solid var(--teal);">
+        <div style="font-family:Inter; font-size:10px; font-weight:700; letter-spacing:2.5px; color:var(--teal); margin-bottom:10px;">THE PRECEDENT</div>
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:6px;">
+          <span style="font-family:'Playfair Display',serif; font-size:42px; font-weight:900; color:var(--navy); line-height:1;">119%</span>
+          <span style="font-family:Inter; font-size:22px; color:var(--source-gray);">&rarr;</span>
+          <span style="font-family:'Playfair Display',serif; font-size:42px; font-weight:900; color:var(--teal); line-height:1;">32%</span>
+        </div>
+        <div style="font-family:Inter; font-size:13px; color:var(--gray); line-height:1.55;">Debt/GDP fell <strong>87 percentage points</strong> over 35 years of negative real rates &mdash; without default or hyperinflation.</div>
+      </div>
+
+      <!-- Card: Today -->
+      <div style="background:rgba(13,33,55,0.04); border-radius:10px; padding:22px 24px; border-left:4px solid var(--navy);">
+        <div style="font-family:Inter; font-size:10px; font-weight:700; letter-spacing:2.5px; color:var(--navy); margin-bottom:10px;">TODAY</div>
+        <div style="font-family:'Playfair Display',serif; font-size:48px; font-weight:900; color:var(--navy); line-height:1; margin-bottom:6px;">123%</div>
+        <div style="font-family:Inter; font-size:13px; color:var(--gray); line-height:1.55;">US federal Debt/GDP &mdash; surpassing the 1946 wartime peak for the first time in history.</div>
+      </div>
+
+
     </div>
   </div>
+
+  <div class="source-line" style="margin-top:8px;">Sources: Federal Reserve, BLS, Ibbotson SBBI, Dimson-Marsh-Staunton Global Returns; Dalio, <em>Principles for Navigating Big Debt Crises</em> (2018)</div>
 </div>
 
 <div class="slide" id="slide-47">
@@ -1825,129 +1879,180 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 <div class="slide" id="slide-49">
   <div class="section-label">PORTFOLIO &mdash; LEADING INDICATORS</div>
   <div class="slide-title">What we track</div>
-  <div style="flex:1; display:flex; gap:28px; margin-top:16px; min-height:0;">
-
-    <!-- AI BUILDOUT column -->
-    <div style="flex:1; display:flex; flex-direction:column;">
-      <div style="font-family:Inter; font-size:11px; font-weight:700; color:var(--teal); letter-spacing:2.5px; margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid var(--teal);">AI BUILDOUT</div>
-      <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:var(--light-blue); border-radius:8px; border-left:3px solid var(--teal);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(42,122,140,0.15);">01</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Hyperscaler capex trajectories</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">MSFT, GOOG, AMZN, META quarterly guidance vs. actual spend</div>
+  <div class="slide-subtitle" style="margin-bottom:14px;">Three signal towers feed one decision engine: buildout velocity, macro constraints, and market regime.</div>
+  <div style="flex:1; min-height:0; display:grid; grid-template-rows:0.64fr 0.36fr; gap:12px; margin-top:6px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; min-height:0;">
+      <div class="card" style="margin-bottom:0; padding:16px; border-left-color:var(--teal); display:flex; flex-direction:column;">
+        <div class="card-label" style="font-size:12px; color:var(--teal); margin-bottom:8px;">AI BUILDOUT</div>
+        <div style="display:grid; gap:8px; flex:1;">
+          <div style="padding:9px 10px; background:rgba(42,122,140,0.08); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Capex revision breadth</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Hyperscaler guidance revision momentum.</div>
+          </div>
+          <div style="padding:9px 10px; background:rgba(42,122,140,0.08); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Power conversion pace</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Queue conversion and energization delay trend.</div>
+          </div>
+          <div style="padding:9px 10px; background:rgba(42,122,140,0.08); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Packaging and HBM tightness</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">CoWoS and HBM lead-time slope.</div>
+          </div>
+          <div style="padding:9px 10px; background:rgba(42,122,140,0.08); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Training-to-inference mix</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Inference mix shift and monetization quality.</div>
           </div>
         </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:var(--light-blue); border-radius:8px; border-left:3px solid var(--teal);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(42,122,140,0.15);">02</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Datacenter energization rates</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">PJM/ERCOT queue progression, MW under construction</div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:16px; border-left-color:var(--navy); display:flex; flex-direction:column;">
+        <div class="card-label" style="font-size:12px; color:var(--navy); margin-bottom:8px;">MACRO REGIME</div>
+        <div style="display:grid; gap:8px; flex:1;">
+          <div style="padding:9px 10px; background:rgba(13,33,55,0.04); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Term premium and curve structure</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Discount-rate regime and risk-premium repricing pressure.</div>
+          </div>
+          <div style="padding:9px 10px; background:rgba(13,33,55,0.04); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Real-rate and breakeven split</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Growth shock versus inflation shock decomposition.</div>
+          </div>
+          <div style="padding:9px 10px; background:rgba(13,33,55,0.04); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Debt-service and fiscal impulse</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Interest burden trajectory and policy room to absorb shocks.</div>
+          </div>
+          <div style="padding:9px 10px; background:rgba(13,33,55,0.04); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Commodity supply response lag</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Energy and materials constraints feeding inflation persistence.</div>
           </div>
         </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:var(--light-blue); border-radius:8px; border-left:3px solid var(--teal);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(42,122,140,0.15);">03</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Packaging &amp; memory lead times</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">CoWoS capacity, HBM allocation, TSMC utilization</div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:16px; border-left-color:#c05040; display:flex; flex-direction:column;">
+        <div class="card-label" style="font-size:12px; color:#c05040; margin-bottom:8px;">MARKET REGIME &amp; POSITIONING</div>
+        <div style="display:grid; gap:8px; flex:1;">
+          <div style="padding:9px 10px; background:rgba(192,80,64,0.06); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Index valuation state</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">CAPE, trailing and forward P/E, earnings yield spread.</div>
           </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:var(--light-blue); border-radius:8px; border-left:3px solid var(--teal);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(42,122,140,0.15);">04</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Capacity market pricing</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">PJM auction clears, nat gas forwards, nuclear restart pipeline</div>
+          <div style="padding:9px 10px; background:rgba(192,80,64,0.06); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Volatility and policy uncertainty</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">VIX regime and policy/trade uncertainty composites.</div>
           </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:var(--light-blue); border-radius:8px; border-left:3px solid var(--teal);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(42,122,140,0.15);">05</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Agentic AI adoption in enterprise</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">API call volumes, seat growth, inference-to-training spend ratio</div>
+          <div style="padding:9px 10px; background:rgba(192,80,64,0.06); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Cross-asset stress transmission</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Rates, FX, metals, credit, and equity risk transfer.</div>
           </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:var(--light-blue); border-radius:8px; border-left:3px solid var(--teal);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(42,122,140,0.15);">06</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">AI capability advancements</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">Benchmark scores, scaling law trajectory, new modality releases</div>
+          <div style="padding:9px 10px; background:rgba(192,80,64,0.06); border-radius:8px;">
+            <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy);">Crowding and breadth</div>
+            <div style="font-family:Inter; font-size:14px; color:var(--gray); margin-top:2px;">Concentration risk and factor crowding deterioration checks.</div>
           </div>
         </div>
       </div>
     </div>
+    <div style="display:grid; grid-template-columns:1.4fr 0.6fr; gap:12px; min-height:0;">
+      <div class="card" style="margin-bottom:0; padding:12px 14px;">
+        <div class="card-label" style="font-size:12px; margin-bottom:8px;">MONITORING COVERAGE MAP</div>
+        <div style="display:grid; grid-template-columns:160px 1fr 1fr 1fr 1.25fr; align-items:center; row-gap:7px; column-gap:8px;">
+          <div style="font-family:Inter; font-size:11px; font-weight:700; color:#8a96a0; text-transform:uppercase; letter-spacing:1px;">Cadence</div>
+          <div style="font-family:Inter; font-size:11px; font-weight:700; color:#8a96a0; text-transform:uppercase; letter-spacing:1px;">AI Buildout</div>
+          <div style="font-family:Inter; font-size:11px; font-weight:700; color:#8a96a0; text-transform:uppercase; letter-spacing:1px;">Macro</div>
+          <div style="font-family:Inter; font-size:11px; font-weight:700; color:#8a96a0; text-transform:uppercase; letter-spacing:1px;">Market</div>
+          <div style="font-family:Inter; font-size:11px; font-weight:700; color:#8a96a0; text-transform:uppercase; letter-spacing:1px;">Portfolio Action</div>
 
-    <!-- Vertical divider -->
-    <div style="width:1px; background:linear-gradient(180deg, rgba(13,33,55,0.04), rgba(13,33,55,0.12) 50%, rgba(13,33,55,0.04)); flex-shrink:0;"></div>
+          <div style="font-family:Inter; font-size:15px; font-weight:700; color:var(--teal); border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;">Daily</div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(42,122,140,0.12); color:var(--teal); font-size:12px; font-weight:700;">Primary</span></div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(13,33,55,0.08); color:var(--navy); font-size:12px; font-weight:700;">Primary</span></div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(192,80,64,0.12); color:#a44335; font-size:12px; font-weight:700;">Primary</span></div>
+          <div style="font-family:Inter; font-size:14px; color:var(--gray); border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;">Size risk and update gross/net exposure.</div>
 
-    <!-- MACRO REGIME column -->
-    <div style="flex:1; display:flex; flex-direction:column;">
-      <div style="font-family:Inter; font-size:11px; font-weight:700; color:var(--navy); letter-spacing:2.5px; margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid var(--navy);">MACRO REGIME</div>
-      <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:rgba(13,33,55,0.03); border-radius:8px; border-left:3px solid var(--navy);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(13,33,55,0.08);">01</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Term premium dynamics</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">ACM model, 10Y-2Y decomposition, auction bid-to-cover trends</div>
-          </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:rgba(13,33,55,0.03); border-radius:8px; border-left:3px solid var(--navy);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(13,33,55,0.08);">02</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Sovereign debt trajectory vs GDP</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">CBO projections, interest-expense-to-revenue, net issuance</div>
-          </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:rgba(13,33,55,0.03); border-radius:8px; border-left:3px solid var(--navy);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(13,33,55,0.08);">03</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Real rate behavior across G7</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">TIPS breakevens, cross-country real yield divergence, r* estimates</div>
-          </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:rgba(13,33,55,0.03); border-radius:8px; border-left:3px solid var(--navy);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(13,33,55,0.08);">04</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Capital flows</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">Treasury foreign holdings, FX reserve composition, EM outflows</div>
-          </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:rgba(13,33,55,0.03); border-radius:8px; border-left:3px solid var(--navy);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(13,33,55,0.08);">05</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Commodity supply response</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">Mine permit timelines, rig counts, inventory draws, warehouse stocks</div>
-          </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:rgba(13,33,55,0.03); border-radius:8px; border-left:3px solid var(--navy);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(13,33,55,0.08);">06</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Industrial policy &amp; trade</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">Tariff schedules, export controls, CHIPS/IRA disbursements</div>
-          </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; gap:16px; padding:0 20px; background:rgba(13,33,55,0.03); border-radius:8px; border-left:3px solid var(--navy);">
-          <div style="flex-shrink:0; width:36px; font-family:Inter; font-size:22px; font-weight:800; color:rgba(13,33,55,0.08);">07</div>
-          <div>
-            <div style="font-family:Inter; font-size:14px; font-weight:600; color:var(--navy); line-height:1.4;">Central bank policies &amp; balance sheets</div>
-            <div style="font-family:Inter; font-size:11px; color:var(--gray); line-height:1.45; margin-top:2px;">Fed/ECB/BOJ balance sheets, QT pace, gold reserve accumulation</div>
-          </div>
+          <div style="font-family:Inter; font-size:15px; font-weight:700; color:var(--teal); border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;">Weekly</div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(42,122,140,0.12); color:var(--teal); font-size:12px; font-weight:700;">Primary</span></div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(13,33,55,0.08); color:var(--navy); font-size:12px; font-weight:700;">Secondary</span></div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(192,80,64,0.12); color:#a44335; font-size:12px; font-weight:700;">Primary</span></div>
+          <div style="font-family:Inter; font-size:14px; color:var(--gray); border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;">Rotate conviction weights and tighten stops.</div>
+
+          <div style="font-family:Inter; font-size:15px; font-weight:700; color:var(--teal); border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;">Monthly + Event</div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(42,122,140,0.12); color:var(--teal); font-size:12px; font-weight:700;">Secondary</span></div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(13,33,55,0.08); color:var(--navy); font-size:12px; font-weight:700;">Primary</span></div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;"><span style="display:inline-block; padding:3px 9px; border-radius:999px; background:rgba(192,80,64,0.12); color:#a44335; font-size:12px; font-weight:700;">Secondary</span></div>
+          <div style="font-family:Inter; font-size:14px; color:var(--gray); border-top:1px solid rgba(0,0,0,0.06); padding-top:8px;">Re-underwrite, re-rank, and approve adds/exits.</div>
         </div>
       </div>
+      <div class="card" style="margin-bottom:0; padding:14px; border-left-color:var(--navy);">
+        <div class="card-label" style="font-size:12px; color:var(--navy); margin-bottom:8px;">DECISION HOOK</div>
+        <div style="font-family:Inter; font-size:17px; font-weight:700; color:var(--navy); line-height:1.35; margin-bottom:8px;">If two towers deteriorate together, conviction is cut and the position is re-underwritten.</div>
+        <div style="font-family:Inter; font-size:14px; color:var(--gray); line-height:1.5;">This prevents single-metric anchoring and forces alignment between fundamental, macro, and market evidence before capital is added.</div>
+      </div>
     </div>
-
   </div>
+  <div class="source-line">Source: Internal investment committee dashboard schema and linked public data feeds (market, macro, and AI infrastructure series)</div>
 </div>
 
 <div class="slide" id="slide-50">
   <div class="section-label">PORTFOLIO &mdash; PROCESS</div>
   <div class="slide-title">How we underwrite</div>
-  <div style="flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; gap:28px; margin-top:14px;">
-    <div class="body-text" style="font-size:21px; line-height:1.8; margin-bottom:0;">Cost curves. Reinvestment rates. Incremental returns on capital. Free cash flow sensitivity to volume and price across the cycle.</div>
-    <div class="body-text" style="font-size:21px; line-height:1.8; margin-bottom:0;">Balance sheet structure is co-equal with operating quality. Scarcity rents are most valuable during dislocations &mdash; a forced seller cannot capture them.</div>
-    <div class="body-text" style="font-size:21px; line-height:1.8; margin-bottom:0;">Capital allocation discipline is a first-order variable. The historical base rate for value destruction through pro-cyclical overbuilding in commodity and infrastructure businesses is high enough to constitute a structural risk.</div>
-    <div class="slide-hr"></div>
-    <div class="body-text italic-accent" style="font-size:22px; line-height:1.8; margin-bottom:0;">"Exit discipline is valuation-driven. Every constraint eventually attracts the capital that resolves it. We own the period of maximum rent extraction."</div>
+  <div class="slide-subtitle">Institutional gate-based underwriting with explicit failure conditions, kill-switches, and non-negotiable risk rails.</div>
+  <div style="flex:1; min-height:0; display:grid; grid-template-columns:1.2fr 0.8fr; gap:14px; margin-top:10px;">
+    <div style="display:grid; grid-template-rows:repeat(4,1fr); gap:10px; min-height:0;">
+      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">1</div>
+        <div>
+          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Structural Demand Quality</div>
+          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">End-market growth must remain durable through an entire cycle.</div>
+          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if demand depends on one-off policy, subsidy, or single-buyer concentration.</div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">2</div>
+        <div>
+          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Supply-Constraint Persistence</div>
+          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">Scarcity duration must exceed what current valuation already discounts.</div>
+          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if supply response can normalize before demand compounding peaks.</div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">3</div>
+        <div>
+          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Balance-Sheet &amp; Liquidity Integrity</div>
+          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">No plausible forced-seller path under adverse rates, spreads, or volumes.</div>
+          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if covenant stress, refinancing fragility, or liquidity mismatch is material.</div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:13px 15px; display:grid; grid-template-columns:74px 1fr; gap:12px; align-items:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; font-weight:900; color:var(--teal); line-height:1; text-align:center;">4</div>
+        <div>
+          <div style="font-family:Inter; font-size:20px; font-weight:700; color:var(--navy);">Entry Multiple &amp; Exit Optionality</div>
+          <div style="font-family:Inter; font-size:15px; color:var(--gray); margin-top:2px;">Return profile must clear hurdle rates without multiple expansion heroics.</div>
+          <div style="font-family:Inter; font-size:14px; color:#c05040; margin-top:4px;">Fail if the thesis requires precise timing to crystallize value.</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-rows:1fr 1fr 1fr; gap:10px; min-height:0;">
+      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#2a7a8c;">
+        <div class="card-label" style="font-size:12px; color:var(--teal); margin-bottom:8px;">IC DECISION STATES</div>
+        <div style="font-family:Inter; font-size:16px; color:var(--navy); line-height:1.55;">
+          <strong>Go:</strong> all gates pass and no trigger is active.<br>
+          <strong>Watch:</strong> thesis intact, but one gate is degrading.<br>
+          <strong>Pass / Exit:</strong> gate break persists beyond tolerance.
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#c05040;">
+        <div class="card-label" style="font-size:12px; color:#c05040; margin-bottom:8px;">KILL-SWITCH PROTOCOL</div>
+        <div style="font-family:Inter; font-size:15px; color:var(--navy); line-height:1.55;">
+          Structural demand downgrade.<br>
+          Scarcity unwind faster than underwriting case.<br>
+          Balance-sheet stress above approved limits.
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0; padding:14px 15px; border-left-color:#0d2137;">
+        <div class="card-label" style="font-size:12px; color:#0d2137; margin-bottom:8px;">NON-NEGOTIABLE RISK RAILS</div>
+        <div style="font-family:Inter; font-size:15px; color:var(--navy); line-height:1.55;">
+          Max single position: <strong>10% NAV</strong>.<br>
+          Margin / borrowing: <strong>prohibited</strong>.<br>
+          Outright shorts: <strong>prohibited</strong>.<br>
+          Mandatory re-underwrite on material signal break.
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="source-line">Source: Internal IC underwriting playbook (v2026.02), linked to leading-indicator dashboard (slide 49) and portfolio limits in fund terms</div>
 </div>
 
 <div class="slide" id="slide-51">
@@ -2077,6 +2182,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
       <div style="flex:5; text-align:center;"><strong style="color:var(--teal);">GP Discretionary Window</strong> &middot; 2% fee on NAV</div>
     </div>
   </div>
+  <div class="source-line">Source: Draft fund term sheet and LPA framework (internal working draft, Feb 2026)</div>
 </div>
 
 <div class="slide" id="slide-54">
@@ -2129,55 +2235,75 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     </div>
   </div>
   <div class="body-text" style="margin-top:12px; font-size:18px;"><strong class="bold-accent">The real estate collar creates a structural floor. The structural long portfolio creates the upside.</strong></div>
+  <div class="source-line">Source: Internal underwriting policy and portfolio risk limits (v2026.02)</div>
 </div>
 
 <div class="slide" id="slide-55">
   <div class="section-label">PORTFOLIO CONSTRUCTION</div>
   <div class="slide-title">Traditional portfolio construction was designed for a regime that no longer exists.</div>
-  <div style="flex:1; min-height:0; display:flex; gap:24px; margin-top:14px;">
-    <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center; padding:36px 38px;">
-      <div class="card-label" style="font-size:15px; margin-bottom:24px; letter-spacing:2.5px;">THE OLD REGIME</div>
-      <div class="card-text" style="font-size:21px; line-height:2.6;">
-        <strong style="color:var(--navy);">Declining rates</strong> &mdash; 40-year bond bull market as tailwind<br>
-        <strong style="color:var(--navy);">Negative correlation</strong> &mdash; bonds hedged equities reliably<br>
-        <strong style="color:var(--navy);">Globalization</strong> &mdash; cheap labor suppressing inflation<br>
-        <strong style="color:var(--navy);">Central bank backstop</strong> &mdash; unlimited QE capacity<br>
-        <strong style="color:var(--navy);">60/40 worked</strong> &mdash; diversification was free
+  <div class="slide-subtitle">At current starting valuations, historical forward real return base rates for broad equity beta are materially compressed.</div>
+  <div style="flex:1; min-height:0; display:flex; gap:22px; margin-top:10px;">
+    <div class="card" style="flex:1.25; margin-bottom:0; padding:16px 18px 12px 18px; display:flex; flex-direction:column;">
+      <div class="card-label" style="margin-bottom:8px;">HISTORICAL BASE RATES BY STARTING CAPE</div>
+      <div class="chart-area" style="flex:1; min-height:0; max-height:none; background:var(--light-blue); border-radius:8px; padding:6px;">
+        <button class="chart-download-btn" onclick="downloadChart('sp500ValuationBucketsChart','MI_sp500_cape_forward_returns.png')" title="Download as PNG">&darr;</button>
+        <canvas id="sp500ValuationBucketsChart"></canvas>
       </div>
+      <div style="font-family:Inter; font-size:10px; color:var(--source-gray); margin-top:7px; line-height:1.35;">Bars show median next 10-year annualized real total return by starting CAPE bucket. Tooltips include interquartile range and sample count (monthly cohorts, 1881-2013 starts, n=1,593).</div>
     </div>
-    <div class="card" style="flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:center; padding:36px 38px; border-left-color:#0d2137;">
-      <div class="card-label" style="font-size:15px; margin-bottom:24px; color:#0d2137; letter-spacing:2.5px;">THE NEW REGIME</div>
-      <div class="card-text" style="font-size:21px; line-height:2.6;">
-        <strong style="color:var(--navy);">Fiscal dominance</strong> &mdash; debt constrains monetary policy<br>
-        <strong style="color:var(--navy);">Persistent inflation</strong> &mdash; structural above 2% target<br>
-        <strong style="color:var(--navy);">Positive correlation</strong> &mdash; bonds and equities fall together<br>
-        <strong style="color:var(--navy);">Supply constraints</strong> &mdash; commodities, energy, metals<br>
-        <strong style="color:var(--navy);">AI capex supercycle</strong> &mdash; $1T+ infrastructure buildout
+    <div style="flex:0.95; display:flex; flex-direction:column; gap:10px; min-height:0;">
+      <div class="card" style="flex:1.1; margin-bottom:0; padding:14px 16px;">
+        <div class="card-label" style="margin-bottom:8px;">S&amp;P 500 VALUATION SNAPSHOT (UPDATED MONDAY, FEBRUARY 9, 2026; LAST CASH CLOSE = FEBRUARY 6)</div>
+        <table style="width:100%; border-collapse:collapse; font-family:Inter; font-size:12px;">
+          <thead>
+            <tr style="color:#8a96a0; font-size:10px; text-transform:uppercase; letter-spacing:0.9px;">
+              <th style="text-align:left; padding:4px 0;">Metric</th>
+              <th style="text-align:right; padding:4px 0;">Current</th>
+              <th style="text-align:right; padding:4px 0;">Long-run Mean</th>
+              <th style="text-align:right; padding:4px 0;">Signal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-top:1px solid rgba(0,0,0,0.06);">
+              <td style="padding:6px 0; color:var(--navy); font-weight:600;">Shiller CAPE</td>
+              <td style="padding:6px 0; text-align:right;">40.38</td>
+              <td style="padding:6px 0; text-align:right;">17.33</td>
+              <td style="padding:6px 0; text-align:right; color:#c05040; font-weight:600;">98.8th pctile</td>
+            </tr>
+            <tr style="border-top:1px solid rgba(0,0,0,0.06);">
+              <td style="padding:6px 0; color:var(--navy); font-weight:600;">Trailing P/E</td>
+              <td style="padding:6px 0; text-align:right;">29.75</td>
+              <td style="padding:6px 0; text-align:right;">16.19</td>
+              <td style="padding:6px 0; text-align:right; color:#c05040; font-weight:600;">+84%</td>
+            </tr>
+            <tr style="border-top:1px solid rgba(0,0,0,0.06);">
+              <td style="padding:6px 0; color:var(--navy); font-weight:600;">Earnings Yield</td>
+              <td style="padding:6px 0; text-align:right;">3.36%</td>
+              <td style="padding:6px 0; text-align:right;">7.21%</td>
+              <td style="padding:6px 0; text-align:right; color:#c05040; font-weight:600;">-53%</td>
+            </tr>
+            <tr style="border-top:1px solid rgba(0,0,0,0.06);">
+              <td style="padding:6px 0; color:var(--navy); font-weight:600;">Dividend Yield</td>
+              <td style="padding:6px 0; text-align:right;">1.13%</td>
+              <td style="padding:6px 0; text-align:right;">4.22%</td>
+              <td style="padding:6px 0; text-align:right; color:#c05040; font-weight:600;">-73%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="flex:0.85; margin-bottom:0; padding:14px 16px; border-left-color:#c05040;">
+        <div class="card-label" style="margin-bottom:8px; color:#c05040;">WHERE WE ARE NOW</div>
+        <div style="font-family:'Playfair Display',serif; font-size:34px; font-weight:900; color:#c05040; line-height:1;">CAPE 40.38</div>
+        <div style="font-family:Inter; font-size:12px; color:var(--gray); margin-top:4px; line-height:1.4;">40+ bucket historically mapped to a <strong style="color:#0d2137;">-3.45%</strong> median next-10Y annualized real return.</div>
+        <div style="font-family:Inter; font-size:12px; color:var(--gray); margin-top:6px; line-height:1.35;">Equivalent to roughly the <strong style="color:#0d2137;">98.8th percentile</strong> of historical CAPE readings.</div>
+      </div>
+      <div class="card" style="flex:0.9; margin-bottom:0; padding:14px 16px; border-left-color:#0d2137;">
+        <div class="card-label" style="margin-bottom:8px; color:#0d2137;">PORTFOLIO CONSTRUCTION IMPLICATION</div>
+        <div class="card-text" style="font-size:13px; line-height:1.45;">In high-starting-valuation regimes, index beta carries weaker long-horizon base rates. Allocation edge shifts to manager selection, dispersion capture, and non-index exposures that do not rely on multiple expansion.</div>
       </div>
     </div>
   </div>
-  <div style="margin-top:14px; flex-shrink:0;">
-    <div style="font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:10px;">WHAT CHANGED</div>
-    <div class="card-row" style="margin-bottom:0; gap:14px;">
-      <div class="stat-card" style="padding:16px 18px; flex:1;">
-        <div class="stat-number" style="font-size:26px;">+0.72</div>
-        <div class="stat-label" style="font-size:14px;">Bond-Equity Correlation (was &ndash;0.40)</div>
-      </div>
-      <div class="stat-card" style="padding:16px 18px; flex:1;">
-        <div class="stat-number" style="font-size:26px;">122%</div>
-        <div class="stat-label" style="font-size:14px;">U.S. Debt/GDP (was 55% in 2000)</div>
-      </div>
-      <div class="stat-card" style="padding:16px 18px; flex:1;">
-        <div class="stat-number" style="font-size:26px;">+86%</div>
-        <div class="stat-label" style="font-size:14px;">Gold Since 2020</div>
-      </div>
-      <div class="stat-card" style="padding:16px 18px; flex:1;">
-        <div class="stat-number" style="font-size:26px;">$325B</div>
-        <div class="stat-label" style="font-size:14px;">AI Capex 2025</div>
-      </div>
-    </div>
-  </div>
-  <div class="body-text" style="margin-top:12px; font-size:18px;"><strong class="bold-accent">This portfolio is both a diversifier and a returns driver &mdash; because the assets that diversify best in this regime are the same ones with the strongest secular tailwinds.</strong></div>
+  <div class="source-line">Source: Robert Shiller online data (Yale, sheet updated Sep 2023; monthly 1881-2013 start cohorts for realized 10Y forward real returns) and multpl.com valuation series (captured Monday, February 9, 2026 at 9:02 AM ET; latest close-based print 4:00 PM EST, Friday, February 6, 2026)</div>
 </div>
 
 <div class="slide" id="slide-56">
@@ -3873,217 +3999,6 @@ function downloadChart(canvasId, filename) {
 })();
 
 // ==========================
-// CHART 3: Copper Supply/Demand (Slide 18)
-// ==========================
-// ==========================
-// INTERACTIVE VALUE CHAIN (SLIDE 25)
-// ==========================
-var vcData = {
-  mining: {
-    title: 'MINING',
-    desc: 'Extraction of copper, lithium, cobalt, and rare earths from ore deposits. The physical starting point of every chip, battery, and cable in the AI stack.',
-    badge: 'CRITICAL BOTTLENECK', badgeColor: '#c05040',
-    stats: [
-      {num:'29 yrs', label:'US avg. discovery to production'},
-      {num:'18 yrs', label:'Global avg. (2020\u20132024 mines)'},
-      {num:'3\u00d7', label:'Lead time increase since 1990s'},
-      {num:'268', label:'Mines studied (S&P Global)'},
-      {num:'$85B', label:'Cost to replace China copper refining'},
-      {num:'60%', label:'Cobalt price decline 2022\u20132025'}
-    ],
-    players: [
-      '<strong>Codelco</strong> (Chile) \u2014 State-owned, #1 copper miner, 1.7M MT/yr',
-      '<strong>Freeport-McMoRan</strong> ($75B) \u2014 #2 copper globally, 1.6M MT/yr',
-      '<strong>BHP</strong> ($160B) \u2014 Diversified; copper, lithium, nickel',
-      '<strong>Glencore</strong> ($65B) \u2014 13% cobalt, major copper/zinc trader',
-      '<strong>Albemarle</strong> ($12B) \u2014 Leading Western lithium producer',
-      '<strong>SQM</strong> ($14B) \u2014 Major brine-based lithium, Chile'
-    ]
-  },
-  refining: {
-    title: 'REFINING & PROCESSING',
-    desc: 'Smelting, purification, and chemical processing that transforms raw ore into battery-grade lithium, polysilicon, and refined copper. China dominates nearly every step.',
-    badge: 'CONCENTRATION RISK', badgeColor: '#e67e22',
-    stats: [
-      {num:'98%', label:'China gallium production share'},
-      {num:'93%', label:'China polysilicon share'},
-      {num:'90%', label:'China rare earth processing'},
-      {num:'65%', label:'China lithium refining'},
-      {num:'45%', label:'China copper refining (up 83% since 2020)'},
-      {num:'19/20', label:'Strategic minerals led by China (IEA)'}
-    ],
-    players: [
-      '<strong>Jiangxi Copper</strong> (China) \u2014 World\'s #1 refinery, 1.1M MT/yr',
-      '<strong>Ganfeng Lithium</strong> (China) \u2014 #1 lithium metals/hydroxide',
-      '<strong>Tianqi Lithium</strong> (China) \u2014 Co-owns Greenbushes (Australia)',
-      '<strong>China Northern Rare Earth</strong> \u2014 $19.5B, largest REE company',
-      '<strong>MP Materials</strong> (US) \u2014 Only US integrated REE producer',
-      '<strong>Lynas</strong> (Australia) \u2014 Largest non-China REE, 4% global'
-    ]
-  },
-  fabrication: {
-    title: 'WAFER FABRICATION',
-    desc: 'Transistors etched onto silicon wafers at 3\u20135nm nodes using extreme ultraviolet lithography. The most technologically complex manufacturing process ever devised.',
-    badge: 'MONOPOLY DYNAMICS', badgeColor: '#2a7a8c',
-    stats: [
-      {num:'72%', label:'TSMC foundry market share (Q3 \u201925)'},
-      {num:'90%', label:'TSMC share of 3nm production'},
-      {num:'$123B', label:'TSMC 2025 revenue (+36% YoY)'},
-      {num:'$53B', label:'TSMC 2026 capex guidance'},
-      {num:'100%', label:'ASML EUV lithography monopoly'},
-      {num:'\u20ac39B', label:'ASML order backlog'}
-    ],
-    players: [
-      '<strong>TSMC</strong> ($1.1T) \u2014 72% foundry share, 90% leading-edge, 60% gross margin',
-      '<strong>Samsung Foundry</strong> ($350B) \u2014 8% share, ~50% yield on 3nm vs TSMC 90%',
-      '<strong>ASML</strong> ($310B) \u2014 100% EUV monopoly, $200\u2013400M per tool',
-      '<strong>Intel Foundry</strong> ($110B) \u2014 Retrenching; capex cut to $12\u201314B',
-      '<strong>SMIC</strong> ($30B) \u2014 5% share, US-sanctioned, limited to 7nm+'
-    ]
-  },
-  packaging: {
-    title: 'ADVANCED PACKAGING + HBM',
-    desc: 'GPU dies and high-bandwidth memory stacks are bonded onto a silicon interposer (CoWoS). Distinct from fabrication \u2014 this is 3D assembly, not etching. Currently the tightest bottleneck in the AI supply chain.',
-    badge: 'CRITICAL BOTTLENECK', badgeColor: '#c05040',
-    stats: [
-      {num:'130K', label:'CoWoS wafers/mo target (2026)'},
-      {num:'60%', label:'NVIDIA share of 2026 CoWoS supply'},
-      {num:'~90%', label:'SK Hynix HBM3e market share'},
-      {num:'192 GB', label:'HBM per B200 (vs 80 GB H100)'},
-      {num:'288 GB', label:'HBM4 per Rubin (2026)'},
-      {num:'12\u201318 mo', label:'HBM allocation lead time'}
-    ],
-    players: [
-      '<strong>TSMC CoWoS</strong> \u2014 Dominant; 4\u00d7 capacity ramp 2024\u20132026, still sold out',
-      '<strong>SK Hynix</strong> (Korea) \u2014 ~90% HBM3e share, sole HBM4 leader',
-      '<strong>Samsung</strong> (Korea) \u2014 Distant #2 in HBM, catching up on HBM4',
-      '<strong>Amkor</strong> \u2014 OSAT partner, 180\u2013190K CoWoS wafers allocated',
-      '<strong>Micron</strong> (US) \u2014 #3 HBM, sold out through 2025'
-    ]
-  },
-  gpus: {
-    title: 'GPU / AI ACCELERATORS',
-    desc: 'Purpose-built chips that perform the parallel math (matrix multiplication) AI models require. NVIDIA dominates with its CUDA ecosystem; custom ASICs from hyperscalers are growing.',
-    badge: 'SUPPLY CONSTRAINED', badgeColor: '#0d2137',
-    stats: [
-      {num:'~80%', label:'NVIDIA AI accelerator market share'},
-      {num:'$170B', label:'NVIDIA DC revenue FY26 (est.)'},
-      {num:'$3.1M', label:'GB200 NVL72 rack price'},
-      {num:'$5\u201310B', label:'AMD MI300 series revenue \u201925'},
-      {num:'500K', label:'AWS Trainium2 chips for Anthropic'},
-      {num:'H2 2026', label:'NVIDIA Rubin (VR200) launch'}
-    ],
-    players: [
-      '<strong>NVIDIA</strong> ($4.5T) \u2014 86% DC AI share; Blackwell \u2192 Rubin \u2192 Feynman',
-      '<strong>AMD</strong> ($220B) \u2014 #2 at ~7\u201310% share; MI300X \u2192 MI350 ramp',
-      '<strong>Google TPU</strong> ($2.3T) \u2014 Ironwood (v7), 1M chips for Anthropic deal',
-      '<strong>Broadcom</strong> ($1.1T) \u2014 Custom ASICs for Google, Meta, ByteDance',
-      '<strong>AWS Trainium</strong> \u2014 150% QoQ growth, 35% internal workload target',
-      '<strong>Microsoft Maia</strong> \u2014 Maia 200 for inference (Jan 2026)'
-    ]
-  },
-  datacenters: {
-    title: 'DATA CENTERS',
-    desc: 'Purpose-built facilities housing GPU racks with power, liquid cooling, and networking. AI racks draw 150 kW each (vs. 10 kW traditional) \u2014 power is now the binding constraint.',
-    badge: 'POWER CONSTRAINED', badgeColor: '#0d2137',
-    stats: [
-      {num:'$600B', label:'Big 4 hyperscaler capex 2026'},
-      {num:'$455B', label:'Global DC capex 2024 (+51% YoY)'},
-      {num:'~96 GW', label:'Global DC power capacity 2026'},
-      {num:'~2%', label:'DC share of global electricity (2026)'},
-      {num:'150 kW', label:'AI rack power density (vs 10 kW legacy)'},
-      {num:'6.6%', label:'Global DC vacancy rate (falling)'}
-    ],
-    players: [
-      '<strong>Amazon</strong> ($2.4T) \u2014 $200B capex guided 2026, largest cloud',
-      '<strong>Google</strong> ($2.3T) \u2014 $175\u2013185B capex guided 2026',
-      '<strong>Microsoft</strong> ($3.2T) \u2014 $100B capex guided 2026; Azure + OpenAI',
-      '<strong>Meta</strong> ($1.8T) \u2014 $115\u2013135B capex guided 2026',
-      '<strong>CoreWeave</strong> (IPO 2025) \u2014 250K+ GPUs, $30B backlog',
-      '<strong>Equinix</strong> ($85B) \u2014 270+ DCs, record bookings'
-    ]
-  },
-  training: {
-    title: 'MODEL TRAINING',
-    desc: 'Models learn from data by adjusting hundreds of billions of parameters across thousands of GPUs over weeks to months. Training happens once per model but costs $100M\u2013$1B+ per frontier run.',
-    badge: 'SCALING RAPIDLY', badgeColor: '#2a7a8c',
-    stats: [
-      {num:'$9B', label:'OpenAI R&D compute 2025'},
-      {num:'$4.1B', label:'Anthropic training spend 2025'},
-      {num:'$16B', label:'OpenAI total cloud compute 2025'},
-      {num:'10\u00d7/yr', label:'Training compute scaling rate'},
-      {num:'3.8\u00d710\u00b2\u2076', label:'Grok 4 training FLOP (frontier)'},
-      {num:'$1B+', label:'Single frontier model training cost'}
-    ],
-    players: [
-      '<strong>OpenAI</strong> \u2014 $16B total compute; GPT-5.2, o3 models',
-      '<strong>Anthropic</strong> \u2014 $6.8B total compute 2025; Claude Opus 4.6',
-      '<strong>Google DeepMind</strong> \u2014 Gemini Ultra/2.0; internal TPU fleet',
-      '<strong>xAI</strong> \u2014 Grok 3/4; Memphis 100K GPU cluster',
-      '<strong>Meta AI</strong> \u2014 Llama 4; open-source strategy',
-      '<strong>Mistral</strong> (France) \u2014 Leading EU lab; Large 2'
-    ]
-  },
-  inference: {
-    title: 'INFERENCE & DEPLOYMENT',
-    desc: 'Running trained models to answer queries, generate code, and power agentic workflows. Happens billions of times daily and grows with every new user and application. The long-term compute demand driver.',
-    badge: 'FASTEST GROWING', badgeColor: '#2a7a8c',
-    stats: [
-      {num:'45%', label:'Inference share of total compute spend'},
-      {num:'$7B', label:'OpenAI inference compute 2025'},
-      {num:'$2.7B', label:'Anthropic inference costs 2025'},
-      {num:'60%', label:'Anthropic gross margin (mid-2025)'},
-      {num:'$9B', label:'Anthropic annualized revenue run rate'},
-      {num:'$20B', label:'OpenAI annualized revenue'}
-    ],
-    players: [
-      '<strong>OpenAI</strong> \u2014 $20B ARR; ChatGPT ~900M weekly users',
-      '<strong>Anthropic</strong> \u2014 $9B ARR; Claude API + consumer',
-      '<strong>Google</strong> \u2014 Gemini integrated across Workspace, Search, Cloud',
-      '<strong>AWS Bedrock</strong> \u2014 Multi-model inference platform',
-      '<strong>Microsoft Azure AI</strong> \u2014 OpenAI + Phi models; Copilot',
-      '<strong>Together AI, Fireworks</strong> \u2014 Open-source model serving'
-    ]
-  }
-};
-
-function showVCDetail(stage) {
-  var d = vcData[stage];
-  if (!d) return;
-  // Highlight active node
-  document.querySelectorAll('.vc-node').forEach(function(n) { n.classList.remove('vc-active'); });
-  var activeNode = document.querySelector('.vc-node[data-vc="' + stage + '"]');
-  if (activeNode) activeNode.classList.add('vc-active');
-  // Hide default, show content
-  var def = document.getElementById('vc-detail-default');
-  var cont = document.getElementById('vc-detail-content');
-  if (def) def.style.display = 'none';
-  if (cont) cont.style.display = 'flex';
-  cont.style.flexDirection = 'column';
-  // Set title + badge
-  document.getElementById('vc-detail-title').textContent = d.title;
-  var badge = document.getElementById('vc-detail-badge');
-  badge.textContent = d.badge;
-  badge.style.background = d.badgeColor + '18';
-  badge.style.color = d.badgeColor;
-  // Description
-  var descHtml = d.desc ? '<div style="font-family:Inter;font-size:12px;color:#5a6a78;line-height:1.5;margin-bottom:8px;">' + d.desc + '</div>' : '';
-  // Stats grid
-  var statsEl = document.getElementById('vc-detail-stats');
-  // Insert desc above stats
-  var descEl = document.getElementById('vc-desc');
-  if (!descEl) { descEl = document.createElement('div'); descEl.id = 'vc-desc'; statsEl.parentNode.insertBefore(descEl, statsEl); }
-  descEl.innerHTML = descHtml;
-  statsEl.innerHTML = d.stats.map(function(s) {
-    return '<div class="vc-stat-card"><div class="vc-stat-num">' + s.num + '</div><div class="vc-stat-label">' + s.label + '</div></div>';
-  }).join('');
-  // Players
-  var playersEl = document.getElementById('vc-detail-players');
-  playersEl.innerHTML = '<div style="font-family:Inter;font-size:10px;font-weight:600;color:#8a96a0;letter-spacing:1px;margin-bottom:6px;">KEY PLAYERS</div>' +
-    d.players.map(function(p) { return '<div class="vc-player">' + p + '</div>'; }).join('');
-}
-
-// ==========================
 // CHART: MINE LEAD TIMES (SLIDE 20)
 // ==========================
 (function() {
@@ -4110,7 +4025,8 @@ function showVCDetail(stage) {
         legend: { display: false },
         tooltip: {
           backgroundColor: '#0d2137',
-          titleFont: { family: 'Inter', size: 12 }, bodyFont: { family: 'Inter', size: 13, weight: '600' },
+          titleFont: { family: 'Inter', size: 12 },
+          bodyFont: { family: 'Inter', size: 13, weight: '600' },
           callbacks: { label: function(ctx) { return ctx.parsed.y + ' years'; } }
         },
         annotation: {
@@ -4361,6 +4277,113 @@ function showVCDetail(stage) {
 
 // Initialize first slide display
 document.getElementById('slide-1').style.opacity = '1';
+</script>
+
+<script>
+// ==========================
+// CHART: OECD ALMP SPENDING — % OF GDP (SLIDE 45)
+// Data: OECD Social Expenditure Database (SOCX), 2019 pre-pandemic baseline
+// Programme type TP60 (Active Labour Market Programmes), measure PT_B1GQ (% of GDP)
+// ==========================
+(function() {
+  var ctx = document.getElementById('fiscalALMPChart').getContext('2d');
+
+  // Countries sorted by spending (ascending) — US at bottom for visual impact
+  var countries = [
+    'United States', 'Japan', 'United Kingdom', 'South Korea',
+    'Canada', 'Netherlands', 'Germany', 'France',
+    'Austria', 'Finland', 'Sweden', 'Denmark'
+  ];
+  // All values are 2019 from OECD SOCX database
+  var values = [0.10, 0.15, 0.15, 0.35, 0.41, 0.55, 0.58, 0.70, 0.70, 0.92, 1.04, 1.89];
+
+  var colors = countries.map(function(c) {
+    return c === 'United States' ? '#c0392b' : '#2a7a8c';
+  });
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: countries,
+      datasets: [{
+        data: values,
+        backgroundColor: colors,
+        borderRadius: 4,
+        barPercentage: 0.65,
+        categoryPercentage: 0.82
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 6, right: 40, bottom: 4, left: 4 } },
+      scales: {
+        x: {
+          min: 0,
+          max: 2.2,
+          ticks: {
+            stepSize: 0.5,
+            font: { family: 'Inter', size: 11 },
+            color: '#8a96a0',
+            callback: function(v) { return v.toFixed(1) + '%'; }
+          },
+          grid: { color: 'rgba(13,33,55,0.06)' },
+          title: {
+            display: true,
+            text: '% of GDP',
+            font: { family: 'Inter', size: 11, weight: '500' },
+            color: '#8a96a0'
+          }
+        },
+        y: {
+          ticks: {
+            font: { family: 'Inter', size: 12, weight: '500' },
+            color: function(ctx) {
+              return ctx.tick.label === 'United States' ? '#c0392b' : '#0d2137';
+            }
+          },
+          grid: { display: false }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 12, weight: '600' },
+          bodyFont: { family: 'Inter', size: 12 },
+          padding: 12,
+          cornerRadius: 6,
+          callbacks: {
+            label: function(ctx) { return ' ' + ctx.raw.toFixed(2) + '% of GDP'; }
+          }
+        },
+        annotation: {
+          annotations: {
+            oecdAvg: {
+              type: 'line',
+              xMin: 0.50,
+              xMax: 0.50,
+              borderColor: 'rgba(13,33,55,0.35)',
+              borderWidth: 1.5,
+              borderDash: [6, 4],
+              label: {
+                display: true,
+                content: 'OECD avg: 0.5%',
+                position: 'end',
+                backgroundColor: 'rgba(13,33,55,0.75)',
+                color: '#fff',
+                font: { family: 'Inter', size: 10, weight: '600' },
+                padding: { x: 8, y: 4 },
+                borderRadius: 4
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+})();
 </script>
 
 <script>
@@ -5389,95 +5412,214 @@ document.getElementById('slide-1').style.opacity = '1';
 })();
 
 // ==========================
-// CHART 6: ANTHROPIC ECONOMIC INDEX (SLIDE 34)
+// CHART 6: LABOR EXPOSURE + EMPLOYER RESPONSE (SLIDE 44)
 // ==========================
 (function() {
-  var quarters = ['Q1 2025','Q2 2025','Q3 2025','Q4 2025'];
-  var occupations = [36,39,44,49];
-  var delegated = [41,43,52,45];
-  var collaborative = [57,55,46,52];
+  var metrics = [
+    'ILO 2025: Global jobs exposed',
+    'ILO 2025: High-income jobs exposed',
+    'ILO 2025: Low-income jobs exposed',
+    'WEF 2030: Employers planning task automation',
+    'WEF 2030: Employers expecting workforce reduction'
+  ];
+  var values = [25,34,11,73,41];
+  var colors = ['#2a7a8c','#5ba3b5','#8a96a0','#0d2137','#c05040'];
+  var sourceNotes = [
+    'ILO-NASK Generative AI and Jobs Index (2025)',
+    'ILO-NASK Generative AI and Jobs Index (2025)',
+    'ILO-NASK Generative AI and Jobs Index (2025)',
+    'WEF Future of Jobs Report 2025 (2030 survey endpoint)',
+    'WEF Future of Jobs Report 2025 (2030 survey endpoint)'
+  ];
 
-  new Chart(document.getElementById('anthropicIndexChart').getContext('2d'), {
+  new Chart(document.getElementById('laborSignalsChart').getContext('2d'), {
     type: 'bar',
     data: {
-      labels: quarters,
+      labels: metrics,
       datasets: [
         {
-          label: '% Occupations w/ AI',
-          data: occupations,
-          type: 'bar',
-          backgroundColor: 'rgba(42, 122, 140, 0.75)',
-          borderColor: '#2a7a8c',
+          label: 'Share',
+          data: values,
+          backgroundColor: colors,
+          borderColor: colors,
           borderWidth: 1,
           borderRadius: 3,
-          barPercentage: 0.6,
-          order: 2
-        },
-        {
-          label: '% Tasks Delegated',
-          data: delegated,
-          type: 'line',
-          borderColor: '#0d2137',
-          backgroundColor: '#0d2137',
-          pointRadius: 5,
-          pointHoverRadius: 7,
-          pointBackgroundColor: '#0d2137',
-          borderWidth: 2.5,
-          tension: 0.25,
-          fill: false,
-          order: 1
-        },
-        {
-          label: '% Tasks Collaborative',
-          data: collaborative,
-          type: 'line',
-          borderColor: '#c05040',
-          backgroundColor: '#c05040',
-          pointRadius: 5,
-          pointHoverRadius: 7,
-          pointBackgroundColor: '#c05040',
-          borderWidth: 2.5,
-          tension: 0.25,
-          fill: false,
-          order: 1
+          barPercentage: 0.68,
+          categoryPercentage: 0.8
         }
       ]
     },
     options: {
+      indexAxis: 'y',
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
+      layout: { padding: { top: 10, right: 26, bottom: 4, left: 8 } },
       scales: {
-        x: {
-          grid: { display: false, drawBorder: false },
-          ticks: { font: { family: 'Inter', size: 10 }, color: '#5a6a78' }
-        },
         y: {
+          grid: { display: false, drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 9 }, color: '#5a6a78' }
+        },
+        x: {
           min: 0,
           max: 80,
           grid: { color: 'rgba(0,0,0,0.045)', drawBorder: false },
           ticks: {
             font: { family: 'Inter', size: 10 },
             color: '#5a6a78',
-            callback: function(value) { return value + '%'; }
+            callback: function(value) { return value + '%'; },
+            stepSize: 10
           }
         }
       },
       plugins: {
-        legend: {
-          display: true,
-          labels: { font: { family: 'Inter', size: 10 }, color: '#5a6a78', usePointStyle: true }
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 11 },
+          bodyFont: { family: 'Inter', size: 11 },
+          callbacks: {
+            label: function(ctx) { return 'Share: ' + ctx.parsed.x + '%'; },
+            afterLabel: function(ctx) { return sourceNotes[ctx.dataIndex]; }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// ==========================
+// CHART 7: CAPE BUCKETS VS FORWARD REAL RETURNS (SLIDE 55)
+// ==========================
+(function() {
+  var c = document.getElementById('sp500ValuationBucketsChart');
+  if (!c) return;
+
+  var buckets = ['Below 10', '10-15', '15-20', '20-25', '25-30', '30-40', '40+'];
+  var medians = [10.99, 7.83, 6.21, 4.71, 5.23, 0.45, -3.45];
+  var p25 = [8.54, 3.58, 3.38, -0.07, 4.49, -0.62, -4.41];
+  var p75 = [13.67, 11.8, 8.8, 7.85, 5.69, 1.41, -3.03];
+  var counts = [229, 461, 514, 249, 83, 36, 21];
+  var colors = ['#2f8ba0', '#3f98ab', '#57a8b7', '#7ab9c4', '#9ccbd1', '#c17a70', '#c05040'];
+  var currentCAPE = 40.38;
+
+  new Chart(c, {
+    type: 'bar',
+    data: {
+      labels: buckets,
+      datasets: [{
+        label: 'Median next 10Y annualized real return',
+        data: medians,
+        backgroundColor: colors,
+        borderColor: colors,
+        borderWidth: [1, 1, 1, 1, 1, 1, 2],
+        borderRadius: 3,
+        barPercentage: 0.7,
+        categoryPercentage: 0.86
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 6, right: 14, bottom: 2, left: 4 } },
+      scales: {
+        y: {
+          grid: { display: false, drawBorder: false },
+          ticks: { font: { family: 'Inter', size: 10 }, color: '#5a6a78' }
+        },
+        x: {
+          min: -6,
+          max: 12,
+          grid: {
+            drawBorder: false,
+            color: function(ctx) {
+              if (ctx.tick && ctx.tick.value === 0) return 'rgba(13,33,55,0.28)';
+              return 'rgba(0,0,0,0.045)';
+            }
+          },
+          ticks: {
+            stepSize: 2,
+            font: { family: 'Inter', size: 10 },
+            color: '#5a6a78',
+            callback: function(value) { return value + '%'; }
+          },
+          title: {
+            display: true,
+            text: 'Next 10-year annualized real total return',
+            font: { family: 'Inter', size: 11, weight: 500 },
+            color: '#5a6a78'
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        annotation: {
+          annotations: {
+            currentBucketLabel: {
+              type: 'label',
+              xValue: 2.6,
+              yValue: '40+',
+              content: ['WE ARE HERE', 'Current CAPE: ' + currentCAPE.toFixed(2)],
+              font: { family: 'Inter', size: 9, weight: '700' },
+              color: '#0d2137',
+              backgroundColor: 'rgba(255,255,255,0.85)',
+              borderColor: 'rgba(13,33,55,0.25)',
+              borderWidth: 1,
+              borderRadius: 4,
+              padding: { top: 3, right: 6, bottom: 3, left: 6 },
+              yAdjust: -16
+            },
+            currentBucketArrow: {
+              type: 'line',
+              xMin: 1.3,
+              xMax: -2.7,
+              yMin: '40+',
+              yMax: '40+',
+              borderColor: '#0d2137',
+              borderWidth: 1.2,
+              borderDash: [5, 3]
+            }
+          }
         },
         tooltip: {
           backgroundColor: '#0d2137',
           titleFont: { family: 'Inter', size: 11 },
           bodyFont: { family: 'Inter', size: 11 },
           callbacks: {
-            label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; }
+            label: function(ctx) {
+              var i = ctx.dataIndex;
+              return 'Median: ' + medians[i].toFixed(2) + '%';
+            },
+            afterLabel: function(ctx) {
+              var i = ctx.dataIndex;
+              return [
+                'IQR: ' + p25[i].toFixed(2) + '% to ' + p75[i].toFixed(2) + '%',
+                'Observations: ' + counts[i]
+              ];
+            }
           }
         }
       }
-    }
+    },
+    plugins: [{
+      id: 'bucketMedianLabels',
+      afterDatasetsDraw: function(chart) {
+        var ctx = chart.ctx;
+        var meta = chart.getDatasetMeta(0);
+        ctx.save();
+        ctx.font = '600 9px Inter';
+        ctx.fillStyle = '#0d2137';
+        ctx.textBaseline = 'middle';
+        meta.data.forEach(function(bar, i) {
+          var val = medians[i];
+          var text = (val > 0 ? '+' : '') + val.toFixed(1) + '%';
+          var x = val >= 0 ? bar.x + 6 : bar.x - 34;
+          if (x < chart.chartArea.left + 2) x = chart.chartArea.left + 2;
+          ctx.fillText(text, x, bar.y);
+        });
+        ctx.restore();
+      }
+    }]
   });
 })();
 
@@ -6603,6 +6745,133 @@ document.getElementById('slide-1').style.opacity = '1';
           var y = bar.y;
           ctx.fillStyle = colors[i];
           ctx.fillText(gpuGen[i], x, y);
+        });
+      }
+    }]
+  });
+})();
+
+// ==========================
+// CHART: FINANCIAL REPRESSION REAL RETURNS (SLIDE 46)
+// ==========================
+(function() {
+  var ctx = document.getElementById('repressionChart');
+  if (!ctx) return;
+
+  var labels = ['Long-Term\nTreasuries', 'Cash\n(T-Bills)', 'US Equities\n(S\u0026P 500)', 'Real Estate', 'Commodities'];
+  var values = [-2.0, -0.8, 6.8, 3.5, 2.8];
+
+  var bgColors = values.map(function(v) {
+    return v < 0 ? 'rgba(192, 57, 43, 0.82)' : 'rgba(42, 122, 140, 0.82)';
+  });
+  var borderColors = values.map(function(v) {
+    return v < 0 ? '#c0392b' : '#2a7a8c';
+  });
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: values,
+        backgroundColor: bgColors,
+        borderColor: borderColors,
+        borderWidth: 1.5,
+        borderRadius: 6,
+        barPercentage: 0.62,
+        categoryPercentage: 0.82
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 6, right: 32, bottom: 4, left: 4 } },
+      scales: {
+        x: {
+          min: -4,
+          max: 9,
+          ticks: {
+            stepSize: 2,
+            callback: function(v) { return (v > 0 ? '+' : '') + v + '%'; },
+            font: { family: 'Inter', size: 11 },
+            color: '#8a96a0'
+          },
+          grid: { color: 'rgba(0,0,0,0.05)', drawBorder: false }
+        },
+        y: {
+          ticks: {
+            font: { family: 'Inter', size: 13, weight: '600' },
+            color: '#0d2137'
+          },
+          grid: { display: false }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2137',
+          titleFont: { family: 'Inter', size: 12 },
+          bodyFont: { family: 'Inter', size: 12 },
+          cornerRadius: 6,
+          padding: 10,
+          callbacks: {
+            label: function(item) {
+              return 'Real return: ' + (item.raw > 0 ? '+' : '') + item.raw.toFixed(1) + '% per year';
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            zeroLine: {
+              type: 'line',
+              xMin: 0, xMax: 0,
+              borderColor: 'rgba(13,33,55,0.35)',
+              borderWidth: 2,
+              borderDash: [6, 4]
+            },
+            lossLabel: {
+              type: 'label',
+              xValue: -2.8,
+              yValue: 4.4,
+              content: ['PURCHASING', 'POWER LOSS'],
+              font: { family: 'Inter', size: 9, weight: '700' },
+              color: 'rgba(192, 57, 43, 0.35)',
+              textAlign: 'center'
+            },
+            gainLabel: {
+              type: 'label',
+              xValue: 7,
+              yValue: 4.4,
+              content: ['REAL WEALTH', 'PRESERVED'],
+              font: { family: 'Inter', size: 9, weight: '700' },
+              color: 'rgba(42, 122, 140, 0.35)',
+              textAlign: 'center'
+            }
+          }
+        }
+      }
+    },
+    plugins: [{
+      id: 'barValueLabels',
+      afterDatasetsDraw: function(chart) {
+        var ctx2 = chart.ctx;
+        var meta = chart.getDatasetMeta(0);
+        ctx2.textBaseline = 'middle';
+        meta.data.forEach(function(bar, i) {
+          var val = values[i];
+          var x, textAlign;
+          if (val >= 0) {
+            x = bar.x + 8;
+            textAlign = 'left';
+          } else {
+            x = bar.x - 8;
+            textAlign = 'right';
+          }
+          ctx2.font = 'bold 14px Inter';
+          ctx2.textAlign = textAlign;
+          ctx2.fillStyle = val < 0 ? '#c0392b' : '#1e6b7a';
+          ctx2.fillText((val > 0 ? '+' : '') + val.toFixed(1) + '%', x, bar.y);
         });
       }
     }]
