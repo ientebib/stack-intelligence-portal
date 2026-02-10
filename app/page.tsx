@@ -36,7 +36,7 @@ export default function HomePage() {
         <div className="gate-logo-wrap">
           <NeuralStackLogo size={120} interactive animate density="high" />
         </div>
-        <div className="title-main">Stack Holdings</div>
+        <div className="title-main">Stack Capital</div>
         <div className="title-underline" />
         <div className="title-definition">
           <span className="title-definition-term">Stack</span>{" "}

@@ -3,8 +3,8 @@ import "./globals.css";
 import { themeCssVariables } from "@/lib/themeCssVariables";
 
 export const metadata: Metadata = {
-  title: "Stack Holdings",
-  description: "Stack Holdings investment deck"
+  title: "Stack Capital",
+  description: "Stack Capital investment deck"
 };
 
 export default function RootLayout({
