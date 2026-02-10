@@ -15,7 +15,6 @@
   "dependencies": {
     "chart.js": "^4.4.1",
     "chartjs-plugin-annotation": "^3.0.1",
-    "claude": "^0.1.1",
     "next": "15.5.12",
     "react": "19.1.1",
     "react-chartjs-2": "^5.3.0",
