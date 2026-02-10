@@ -21,8 +21,7 @@ export function PendingMigrationSlide({
         <div className="migration-pill">Migration Pending</div>
         <h3>{title || "Untitled slide"}</h3>
         <p>
-          This slide still renders from the legacy deck. Keep using <code>/deck</code> for full-fidelity playback while
-          this slide is ported to React.
+          This slide is still pending React migration. The legacy HTML deck is no longer exposed publicly.
         </p>
 
         <div className="migration-metadata-grid">
@@ -46,8 +45,8 @@ export function PendingMigrationSlide({
           </div>
         </div>
 
-        <a className="migration-link" href="/InvestmentThesis.html">
-          Open Legacy Deck
+        <a className="migration-link" href="/deck-react">
+          Return to React Deck
         </a>
       </div>
     </div>
