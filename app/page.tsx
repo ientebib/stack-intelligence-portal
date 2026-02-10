@@ -60,7 +60,7 @@ export default function HomePage() {
             />
           </div>
           <button type="submit" className="submit-btn">
-            Enter Presentation
+            Enter
           </button>
         </form>
 
