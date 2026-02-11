@@ -107,7 +107,7 @@ export default function HomePage() {
             </div>
             <h2 className="deck-home-mathew-title">Meet Mathew</h2>
             <p className="deck-home-mathew-copy">
-              Mathew is a proprietary research analyst with access to live market data, financial data, supply chain monitoring, and value chain mapping — used for portfolio risk analysis, stress testing, and signal generation.
+              Proprietary Portfolio Research and Monitoring
             </p>
             <span className="deck-home-mathew-cta">
               Launch Demo &rarr;
