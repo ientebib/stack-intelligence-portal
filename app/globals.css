@@ -4305,7 +4305,7 @@ h3 {
 }
 
 .deck-home-logo-wrap {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .deck-home-kicker {
@@ -4319,7 +4319,7 @@ h3 {
 }
 
 .deck-home-title {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-family: var(--font-display);
   font-size: 40px;
   font-weight: 400;
@@ -4327,12 +4327,48 @@ h3 {
   letter-spacing: 0.3px;
 }
 
-.deck-home-subtitle {
-  margin: 0;
-  font-family: var(--font-body);
+.deck-home-definition {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.deck-home-def-term {
+  font-family: var(--font-display);
   font-size: 15px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.deck-home-def-phonetic {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.deck-home-def-pos {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.deck-home-def-meaning {
+  margin: 4px 0 0;
+  font-family: var(--font-body);
+  font-size: 13px;
   font-weight: 400;
   color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.deck-home-subtitle {
+  margin: 0;
+  font-family: var(--font-data);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .deck-home-grid {

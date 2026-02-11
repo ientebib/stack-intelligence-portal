@@ -61,8 +61,15 @@ export default function HomePage() {
         <div className="deck-home-logo-wrap">
           <NeuralStackLogo size={86} interactive animate density="high" />
         </div>
-        <p className="deck-home-kicker">Stack Capital</p>
-        <h1 className="deck-home-title">Investor Materials</h1>
+        <h1 className="deck-home-title">Stack Capital</h1>
+        <div className="deck-home-definition">
+          <span className="deck-home-def-term">Stack</span>{" "}
+          <span className="deck-home-def-phonetic">/stak/</span>{" "}
+          <span className="deck-home-def-pos">&mdash; noun</span>
+          <p className="deck-home-def-meaning">
+            The global infrastructure through which the planet thinks. From earth to cloud.
+          </p>
+        </div>
         <p className="deck-home-subtitle">
           Confidential &middot; February 2026
         </p>
