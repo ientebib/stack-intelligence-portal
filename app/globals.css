@@ -5088,6 +5088,7 @@ a.contact-row-value:hover {
 
 .mathew-ln--think {
   color: #c9d1d9;
+  font-style: italic;
 }
 
 .mathew-ln--call {
@@ -5114,6 +5115,43 @@ a.contact-row-value:hover {
 .mathew-ln--pulse {
   color: #58a6ff;
   animation: mathew-think-pulse 1.5s ease-in-out infinite;
+}
+
+.mathew-ln--cmd {
+  color: #3fb950;
+}
+
+.mathew-ln--success {
+  color: #3fb950;
+}
+
+.mathew-ln--warn {
+  color: #8b949e;
+}
+
+.mathew-ln--step {
+  color: #58a6ff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.mathew-ln--bear {
+  color: #8b949e;
+}
+
+.mathew-ln--tbl-head {
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.mathew-ln--synth {
+  color: #c9d1d9;
+  font-weight: 500;
+}
+
+.mathew-ln--synth-hold {
+  color: #c9d1d9;
+  font-weight: 500;
 }
 
 @keyframes mathew-think-pulse {
