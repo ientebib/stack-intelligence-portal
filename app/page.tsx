@@ -25,12 +25,12 @@ export default function HomePage() {
       </section>
 
       <nav className="deck-home-nav">
-        <Link className="deck-home-nav-link" href="/deck-react-short">
-          Pitch Deck
-        </Link>
-        <span className="deck-home-nav-sep" />
         <Link className="deck-home-nav-link" href="/deck-react">
           Investment Thesis
+        </Link>
+        <span className="deck-home-nav-sep" />
+        <Link className="deck-home-nav-link" href="/deck-react-short">
+          Pitch Deck
         </Link>
         <span className="deck-home-nav-sep" />
         <Link className="deck-home-nav-link" href="/investor-login">
