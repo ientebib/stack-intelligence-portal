@@ -2,9 +2,9 @@ import type { Slide09FederalDebtData } from "@/lib/data/types";
 
 export const slide09FederalDebtData: Slide09FederalDebtData = {
   sectionLabel: "MACRO THESIS",
-  title: "Federal debt is no longer cyclical. It's structural",
+  title: "Federal debt is no longer cyclical it's structural",
   subtitle:
-    "Fiscal spending is politically driven and structurally uncontrolled, backstopped by a Federal Reserve balance sheet that has expanded 10x since 2008.",
+    "Fiscal spending is politically driven and structurally uncontrolled, backstopped by a Federal Reserve balance sheet that has expanded 10x since 2008",
   years: [
     1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917,
     1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935,

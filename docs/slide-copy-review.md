@@ -1,9 +1,14 @@
 # Slide Copy Review Packet
 
-Generated: 2026-02-10T04:18:06.848Z
+Generated: 2026-02-12T16:59:18.759Z
 Source: `lib/data/slides/*.ts` + `components/slides/*.tsx`
 
 Use this as an editable language sheet. Each slide includes a key-value map of extracted copy so you can rewrite titles, subtitles, and prose in one pass.
+
+## Deck Status
+
+- Slides currently excluded from runtime deck: 13, 17, 21, 23, 28, 34, 36, 38, 41, 46, 48, 61, 62, 65
+- Total slide data files parsed: 62
 
 ## Slide 01
 
@@ -11,7 +16,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Data file: `lib/data/slides/slide01.ts`
 - Component: `components/slides/01-title.tsx`
 - Section: (none)
-- Title: STACK HOLDINGS
+- Title: STACK CAPITAL
 - Subtitle: A long-term liquid portfolio collateralized with real estate
 - Charts: none
 
@@ -32,16 +37,16 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 - Status: active
 - Data file: `lib/data/slides/slide02.ts`
-- Component: `components/slides/02-leadership.tsx`
+- Component: `components/slides/02-agenda-journey.tsx`
 - Section: OVERVIEW
 - Title: Leadership
-- Subtitle: Operators and allocators with direct experience building AI systems at scale and trading across global macro markets.
+- Subtitle: Operators and allocators with direct experience building AI systems at scale and trading across global macro markets
 - Charts: none
 - Source line: Source: Internal team bios, Feb 2026
 
 ### Slide Intent
 
-- Operators and allocators with direct experience building AI systems at scale and trading across global macro markets.
+- Operators and allocators with direct experience building AI systems at scale and trading across global macro markets
 
 ### Extracted Copy Map
 
@@ -51,22 +56,41 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - `partners[0].bio`: Traded global fixed income, FX, and commodities at Banco de Mexico, managing central bank international reserves. Worked at Seldon Capital, a macro quantitative hedge fund, on trading and research. Studied a Master’s in Finance at MIT Sloan and undergraduate Economics at ITAM.
 - `partners[1].name`: Isaac
 - `partners[1].role`: Managing Partner & CTO
-- `partners[1].bio`: Oversaw AI automation and ML systems at Kavak, Latin America’s largest automotive marketplace, across pricing, operations, and product. Worked at Angel Ventures, one of the most active venture capital firms in Latin America, on deal evaluation and due diligence across early- and growth-stage companies. Studied Finance at Tecnologico de Monterrey.
+- `partners[1].bio`: Oversaw AI automation and ML systems at Kavak, Latin America’s largest automotive marketplace. Worked at Angel Ventures, one of the most active venture capital firms in Latin America, investing across early- and growth-stage companies. Studied Finance at Tecnologico de Monterrey.
+
+### Inline Component Copy (Hardcoded)
+
+- AI Infrastructure
+- Fund Structure
+- How the fund deploys equity across NNN real estate and a long structural portfolio, using cash-out refinancing to recycle capital into conviction positions.
+- How we source, diligence, structure, size, and monitor positions across both the real-estate and long structural sleeves.
+- How We Underwrite
+- Long Structural Portfolio Sleeve
+- Macro Thesis
+- Past policy choices, fiscal, industrial, and monetary, have created structural imbalances now surfacing as geopolitical strain, supply-chain fragmentation, and persistent resource scarcity.
+- Real Estate Foundation
+- Stabilized NNN properties generate predictable, inflation-protected income while building equity for redeployment into the long portfolio.
+- Target outcomes, portfolio profile, alignment, and core investment terms.
+- The convergence of exponential AI growth and finite physical supply chains creates a structural mismatch that favors holders of power, mineral, infrastructure, and platform assets.
+- This is the growth engine of the fund, organized into two linked pillars: macro regime and AI infrastructure.
+- Today's agenda
+- What We Expect & Fund Terms
+- What we'll walk through
 
 ## Slide 03
 
 - Status: active
 - Data file: `lib/data/slides/slide03.ts`
 - Component: `components/slides/03-capital-split.tsx`
-- Section: PORTFOLIO CONSTRUCTION
-- Title: Anchored in real assets. Driven by structural conviction.
-- Subtitle: Protected downside with uncapped upside
+- Section: FUND STRUCTURE
+- Title: Capital Structure and Deployment Mix
+- Subtitle: Stabilized NNN collateral base paired with a liquid structural sleeve for upside participation
 - Charts: DonutChart×1
 - Source line: Source: Internal fund construction model (target allocation and constraints), Feb 2026
 
 ### What This Chart Shows
 
-- Protected downside with uncapped upside
+- Stabilized NNN collateral base paired with a liquid structural sleeve for upside participation
 - Visuals: DonutChart×1
 - Data source: Internal fund construction model (target allocation and constraints), Feb 2026
 
@@ -102,7 +126,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide04.ts`
 - Component: `components/slides/04-capital-waterfall.tsx`
-- Section: PORTFOLIO CONSTRUCTION
+- Section: FUND STRUCTURE
 - Title: How capital flows through the structure
 - Subtitle: 100% equity acquisition → 55% LTV cash-out refinance → structural long portfolio
 - Charts: BarChart×1
@@ -147,7 +171,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide05.ts`
 - Component: `components/slides/05-nnn-opportunities.tsx`
-- Section: PORTFOLIO CONSTRUCTION
+- Section: REAL ESTATE FOUNDATION
 - Title: Illustrative NNN lease opportunities
 - Subtitle: The types of properties we target — investment-grade tenants, absolute NNN structure, long-duration cash flows
 - Charts: none
@@ -222,7 +246,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide06.ts`
 - Component: `components/slides/06-nnn-structure.tsx`
-- Section: PORTFOLIO CONSTRUCTION
+- Section: REAL ESTATE FOUNDATION
 - Title: NNN leases in Florida: structure and financing
 - Subtitle: The asset, location edge, and debt profile
 - Charts: BarChart×2
@@ -291,47 +315,36 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide07.ts`
 - Component: `components/slides/07-executive-summary.tsx`
-- Section: EXECUTIVE SUMMARY
-- Title: Two foundational macro views.
+- Section: LONG STRUCTURE PORTFOLIO SLEEVE
+- Title: Two foundational macro views for the long portfolio
 - Subtitle: (none)
 - Charts: none
 - Source line: Source: World Gold Council Gold Demand Trends FY2025; hyperscaler earnings/guidance (Q4 2025 to Q2 FY2026); S&P Global Market Intelligence (2024)
 
 ### Slide Intent
 
-- Two foundational macro views.
+- Two foundational macro views for the long portfolio
 
 ### Extracted Copy Map
 
-- `thesisCards[0].title`: THESIS A - MACRO CONSTRAINT
+- `thesisCards[0].title`: Macro regime
 - `thesisCards[0].tone`: primary
-- `thesisCards[0].body`: The post-1950s monetary and political order is entering a regime of tightening constraint. Public debt is high, interest burdens are rising, geopolitics are fragmenting, and institutional credibility is weakening. Policy flexibility narrows: sustaining restrictive real financial conditions becomes progressively more costly. The adjustment path is a structural repricing toward assets with direct claims on real resources and productive capacity, and away from purely nominal financial claims.
-- `thesisCards[1].title`: THESIS B - AI INFRASTRUCTURE
+- `thesisCards[0].body`: 
+- `thesisCards[0].bullets[0]`: The postwar monetary order is entering a period of compounding fiscal constraint - debt servicing costs now widen the deficit on their own.
+- `thesisCards[0].bullets[1]`: The historical resolution is financial repression: real rates held below nominal growth, eroding sovereign debt in real terms over decades.
+- `thesisCards[0].bullets[2]`: Value rotates from nominal financial claims toward real assets with pricing power and supply constraints.
+- `thesisCards[1].title`: AI buildout
 - `thesisCards[1].tone`: secondary
-- `thesisCards[1].body`: Frontier AI is shifting from incremental software gains to a general-purpose production technology that substitutes for economically productive cognitive labor. Productivity gains can be real while the buildout becomes capital- and energy-intensive, constrained by physical bottlenecks: power, chips, cooling, grid capacity, minerals, and land. The result is a mixed macro impulse: deflationary in cognition, inflationary in the physical layer that enables it.
-- `intersectionTitle`: THE INTERSECTION
-- `intersectionBody`: These forces are not offsetting - they compound. AI raises potential output, but it also increases capital intensity and strains scarce inputs (power, grid hardware, chips, and minerals) inside a macro regime with less policy room to absorb shocks. As AI displaces labor, the political response skews toward redistribution and industrial policy - further widening structural deficits and reinforcing the drift toward real-asset repricing.
-- `intersectionConclusion`: Net: deflationary in cognition, inflationary in resources - creating convexity in hard assets and physical bottlenecks, while compressing returns in undifferentiated information and "model-only" layers.
-
-### Inline Component Copy (Hardcoded)
-
-- — further widening structural deficits and reinforcing the drift toward real-asset repricing.
-- , constrained by physical bottlenecks: power, chips, cooling, grid capacity, minerals, and land. The result is a mixed macro impulse:
-- : sustaining restrictive real financial conditions becomes progressively more costly. The adjustment path is a
-- . AI raises potential output, but it also increases capital intensity and
-- . Public debt is high, interest burdens are rising, geopolitics are fragmenting, and institutional credibility is weakening.
-- (power, grid hardware, chips, and minerals) inside a macro regime with less policy room to absorb shocks. As AI displaces labor, the political response skews toward
-- and productive capacity, and away from purely nominal financial claims.
-- deflationary in cognition, inflationary in the physical layer
-- Frontier AI is shifting from incremental software gains to a
-- Policy flexibility narrows
-- that enables it.
-- that substitutes for economically productive cognitive labor. Productivity gains can be real while the buildout becomes
-- THE INTERSECTION
-- The post-1950s monetary and political order is entering a
-- These forces are not offsetting —
-- THESIS A — MACRO CONSTRAINT
-- THESIS B — AI INFRASTRUCTURE
+- `thesisCards[1].body`: 
+- `thesisCards[1].bullets[0]`: Frontier AI capability is advancing faster than the market has priced, and adoption is accelerating with each generation.
+- `thesisCards[1].bullets[1]`: The labor market implications over the fund's horizon are substantial and irreversible.
+- `thesisCards[1].bullets[2]`: Every path forward - whether through scaled training, inference demand, or efficiency-driven proliferation - runs through the same physical inputs: silicon, power, minerals, and land.
+- `intersectionTitle`: Where they meet
+- `intersectionBody`: 
+- `intersectionConclusion`: 
+- `intersectionBullets[0]`: AI displaces labor income that funds the majority of sovereign tax revenue, widening deficits through the political response.
+- `intersectionBullets[1]`: The buildout consumes scarce physical resources inside a fiscal regime with shrinking capacity to absorb supply shocks.
+- `intersectionBullets[2]`: The fund is positioned at this intersection: hard-asset demand driven by technological buildout compounding with hard-asset repricing driven by monetary erosion.
 
 ## Slide 08
 
@@ -351,20 +364,25 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 - (no additional copy extracted)
 
+### Inline Component Copy (Hardcoded)
+
+- Macro Thesis
+- Past policy choices, fiscal, industrial, and monetary, have created structural imbalances now surfacing as geopolitical strain, supply-chain fragmentation, and persistent resource scarcity.
+
 ## Slide 09
 
 - Status: active
 - Data file: `lib/data/slides/slide09.ts`
 - Component: `components/slides/09-federal-debt.tsx`
-- Section: THESIS A - FISCAL CONSTRAINT
-- Title: Federal debt is no longer cyclical. It's structural.
-- Subtitle: Fiscal spending is politically driven and structurally uncontrolled, backstopped by a Federal Reserve balance sheet that has expanded 10x since 2008.
+- Section: MACRO THESIS
+- Title: Federal debt is no longer cyclical it's structural
+- Subtitle: Fiscal spending is politically driven and structurally uncontrolled, backstopped by a Federal Reserve balance sheet that has expanded 10x since 2008
 - Charts: LineChart×1
 - Source line: Source: Congressional Budget Office data and GAO simulation
 
 ### What This Chart Shows
 
-- Fiscal spending is politically driven and structurally uncontrolled, backstopped by a Federal Reserve balance sheet that has expanded 10x since 2008.
+- Fiscal spending is politically driven and structurally uncontrolled, backstopped by a Federal Reserve balance sheet that has expanded 10x since 2008
 - Visuals: LineChart×1
 - Data source: Congressional Budget Office data and GAO simulation
 
@@ -383,15 +401,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide10.ts`
 - Component: `components/slides/10-interest-expense.tsx`
-- Section: THESIS A - FISCAL CONSTRAINT
+- Section: MACRO THESIS
 - Title: Interest expense is now a major budget item
-- Subtitle: Debt service crowds out fiscal flexibility and narrows the policy toolkit. Deficits persist even in expansions.
+- Subtitle: Debt service crowds out fiscal flexibility and narrows the policy toolkit. Deficits persist even in expansions
 - Charts: LineChart×1
 - Source line: Source: Congressional Budget Office data and GAO simulation
 
 ### What This Chart Shows
 
-- Debt service crowds out fiscal flexibility and narrows the policy toolkit. Deficits persist even in expansions.
+- Debt service crowds out fiscal flexibility and narrows the policy toolkit. Deficits persist even in expansions
 - Visuals: LineChart×1
 - Data source: Congressional Budget Office data and GAO simulation
 
@@ -409,28 +427,35 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide11.ts`
 - Component: `components/slides/11-interest-vs-revenue.tsx`
-- Section: THESIS A - FISCAL CONSTRAINT
+- Section: MACRO THESIS
 - Title: For every $5 the government collects, $1 goes to interest
-- Subtitle: The debt compounds itself. The increase in interest expense widens the deficit, which requires more borrowing, which keeps rates elevated. This is the fiscal spiral - already in motion.
-- Charts: LineChart×1
+- Subtitle: Interest expense now compounds the deficit through higher issuance and reduced fiscal flexibility
+- Charts: LineChart×2
 - Source line: Source: U.S. Congressional Budget Office, Macrobond, Apollo Chief Economist
 
 ### What This Chart Shows
 
-- The debt compounds itself. The increase in interest expense widens the deficit, which requires more borrowing, which keeps rates elevated. This is the fiscal spiral - already in motion.
-- Visuals: LineChart×1
+- Interest expense now compounds the deficit through higher issuance and reduced fiscal flexibility
+- Visuals: LineChart×2
 - Data source: U.S. Congressional Budget Office, Macrobond, Apollo Chief Economist
 
 ### Extracted Copy Map
 
 - (no additional copy extracted)
 
+### Inline Component Copy (Hardcoded)
+
+- Interest / Revenue ratio
+- Interest expense as major budget item
+- Program Spending
+- Spending + Interest
+
 ## Slide 12
 
 - Status: active
 - Data file: `lib/data/slides/slide12.ts`
 - Component: `components/slides/12-term-premium.tsx`
-- Section: THESIS A - ASSET PRICING
+- Section: MACRO THESIS
 - Title: The term premium is back
 - Subtitle: After a decade of suppression, investors are again demanding compensation for holding long-duration government debt.
 - Charts: LineChart×1
@@ -457,18 +482,18 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 13
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide13.ts`
 - Component: `components/slides/13-global-repricing.tsx`
-- Section: THESIS A - GLOBAL
+- Section: MACRO THESIS
 - Title: This is not just the US
-- Subtitle: Japan and the UK are repricing long-run constraints.
+- Subtitle: Japan and the UK are repricing long-run constraints
 - Charts: LineChart×2
 - Source line: Source: FRED, Bank of Japan, Bank of England
 
 ### What This Chart Shows
 
-- Japan and the UK are repricing long-run constraints.
+- Japan and the UK are repricing long-run constraints
 - Visuals: LineChart×2
 - Data source: FRED, Bank of Japan, Bank of England
 
@@ -492,7 +517,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide14.ts`
 - Component: `components/slides/14-core-inflation.tsx`
-- Section: THESIS A - INFLATION REGIME
+- Section: MACRO THESIS
 - Title: Core inflation has settled higher than pre-2020 across every major DM economy
 - Subtitle: Inflation has not returned to pre-COVID levels. We appear to be entering a structurally higher regime above the target rate of most major central banks.
 - Charts: LineChart×1
@@ -520,14 +545,14 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/15-price-changes.tsx`
 - Section: THESIS A - INFLATION REGIME
 - Title: Inflation concentrates where supply can't scale
-- Subtitle: Cumulative price change by category, 2000-2025.
-- Charts: BarChart×1
+- Subtitle: Cumulative price change by category, 2000-2025
+- Charts: BarChart×1, LineChart×1
 - Source line: Source: Bureau of Labor Statistics
 
 ### What This Chart Shows
 
-- Cumulative price change by category, 2000-2025.
-- Visuals: BarChart×1
+- Cumulative price change by category, 2000-2025
+- Visuals: BarChart×1, LineChart×1
 - Data source: Bureau of Labor Statistics
 
 ### Extracted Copy Map
@@ -536,6 +561,10 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ### Inline Component Copy (Hardcoded)
 
+- 2% Target
+- Core inflation across major DM economies
+- Cumulative price change by category
+- Euro Area
 - Overall CPI
 
 ## Slide 16
@@ -543,15 +572,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide16.ts`
 - Component: `components/slides/16-policy-uncertainty.tsx`
-- Section: THESIS A - POLICY
+- Section: MACRO THESIS
 - Title: Policy uncertainty is structural, not episodic
-- Subtitle: Tariffs, sanctions, and fiscal expansion create persistent repricing across asset classes.
+- Subtitle: Tariffs, sanctions, and fiscal expansion create persistent repricing across asset classes
 - Charts: LineChart×1
 - Source line: Source: Baker, Bloom & Davis (EPU, TPU, Fiscal); Caldara & Iacoviello (GPR); CBOE (VIX); policyuncertainty.com.
 
 ### What This Chart Shows
 
-- Tariffs, sanctions, and fiscal expansion create persistent repricing across asset classes.
+- Tariffs, sanctions, and fiscal expansion create persistent repricing across asset classes
 - Visuals: LineChart×1
 - Data source: Baker, Bloom & Davis (EPU, TPU, Fiscal); Caldara & Iacoviello (GPR); CBOE (VIX); policyuncertainty.com.
 
@@ -584,14 +613,14 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 17
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide17.ts`
 - Component: `components/slides/17-us-structural-advantage.tsx`
-- Section: THESIS A - STRUCTURAL ADVANTAGE
-- Title: The US still grows. Most developed economies don't.
+- Section: MACRO THESIS
+- Title: The US still grows. Most developed economies don't
 - Subtitle: AI and reindustrialization can drive US GDP growth, but growth alone does not protect the dollar or reverse the fiscal trajectory.
 - Charts: none
-- Source line: Source: IMF WEO Jan 2026; EIA; USGS MCS 2025; Census Bureau; PitchBook; Stanford HAI.
+- Source line: Source: IMF WEO Jan 2026; IMF COFER; EIA; USGS MCS 2025; Stanford HAI AI Index 2025; Pew Research; Census Bureau (compiled Feb 2026).
 
 ### Slide Intent
 
@@ -599,34 +628,37 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ### Extracted Copy Map
 
-- `cards[0].title`: GDP Growth & Demographics
-- `cards[0].metric`: 2.4%
-- `cards[0].description`: IMF 2026 forecast - roughly 2x the Eurozone and 3x Japan.
-- `cards[0].points[0]`: Eurozone 1.2%, Japan 0.7%, UK 1.3%.
-- `cards[0].points[1]`: US population +0.5%/yr while Japan, Germany, and China decline.
-- `cards[0].points[2]`: $892B in R&D spending - 3.5% of GDP.
+- `cards[0].title`: Growth & Pro-Business Environment
+- `cards[0].metric`: 
+- `cards[0].description`: IMF 2026 GDP forecast — roughly 2x the Eurozone and 3x Japan.
+- `cards[0].points[0]`: Eurozone 1.2%, Japan 0.7%, and UK 1.3% on IMF 2026 forecasts.
+- `cards[0].points[1]`: US population still growing +0.5%/yr while Japan, Germany, and China decline.
+- `cards[0].points[2]`: $892B in R&D spending at ~3.5% of GDP, among the highest globally.
 - `cards[0].tone`: primary
-- `cards[1].title`: Energy & Industrial Reliance
-- `cards[1].metric`: 13.5M bbl/d
-- `cards[1].description`: Largest oil producer, net exporter since 2019. But dependency risk remains.
-- `cards[1].points[0]`: 90% of advanced chips manufactured in Taiwan.
-- `cards[1].points[1]`: 100% import-reliant for gallium and graphite.
-- `cards[1].points[2]`: $918B goods-and-services trade deficit in 2024.
+- `cards[1].title`: Supply Chain & Resource Dependency
+- `cards[1].metric`: 
+- `cards[1].description`: Strategic dependencies now extend beyond minerals into chips, pharma, shipping, and food systems.
+- `cards[1].points[0]`: >90% of leading-edge chips fabricated in Taiwan; no domestic alternative.
+- `cards[1].points[1]`: USGS reports 15 nonfuel mineral commodities with 100% net import reliance (2024).
+- `cards[1].points[2]`: Pharmaceutical supply chains remain heavily dependent on overseas API sourcing.
+- `cards[1].points[3]`: US commercial shipbuilding capacity is minimal while external trade dependence remains high.
+- `cards[1].points[4]`: US agriculture has shifted from long-running surpluses to recurring trade deficits.
 - `cards[1].tone`: negative
-- `cards[2].title`: Innovation Ecosystem
-- `cards[2].metric`: 7 of top 10
-- `cards[2].description`: Most valuable companies globally are American.
-- `cards[2].points[0]`: $21T combined market cap of the top 7 US companies.
-- `cards[2].points[1]`: 54% of global unicorns are American (853 companies).
-- `cards[2].points[2]`: 79% of global AI investment.
+- `cards[2].title`: Energy & Innovation Dominance
+- `cards[2].metric`: 
+- `cards[2].description`: Most valuable companies globally are American; the US remains the largest oil producer (~13.5M bbl/d).
+- `cards[2].points[0]`: Net energy exporter since 2019, supporting domestic reindustrialization capacity.
+- `cards[2].points[1]`: $109.1B of private AI investment in 2024, nearly 12x China (Stanford HAI).
+- `cards[2].points[2]`: US institutions produced 40 notable AI models in 2024 versus 15 in China (Stanford HAI).
 - `cards[2].tone`: primary
-- `cards[3].title`: Reserve Currency
-- `cards[3].metric`: 58%
-- `cards[3].metricDelta`: from 72%
-- `cards[3].description`: USD share of global reserves has declined over two decades.
-- `cards[3].points[0]`: BRICS+ nations increasing local-currency settlement.
-- `cards[3].points[1]`: Central-bank gold demand remains elevated.
-- `cards[3].points[2]`: Fiscal expansion can accelerate reserve diversification.
+- `cards[3].title`: Geopolitical & Institutional Risk
+- `cards[3].metric`: 
+- `cards[3].description`: USD share of allocated global reserves is about 58% (IMF COFER), down from roughly 72% around 2000. No AAA rating remaining.
+- `cards[3].points[0]`: All three agencies have downgraded US sovereign credit — first time in history.
+- `cards[3].points[1]`: Only 22% of Americans trust the federal government to do what is right most of the time (Pew, 2024).
+- `cards[3].points[2]`: Political polarization and policy volatility are elevated, weakening institutional execution.
+- `cards[3].points[3]`: Affordability pressures (housing, healthcare, and cost of living) are rising and widening social stress.
+- `cards[3].points[4]`: BRICS now account for a larger share of world GDP (PPP) than the G7.
 - `cards[3].tone`: negative
 - `tensionLabel`: The tension
 - `tensionBody`: The US can grow its way forward, but the path runs through fiscal expansion, AI-driven labor disruption, and commodity-intensive reindustrialization. GDP rises, while deficits and inflation pressure can rise with it.
@@ -654,16 +686,16 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide19.ts`
 - Component: `components/slides/19-gold-vs-treasuries.tsx`
-- Section: REAL ASSETS - GOLD
+- Section: MACRO THESIS
 - Title: Gold has overtaken Treasuries in central bank reserves
-- Subtitle: Sovereign reserve managers are diversifying away from dollar-denominated debt.
-- Charts: LineChart×1
+- Subtitle: Sovereign reserve managers are diversifying away from dollar-denominated debt
+- Charts: BarChart×1, LineChart×1
 - Source line: Source: IMF, Department of Treasury
 
 ### What This Chart Shows
 
-- Sovereign reserve managers are diversifying away from dollar-denominated debt.
-- Visuals: LineChart×1
+- Sovereign reserve managers are diversifying away from dollar-denominated debt
+- Visuals: BarChart×1, LineChart×1
 - Data source: IMF, Department of Treasury
 
 ### Extracted Copy Map
@@ -672,8 +704,11 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ### Inline Component Copy (Hardcoded)
 
+- 1,000t
+- Central-bank net gold purchases (tonnes)
 - Gold Holdings
 - Gold overtakes Treasuries
+- Gold vs Treasuries in central-bank reserves
 - Treasury Holdings
 
 ## Slide 20
@@ -683,13 +718,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/20-central-bank-gold.tsx`
 - Section: REAL ASSETS - GOLD
 - Title: Central-bank buying stayed elevated in 2025 after three 1,000t+ years
-- Subtitle: Annual net change in central-bank gold holdings (tonnes).
+- Subtitle: Annual net change in central-bank gold holdings (tonnes)
 - Charts: BarChart×1
 - Source line: Source: World Gold Council, Gold Demand Trends FY2025
 
 ### What This Chart Shows
 
-- Annual net change in central-bank gold holdings (tonnes).
+- Annual net change in central-bank gold holdings (tonnes)
 - Visuals: BarChart×1
 - Data source: World Gold Council, Gold Demand Trends FY2025
 
@@ -703,18 +738,18 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 21
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide21.ts`
 - Component: `components/slides/21-sp500-gold-ratio.tsx`
-- Section: REAL ASSETS - GOLD
+- Section: MACRO THESIS
 - Title: Priced in gold, US equities have made no progress since the GFC
-- Subtitle: Equities have kept pace with money supply growth, but not with real store-of-value assets.
+- Subtitle: Equities have kept pace with money supply growth, but not with real store-of-value assets
 - Charts: LineChart×1
 - Source line: Source: S&P Global, LBMA, IndexMundi; ratio indexed to Q1 2006 = 100.
 
 ### What This Chart Shows
 
-- Equities have kept pace with money supply growth, but not with real store-of-value assets.
+- Equities have kept pace with money supply growth, but not with real store-of-value assets
 - Visuals: LineChart×1
 - Data source: S&P Global, LBMA, IndexMundi; ratio indexed to Q1 2006 = 100.
 
@@ -733,15 +768,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide22.ts`
 - Component: `components/slides/22-gold-vs-real-yield.tsx`
-- Section: REAL ASSETS - GOLD
+- Section: MACRO THESIS
 - Title: The gold-real yield relationship broke in 2022
-- Subtitle: Gold is now priced as a hedge against institutional risk, not rates.
+- Subtitle: Gold is now priced as a hedge against institutional risk, not rates
 - Charts: LineChart×1
 - Source line: Source: Federal Reserve, Bloomberg
 
 ### What This Chart Shows
 
-- Gold is now priced as a hedge against institutional risk, not rates.
+- Gold is now priced as a hedge against institutional risk, not rates
 - Visuals: LineChart×1
 - Data source: Federal Reserve, Bloomberg
 
@@ -756,19 +791,19 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 23
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide23.ts`
 - Component: `components/slides/23-mine-lead-times.tsx`
-- Section: REAL ASSETS - SUPPLY INELASTICITY
+- Section: MACRO THESIS
 - Title: Mine development timelines have tripled in three decades
-- Subtitle: Even if demand signals are clear today, new supply cannot respond for 18-29 years.
-- Charts: BarChart×1
+- Subtitle: Even if demand signals are clear today, new supply cannot respond for 18-29 years
+- Charts: BarChart×2
 - Source line: Source: S&P Global Market Intelligence - Study of 268 mines across 23 countries (2024)
 
 ### What This Chart Shows
 
-- Even if demand signals are clear today, new supply cannot respond for 18-29 years.
-- Visuals: BarChart×1
+- Even if demand signals are clear today, new supply cannot respond for 18-29 years
+- Visuals: BarChart×2
 - Data source: S&P Global Market Intelligence - Study of 268 mines across 23 countries (2024)
 
 ### Extracted Copy Map
@@ -778,7 +813,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 ### Inline Component Copy (Hardcoded)
 
 - (Projected)
+- 2024 Actual
+- 2030 STEPS
+- 2035 STEPS
+- 2040 STEPS
 - Avg. years from discovery to production
+- Critical mineral demand acceleration
+- Mine development timelines
 - Years from discovery to production
 
 ## Slide 24
@@ -786,15 +827,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide24.ts`
 - Component: `components/slides/24-mineral-concentration.tsx`
-- Section: REAL ASSETS - CONCENTRATION RISK
+- Section: MACRO THESIS
 - Title: China refines 19 of the 20 strategic minerals the IEA tracks
-- Subtitle: Average market share: ~70%. Gallium: 98.7%. Magnesium: 95%. Rare earths: ~90%.
+- Subtitle: Average market share: ~70%. Gallium: 98.7%. Magnesium: 95%. Rare earths: ~90%
 - Charts: BarChart×1
 - Source line: Source: Various. See IEA Critical Minerals report.
 
 ### What This Chart Shows
 
-- Average market share: ~70%. Gallium: 98.7%. Magnesium: 95%. Rare earths: ~90%.
+- Average market share: ~70%. Gallium: 98.7%. Magnesium: 95%. Rare earths: ~90%
 - Visuals: BarChart×1
 - Data source: Various. See IEA Critical Minerals report.
 
@@ -835,15 +876,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide26.ts`
 - Component: `components/slides/26-beyond-gold.tsx`
-- Section: THESIS A - COMMODITIES
+- Section: MACRO THESIS
 - Title: Beyond gold: silver, copper, and uranium are repricing on structural demand
-- Subtitle: Electrification, AI infrastructure, and reshoring are converging on the same constrained supply chains.
+- Subtitle: Electrification, AI infrastructure, and reshoring are converging on the same constrained supply chains
 - Charts: LineChart×1
 - Source line: Source: Yahoo Finance futures monthly closes (SI=F, HG=F) through February 9, 2026; FRED PURANUSDM (IMF uranium price) through December 2025
 
 ### What This Chart Shows
 
-- Electrification, AI infrastructure, and reshoring are converging on the same constrained supply chains.
+- Electrification, AI infrastructure, and reshoring are converging on the same constrained supply chains
 - Visuals: LineChart×1
 - Data source: Yahoo Finance futures monthly closes (SI=F, HG=F) through February 9, 2026; FRED PURANUSDM (IMF uranium price) through December 2025
 
@@ -882,12 +923,17 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 - (no additional copy extracted)
 
+### Inline Component Copy (Hardcoded)
+
+- AI Infrastructure
+- The convergence of exponential AI growth and finite physical supply chains creates a structural mismatch that favors holders of power, mineral, infrastructure, and platform assets.
+
 ## Slide 28
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide28.ts`
 - Component: `components/slides/28-why-ai-matters.tsx`
-- Section: THE AI BUILDOUT
+- Section: AI INFRASTRUCTURE
 - Title: Why AI matters for this portfolio
 - Subtitle: Not a technology bet - a physical infrastructure bet. Every GPU cluster needs power, copper, and concrete.
 - Charts: LineChart×1
@@ -924,22 +970,22 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide29.ts`
 - Component: `components/slides/29-ai-value-chain.tsx`
-- Section: THESIS B - VALUE CHAIN
+- Section: AI INFRASTRUCTURE
 - Title: AI Value Chain: Constraint to Cash-Flow Map
-- Subtitle: Investment framing: physical bottlenecks first, capability conversion second, recurring monetization last.
+- Subtitle: Investment framing: physical bottlenecks first, capability conversion second, recurring monetization last
 - Charts: none
 - Source line: Sources: TrendForce Q2 2025; IEA Global Critical Minerals Outlook 2025; Menlo Ventures State of GenAI in Enterprise (Jan 2026); public earnings (MSFT, AWS, GOOG, META, NVDA FY2025-26); Mordor Intelligence; S&P Global
 
 ### Slide Intent
 
-- Investment framing: physical bottlenecks first, capability conversion second, recurring monetization last.
+- Investment framing: physical bottlenecks first, capability conversion second, recurring monetization last
 
 ### Extracted Copy Map
 
 - `flowLabels[0]`: 1. Physical constraints
 - `flowLabels[1]`: 2. Model conversion
 - `flowLabels[2]`: 3. Revenue capture
-- `phases[0].phaseTitle`: Physical layer
+- `phases[0].phaseTitle`: Physical stack
 - `phases[0].phaseDescription`: Hard assets and permitting cadence set the supply ceiling.
 - `phases[0].nodes[0].title`: Mining
 - `phases[0].nodes[0].subtitle`: Copper, lithium, rare earths
@@ -953,7 +999,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - `phases[0].nodes[3].title`: Data centers
 - `phases[0].nodes[3].subtitle`: Power, cooling, networking
 - `phases[0].nodes[3].evidence`: AWS, Azure, Google, Meta capex expansion and power intensity
-- `phases[1].phaseTitle`: Model layer
+- `phases[1].phaseTitle`: Model stack
 - `phases[1].phaseDescription`: Post-training turns raw capability into reliable production behavior.
 - `phases[1].nodes[0].title`: Pre-training
 - `phases[1].nodes[0].subtitle`: Foundation capability from compute and data
@@ -964,7 +1010,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - `phases[1].nodes[2].title`: Deployment
 - `phases[1].nodes[2].subtitle`: Latency, safety, routing, and reliability loops
 - `phases[1].nodes[2].evidence`: Inference infrastructure and serving economics now drive product quality
-- `phases[2].phaseTitle`: Revenue layer
+- `phases[2].phaseTitle`: Revenue stack
 - `phases[2].phaseDescription`: Monetization compounds when inference is embedded in workflows.
 - `phases[2].nodes[0].title`: Inference
 - `phases[2].nodes[0].subtitle`: Token consumption from agents, copilots, and APIs
@@ -981,16 +1027,16 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide30.ts`
 - Component: `components/slides/30-capability-benchmarks.tsx`
-- Section: THESIS B - CAPABILITY
+- Section: AI INFRASTRUCTURE
 - Title: Harder benchmarks show capabilities still climbing steeply
-- Subtitle: Frontier running max on non-saturated benchmarks - SWE-bench moved above 80%, FrontierMath rose from ~1% to ~41%.
-- Charts: LineChart×1
+- Subtitle: Capability progress continues to open harder commercially relevant tasks and extend the monetization runway
+- Charts: LineChart×2
 - Source line: Source: Epoch AI Capabilities Index (ECI); performance = best-ever score as of each month
 
 ### What This Chart Shows
 
-- Frontier running max on non-saturated benchmarks - SWE-bench moved above 80%, FrontierMath rose from ~1% to ~41%.
-- Visuals: LineChart×1
+- Capability progress continues to open harder commercially relevant tasks and extend the monetization runway
+- Visuals: LineChart×2
 - Data source: Epoch AI Capabilities Index (ECI); performance = best-ever score as of each month
 
 ### Extracted Copy Map
@@ -999,7 +1045,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ### Inline Component Copy (Hardcoded)
 
+- 1 HOUR
+- Capability benchmarks (including SWE-bench)
+- every ~4.3 months
+- Median task horizon (p50), hours
+- METR task horizon
+- since GPT-4 (Mar 2023)
+- SOTA frontier
 - SWE-Bench Verified
+- Task horizon doubled
 
 ## Slide 31
 
@@ -1008,13 +1062,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/31-task-horizon.tsx`
 - Section: THESIS B - SCALING
 - Title: The task horizon is doubling every 4.3 months
-- Subtitle: METR Horizon v1.1 - GPT-5.2 can complete tasks that take humans roughly 6.5 hours.
+- Subtitle: METR Horizon v1.1 - GPT-5.2 can complete tasks that take humans roughly 6.5 hours
 - Charts: LineChart×1
 - Source line: Source: METR Horizon v1.1 benchmark; p50 = median task duration where AI succeeds 50% of the time
 
 ### What This Chart Shows
 
-- METR Horizon v1.1 - GPT-5.2 can complete tasks that take humans roughly 6.5 hours.
+- METR Horizon v1.1 - GPT-5.2 can complete tasks that take humans roughly 6.5 hours
 - Visuals: LineChart×1
 - Data source: METR Horizon v1.1 benchmark; p50 = median task duration where AI succeeds 50% of the time
 
@@ -1036,16 +1090,16 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide32.ts`
 - Component: `components/slides/32-ai-adoption.tsx`
-- Section: THE AI BUILDOUT - ADOPTION
+- Section: AI INFRASTRUCTURE
 - Title: AI adoption is unprecedented - consumer and enterprise
 - Subtitle: ~900M weekly consumer users and 1.3M+ business customers across leading labs. OpenAI leads customer count while Anthropic has material enterprise spend share.
-- Charts: LineChart×1
+- Charts: LineChart×2
 - Source line: Source: OpenAI (Nov 2025); Anthropic (Sep 2025); Google (Q4 2025 earnings); The Information (Dec 2025); Menlo Ventures
 
 ### What This Chart Shows
 
 - ~900M weekly consumer users and 1.3M+ business customers across leading labs. OpenAI leads customer count while Anthropic has material enterprise spend share.
-- Visuals: LineChart×1
+- Visuals: LineChart×2
 - Data source: OpenAI (Nov 2025); Anthropic (Sep 2025); Google (Q4 2025 earnings); The Information (Dec 2025); Menlo Ventures
 
 ### Extracted Copy Map
@@ -1064,7 +1118,16 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ### Inline Component Copy (Hardcoded)
 
+- $100M
+- $10B
+- $10M
+- Annualized revenue (USD)
 - ChatGPT weekly active users
+- Jan 2023
+- Jan 2024
+- Jan 2025
+- Jan 2026
+- Revenue trajectory (ARR)
 
 ## Slide 33
 
@@ -1100,19 +1163,19 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 34
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide34.ts`
 - Component: `components/slides/34-training-compute.tsx`
-- Section: THESIS B - COMPUTE
+- Section: AI INFRASTRUCTURE
 - Title: Training compute has grown 5 orders of magnitude since 2017
-- Subtitle: Each generation requires substantially more hardware - from roughly 10^21 to around 5x10^26 FLOP in less than a decade.
-- Charts: LineChart×1
+- Subtitle: Each generation requires substantially more compute - from roughly 10^21 to around 5x10^26 FLOP in less than a decade
+- Charts: LineChart×2
 - Source line: Source: Epoch AI Notable AI Models database
 
 ### What This Chart Shows
 
-- Each generation requires substantially more hardware - from roughly 10^21 to around 5x10^26 FLOP in less than a decade.
-- Visuals: LineChart×1
+- Each generation requires substantially more compute - from roughly 10^21 to around 5x10^26 FLOP in less than a decade
+- Visuals: LineChart×2
 - Data source: Epoch AI Notable AI Models database
 
 ### Extracted Copy Map
@@ -1143,6 +1206,9 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Other notable
 - Publication year
 - Training compute (FLOP)
+- Training compute growth (FLOP)
+- Training cost (2023 USD)
+- Training cost growth (USD)
 
 ## Slide 35
 
@@ -1192,19 +1258,19 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 36
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide36.ts`
 - Component: `components/slides/36-hardware-shipments.tsx`
-- Section: THESIS B - HARDWARE
+- Section: AI INFRASTRUCTURE
 - Title: 32x more chips shipped in three years
-- Subtitle: Accelerator shipments and associated spend have moved into a steep compounding phase.
-- Charts: LineChart×1
+- Subtitle: Accelerator shipments and associated spend have moved into a steep compounding phase
+- Charts: LineChart×2
 - Source line: Source: Company filings and SemiAnalysis estimates
 
 ### What This Chart Shows
 
-- Accelerator shipments and associated spend have moved into a steep compounding phase.
-- Visuals: LineChart×1
+- Accelerator shipments and associated spend have moved into a steep compounding phase
+- Visuals: LineChart×2
 - Data source: Company filings and SemiAnalysis estimates
 
 ### Extracted Copy Map
@@ -1229,9 +1295,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ### Inline Component Copy (Hardcoded)
 
-- AI accelerators shipped (H100 equivalent)
-- Associated chip cost
+- ~120 GW by 2029
+- Accelerator volumes, spend, and operational GW demand are now moving on a megaproject trajectory.
+- AI accelerator shipments and associated spend
 - Associated cost ($B)
+- Hardware shipments and datacenter power are compounding together
+- Operational AI datacenter power
+- Run-rate step-change
 - Shipments (M units, H100-eq)
 
 ## Slide 37
@@ -1239,7 +1309,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide37.ts`
 - Component: `components/slides/37-hyperscaler-capex.tsx`
-- Section: THESIS B - AI INFRASTRUCTURE
+- Section: AI INFRASTRUCTURE
 - Title: Hyperscaler capex is entering escape velocity
 - Subtitle: Microsoft, Meta, Alphabet, and Amazon are expected to spend above $600B this year, up materially from 2025 levels.
 - Charts: BarChart×1
@@ -1262,18 +1332,18 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 38
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide38.ts`
 - Component: `components/slides/38-datacenter-buildout.tsx`
 - Section: THESIS B - INFRASTRUCTURE
 - Title: The datacenter buildout is at megaproject scale
-- Subtitle: Operational AI datacenter power moves from low single digits to triple digits in GW terms.
+- Subtitle: Operational AI datacenter power moves from low single digits to triple digits in GW terms
 - Charts: LineChart×1
 - Source line: Source: RAND / SemiAnalysis / Epoch AI
 
 ### What This Chart Shows
 
-- Operational AI datacenter power moves from low single digits to triple digits in GW terms.
+- Operational AI datacenter power moves from low single digits to triple digits in GW terms
 - Visuals: LineChart×1
 - Data source: RAND / SemiAnalysis / Epoch AI
 
@@ -1293,13 +1363,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/39-datacenter-load.tsx`
 - Section: THESIS B - POWER
 - Title: US datacenter load doubles to 130 GW by 2030
-- Subtitle: 62 GW consumed in 2025, while capacity market pricing and queue dynamics indicate sustained power scarcity.
+- Subtitle: 62 GW consumed in 2025, while capacity market pricing and queue dynamics indicate sustained power scarcity
 - Charts: BarChart×1
 - Source line: Source: Energy Institute, JPMAM, PJM Interconnection
 
 ### What This Chart Shows
 
-- 62 GW consumed in 2025, while capacity market pricing and queue dynamics indicate sustained power scarcity.
+- 62 GW consumed in 2025, while capacity market pricing and queue dynamics indicate sustained power scarcity
 - Visuals: BarChart×1
 - Data source: Energy Institute, JPMAM, PJM Interconnection
 
@@ -1319,13 +1389,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/40-inference-economics.tsx`
 - Section: THESIS B - ECONOMICS
 - Title: Inference is 45% of compute spend and growing
-- Subtitle: Agentic workloads turn single prompts into sustained reasoning sessions.
+- Subtitle: Agentic workloads turn single prompts into sustained reasoning sessions
 - Charts: LineChart×1
 - Source line: Source: SemiAnalysis, company disclosures, Epoch AI
 
 ### What This Chart Shows
 
-- Agentic workloads turn single prompts into sustained reasoning sessions.
+- Agentic workloads turn single prompts into sustained reasoning sessions
 - Visuals: LineChart×1
 - Data source: SemiAnalysis, company disclosures, Epoch AI
 
@@ -1335,7 +1405,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 41
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide41.ts`
 - Component: `components/slides/41-forces-compound-divider.tsx`
 - Section: SECTION DIVIDER
@@ -1356,16 +1426,16 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide42.ts`
 - Component: `components/slides/42-intersection-demand.tsx`
-- Section: INTERSECTION
-- Title: AI is deflationary in cognition. Inflationary in everything it needs to run.
-- Subtitle: Physical bottlenecks are now the real constraint layer.
-- Charts: BarChart×1
+- Section: AI INFRASTRUCTURE
+- Title: AI is deflationary in cognition. Inflationary in everything it needs to run
+- Subtitle: Physical bottlenecks are now the real constraint layer
+- Charts: BarChart×2
 - Source line: Source: IEA, McKinsey, Goldman Sachs commodity research
 
 ### What This Chart Shows
 
-- Physical bottlenecks are now the real constraint layer.
-- Visuals: BarChart×1
+- Physical bottlenecks are now the real constraint layer
+- Visuals: BarChart×2
 - Data source: IEA, McKinsey, Goldman Sachs commodity research
 
 ### Extracted Copy Map
@@ -1375,6 +1445,9 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 ### Inline Component Copy (Hardcoded)
 
 - Growth 2024-2030 (%)
+- Labor exposure and automation adoption
+- Physical-layer input intensity
+- Share (%)
 
 ## Slide 43
 
@@ -1383,13 +1456,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/43-labor-exposure.tsx`
 - Section: INTERSECTION - LABOR
 - Title: Labor exposure is broad and automation plans are accelerating
-- Subtitle: Sourced values only: 2025 labor exposure and 2030 employer planning signals.
+- Subtitle: Sourced values only: 2025 labor exposure and 2030 employer planning signals
 - Charts: BarChart×1
 - Source line: Source: ILO-NASK Generative AI and Jobs Index (2025); World Economic Forum Future of Jobs Report 2025
 
 ### What This Chart Shows
 
-- Sourced values only: 2025 labor exposure and 2030 employer planning signals.
+- Sourced values only: 2025 labor exposure and 2030 employer planning signals
 - Visuals: BarChart×1
 - Data source: ILO-NASK Generative AI and Jobs Index (2025); World Economic Forum Future of Jobs Report 2025
 
@@ -1408,13 +1481,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/44-fiscal-path.tsx`
 - Section: INTERSECTION - FISCAL
 - Title: There is no fiscally neutral path through AI displacement
-- Subtitle: Labor-heavy tax systems face rising automation pressure.
+- Subtitle: Labor-heavy tax systems face rising automation pressure
 - Charts: BarChart×1
 - Source line: Source: OECD SOCX (2019 baseline); US Treasury; RAND; CRS; CBO; Brookings
 
 ### What This Chart Shows
 
-- Labor-heavy tax systems face rising automation pressure.
+- Labor-heavy tax systems face rising automation pressure
 - Visuals: BarChart×1
 - Data source: OECD SOCX (2019 baseline); US Treasury; RAND; CRS; CBO; Brookings
 
@@ -1456,13 +1529,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/45-financial-repression.tsx`
 - Section: INTERSECTION - ENDGAME
 - Title: Financial repression is the proven playbook for sovereign deleveraging
-- Subtitle: Real rates below nominal growth transfer wealth from nominal claims to the sovereign.
+- Subtitle: Real rates below nominal growth transfer wealth from nominal claims to the sovereign
 - Charts: BarChart×1
 - Source line: Source: Federal Reserve, BLS, Ibbotson SBBI, Dimson-Marsh-Staunton Global Returns; Dalio (Principles for Navigating Big Debt Crises, 2018)
 
 ### What This Chart Shows
 
-- Real rates below nominal growth transfer wealth from nominal claims to the sovereign.
+- Real rates below nominal growth transfer wealth from nominal claims to the sovereign
 - Visuals: BarChart×1
 - Data source: Federal Reserve, BLS, Ibbotson SBBI, Dimson-Marsh-Staunton Global Returns; Dalio (Principles for Navigating Big Debt Crises, 2018)
 
@@ -1488,17 +1561,17 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 46
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide46.ts`
 - Component: `components/slides/46-portfolio-construction-divider.tsx`
 - Section: SECTION DIVIDER
-- Title: PORTFOLIO CONSTRUCTION
-- Subtitle: Built to compound through volatility
+- Title: How We Underwrite
+- Subtitle: How we source, diligence, structure, size, and monitor positions across both the real-estate and long structural sleeves.
 - Charts: none
 
 ### Slide Intent
 
-- Built to compound through volatility
+- How we source, diligence, structure, size, and monitor positions across both the real-estate and long structural sleeves.
 
 ### Extracted Copy Map
 
@@ -1509,7 +1582,7 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide47.ts`
 - Component: `components/slides/47-research-infrastructure.tsx`
-- Section: PORTFOLIO - RESEARCH INFRASTRUCTURE
+- Section: HOW WE UNDERWRITE
 - Title: Proprietary research system powered by a long-horizon AI agent
 - Subtitle: A CLI-based autonomous agent ingests live data from financial APIs, semiconductor supply-chain trackers, on-chain feeds, and independent research, then executes structured analytical skills for investment workflows. Every output is reviewed by a human expert before informing portfolio decisions.
 - Charts: none
@@ -1552,25 +1625,21 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Supply-Chain Maps
 - Trend Analysis
 - Value-Chain Mapping
-- var(--caution)
-- var(--ext-1)
-- var(--primary)
-- var(--secondary)
 
 ## Slide 48
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide48.ts`
 - Component: `components/slides/48-leading-indicators.tsx`
-- Section: PORTFOLIO - LEADING INDICATORS
+- Section: HOW WE UNDERWRITE
 - Title: What we track
-- Subtitle: Three signal towers feed one decision engine: buildout velocity, macro constraints, and market regime.
+- Subtitle: Three signal towers feed one decision engine: buildout velocity, macro constraints, and market regime
 - Charts: none
 - Source line: Source: Internal investment committee dashboard schema and linked public data feeds
 
 ### Slide Intent
 
-- Three signal towers feed one decision engine: buildout velocity, macro constraints, and market regime.
+- Three signal towers feed one decision engine: buildout velocity, macro constraints, and market regime
 
 ### Extracted Copy Map
 
@@ -1620,13 +1689,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Data file: `lib/data/slides/slide49.ts`
 - Component: `components/slides/49-fund-terms-divider.tsx`
 - Section: SECTION DIVIDER
-- Title: FUND TERMS
-- Subtitle: Structure, governance, and alignment
+- Title: What We Expect & Fund Terms
+- Subtitle: Target outcomes, portfolio profile, alignment, and core investment terms.
 - Charts: none
 
 ### Slide Intent
 
-- Structure, governance, and alignment
+- Target outcomes, portfolio profile, alignment, and core investment terms.
 
 ### Extracted Copy Map
 
@@ -1637,16 +1706,16 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide50.ts`
 - Component: `components/slides/50-scenario-analysis.tsx`
-- Section: PORTFOLIO CONSTRUCTION
+- Section: WHAT WE EXPECT & FUND TERMS
 - Title: Scenario analysis
-- Subtitle: Adjust assumptions to model projected returns. NOI escalates 2% annually. 10-year fund life.
-- Charts: LineChart×1
+- Subtitle: Adjust assumptions to model projected returns. NOI escalates 2% annually. 10-year fund life
+- Charts: LineChart×2
 - Source line: Source: Internal scenario model. Projections are illustrative. 2% management fee (years 1-5 on committed capital, years 6-10 on NAV) and 20% carry above 9% preferred return.
 
 ### What This Chart Shows
 
-- Adjust assumptions to model projected returns. NOI escalates 2% annually. 10-year fund life.
-- Visuals: LineChart×1
+- Adjust assumptions to model projected returns. NOI escalates 2% annually. 10-year fund life
+- Visuals: LineChart×2
 - Data source: Internal scenario model. Projections are illustrative. 2% management fee (years 1-5 on committed capital, years 6-10 on NAV) and 20% carry above 9% preferred return.
 
 ### Extracted Copy Map
@@ -1684,10 +1753,35 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ### Inline Component Copy (Hardcoded)
 
+- 10-Year Returns
+- After Fee
+- Capital Left if Both
+- Capital Left if Long = −100%
+- Day-1 Structure
+- Debt Service
+- Debt Svc Reserve (6mo, 3.5%)
+- Exit & Stress
+- GP Carry
+- GP-only view. Adjust assumptions and property size to evaluate fund structure.
+- Gross IRR
+- Gross MOIC
+- INTERNAL WORKING MODEL
+- LP MOIC
+- LP Net IRR
+- LP Net MOIC
+- LP Net Profit
+- Management Fee
+- Net Surplus (NOI − Debt − Fee)
+- Property Acquisition
+- RE / Long
+- RE Decline to Equity Breach
 - RE Equity
+- Scenario decision lens
+- Structural Long
 - Structural Long + Cash
 - Total NAV
 - Value ($M)
+- Year-1 Cash Flow
 - Yr 0
 - Yr 1
 - Yr 10
@@ -1699,21 +1793,24 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Yr 7
 - Yr 8
 - Yr 9
+- Yr-1 Debt
+- Yr-1 NOI
+- Yr-10 Balloon (Loan Bal.)
 
 ## Slide 51
 
 - Status: active
 - Data file: `lib/data/slides/slide51.ts`
 - Component: `components/slides/51-terms-at-a-glance.tsx`
-- Section: FUND TERMS
+- Section: WHAT WE EXPECT & FUND TERMS
 - Title: Terms at a glance
-- Subtitle: Key economics, governance, and liquidity mechanics.
+- Subtitle: Key economics, governance, and liquidity mechanics
 - Charts: none
 - Source line: Source: Draft fund term sheet and LPA framework (internal working draft, Feb 2026)
 
 ### Slide Intent
 
-- Key economics, governance, and liquidity mechanics.
+- Key economics, governance, and liquidity mechanics
 
 ### Extracted Copy Map
 
@@ -1790,15 +1887,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide52.ts`
 - Component: `components/slides/52-risk-architecture.tsx`
-- Section: RISK MANAGEMENT
+- Section: WHAT WE EXPECT & FUND TERMS
 - Title: Risk architecture
-- Subtitle: Every risk has a structural mitigation built into the fund design.
+- Subtitle: Every risk has a structural mitigation built into the fund design
 - Charts: none
 - Source line: Source: Internal underwriting policy and portfolio risk limits (v2026.02)
 
 ### Slide Intent
 
-- Every risk has a structural mitigation built into the fund design.
+- Every risk has a structural mitigation built into the fund design
 
 ### Extracted Copy Map
 
@@ -1832,15 +1929,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide53.ts`
 - Component: `components/slides/53-portfolio-regime-shift.tsx`
-- Section: PORTFOLIO CONSTRUCTION
-- Title: Traditional portfolio construction was designed for a regime that no longer exists.
-- Subtitle: At current starting valuations, historical forward real return base rates for broad equity beta are materially compressed.
+- Section: LONG STRUCTURE PORTFOLIO SLEEVE
+- Title: Traditional portfolio construction was designed for a regime that no longer exists
+- Subtitle: At current starting valuations, historical forward real return base rates for broad equity beta are materially compressed
 - Charts: BarChart×1
 - Source line: Source: Robert Shiller online data (Yale) and multpl.com valuation series (captured Monday, February 9, 2026; latest close Friday, February 6, 2026).
 
 ### What This Chart Shows
 
-- At current starting valuations, historical forward real return base rates for broad equity beta are materially compressed.
+- At current starting valuations, historical forward real return base rates for broad equity beta are materially compressed
 - Visuals: BarChart×1
 - Data source: Robert Shiller online data (Yale) and multpl.com valuation series (captured Monday, February 9, 2026; latest close Friday, February 6, 2026).
 
@@ -1891,15 +1988,15 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Status: active
 - Data file: `lib/data/slides/slide54.ts`
 - Component: `components/slides/54-closing-question.tsx`
-- Section: CLOSING
+- Section: WHAT WE EXPECT & FUND TERMS
 - Title: What if we are right?
-- Subtitle: Closing frame for investment-committee discussion.
+- Subtitle: Closing frame for investment-committee discussion
 - Charts: none
 - Source line: Source: Internal investment committee framing prompt (Feb 2026)
 
 ### Slide Intent
 
-- Closing frame for investment-committee discussion.
+- Closing frame for investment-committee discussion
 
 ### Extracted Copy Map
 
@@ -1937,13 +2034,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/56-gpu-generation-ladder.tsx`
 - Section: APPENDIX - AI INFRASTRUCTURE
 - Title: Each GPU generation unlocks a new frontier of training scale
-- Subtitle: GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72.
+- Subtitle: GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72
 - Charts: BarChart×1
 - Source line: Source: OpenAI, NVIDIA, SemiAnalysis, The Information. Cluster sizes are best public estimates.
 
 ### What This Chart Shows
 
-- GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72.
+- GPT-5.3-Codex (Feb 2026) is the first frontier model fully trained on NVIDIA GB200 NVL72
 - Visuals: BarChart×1
 - Data source: OpenAI, NVIDIA, SemiAnalysis, The Information. Cluster sizes are best public estimates.
 
@@ -1964,13 +2061,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/57-interconnection-queues.tsx`
 - Section: APPENDIX - POWER
 - Title: Interconnection queues stretch 5-7 years
-- Subtitle: The grid cannot accommodate projected demand without large new transmission investment.
+- Subtitle: The grid cannot accommodate projected demand without large new transmission investment
 - Charts: BarChart×1
 - Source line: Source: Lawrence Berkeley National Lab, PJM, EIA
 
 ### What This Chart Shows
 
-- The grid cannot accommodate projected demand without large new transmission investment.
+- The grid cannot accommodate projected demand without large new transmission investment
 - Visuals: BarChart×1
 - Data source: Lawrence Berkeley National Lab, PJM, EIA
 
@@ -1985,23 +2082,23 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 58
 
-- Status: excluded from runtime deck
+- Status: active
 - Data file: `lib/data/slides/slide58.ts`
 - Component: `components/slides/58-gpu-packaging.tsx`
 - Section: APPENDIX - SUPPLY CHAIN
 - Title: GPU supply is a packaging story, not just a wafer story
-- Subtitle: CoWoS + HBM is the second chokepoint after leading-edge silicon.
+- Subtitle: CoWoS + HBM is the second chokepoint after leading-edge silicon
 - Charts: none
 - Source line: Source: TSMC earnings, SK Hynix disclosures, SemiAnalysis
 
 ### Slide Intent
 
-- CoWoS + HBM is the second chokepoint after leading-edge silicon.
+- CoWoS + HBM is the second chokepoint after leading-edge silicon
 
 ### Extracted Copy Map
 
 - `anatomyTitle`: GPU package anatomy
-- `anatomySubtitle`: TSMC CoWoS-S and HBM integration determine shipped accelerator volume.
+- `anatomySubtitle`: TSMC CoWoS-S and HBM integration determine shipped accelerator volume
 - `hbmTitle`: HBM capacity per GPU - each generation requires more
 - `hbmProgression[0].model`: H100 (Hopper)
 - `hbmProgression[0].memoryGb`: 80 GB
@@ -2031,18 +2128,18 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 59
 
-- Status: excluded from runtime deck
+- Status: active
 - Data file: `lib/data/slides/slide59.ts`
 - Component: `components/slides/59-llm-architecture.tsx`
 - Section: APPENDIX
 - Title: How large language models work
-- Subtitle: A simplified view of the architecture behind frontier AI systems.
+- Subtitle: A simplified view of the architecture behind frontier AI systems
 - Charts: none
 - Source line: Source: Vaswani et al. (2017), Kaplan et al. (2020), Epoch AI
 
 ### Slide Intent
 
-- A simplified view of the architecture behind frontier AI systems.
+- A simplified view of the architecture behind frontier AI systems
 
 ### Extracted Copy Map
 
@@ -2085,13 +2182,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/60-ai-compute-spend.tsx`
 - Section: APPENDIX - COMPUTE SPEND
 - Title: AI lab compute spend is doubling every year
-- Subtitle: Every dollar here flows into chips, power, and cooling - the physical layer of the AI stack.
+- Subtitle: Every dollar here flows into chips, power, and cooling - the physical layer of the AI stack
 - Charts: BarChart×1
 - Source line: Source: Epoch AI, The Information, company disclosures
 
 ### What This Chart Shows
 
-- Every dollar here flows into chips, power, and cooling - the physical layer of the AI stack.
+- Every dollar here flows into chips, power, and cooling - the physical layer of the AI stack
 - Visuals: BarChart×1
 - Data source: Epoch AI, The Information, company disclosures
 
@@ -2105,18 +2202,18 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 
 ## Slide 61
 
-- Status: active
+- Status: excluded from runtime deck
 - Data file: `lib/data/slides/slide61.ts`
 - Component: `components/slides/61-copper-deficit.tsx`
 - Section: APPENDIX - COPPER
 - Title: Even if every announced project proceeds, copper faces a ~27% supply deficit by 2035
-- Subtitle: Demand from electrification and AI infrastructure outpaces credible supply additions.
+- Subtitle: Demand from electrification and AI infrastructure outpaces credible supply additions
 - Charts: LineChart×1
 - Source line: Source: IEA Global Critical Minerals Outlook 2025 (STEPS), BloombergNEF
 
 ### What This Chart Shows
 
-- Demand from electrification and AI infrastructure outpaces credible supply additions.
+- Demand from electrification and AI infrastructure outpaces credible supply additions
 - Visuals: LineChart×1
 - Data source: IEA Global Critical Minerals Outlook 2025 (STEPS), BloombergNEF
 
@@ -2135,13 +2232,13 @@ Use this as an editable language sheet. Each slide includes a key-value map of e
 - Component: `components/slides/62-underwriting-framework.tsx`
 - Section: APPENDIX - UNDERWRITING
 - Title: How we underwrite
-- Subtitle: Institutional gate-based underwriting with explicit failure conditions, kill-switches, and hard risk rails.
+- Subtitle: Institutional gate-based underwriting with explicit failure conditions, kill-switches, and hard risk rails
 - Charts: none
 - Source line: Source: Internal IC underwriting playbook (v2026.02)
 
 ### Slide Intent
 
-- Institutional gate-based underwriting with explicit failure conditions, kill-switches, and hard risk rails.
+- Institutional gate-based underwriting with explicit failure conditions, kill-switches, and hard risk rails
 
 ### Extracted Copy Map
 

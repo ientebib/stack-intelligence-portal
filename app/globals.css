@@ -410,6 +410,10 @@ h3 {
   margin-top: 4px;
 }
 
+.labor-exposure-chart-area {
+  margin-top: 8px;
+}
+
 .card {
   background: var(--surface-1);
   border: 1px solid var(--border);
@@ -703,10 +707,13 @@ h3 {
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 4px 8px;
+  padding: 3px 6px;
   color: var(--text-secondary);
   transition: background 0.2s;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .deck-home-link:hover {
@@ -776,16 +783,24 @@ h3 {
 
 .deck-bottom-content {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
   padding: 6px 12px;
 }
 
+.deck-bottom-content .deck-home-link {
+  position: static;
+  transform: none;
+}
+
 .deck-bottom-content .section-nav {
-  flex: 0 1 auto;
-  max-width: calc(100% - 280px);
+  flex: initial;
+  min-width: 0;
+  justify-content: center;
   overflow-x: auto;
+  padding: 0 2px;
   scrollbar-width: none;
 }
 
@@ -794,10 +809,10 @@ h3 {
 }
 
 .deck-bottom-content .controls {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  right: auto;
+  top: auto;
+  transform: none;
 }
 
 .debug-badge {
@@ -2025,13 +2040,6 @@ h3 {
 .ai-portfolio-chart-area .thesis-table th:last-child,
 .ai-portfolio-chart-area .thesis-table td:last-child {
   min-width: 140px;
-}
-
-/* ── Slide 29 · Value Chain ─────────────────────────────── */
-
-.ai-value-chain-slide-subtitle {
-  font-size: 19px;
-  line-height: 1.42;
 }
 
 .ai-value-chain-layout {
@@ -3278,6 +3286,15 @@ h3 {
   font-style: italic;
 }
 
+.closing-question-cta {
+  margin-top: 32px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
 /* ── Slide 58 · GPU Packaging ───────────────────────────── */
 
 .gpu-packaging-layout {
@@ -3809,9 +3826,25 @@ h3 {
 .ra-source-card {
   background: var(--surface-1);
   border: 1px solid var(--border);
-  border-top: 2.5px solid var(--caution);
+  border-top: 2.5px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 14px 16px 16px;
+}
+
+.ra-source-card--primary {
+  border-top-color: var(--primary);
+}
+
+.ra-source-card--secondary {
+  border-top-color: var(--secondary);
+}
+
+.ra-source-card--ext-1 {
+  border-top-color: var(--ext-1);
+}
+
+.ra-source-card--caution {
+  border-top-color: var(--caution);
 }
 
 .ra-source-group-name {
@@ -4397,7 +4430,7 @@ h3 {
   font-size: 28px;
   font-weight: 400;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 28px;
 }
 
 .investor-login-subtitle {
@@ -4653,7 +4686,7 @@ h3 {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--text-tertiary);
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .contact-title {
@@ -5117,6 +5150,59 @@ a.contact-row-value:hover {
   animation: mathew-think-pulse 1.5s ease-in-out infinite;
 }
 
+.mathew-ln--pulse::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid #58a6ff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: mathew-spin 0.8s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.mathew-ln--reason-label {
+  color: #484f58;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.mathew-ln--reason {
+  color: #8b949e;
+  font-style: italic;
+  border-left: 2px solid rgba(88, 166, 255, 0.25);
+  padding-left: 12px;
+  margin-left: 2px;
+}
+
+.mathew-ln--query {
+  color: #58a6ff;
+  animation: mathew-think-pulse 1.5s ease-in-out infinite;
+}
+
+.mathew-ln--query::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid #58a6ff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: mathew-spin 0.8s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.mathew-ln--memory {
+  color: #7d8590;
+  border-left: 2px solid rgba(125, 133, 144, 0.2);
+  padding-left: 10px;
+  margin-left: 2px;
+}
+
 .mathew-ln--cmd {
   color: #3fb950;
 }
@@ -5157,6 +5243,10 @@ a.contact-row-value:hover {
 @keyframes mathew-think-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
+}
+
+@keyframes mathew-spin {
+  to { transform: rotate(360deg); }
 }
 
 .mathew-cursor {

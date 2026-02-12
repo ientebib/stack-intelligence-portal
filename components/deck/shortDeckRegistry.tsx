@@ -12,12 +12,14 @@ import { Slide09bShortThesisAiProof } from "@/components/slides/09b-short-thesis
 import { Slide09cShortThesisAiProof2 } from "@/components/slides/09c-short-thesis-ai-proof-2";
 import { Slide51TermsAtAGlance } from "@/components/slides/51-terms-at-a-glance";
 import { Slide50ScenarioAnalysis } from "@/components/slides/50-scenario-analysis";
+import { Slide55ClosingThankYou } from "@/components/slides/55-closing-thank-you";
 
 export const shortDeckSections: DeckSection[] = [
   { from: 1, to: 3, label: "Overview" },
   { from: 4, to: 7, label: "Fund Structure" },
   { from: 8, to: 11, label: "Core Thesis" },
-  { from: 12, to: 13, label: "Terms & Returns" }
+  { from: 12, to: 13, label: "Terms & Returns" },
+  { from: 14, to: 14, label: "Closing" }
 ];
 
 export const shortDeckSlides: DeckSlide[] = [
@@ -111,5 +113,12 @@ export const shortDeckSlides: DeckSlide[] = [
     sectionLabel: "TERMS & RETURNS",
     migrationStatus: "migrated",
     content: <Slide50ScenarioAnalysis />
+  },
+  {
+    number: 14,
+    title: "Closing",
+    sectionLabel: "CLOSING",
+    migrationStatus: "migrated",
+    content: <Slide55ClosingThankYou />
   }
 ];

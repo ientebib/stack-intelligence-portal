@@ -4,10 +4,10 @@ import { slide47ResearchInfrastructureData } from "@/lib/data/slides";
 const slideData = slide47ResearchInfrastructureData;
 
 const dataSources = [
-  { group: "Financial", items: ["FMP API", "SEC EDGAR", "FRED"], color: "var(--primary)" },
-  { group: "AI & Compute", items: ["Epoch AI", "SemiAnalysis", "Company Filings"], color: "var(--secondary)" },
-  { group: "Commodities", items: ["USGS", "IEA", "LME"], color: "var(--ext-1)" },
-  { group: "Alternative", items: ["On-Chain Feeds", "Shipping / AIS", "Patent Data"], color: "var(--caution)" }
+  { group: "Financial", items: ["FMP API", "SEC EDGAR", "FRED"], tone: "primary" },
+  { group: "AI & Compute", items: ["Epoch AI", "SemiAnalysis", "Company Filings"], tone: "secondary" },
+  { group: "Commodities", items: ["USGS", "IEA", "LME"], tone: "ext-1" },
+  { group: "Alternative", items: ["On-Chain Feeds", "Shipping / AIS", "Patent Data"], tone: "caution" }
 ];
 
 const toolCalls = [
@@ -76,7 +76,7 @@ export function Slide47ResearchInfrastructure() {
           <span className="ra-tier-label">Data Ingestion</span>
           <div className="ra-sources-grid">
             {dataSources.map((src) => (
-              <div key={src.group} className="ra-source-card" style={{ borderTopColor: src.color }}>
+              <div key={src.group} className={`ra-source-card ra-source-card--${src.tone}`}>
                 <div className="ra-source-group-name">{src.group}</div>
                 <div className="ra-source-items">
                   {src.items.map((item) => (
@@ -95,7 +95,7 @@ export function Slide47ResearchInfrastructure() {
           <span className="ra-tier-label">Orchestration</span>
           <div className="ra-agent-box">
             <div className="ra-agent-header">
-              <span className="ra-agent-icon">&#9670;</span>
+              <span className="ra-agent-icon">{"\u25C6"}</span>
               <span className="ra-agent-name">Long Horizon CLI Agent</span>
             </div>
             <div className="ra-agent-detail">

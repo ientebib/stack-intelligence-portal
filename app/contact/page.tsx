@@ -6,11 +6,7 @@ export default function ContactPage() {
   return (
     <main className="contact-body">
       <div className="contact-card">
-        <div className="contact-logo-wrap">
-          <NeuralStackLogo size={64} interactive animate density="high" />
-        </div>
         <p className="contact-kicker">Stack Capital</p>
-        <h1 className="contact-title">Investor Relations</h1>
         <p className="contact-subtitle">
           For inquiries about the fund, allocation, or partnership opportunities.
         </p>
@@ -32,9 +28,9 @@ export default function ContactPage() {
 
         <div className="contact-note">
           <p>
-            Stack Capital is a private investment vehicle. Access to fund
-            materials and the investor portal is available to qualified
-            investors upon completion of the onboarding process.
+            Stack Capital is a private investment vehicle. Fund materials
+            and portal access are extended to qualified investors following
+            subscription and KYC review.
           </p>
         </div>
 

@@ -79,7 +79,7 @@ export function Slide43LaborExposure() {
         subtitle={`${slideData.subtitle} ${slideData.body}`}
       />
 
-      <div className="chart-area" style={{ marginTop: 8 }}>
+      <div className="chart-area labor-exposure-chart-area">
         <BarChart data={chartData} options={chartOptions} />
       </div>
 

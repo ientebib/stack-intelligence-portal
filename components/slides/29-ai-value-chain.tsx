@@ -10,7 +10,6 @@ export function Slide29AiValueChain() {
         sectionLabel={slideData.sectionLabel}
         title={slideData.title}
         subtitle={slideData.subtitle}
-        subtitleClassName="ai-value-chain-slide-subtitle"
       />
 
       <div className="ai-value-chain-layout">
