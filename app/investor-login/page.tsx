@@ -22,9 +22,6 @@ export default function InvestorLoginPage() {
         </div>
         <p className="investor-login-kicker">Stack Capital</p>
         <h1 className="investor-login-title">Investor Portal</h1>
-        <p className="investor-login-subtitle">
-          Secure access for limited partners
-        </p>
 
         {showBlocked ? (
           <div className="investor-login-blocked">

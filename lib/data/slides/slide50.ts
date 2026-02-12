@@ -38,7 +38,7 @@ export const slide50ScenarioAnalysisData: Slide50ScenarioAnalysisData = {
       min: 0,
       max: 25,
       step: 0.5,
-      defaultValue: 15,
+      defaultValue: 22.5,
       format: "percent_1"
     }
   ],

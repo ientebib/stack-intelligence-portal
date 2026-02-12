@@ -12,7 +12,7 @@ export const slide34TrainingComputeData: Slide34TrainingComputeData = {
   sectionLabel: "AI INFRASTRUCTURE",
   title: "Training compute has grown 5 orders of magnitude since 2017",
   subtitle:
-    "Each generation requires substantially more hardware - from roughly 10^21 to around 5x10^26 FLOP in less than a decade.",
+    "Each generation requires substantially more compute - from roughly 10^21 to around 5x10^26 FLOP in less than a decade",
   points: rows.map((row) => ({
     group: row.group,
     publicationYear: row.publication_year,

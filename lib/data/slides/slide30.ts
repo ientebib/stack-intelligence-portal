@@ -13,7 +13,7 @@ export const slide30CapabilityBenchmarksData: Slide30CapabilityBenchmarksData = 
   sectionLabel: "AI INFRASTRUCTURE",
   title: "Harder benchmarks show capabilities still climbing steeply",
   subtitle:
-    "Frontier running max on non-saturated benchmarks - SWE-bench moved above 80%, FrontierMath rose from ~1% to ~41%.",
+    "Capability progress continues to open harder commercially relevant tasks and extend the monetization runway",
   dates: rows.map((row) => row.date),
   weirdMl: rows.map((row) => row.weirdml),
   simpleBench: rows.map((row) => row.simplebench),
