@@ -8,10 +8,9 @@ import { PitchSlide06AiDemand } from "@/components/slides/pitch-06-ai-demand";
 import { PitchSlide07Adoption } from "@/components/slides/pitch-07-adoption";
 import { PitchSlide08Supply } from "@/components/slides/pitch-08-supply";
 import { PitchSlide09Reserves } from "@/components/slides/pitch-09-reserves";
+import { Slide26BeyondGold } from "@/components/slides/26-beyond-gold";
 import { PitchSlide11Cape } from "@/components/slides/pitch-11-cape";
 import { Slide08ScenarioMatrix } from "@/components/slides/08-scenario-matrix";
-import { PitchSlide13AssetClasses } from "@/components/slides/pitch-13-asset-classes";
-import { PitchSlide14Portfolio } from "@/components/slides/pitch-14-portfolio";
 import { Slide47ResearchInfrastructure } from "@/components/slides/47-research-infrastructure";
 import { Slide48LeadingIndicators } from "@/components/slides/48-leading-indicators";
 import { Slide29AiValueChain } from "@/components/slides/29-ai-value-chain";
@@ -23,12 +22,12 @@ import { Slide54ClosingQuestion } from "@/components/slides/54-closing-question"
 export const shortDeckSections: DeckSection[] = [
   { from: 1, to: 2, label: "Overview" },
   { from: 3, to: 3, label: "Thesis" },
-  { from: 4, to: 10, label: "Evidence" },
-  { from: 11, to: 12, label: "Scenarios" },
-  { from: 13, to: 17, label: "Fund" },
-  { from: 18, to: 18, label: "Terms" },
-  { from: 19, to: 19, label: "Legal" },
-  { from: 20, to: 20, label: "Closing" }
+  { from: 4, to: 11, label: "Evidence" },
+  { from: 12, to: 12, label: "Scenarios" },
+  { from: 13, to: 16, label: "Fund" },
+  { from: 17, to: 17, label: "Terms" },
+  { from: 18, to: 18, label: "Legal" },
+  { from: 19, to: 19, label: "Closing" }
 ];
 
 export const shortDeckSlides: DeckSlide[] = [
@@ -76,17 +75,17 @@ export const shortDeckSlides: DeckSlide[] = [
   },
   {
     number: 7,
-    title: "AI Physical Demand",
-    sectionLabel: "EVIDENCE",
-    migrationStatus: "migrated",
-    content: <PitchSlide06AiDemand />
-  },
-  {
-    number: 8,
     title: "Adoption & Revenue",
     sectionLabel: "EVIDENCE",
     migrationStatus: "migrated",
     content: <PitchSlide07Adoption />
+  },
+  {
+    number: 8,
+    title: "AI Physical Demand",
+    sectionLabel: "EVIDENCE",
+    migrationStatus: "migrated",
+    content: <PitchSlide06AiDemand />
   },
   {
     number: 9,
@@ -97,77 +96,70 @@ export const shortDeckSlides: DeckSlide[] = [
   },
   {
     number: 10,
+    title: "Beyond Gold",
+    sectionLabel: "EVIDENCE",
+    migrationStatus: "migrated",
+    content: <Slide26BeyondGold />
+  },
+  {
+    number: 11,
     title: "Valuation Risk",
     sectionLabel: "EVIDENCE",
     migrationStatus: "migrated",
     content: <PitchSlide11Cape />
   },
   {
-    number: 11,
-    title: "Scenario Matrix",
+    number: 12,
+    title: "Portfolio wins in any scenario",
     sectionLabel: "SCENARIOS",
     migrationStatus: "migrated",
     content: <Slide08ScenarioMatrix />
   },
   {
-    number: 12,
-    title: "Asset Classes",
-    sectionLabel: "SCENARIOS",
-    migrationStatus: "migrated",
-    content: <PitchSlide13AssetClasses />
-  },
-  {
     number: 13,
-    title: "Portfolio Construction",
-    sectionLabel: "FUND",
-    migrationStatus: "migrated",
-    content: <PitchSlide14Portfolio />
-  },
-  {
-    number: 14,
     title: "Research Process",
     sectionLabel: "FUND",
     migrationStatus: "migrated",
     content: <Slide47ResearchInfrastructure />
   },
   {
-    number: 15,
+    number: 14,
     title: "Hypothesis Tracking",
     sectionLabel: "FUND",
     migrationStatus: "migrated",
     content: <Slide48LeadingIndicators />
   },
   {
-    number: 16,
+    number: 15,
     title: "AI Value Chain",
     sectionLabel: "FUND",
     migrationStatus: "migrated",
     content: <Slide29AiValueChain />
   },
   {
-    number: 17,
+    number: 16,
     title: "Return Modeling",
     sectionLabel: "FUND",
     migrationStatus: "migrated",
     content: <Slide50ScenarioAnalysis />
   },
   {
-    number: 18,
+    number: 17,
     title: "Fund Terms",
     sectionLabel: "TERMS",
     migrationStatus: "migrated",
     content: <Slide51TermsAtAGlance />
   },
   {
-    number: 19,
+    number: 18,
     title: "Legal Structure",
     sectionLabel: "LEGAL",
     migrationStatus: "migrated",
     content: <PitchSlide19Legal />
   },
   {
-    number: 20,
-    title: "What If We Are Right",
+    number: 19,
+    title: "Thank you",
     sectionLabel: "CLOSING",
     migrationStatus: "migrated",
     content: <Slide54ClosingQuestion />

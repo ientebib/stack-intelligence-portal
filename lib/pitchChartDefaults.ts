@@ -10,19 +10,19 @@ import { fonts, theme } from "@/lib/theme";
 
 export const pitchAxisFont = {
   family: fonts.data,
-  size: 10,
-  weight: 300 as const,
+  size: 14,
+  weight: 400 as const,
 };
 
 export const pitchAnnotationFont = {
   family: fonts.data,
-  size: 10,
+  size: 14,
   weight: 500 as const,
 };
 
 export const pitchLegendFont = {
   family: fonts.data,
-  size: 10,
+  size: 13,
   weight: 400 as const,
 };
 
@@ -33,8 +33,8 @@ export const pitchTooltip = {
   backgroundColor: theme.surface3,
   titleColor: theme.textPrimary,
   bodyColor: theme.textSecondary,
-  titleFont: { family: fonts.data, size: 11, weight: 400 as const },
-  bodyFont: { family: fonts.data, size: 11, weight: 400 as const },
+  titleFont: { family: fonts.data, size: 14, weight: 400 as const },
+  bodyFont: { family: fonts.data, size: 13, weight: 400 as const },
 };
 
 /* ─── Legend preset ─── */

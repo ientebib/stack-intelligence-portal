@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 127.0.0.1",
     "dev:doctor": "bash scripts/dev_server.sh doctor",
     "dev:restart": "bash scripts/dev_server.sh restart",
     "dev:status": "bash scripts/dev_server.sh status",

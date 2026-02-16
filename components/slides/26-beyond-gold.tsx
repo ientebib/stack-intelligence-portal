@@ -2,8 +2,13 @@ import type { ChartData, ChartOptions } from "chart.js";
 import { LineChart } from "@/components/charts/LineChart";
 import { SectionHeader, SourceLine } from "@/components/ui";
 import { slide26BeyondGoldData } from "@/lib/data/slides";
-import { chartSeriesColor, fonts, theme } from "@/lib/theme";
+import { chartSeriesColor, theme } from "@/lib/theme";
 import { hexToRgba } from "@/lib/chartUtils";
+import {
+  pitchAxisFont,
+  pitchTooltip,
+  pitchLegendLine,
+} from "@/lib/pitchChartDefaults";
 
 const slideData = slide26BeyondGoldData;
 
@@ -53,7 +58,7 @@ const chartOptions: ChartOptions<"line"> = {
       grid: { display: false },
       ticks: {
         color: theme.textTertiary,
-        font: { family: fonts.data, size: 9, weight: 300 },
+        font: pitchAxisFont,
         maxRotation: 0,
         autoSkip: false,
         callback: (_, index) => {
@@ -68,31 +73,25 @@ const chartOptions: ChartOptions<"line"> = {
       ticks: {
         stepSize: 40,
         color: theme.textTertiary,
-        font: { family: fonts.data, size: 9, weight: 300 }
+        font: pitchAxisFont
       },
       grid: { color: theme.border }
     }
   },
   plugins: {
     legend: {
-      display: true,
+      ...pitchLegendLine,
       position: "top",
       align: "end",
       labels: {
-        usePointStyle: true,
+        ...pitchLegendLine.labels,
         pointStyle: "line",
-        color: theme.textTertiary,
-        font: { family: fonts.data, size: 9, weight: 400 },
         padding: 10,
         boxWidth: 18
       }
     },
     tooltip: {
-      backgroundColor: theme.surface3,
-      titleColor: theme.textPrimary,
-      bodyColor: theme.textSecondary,
-      titleFont: { family: fonts.data, size: 10, weight: 400 },
-      bodyFont: { family: fonts.data, size: 10, weight: 400 },
+      ...pitchTooltip,
       callbacks: {
         label: (item) => `${item.dataset.label}: ${Number(item.raw).toFixed(1)}`
       }

@@ -4,11 +4,10 @@ import { slide02LeadershipData } from "@/lib/data/slides";
 const slideData = slide02LeadershipData;
 
 const whyUs = [
-  { point: "Active management", detail: "Concentrated, high-conviction macro positions across equity, commodity, and currency markets" },
-  { point: "Structural edge", detail: "Focused on the physical infrastructure layer where capital intensity creates durable asymmetries" },
-  { point: "AI-native process", detail: "Proprietary research systems built on frontier models for signal extraction and portfolio monitoring" },
-  { point: "Full transparency", detail: "Quarterly performance reports with attribution and an annual letter from the managing partners" },
-  { point: "Long-term view", detail: "Portfolio construction oriented around multi-year secular regime shifts" }
+  { point: "Active Management", detail: "High-conviction macro positions across equities, commodities, currencies, crypto, credit, and derivatives" },
+  { point: "AI-Native Process", detail: "Proprietary research systems built on frontier models for signal extraction and portfolio monitoring" },
+  { point: "Periodic Reporting & Platform Access", detail: "Quarterly performance and attribution reporting, with an annual letter from Stack Capital." },
+  { point: "Long-Term View", detail: "Portfolio construction oriented around multi-year secular regime shifts" }
 ];
 
 export function PitchSlide02Leadership() {
@@ -23,16 +22,18 @@ export function PitchSlide02Leadership() {
         <div className="pitch-lead-fund">
           <div className="pitch-lead-fund-name">Stack Capital</div>
           <div className="pitch-lead-fund-desc">
-            Global macro hedge fund with exposure to technology-critical supply
-            chains, hard assets, and the infrastructure underpinning the next
-            era of compute.
+            Macro fund focused on the physical layer where geopolitical transition
+            and capital-intensive AI deployment create persistent supply
+            constraints.
           </div>
           <div className="pitch-lead-why">
             <div className="pitch-lead-why-title">Why Stack</div>
             {whyUs.map((w) => (
               <div key={w.point} className="pitch-lead-why-item">
-                <span className="pitch-lead-why-point">{w.point}</span>
-                <span className="pitch-lead-why-detail">{w.detail}</span>
+                <div className="pitch-lead-why-point">
+                  <span className="pitch-lead-why-dash">-</span> {w.point}
+                </div>
+                <div className="pitch-lead-why-detail">{w.detail}</div>
               </div>
             ))}
           </div>

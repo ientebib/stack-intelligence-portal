@@ -206,7 +206,7 @@ export function PitchSlide11Cape() {
 
       <div className="pitch-dual-panel">
         <div className="pitch-panel">
-          <div className="pitch-panel-label">Historical base rates by starting CAPE</div>
+          <div className="pitch-panel-label">Historical base rates by starting CAPE (S&P 500)</div>
           <div className="pitch-panel-chart">
             <BarChart data={capeChartData} options={capeOptions} plugins={[medianLabelPlugin]} />
           </div>

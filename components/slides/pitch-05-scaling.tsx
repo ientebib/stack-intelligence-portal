@@ -128,14 +128,14 @@ const computeOptions: ChartOptions<"line"> = {
 /* ─── Right panel: Browser windows with headlines ─── */
 
 const headlines = [
-  { source: "nbcnews.com", image: "/headlines/nbc-openai-cropped.png" },
-  { source: "fortune.com", image: "/headlines/fortune-anthropic-cropped.png" },
-  { source: "scitechdaily.com", image: "/headlines/scitech-physics-cropped.jpeg" }
+  { source: "nbcnews.com", image: "/headlines/nbc-openai-cropped.png", size: "tall" as const },
+  { source: "fortune.com", image: "/headlines/fortune-anthropic-cropped.png", size: "default" as const },
+  { source: "scitechdaily.com", image: "/headlines/scitech-physics-cropped.jpeg", size: "compact" as const }
 ];
 
-function BrowserWindow({ source, image }: { source: string; image: string }) {
+function BrowserWindow({ source, image, size = "default" }: { source: string; image: string; size?: "tall" | "default" | "compact" }) {
   return (
-    <div className="mac-browser">
+    <div className={`mac-browser ${size === "tall" ? "mac-browser--tall" : ""} ${size === "compact" ? "mac-browser--compact" : ""}`}>
       <div className="mac-browser-bar">
         <div className="mac-browser-dots">
           <span className="mac-dot mac-dot--red" />
@@ -171,7 +171,7 @@ export function PitchSlide05Scaling() {
           <div className="pitch-panel-label">The capabilities are real</div>
           <div className="mac-browser-stack">
             {headlines.map((h) => (
-              <BrowserWindow key={h.source} {...h} />
+              <BrowserWindow key={h.source} source={h.source} image={h.image} size={h.size} />
             ))}
           </div>
         </div>

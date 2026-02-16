@@ -125,7 +125,7 @@ const cbOptions: ChartOptions<"bar"> = {
   responsive: true,
   maintainAspectRatio: false,
   interaction: { mode: "index", intersect: false },
-  layout: { padding: { top: 8, right: 8, bottom: 2, left: 4 } },
+  layout: { padding: { top: 8, right: 16, bottom: 2, left: 12 } },
   scales: {
     x: {
       grid: { display: false },
@@ -160,11 +160,11 @@ const cbOptions: ChartOptions<"bar"> = {
           label: {
             display: true,
             content: "1,000t threshold",
-            position: "end" as const,
+            position: "start" as const,
             color: theme.textMuted,
-            backgroundColor: "transparent",
+            backgroundColor: theme.surface1,
             font: { family: fonts.data, size: pitchAnnotationFont.size, weight: 400 as const },
-            padding: 2
+            padding: 4
           }
         }
       }

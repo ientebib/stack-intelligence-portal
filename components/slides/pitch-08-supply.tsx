@@ -5,14 +5,12 @@ import {
   slide23MineLeadTimesData,
   slide25MineralDemandData
 } from "@/lib/data/slides";
-import { calloutLabel } from "@/lib/annotationStyles";
-import { chartSeriesColor, fonts, theme } from "@/lib/theme";
+import { chartSeriesColor, theme } from "@/lib/theme";
 import { hexToRgba } from "@/lib/chartUtils";
 import {
   pitchAxisFont,
   pitchTooltip,
   pitchLegend,
-  pitchAnnotationFont,
   pitchLegendFont
 } from "@/lib/pitchChartDefaults";
 
@@ -69,20 +67,6 @@ const mineOptions: ChartOptions<"bar"> = {
     }
   },
   plugins: {
-    annotation: {
-      annotations: {
-        mineCallout: calloutLabel(theme, {
-          xValue: mineMaxValue - 2,
-          yValue: mineData.periods.length - 1,
-          content: `${mineMaxValue} years (projected)`,
-          color: chartSeriesColor(theme, 1),
-          fontSize: pitchAnnotationFont.size,
-          fontWeight: 500,
-          xAdjust: -72,
-          yAdjust: -14
-        })
-      }
-    },
     legend: { display: false },
     tooltip: {
       ...pitchTooltip,

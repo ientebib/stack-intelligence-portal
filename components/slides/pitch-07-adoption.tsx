@@ -97,105 +97,112 @@ const revChartData: ChartData<"line"> = {
       label: "OpenAI",
       data: revData.openAi,
       borderColor: chartSeriesColor(theme, 0),
-      backgroundColor: chartSeriesColor(theme, 0),
-      borderWidth: 2,
-      pointRadius: 2,
-      pointHoverRadius: 4,
-      tension: 0.3,
-      showLine: true
+      backgroundColor: hexToRgba(chartSeriesColor(theme, 0), 0.12),
+      showLine: true,
+      fill: false,
+      borderWidth: 2.2,
+      pointRadius: 3.5,
+      pointHoverRadius: 5,
+      tension: 0.28
     },
     {
       label: "Anthropic",
       data: revData.anthropic,
       borderColor: chartSeriesColor(theme, 1),
-      backgroundColor: chartSeriesColor(theme, 1),
-      borderWidth: 2,
-      pointRadius: 2,
-      pointHoverRadius: 4,
-      tension: 0.3,
-      showLine: true
+      backgroundColor: hexToRgba(chartSeriesColor(theme, 1), 0.12),
+      showLine: true,
+      fill: false,
+      borderWidth: 2.2,
+      pointRadius: 3.5,
+      pointHoverRadius: 5,
+      tension: 0.28
     },
     {
       label: "xAI",
       data: revData.xAi,
       borderColor: theme.ext1,
-      backgroundColor: theme.ext1,
-      borderWidth: 2,
-      pointRadius: 2,
-      pointHoverRadius: 4,
-      tension: 0.3,
-      showLine: true
+      backgroundColor: hexToRgba(theme.ext1, 0.12),
+      showLine: true,
+      fill: false,
+      borderWidth: 2.2,
+      pointRadius: 3.5,
+      pointHoverRadius: 5,
+      tension: 0.28
     }
   ]
 };
-
-const openAiLast = revData.openAi[revData.openAi.length - 1];
 
 const revOptions: ChartOptions<"line"> = {
   responsive: true,
   maintainAspectRatio: false,
   interaction: { mode: "nearest", intersect: false },
-  layout: { padding: { top: 8, right: 8, bottom: 2, left: 4 } },
+  layout: { padding: { top: 10, right: 16, bottom: 4, left: 8 } },
   scales: {
     x: {
       type: "linear",
+      min: 10,
+      max: 48,
+      ticks: {
+        stepSize: 12,
+        color: theme.textTertiary,
+        font: pitchAxisFont,
+        callback: (value) => {
+          const labels: Record<number, string> = {
+            12: "Jan 2023",
+            24: "Jan 2024",
+            36: "Jan 2025",
+            48: "Jan 2026"
+          };
+          return labels[Number(value)] ?? "";
+        }
+      },
+      grid: {
+        color: ((ctx: { tick: { value: number } }) => {
+          const labeledTicks = [12, 24, 36, 48];
+          return labeledTicks.includes(ctx.tick.value) ? theme.border : "transparent";
+        }) as unknown as string
+      }
+    },
+    y: {
+      type: "logarithmic",
+      min: 0.01,
+      max: 30,
       title: {
         display: true,
-        text: "Months since launch",
+        text: "Annualized revenue (USD)",
         color: theme.textMuted,
         font: pitchAxisFont
       },
       ticks: {
         color: theme.textTertiary,
         font: pitchAxisFont,
-        stepSize: 6
-      },
-      grid: { display: false }
-    },
-    y: {
-      type: "logarithmic",
-      min: 0.01,
-      max: 30,
-      ticks: {
-        color: theme.textTertiary,
-        font: pitchAxisFont,
         callback: (value) => {
           const n = Number(value);
-          if (n >= 1) return `$${n}B`;
-          if (n >= 0.1) return `$${(n * 1000).toFixed(0)}M`;
-          return `$${(n * 1000).toFixed(0)}M`;
+          if (n === 0.01) return "$10M";
+          if (n === 0.1) return "$100M";
+          if (n === 1) return "$1B";
+          if (n === 10) return "$10B";
+          return "";
         }
       },
-      grid: { color: theme.border }
+      grid: {
+        color: ((ctx: { tick: { value: number } }) => {
+          const labeled = [0.01, 0.1, 1, 10];
+          return labeled.includes(ctx.tick.value) ? theme.border : "transparent";
+        }) as unknown as string
+      }
     }
   },
   plugins: {
-    annotation: {
-      annotations: {
-        openAiCallout: calloutLabel(theme, {
-          xValue: openAiLast?.x ?? 36,
-          yValue: (openAiLast?.y ?? 20) * 1.3,
-          content: `~$${(openAiLast?.y ?? 20).toFixed(0)}B ARR`,
-          color: chartSeriesColor(theme, 0),
-          fontSize: pitchAnnotationFont.size,
-          fontWeight: 500,
-          xAdjust: -56
-        })
-      }
-    },
     legend: {
       ...pitchLegendLine,
     },
     tooltip: {
       ...pitchTooltip,
       callbacks: {
-        title: (items) => {
-          const raw = items[0]?.raw as { x?: number } | undefined;
-          return raw?.x != null ? `Month ${raw.x}` : "";
-        },
         label: (item) => {
           const y = Number((item.raw as { y: number }).y);
-          return `${item.dataset.label}: $${y >= 1 ? y.toFixed(1) + "B" : (y * 1000).toFixed(0) + "M"} ARR`;
+          return `${item.dataset.label}: $${y >= 1 ? y.toFixed(1) + "B" : Math.round(y * 1000) + "M"} ARR`;
         }
       }
     }

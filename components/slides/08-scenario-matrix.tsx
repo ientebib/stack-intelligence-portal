@@ -39,6 +39,9 @@ export function Slide08ScenarioMatrix() {
                 {q.title}
               </span>
               <span className="convex-region-narrative">{q.narrative}</span>
+              {q.assets && (
+                <span className="convex-region-assets">{q.assets}</span>
+              )}
             </div>
           ))}
 

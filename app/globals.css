@@ -1565,7 +1565,16 @@ h3 {
   color: var(--text-secondary);
 }
 
-
+.convex-region-assets {
+  display: block;
+  font-family: var(--font-data);
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+}
 
 /* ── Slide 09 · Section Divider ──────────────────────────── */
 
@@ -5774,12 +5783,127 @@ a.contact-row-value:hover {
   font-size: 11px;
 }
 
+.pitch-deck .slide-footer {
+  margin-top: auto;
+  padding-top: 32px;
+}
+
+/* ─── Scenario Matrix slide: larger text ─── */
+
+.pitch-deck .convex-ax {
+  font-size: 12px;
+  letter-spacing: 2.2px;
+}
+
+.pitch-deck .convex-ax--xl,
+.pitch-deck .convex-ax--xr,
+.pitch-deck .convex-ax--yt,
+.pitch-deck .convex-ax--yb {
+  font-size: 14px;
+  letter-spacing: 2.6px;
+}
+
+.pitch-deck .convex-region-title {
+  font-size: 26px;
+}
+
+.pitch-deck .convex-region-narrative {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.pitch-deck .convex-region-assets {
+  font-size: 12px;
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+/* ─── Beyond Gold slide: larger text ─── */
+
+.pitch-deck .commodities-card-title {
+  font-size: 12px;
+  letter-spacing: 2.2px;
+}
+
+.pitch-deck .commodities-card-range {
+  font-size: 13px;
+}
+
+.pitch-deck .commodities-card-description {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.pitch-deck .commodities-reshoring-title {
+  font-size: 12px;
+  letter-spacing: 2.2px;
+}
+
+.pitch-deck .commodities-reshoring-body {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ─── AI Value Chain slide: fix sizing of content objects ─── */
+
+.pitch-deck .ai-vc-container {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pitch-deck .ai-vc-sidebar {
+  justify-content: flex-start;
+}
+
+.pitch-deck .ai-vc-sidebar-label {
+  font-size: 15px;
+}
+
+.pitch-deck .ai-vc-sidebar-badge {
+  font-size: 13px;
+}
+
+.pitch-deck .ai-vc-layer-title {
+  font-size: 18px;
+}
+
+.pitch-deck .ai-vc-layer-desc {
+  font-size: 15px;
+}
+
+.pitch-deck .ai-vc-node-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.pitch-deck .ai-vc-node-title {
+  font-size: 15px;
+}
+
+.pitch-deck .ai-vc-node-subtitle {
+  font-size: 14px;
+}
+
+.pitch-deck .ai-vc-node-id {
+  font-size: 12px;
+}
+
 /* ─── Data cards (hero metrics row) ─── */
+
+.pitch-data-cards-wrap {
+  flex: 0 0 auto;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
 
 .pitch-data-cards {
   display: flex;
   gap: 12px;
-  margin-bottom: 12px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .pitch-data-card {
@@ -5818,7 +5942,11 @@ a.contact-row-value:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  margin-top: 8px;
+  margin-top: 28px;
+}
+
+.pitch-data-cards-wrap + .pitch-dual-panel {
+  margin-top: 0;
 }
 
 .pitch-panel {
@@ -5828,9 +5956,9 @@ a.contact-row-value:hover {
 }
 
 .pitch-panel-label {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   font-family: var(--font-data);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 1.6px;
   text-transform: uppercase;
@@ -5861,7 +5989,7 @@ a.contact-row-value:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 14px;
-  margin-top: 8px;
+  margin-top: 28px;
 }
 
 /* ─── Leadership + Fund intro (pitch slide 2) ─── */
@@ -5871,7 +5999,7 @@ a.contact-row-value:hover {
   min-height: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 0;
   align-items: stretch;
   margin-top: 40px;
 }
@@ -5879,8 +6007,10 @@ a.contact-row-value:hover {
 .pitch-lead-fund {
   background: var(--surface-1);
   border-left: 4px solid var(--primary);
+  border-right: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 36px 40px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -5938,19 +6068,16 @@ a.contact-row-value:hover {
 
 .pitch-lead-why-title {
   font-family: var(--font-data);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .pitch-lead-why-item {
-  display: flex;
-  gap: 12px;
-  align-items: baseline;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 
 .pitch-lead-why-item:last-child {
@@ -5959,29 +6086,30 @@ a.contact-row-value:hover {
 
 .pitch-lead-why-point {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-primary);
-  white-space: nowrap;
+  margin-bottom: 6px;
 }
 
-.pitch-lead-why-point::before {
-  content: "—";
-  margin-right: 6px;
+.pitch-lead-why-dash {
   color: var(--primary);
+  margin-right: 6px;
 }
 
 .pitch-lead-why-detail {
   font-family: var(--font-body);
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--text-primary);
   line-height: 1.45;
+  padding-left: 1.3em;
 }
 
 .pitch-lead-team {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-left: 20px;
 }
 
 .pitch-lead-card {
@@ -6040,37 +6168,54 @@ a.contact-row-value:hover {
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: 1fr 400px 1fr;
+  grid-template-columns: 1fr 48px minmax(340px, 420px) 48px 1fr;
   gap: 0;
-  margin-top: 20px;
+  margin-top: 24px;
+  align-items: stretch;
 }
+
+.pitch-cv-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--text-tertiary);
+  padding: 0 8px;
+}
+
 
 /* Side panels (fiscal + AI) */
 
 .pitch-cv-side {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 24px 40px;
+  justify-content: flex-start;
+  padding: 32px 44px 40px;
+  background: var(--surface-1);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  min-height: 0;
 }
 
 .pitch-cv-side--fiscal {
-  align-items: flex-end;
-  text-align: right;
+  align-items: center;
+  text-align: center;
+  border-right: 3px solid var(--primary);
 }
 
 .pitch-cv-side--ai {
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
+  border-left: 3px solid var(--secondary);
 }
 
 .pitch-cv-side-label {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .pitch-cv-side--fiscal .pitch-cv-side-label { color: var(--primary); }
@@ -6079,7 +6224,7 @@ a.contact-row-value:hover {
 .pitch-cv-side-items {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 36px;
 }
 
 .pitch-cv-side-item {
@@ -6088,10 +6233,10 @@ a.contact-row-value:hover {
 
 .pitch-cv-side-stat {
   font-family: var(--font-display);
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 400;
   line-height: 1.1;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .pitch-cv-side--fiscal .pitch-cv-side-stat { color: var(--primary); }
@@ -6099,7 +6244,7 @@ a.contact-row-value:hover {
 
 .pitch-cv-side-desc {
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.45;
 }
@@ -6109,92 +6254,156 @@ a.contact-row-value:hover {
 .pitch-cv-side--fiscal .pitch-cv-side-item::after {
   content: '';
   position: absolute;
-  right: -40px;
+  right: -14px;
   top: 50%;
-  width: 40px;
+  width: 14px;
   height: 1px;
   background: linear-gradient(to right, transparent, var(--primary));
-  opacity: 0.35;
+  opacity: 0.4;
 }
 
 .pitch-cv-side--ai .pitch-cv-side-item::before {
   content: '';
   position: absolute;
-  left: -40px;
+  left: -14px;
   top: 50%;
-  width: 40px;
+  width: 14px;
   height: 1px;
   background: linear-gradient(to left, transparent, var(--secondary));
-  opacity: 0.35;
+  opacity: 0.4;
 }
 
-/* Center: The Physical Layer */
+/* Center: Scarce Assets & Durable Moats */
 
 .pitch-cv-center {
   background: var(--primary);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 40px 28px;
-  gap: 20px;
+  padding: 32px 36px 40px;
+  gap: 0;
   position: relative;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  min-height: 0;
 }
 
-.pitch-cv-center::before {
-  content: '';
-  position: absolute;
-  left: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 14px solid transparent;
-  border-bottom: 14px solid transparent;
-  border-right: 12px solid var(--primary);
-}
-
+.pitch-cv-center::before,
 .pitch-cv-center::after {
-  content: '';
-  position: absolute;
-  right: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 14px solid transparent;
-  border-bottom: 14px solid transparent;
-  border-left: 12px solid var(--primary);
+  display: none;
 }
 
 .pitch-cv-center-label {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 500;
-  letter-spacing: 2.5px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: #111111;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
 }
 
 .pitch-cv-center-items {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 0;
 }
 
 .pitch-cv-center-item {
-  font-family: var(--font-display);
-  font-size: 26px;
+  font-family: var(--font-body);
+  font-size: 18px;
   font-weight: 400;
   color: #ffffff;
   text-align: center;
+  line-height: 1.65;
+  padding: 16px 0;
+  max-width: 380px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.pitch-cv-center-item:last-child {
+  border-bottom: none;
 }
 
 .pitch-cv-center-tagline {
   font-family: var(--font-body);
   font-size: 13px;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
-  padding-top: 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  line-height: 1.45;
+}
+
+/* Prose descriptions in side panels */
+
+.pitch-cv-side-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pitch-cv-side-prose p {
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--text-primary);
+  line-height: 1.7;
+  margin: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.pitch-cv-side-prose p:last-child {
+  border-bottom: none;
+}
+
+/* Emphasis (keep within brand: max weight 500) */
+
+.pitch-cv-emph {
+  font-weight: 500;
+}
+
+/* Position tags below side panels */
+
+.pitch-cv-side-positions {
+  font-family: var(--font-body);
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: var(--text-tertiary);
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  line-height: 1.55;
+}
+
+.pitch-cv-side-positions {
+  text-align: center;
+}
+
+/* Bottom tagline across full width */
+
+.pitch-cv-bottom-tagline {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: var(--surface-1);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  letter-spacing: 0.2px;
+  line-height: 1.5;
 }
 
 /* ─── macOS browser window chrome ─── */
@@ -6218,6 +6427,23 @@ a.contact-row-value:hover {
   display: flex;
   flex-direction: column;
   min-height: 0;
+}
+
+.mac-browser--tall {
+  flex: 1.4 1 0;
+}
+
+.mac-browser--tall .mac-browser-img {
+  object-position: center top;
+}
+
+.mac-browser--compact {
+  flex: 0 1 auto;
+  max-height: 200px;
+}
+
+.mac-browser--compact .mac-browser-img {
+  object-fit: contain;
 }
 
 .mac-browser-bar {
@@ -6267,7 +6493,7 @@ a.contact-row-value:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top left;
+  object-position: center top;
   display: block;
 }
 
@@ -6885,15 +7111,54 @@ a.contact-row-value:hover {
   grid-template-columns: 1fr;
 }
 
+.deck-react.mobile-layout .pitch-lead-fund {
+  border-right: none;
+  margin-right: 0;
+}
+
+.deck-react.mobile-layout .pitch-lead-team {
+  margin-left: 0;
+}
+
 .deck-react.mobile-layout .pitch-cv {
   grid-template-columns: 1fr;
   gap: 12px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.deck-react.mobile-layout .pitch-cv-arrow {
+  display: none;
 }
 
 .deck-react.mobile-layout .pitch-cv-side {
   align-items: flex-start;
   text-align: left;
-  padding: 12px 20px;
+  padding: 20px 24px;
+}
+
+.deck-react.mobile-layout .pitch-cv-side--fiscal {
+  border-right: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+}
+
+.deck-react.mobile-layout .pitch-cv-side--ai {
+  border-left: 3px solid var(--secondary);
+}
+
+.deck-react.mobile-layout .pitch-cv-side-prose {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.deck-react.mobile-layout .pitch-cv-side-positions {
+  text-align: center;
+}
+
+.deck-react.mobile-layout .pitch-cv-bottom-tagline {
+  font-size: 12px;
+  margin-top: 8px;
 }
 
 .deck-react.mobile-layout .pitch-cv-side-item::after,

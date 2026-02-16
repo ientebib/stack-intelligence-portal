@@ -37,7 +37,7 @@ export const slide26BeyondGoldData: Slide26BeyondGoldData = {
   ],
   reshoringTitle: "Reshoring & tariffs",
   reshoringBody:
-    "US industrial policy is deploying $280B (CHIPS), $370B (IRA), and $1.2T (IIJA) into capex-heavy buildout. Trade policy and export controls amplify pressure on already tight commodity chains.",
+    "Industrial policy is redirecting massive public capital toward domestic manufacturing, clean energy, and infrastructure. Reshoring, export controls, and tariffs are reshaping supply chains and tightening already constrained commodity markets.",
   dates: rows.map((row) => row.date),
   silverIndex: rows.map((row) => row.silver_index),
   copperIndex: rows.map((row) => row.copper_index),

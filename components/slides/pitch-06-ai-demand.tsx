@@ -16,14 +16,6 @@ import {
   pitchAnnotationFont
 } from "@/lib/pitchChartDefaults";
 
-/* ─── Data cards ─── */
-
-const dataCards = [
-  { value: "$600B+", label: "2026E hyperscaler capex" },
-  { value: "120 GW", label: "Projected DC power by 2029" },
-  { value: "~6 GW", label: "Shipped AI DC power (2024)" }
-];
-
 /* ─── Left panel: Hyperscaler Capex stacked bar ─── */
 
 const capexData = slide37HyperscalerCapexData;
@@ -165,11 +157,11 @@ const dcOptions: ChartOptions<"line"> = {
         dcCallout: calloutLabel(theme, {
           xValue: "2029",
           yValue: 122,
-          content: "~120 GW by 2029",
+          content: "120 GW ≈ Japan's entire electricity consumption",
           color: chartSeriesColor(theme, 1),
           fontSize: pitchAnnotationFont.size,
           fontWeight: 500,
-          xAdjust: -80
+          xAdjust: -100
         })
       }
     },
@@ -191,15 +183,6 @@ export function PitchSlide06AiDemand() {
         title="The largest companies in history are building physical AI infrastructure at unprecedented scale"
         subtitle="Hyperscaler capex $36B (2016) → $600B+ (2026)"
       />
-
-      <div className="pitch-data-cards">
-        {dataCards.map((card) => (
-          <div key={card.label} className="pitch-data-card">
-            <div className="pitch-data-card-value">{card.value}</div>
-            <div className="pitch-data-card-label">{card.label}</div>
-          </div>
-        ))}
-      </div>
 
       <div className="pitch-dual-panel">
         <div className="pitch-panel">

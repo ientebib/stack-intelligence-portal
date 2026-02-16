@@ -49,6 +49,7 @@ export type Slide08QuadrantTone = "primary" | "secondary" | "caution" | "negativ
 export type Slide08QuadrantData = {
   title: string;
   narrative: string;
+  assets?: string;
   tone: Slide08QuadrantTone;
   position: "tl" | "tr" | "bl" | "br";
 };
