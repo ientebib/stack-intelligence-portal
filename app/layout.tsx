@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { themeCssVariables } from "@/lib/themeCssVariables";
 
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={themeCssVariables}>{children}</body>
+      <body style={themeCssVariables}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
