@@ -1,10 +1,11 @@
 {
-  "name": "chart-creator",
+  "name": "stack-intelligence-portal",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
     "dev:doctor": "bash scripts/dev_server.sh doctor",
+    "dev:fix": "bash scripts/dev_server.sh restart",
     "dev:restart": "bash scripts/dev_server.sh restart",
     "dev:status": "bash scripts/dev_server.sh status",
     "build": "next build",
@@ -15,9 +16,15 @@
     "export:pdf:react": "bash scripts/export_react_pdf.sh"
   },
   "dependencies": {
+    "@types/dagre": "^0.7.53",
+    "@vercel/speed-insights": "^1.3.1",
     "chart.js": "^4.4.1",
     "chartjs-plugin-annotation": "^3.0.1",
+    "dagre": "^0.8.5",
+    "lucide-react": "^0.575.0",
+    "motion": "^12.34.2",
     "next": "15.5.12",
+    "playwright": "^1.58.2",
     "react": "19.1.1",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "19.1.1"
@@ -29,5 +36,22 @@
     "eslint": "9.36.0",
     "eslint-config-next": "15.5.12",
     "typescript": "5.9.2"
-  }
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ientebib/stack-intelligence-portal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ientebib/stack-intelligence-portal/issues"
+  },
+  "homepage": "https://github.com/ientebib/stack-intelligence-portal#readme",
+  "description": "Stack Intelligence Portal frontend for investor materials and research dashboard."
 }

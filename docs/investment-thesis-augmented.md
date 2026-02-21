@@ -1,14 +1,14 @@
-# Stack Capital — Investment Thesis
+# Stack Intelligence — Investment Thesis
 
 ## What This Document Is
 
-A self-contained explanation of the Stack Capital investment thesis with all supporting data embedded. A reader — human or AI — can understand the full strategy, verify every claim against the underlying evidence, and evaluate the fund mechanics without needing the presentation deck or any other source materials.
+A self-contained explanation of the Stack Intelligence investment thesis with all supporting data embedded. A reader — human or AI — can understand the full strategy, verify every claim against the underlying evidence, and evaluate the fund mechanics without needing the presentation deck or any other source materials.
 
 ---
 
-## 1. What Stack Capital Is
+## 1. What Stack Intelligence Is
 
-Stack Capital is a liquid global macro fund. The strategy is quant and value-oriented, trading across equities, commodities, FX, bonds, crypto, and derivatives. Everything is fully liquid under normal market conditions.
+Stack Intelligence is a liquid global macro fund. The strategy is quant and value-oriented, trading across equities, commodities, FX, bonds, crypto, and derivatives. Everything is fully liquid under normal market conditions.
 
 The fund is built around a single conviction: two structural forces — fiscal dominance driving real-asset repricing, and AI infrastructure buildout consuming scarce physical resources — are compounding simultaneously, and the physical layer where they intersect offers durable, asymmetric returns.
 
@@ -563,7 +563,7 @@ The fund's scenario matrix identifies four convergence paths, all of which favor
 3. **Trade fragmentation:** Supply chains re-shore and duplicate across blocs, multiplying demand for physical capacity at its most constrained levels.
 4. **Yield-curve control:** Rates pinned below inflation, engineering negative real returns for savers. Capital migrates toward gold, energy infrastructure, and real assets.
 
-Source: Stack Capital internal scenario analysis (February 2026).
+Source: Stack Intelligence internal scenario analysis (February 2026).
 
 ---
 
@@ -571,7 +571,7 @@ Source: Stack Capital internal scenario analysis (February 2026).
 
 ### 7.1 Proprietary Research System
 
-Stack Capital operates a CLI-based autonomous research agent that ingests live data from financial APIs, semiconductor supply-chain trackers, on-chain feeds, and independent research. The agent executes structured analytical skills for investment workflows. Every output is reviewed by a human expert before informing portfolio decisions.
+Stack Intelligence operates a CLI-based autonomous research agent that ingests live data from financial APIs, semiconductor supply-chain trackers, on-chain feeds, and independent research. The agent executes structured analytical skills for investment workflows. Every output is reviewed by a human expert before informing portfolio decisions.
 
 ### 7.2 The Monitoring Framework
 
@@ -774,4 +774,4 @@ A long-only, no-leverage structure with position limits creates natural downside
 ---
 
 *Confidential — February 2026*
-*Stack Capital Investment Committee*
+*Stack Intelligence Investment Committee*

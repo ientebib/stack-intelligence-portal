@@ -77,7 +77,7 @@ export function PitchSlide16Kpi() {
           </div>
         </div>
       </div>
-      <SourceLine text="Source: Stack Capital internal research framework (February 2026)" tight />
+      <SourceLine text="Source: Stack Intelligence internal research framework (February 2026)" tight />
     </>
   );
 }

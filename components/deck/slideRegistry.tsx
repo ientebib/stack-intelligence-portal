@@ -8,6 +8,7 @@ import { Slide02Leadership } from "@/components/slides/02-leadership";
 import { Slide04LongStructurePortfolioSleeveDivider } from "@/components/slides/04-long-structure-portfolio-sleeve-divider";
 import { Slide07ExecutiveSummary } from "@/components/slides/07-executive-summary";
 import { Slide08ScenarioMatrix } from "@/components/slides/08-scenario-matrix";
+import { Slide08RegimeTransitionMatrix } from "@/components/slides/08-regime-transition-matrix";
 import { Slide08MacroShiftDivider } from "@/components/slides/08-macro-shift-divider";
 import { Slide09FederalDebt } from "@/components/slides/09-federal-debt";
 import { Slide10InterestExpense } from "@/components/slides/10-interest-expense";
@@ -127,7 +128,7 @@ export const deckSections: DeckSection[] = [
   { from: 32, to: 47, label: "AI Infrastructure" },
   { from: 51, to: 53, label: "How We Underwrite" },
   { from: 54, to: 59, label: "What We Expect & Fund Terms" },
-  { from: 60, to: 68, label: "Appendix" }
+  { from: 60, to: 70, label: "Appendix" }
 ];
 
 function sectionLabelForSlide(slideNumber: number) {
@@ -257,6 +258,15 @@ for (const entry of manifest.slides) {
     slidesFromManifest.push(buildPendingSlide(deckNumber, slideTitle, entry));
   }
 }
+
+// Insert Regime Transition Matrix (interactive slider/gauge version) after all manifest slides
+slidesFromManifest.push({
+  number: 70,
+  title: "Regime Transition Matrix",
+  sectionLabel: sectionLabelForSlide(70),
+  migrationStatus: "migrated",
+  content: <Slide08RegimeTransitionMatrix />
+});
 
 function applyManualOrdering(slides: DeckSlide[]): DeckSlide[] {
   const moveSlideNumber = (deckSlides: DeckSlide[], from: number, to: number) => {

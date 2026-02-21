@@ -1,79 +1,116 @@
 [
   {
     "year": "2016",
+    "tag": "A",
     "amazon_capex_usd_billions": 12.4,
     "alphabet_capex_usd_billions": 10.9,
     "meta_capex_usd_billions": 4.5,
-    "microsoft_capex_usd_billions": 8.3
+    "microsoft_capex_usd_billions": 8.3,
+    "oracle_capex_usd_billions": 1.4,
+    "coreweave_capex_usd_billions": null,
+    "_notes": "Amazon/Alphabet/Meta = CY (10-K). Microsoft = FY ending Jun (labeled by FY end CY). Oracle = FY ending May (labeled by FY end CY). CoreWeave founded 2017, AI pivot 2022."
   },
   {
     "year": "2017",
+    "tag": "A",
     "amazon_capex_usd_billions": 19.7,
     "alphabet_capex_usd_billions": 13.2,
     "meta_capex_usd_billions": 6.7,
-    "microsoft_capex_usd_billions": 8.7
+    "microsoft_capex_usd_billions": 8.7,
+    "oracle_capex_usd_billions": 1.4,
+    "coreweave_capex_usd_billions": null
   },
   {
     "year": "2018",
+    "tag": "A",
     "amazon_capex_usd_billions": 27.8,
     "alphabet_capex_usd_billions": 25.1,
     "meta_capex_usd_billions": 13.9,
-    "microsoft_capex_usd_billions": 11.6
+    "microsoft_capex_usd_billions": 11.6,
+    "oracle_capex_usd_billions": 1.7,
+    "coreweave_capex_usd_billions": null
   },
   {
     "year": "2019",
+    "tag": "A",
     "amazon_capex_usd_billions": 32.0,
     "alphabet_capex_usd_billions": 23.5,
     "meta_capex_usd_billions": 15.1,
-    "microsoft_capex_usd_billions": 13.9
+    "microsoft_capex_usd_billions": 13.9,
+    "oracle_capex_usd_billions": 2.1,
+    "coreweave_capex_usd_billions": null
   },
   {
     "year": "2020",
+    "tag": "A",
     "amazon_capex_usd_billions": 54.0,
     "alphabet_capex_usd_billions": 22.3,
     "meta_capex_usd_billions": 15.7,
-    "microsoft_capex_usd_billions": 15.4
+    "microsoft_capex_usd_billions": 15.4,
+    "oracle_capex_usd_billions": 1.5,
+    "coreweave_capex_usd_billions": null
   },
   {
     "year": "2021",
+    "tag": "A",
     "amazon_capex_usd_billions": 68.1,
     "alphabet_capex_usd_billions": 24.6,
     "meta_capex_usd_billions": 19.2,
-    "microsoft_capex_usd_billions": 20.6
+    "microsoft_capex_usd_billions": 20.6,
+    "oracle_capex_usd_billions": 1.4,
+    "coreweave_capex_usd_billions": null
   },
   {
     "year": "2022",
+    "tag": "A",
     "amazon_capex_usd_billions": 63.6,
     "alphabet_capex_usd_billions": 31.5,
     "meta_capex_usd_billions": 31.4,
-    "microsoft_capex_usd_billions": 23.9
+    "microsoft_capex_usd_billions": 23.9,
+    "oracle_capex_usd_billions": 6.7,
+    "coreweave_capex_usd_billions": null
   },
   {
     "year": "2023",
+    "tag": "A",
     "amazon_capex_usd_billions": 52.7,
     "alphabet_capex_usd_billions": 32.3,
     "meta_capex_usd_billions": 27.3,
-    "microsoft_capex_usd_billions": 28.1
+    "microsoft_capex_usd_billions": 28.1,
+    "oracle_capex_usd_billions": 6.9,
+    "coreweave_capex_usd_billions": null
   },
   {
     "year": "2024",
-    "amazon_capex_usd_billions": 83.9,
+    "tag": "A",
+    "amazon_capex_usd_billions": 83.0,
     "alphabet_capex_usd_billions": 52.5,
     "meta_capex_usd_billions": 37.3,
-    "microsoft_capex_usd_billions": 44.5
+    "microsoft_capex_usd_billions": 44.5,
+    "oracle_capex_usd_billions": 7.9,
+    "coreweave_capex_usd_billions": 8.7,
+    "_notes": "Amazon corrected from $83.9B to $83.0B per 10-K. Oracle FY2024 (ending May 2024). CoreWeave first year of meaningful capex."
   },
   {
     "year": "2025",
+    "tag": "A",
     "amazon_capex_usd_billions": 131.8,
     "alphabet_capex_usd_billions": 91.4,
     "meta_capex_usd_billions": 72.2,
-    "microsoft_capex_usd_billions": 64.6
+    "microsoft_capex_usd_billions": 64.6,
+    "oracle_capex_usd_billions": 21.0,
+    "coreweave_capex_usd_billions": 13.0,
+    "_notes": "Microsoft = FY2025 (ending Jun 2025); true CY2025 is ~$83B. Oracle FY2025 (ending May 2025). CoreWeave midpoint of $12-14B guidance (revised from $20-23B)."
   },
   {
     "year": "2026E",
+    "tag": "E",
     "amazon_capex_usd_billions": 200,
     "alphabet_capex_usd_billions": 180,
     "meta_capex_usd_billions": 125,
-    "microsoft_capex_usd_billions": 100
+    "microsoft_capex_usd_billions": 100,
+    "oracle_capex_usd_billions": 50,
+    "coreweave_capex_usd_billions": 27,
+    "_notes": "Alphabet guidance $175-185B (midpoint). Meta guidance $115-135B (midpoint). Microsoft ~$99B consensus (FY2026 ending Jun). Oracle FY2026E (ending May 2026). CoreWeave 'more than 2x 2025'."
   }
 ]

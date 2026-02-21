@@ -7,7 +7,7 @@ LOG_FILE="$ROOT_DIR/.dev.log"
 HOST="127.0.0.1"
 PORT="3000"
 SHORT_URL="http://$HOST:$PORT/deck-react-short"
-INTERNAL_URL="http://$HOST:$PORT/deck-react-short-internal"
+FULL_URL="http://$HOST:$PORT/deck-react"
 
 is_listening() {
   lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1
@@ -85,7 +85,7 @@ stop_server() {
 }
 
 start_server() {
-  if is_listening && http_ok "$SHORT_URL" && http_ok "$INTERNAL_URL" && ! has_runtime_error "$SHORT_URL" && ! has_runtime_error "$INTERNAL_URL"; then
+  if is_listening && http_ok "$SHORT_URL" && http_ok "$FULL_URL" && ! has_runtime_error "$SHORT_URL" && ! has_runtime_error "$FULL_URL"; then
     reconcile_pid_file
     echo "dev server already healthy on $HOST:$PORT"
     status_server
@@ -115,7 +115,7 @@ start_server() {
 
   # Warm routes so Next compiles them once.
   curl -s "$SHORT_URL" >/dev/null || true
-  curl -s "$INTERNAL_URL" >/dev/null || true
+  curl -s "$FULL_URL" >/dev/null || true
 
   echo "dev server started"
   status_server
@@ -133,9 +133,9 @@ status_server() {
 
   local s1 s2
   s1="$(curl -s -o /dev/null -w "%{http_code}" "$SHORT_URL" || true)"
-  s2="$(curl -s -o /dev/null -w "%{http_code}" "$INTERNAL_URL" || true)"
+  s2="$(curl -s -o /dev/null -w "%{http_code}" "$FULL_URL" || true)"
   echo "health: $SHORT_URL -> $s1"
-  echo "health: $INTERNAL_URL -> $s2"
+  echo "health: $FULL_URL -> $s2"
 }
 
 doctor_server() {
@@ -146,12 +146,12 @@ doctor_server() {
     bad=1
   fi
 
-  if ! http_ok "$SHORT_URL" || ! http_ok "$INTERNAL_URL"; then
+  if ! http_ok "$SHORT_URL" || ! http_ok "$FULL_URL"; then
     echo "doctor: non-200 response detected"
     bad=1
   fi
 
-  if has_runtime_error "$SHORT_URL" || has_runtime_error "$INTERNAL_URL"; then
+  if has_runtime_error "$SHORT_URL" || has_runtime_error "$FULL_URL"; then
     echo "doctor: runtime error signature detected"
     bad=1
   fi

@@ -55,6 +55,7 @@ const adoptionOptions: ChartOptions<"line"> = {
     },
     y: {
       beginAtZero: true,
+      max: 1000,
       ticks: {
         color: theme.textTertiary,
         font: pitchAxisFont,
@@ -117,18 +118,6 @@ const revChartData: ChartData<"line"> = {
       pointHoverRadius: 5,
       tension: 0.28
     },
-    {
-      label: "xAI",
-      data: revData.xAi,
-      borderColor: theme.ext1,
-      backgroundColor: hexToRgba(theme.ext1, 0.12),
-      showLine: true,
-      fill: false,
-      borderWidth: 2.2,
-      pointRadius: 3.5,
-      pointHoverRadius: 5,
-      tension: 0.28
-    }
   ]
 };
 
@@ -141,7 +130,7 @@ const revOptions: ChartOptions<"line"> = {
     x: {
       type: "linear",
       min: 10,
-      max: 48,
+      max: 50,
       ticks: {
         stepSize: 12,
         color: theme.textTertiary,
@@ -164,9 +153,8 @@ const revOptions: ChartOptions<"line"> = {
       }
     },
     y: {
-      type: "logarithmic",
-      min: 0.01,
-      max: 30,
+      beginAtZero: true,
+      max: 22,
       title: {
         display: true,
         text: "Annualized revenue (USD)",
@@ -178,19 +166,11 @@ const revOptions: ChartOptions<"line"> = {
         font: pitchAxisFont,
         callback: (value) => {
           const n = Number(value);
-          if (n === 0.01) return "$10M";
-          if (n === 0.1) return "$100M";
-          if (n === 1) return "$1B";
-          if (n === 10) return "$10B";
+          if (n >= 1) return `$${n}B`;
           return "";
         }
       },
-      grid: {
-        color: ((ctx: { tick: { value: number } }) => {
-          const labeled = [0.01, 0.1, 1, 10];
-          return labeled.includes(ctx.tick.value) ? theme.border : "transparent";
-        }) as unknown as string
-      }
+      grid: { color: theme.border }
     }
   },
   plugins: {
@@ -215,7 +195,7 @@ export function PitchSlide07Adoption() {
       <SectionHeader
         sectionLabel="AI INFRASTRUCTURE"
         title="AI adoption and revenue are materializing faster than any prior technology wave"
-        subtitle="900M weekly users · $20B ARR in ~3 years · $240B cloud backlog"
+        subtitle="900M weekly users · $20B+ ARR (OpenAI) · $14B ARR (Anthropic) · $240B cloud backlog"
       />
 
       <div className="pitch-dual-panel">

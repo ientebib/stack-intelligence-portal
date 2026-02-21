@@ -354,5 +354,5 @@ export const slide48LeadingIndicatorsData: Slide48LeadingIndicatorsData = {
       ],
     },
   ],
-  sourceLine: "Source: Internal research framework — Stack Holdings Investment Committee",
+  sourceLine: "Source: Internal research framework — Stack Intelligence Investment Committee",
 };

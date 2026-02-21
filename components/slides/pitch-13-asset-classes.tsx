@@ -38,7 +38,7 @@ const assetData = {
       position: "br"
     }
   ],
-  sourceLine: "Source: Stack Capital internal scenario analysis (February 2026)"
+  sourceLine: "Source: Stack Intelligence internal scenario analysis (February 2026)"
 };
 
 export function PitchSlide13AssetClasses() {

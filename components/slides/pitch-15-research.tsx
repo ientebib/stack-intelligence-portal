@@ -45,7 +45,7 @@ export function PitchSlide15Research() {
           ))}
         </div>
       </div>
-      <SourceLine text="Source: Stack Capital internal research framework (February 2026)" tight />
+      <SourceLine text="Source: Stack Intelligence internal research framework (February 2026)" tight />
     </>
   );
 }

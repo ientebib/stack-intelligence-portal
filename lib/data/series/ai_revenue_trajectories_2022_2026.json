@@ -95,6 +95,11 @@
     "arr_usd_billions": 9.0
   },
   {
+    "company": "Anthropic",
+    "x_month": 49.0,
+    "arr_usd_billions": 14.0
+  },
+  {
     "company": "xAI",
     "x_month": 34.0,
     "arr_usd_billions": 0.1

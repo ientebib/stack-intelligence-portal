@@ -21,6 +21,7 @@ export function DeckPlayer({ sections, slides, desktopViewHref = "/deck-react?de
   const [isMobileLayout, setIsMobileLayout] = useState(false);
   const [showMobileHint, setShowMobileHint] = useState(false);
   const [visitedSlides, setVisitedSlides] = useState<Set<number>>(() => new Set([slides[0]?.number ?? 1]));
+  const [deckZoom, setDeckZoom] = useState(1);
   const rootRef = useRef<HTMLElement>(null);
   const navTimerRef = useRef<number | null>(null);
 
@@ -88,6 +89,18 @@ export function DeckPlayer({ sections, slides, desktopViewHref = "/deck-react?de
   useEffect(() => {
     rootRef.current?.focus();
   }, []);
+
+  // Auto-scale: slides designed at 1080p reference. Scale up on larger displays.
+  useEffect(() => {
+    if (isMobileLayout) { setDeckZoom(1); return; }
+    const REF_HEIGHT = 1080;
+    function update() {
+      setDeckZoom(Math.max(1, window.innerHeight / REF_HEIGHT));
+    }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [isMobileLayout]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -246,6 +259,7 @@ export function DeckPlayer({ sections, slides, desktopViewHref = "/deck-react?de
       tabIndex={0}
       onMouseDown={() => rootRef.current?.focus()}
       onTouchStart={() => rootRef.current?.focus()}
+      style={deckZoom > 1 ? { zoom: deckZoom, height: `calc(100vh / ${deckZoom})` } : undefined}
     >
       {isMobileLayout && showMobileHint ? (
         <div className="mobile-deck-banner">

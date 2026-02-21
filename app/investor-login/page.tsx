@@ -20,7 +20,7 @@ export default function InvestorLoginPage() {
         <div className="investor-login-logo-wrap">
           <NeuralStackLogo size={64} interactive animate density="high" />
         </div>
-        <p className="investor-login-kicker">Stack Capital</p>
+        <p className="investor-login-kicker">Stack Intelligence Portal</p>
         <h1 className="investor-login-title">Investor Portal</h1>
 
         {showBlocked ? (

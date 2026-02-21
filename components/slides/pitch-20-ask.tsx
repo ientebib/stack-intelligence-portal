@@ -7,7 +7,7 @@ export function PitchSlide20Ask() {
       <div className="pitch-ask-wrap">
         <div className="pitch-ask-headline">$20M</div>
         <div className="pitch-ask-detail">
-          Stack Capital is raising $20M to invest at the intersection of fiscal
+          Stack Intelligence is raising $20M to invest at the intersection of fiscal
           dominance and AI infrastructure — the physical layer where both
           structural forces create durable demand.
         </div>

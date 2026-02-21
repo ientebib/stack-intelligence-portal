@@ -6,7 +6,7 @@ const slideData = slide02LeadershipData;
 const whyUs = [
   { point: "Active Management", detail: "High-conviction macro positions across equities, commodities, currencies, crypto, credit, and derivatives" },
   { point: "AI-Native Process", detail: "Proprietary research systems built on frontier models for signal extraction and portfolio monitoring" },
-  { point: "Periodic Reporting & Platform Access", detail: "Quarterly performance and attribution reporting, with an annual letter from Stack Capital." },
+  { point: "Periodic Reporting & Platform Access", detail: "Quarterly performance and attribution reporting, with an annual letter from Stack Intelligence." },
   { point: "Long-Term View", detail: "Portfolio construction oriented around multi-year secular regime shifts" }
 ];
 
@@ -20,7 +20,7 @@ export function PitchSlide02Leadership() {
       />
       <div className="pitch-lead-split">
         <div className="pitch-lead-fund">
-          <div className="pitch-lead-fund-name">Stack Capital</div>
+          <div className="pitch-lead-fund-name">Stack Intelligence</div>
           <div className="pitch-lead-fund-desc">
             Macro fund focused on the physical layer where geopolitical transition
             and capital-intensive AI deployment create persistent supply
