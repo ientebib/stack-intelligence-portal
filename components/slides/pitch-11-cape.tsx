@@ -199,7 +199,7 @@ export function PitchSlide11Cape() {
   return (
     <>
       <SectionHeader
-        sectionLabel="VALUATION RISK"
+        sectionLabel="THESIS"
         title="At current valuations, passive equity base rates are negative for the next decade"
         subtitle="Shiller CAPE at 40.38 — 98.8th percentile"
       />

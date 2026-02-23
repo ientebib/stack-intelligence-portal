@@ -130,7 +130,7 @@ const computeOptions: ChartOptions<"line"> = {
 const headlines = [
   { source: "nbcnews.com", image: "/headlines/nbc-openai-cropped.png", size: "tall" as const },
   { source: "fortune.com", image: "/headlines/fortune-anthropic-cropped.png", size: "default" as const },
-  { source: "scitechdaily.com", image: "/headlines/scitech-physics-cropped.jpeg", size: "compact" as const }
+  { source: "ft.com", image: "/headlines/ft-deepmind-openai.png", size: "compact" as const }
 ];
 
 function BrowserWindow({ source, image, size = "default" }: { source: string; image: string; size?: "tall" | "default" | "compact" }) {
@@ -155,7 +155,7 @@ export function PitchSlide05Scaling() {
   return (
     <>
       <SectionHeader
-        sectionLabel="AI INFRASTRUCTURE"
+        sectionLabel="THESIS"
         title="AI capabilities improve predictably with compute — each generation requires orders of magnitude more"
         subtitle="Scaling laws connect physical investment to capability gains"
       />

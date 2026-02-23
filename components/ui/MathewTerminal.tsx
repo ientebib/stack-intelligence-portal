@@ -350,7 +350,7 @@ export function MathewTerminal({ onClose }: { onClose: () => void }) {
             <span className="mathew-dot mathew-dot--yellow" />
             <span className="mathew-dot mathew-dot--green" />
           </div>
-          <span className="mathew-bar-title">mathew &mdash; Stack Intelligence AI Research</span>
+          <span className="mathew-bar-title">mathew &mdash; Stack Capital AI Research</span>
           <button className="mathew-bar-close" onClick={onClose}>&times;</button>
         </div>
         <div className="mathew-body" ref={bodyRef}>

@@ -1,26 +1,25 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { FormEvent, ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 import { NeuralStackLogo } from "@/components/ui/NeuralStackLogo";
 
 const DEFAULT_INVESTOR_HASH = "Y2xhbmtlcg=="; // base64 of "clanker"
 const ALLOWED_EMAILS = ["marcos@thestack.capital", "isaac@thestack.capital"];
 
-export default function InvestorLoginPage() {
-  const router = useRouter();
+export function InvestorAuthGate({ children }: { children: ReactNode }) {
+  const [isReady, setIsReady] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem("investor_auth") === "1") {
-      router.replace("/research-dashboard");
-    }
-  }, [router]);
+    setIsAuthenticated(sessionStorage.getItem("investor_auth") === "1");
+    setIsReady(true);
+  }, []);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleAuth(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const accessHash =
       process.env.NEXT_PUBLIC_INVESTOR_ACCESS_HASH ?? DEFAULT_INVESTOR_HASH;
@@ -30,7 +29,8 @@ export default function InvestorLoginPage() {
       btoa(password) === accessHash
     ) {
       sessionStorage.setItem("investor_auth", "1");
-      router.push("/research-dashboard");
+      setIsAuthenticated(true);
+      setPassword("");
       return;
     }
 
@@ -38,6 +38,10 @@ export default function InvestorLoginPage() {
     setShowError(true);
     setTimeout(() => setShowError(false), 2000);
   }
+
+  if (!isReady) return null;
+
+  if (isAuthenticated) return <>{children}</>;
 
   return (
     <main className="investor-login-body">
@@ -48,13 +52,13 @@ export default function InvestorLoginPage() {
         <p className="investor-login-kicker">Stack Capital</p>
         <h1 className="investor-login-title">Investor Portal</h1>
 
-        <form className="investor-login-form" onSubmit={handleSubmit}>
+        <form className="investor-login-form" onSubmit={handleAuth}>
           <div className="investor-login-field">
-            <label className="investor-login-label" htmlFor="inv-email">
+            <label className="investor-login-label" htmlFor="inv-gate-email">
               Email
             </label>
             <input
-              id="inv-email"
+              id="inv-gate-email"
               className="investor-login-input"
               type="email"
               placeholder="name@firm.com"
@@ -65,15 +69,16 @@ export default function InvestorLoginPage() {
             />
           </div>
           <div className="investor-login-field">
-            <label className="investor-login-label" htmlFor="inv-pass">
+            <label className="investor-login-label" htmlFor="inv-gate-pass">
               Password
             </label>
             <input
-              id="inv-pass"
+              id="inv-gate-pass"
               className="investor-login-input"
               type="password"
               placeholder="Enter password"
               autoComplete="off"
+              autoFocus
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

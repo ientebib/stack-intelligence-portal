@@ -1,5 +1,5 @@
 {
-  "name": "stack-intelligence-portal",
+  "name": "stack-capital",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -53,5 +53,5 @@
     "url": "https://github.com/ientebib/stack-intelligence-portal/issues"
   },
   "homepage": "https://github.com/ientebib/stack-intelligence-portal#readme",
-  "description": "Stack Intelligence Portal frontend for investor materials and research dashboard."
+  "description": "Stack Capital frontend for investor materials and research dashboard."
 }

@@ -193,7 +193,7 @@ export function PitchSlide07Adoption() {
   return (
     <>
       <SectionHeader
-        sectionLabel="AI INFRASTRUCTURE"
+        sectionLabel="THESIS"
         title="AI adoption and revenue are materializing faster than any prior technology wave"
         subtitle="900M weekly users · $20B+ ARR (OpenAI) · $14B ARR (Anthropic) · $240B cloud backlog"
       />

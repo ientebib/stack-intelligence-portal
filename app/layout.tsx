@@ -4,8 +4,8 @@ import { themeCssVariables } from "@/lib/themeCssVariables";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "Stack Intelligence Portal",
-  description: "Stack Intelligence Portal investment dashboard"
+  title: "Stack Capital",
+  description: "Stack Capital investment dashboard"
 };
 
 export default function RootLayout({

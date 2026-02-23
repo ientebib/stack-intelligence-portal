@@ -1,7 +1,7 @@
 import type { Slide48LeadingIndicatorsData } from "@/lib/data/types";
 
 export const slide48LeadingIndicatorsData: Slide48LeadingIndicatorsData = {
-  sectionLabel: "HOW WE UNDERWRITE",
+  sectionLabel: "HOW WE INVEST",
   title: "Research Monitoring Framework",
   subtitle: "Three macro trends, thirteen hypotheses, thirty-nine KPIs, and structured scenario sets",
   stats: {

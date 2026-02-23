@@ -17,7 +17,7 @@ export default function HomePage() {
         <div className="deck-home-logo-wrap">
           <NeuralStackLogo size={86} interactive animate density="high" />
         </div>
-        <h1 className="deck-home-title">Stack Intelligence Portal</h1>
+        <h1 className="deck-home-title">Stack Capital</h1>
         <p className="deck-home-tagline">
           A private investment firm taking a structural approach to long-horizon
           capital deployment across technology infrastructure and critical supply chains
@@ -35,10 +35,6 @@ export default function HomePage() {
         <span className="deck-home-nav-sep" />
         <Link className="deck-home-nav-link" href="/investor-login">
           Investor Login
-        </Link>
-        <span className="deck-home-nav-sep" />
-        <Link className="deck-home-nav-link" href="/research-dashboard">
-          Research Dashboard
         </Link>
       </nav>
 

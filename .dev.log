@@ -1,0 +1,17 @@
+
+> chart-creator@0.1.0 dev
+> next dev --hostname 127.0.0.1 --hostname 127.0.0.1 --port 3000
+
+   ▲ Next.js 15.5.12
+   - Local:        http://127.0.0.1:3000
+   - Network:      http://127.0.0.1:3000
+
+ ✓ Starting...
+ ✓ Ready in 856ms
+ ○ Compiling /deck-react-short ...
+ ✓ Compiled /deck-react-short in 2.3s (1685 modules)
+ GET /deck-react-short 200 in 2617ms
+ ✓ Compiled /deck-react in 406ms (1782 modules)
+ GET /deck-react 200 in 638ms
+ GET /deck-react-short 200 in 38ms
+ GET /deck-react 200 in 20ms

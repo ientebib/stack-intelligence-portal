@@ -14,6 +14,7 @@ import type {
 } from "@/lib/research-dashboard/types";
 import {
   Activity,
+  Home,
   LayoutGrid,
   Map as MapIcon,
   Database,
@@ -21,9 +22,11 @@ import {
   TrendingUp,
   TrendingDown,
   Clock,
+  Layers,
 } from "lucide-react";
+import { Slide08RegimeTransitionMatrix } from "@/components/slides/08-regime-transition-matrix";
 
-type TabKey = "live" | "framework" | "map" | "sources";
+type TabKey = "live" | "framework" | "regime" | "map" | "sources";
 
 const TREND_COLORS: Record<string, string> = {
   "T-001": "#0D7A3E", // Green
@@ -436,6 +439,9 @@ export function ResearchDashboardApp() {
           </div>
         </div>
         <nav className={styles.nav}>
+          <Link href="/" className={styles.navButton} style={{ textDecoration: "none" }}>
+            <Home size={15} /> Home
+          </Link>
           <button
             className={`${styles.navButton} ${activeTab === "live" ? styles.navButtonActive : ""}`}
             onClick={() => setActiveTab("live")}
@@ -449,6 +455,13 @@ export function ResearchDashboardApp() {
             type="button"
           >
             <LayoutGrid size={15} /> Framework
+          </button>
+          <button
+            className={`${styles.navButton} ${activeTab === "regime" ? styles.navButtonActive : ""}`}
+            onClick={() => setActiveTab("regime")}
+            type="button"
+          >
+            <Layers size={15} /> Regime
           </button>
           <button
             className={`${styles.navButton} ${activeTab === "map" ? styles.navButtonActive : ""}`}
@@ -478,6 +491,11 @@ export function ResearchDashboardApp() {
 
         {!loading && !error && activeTab === "live" ? renderLive() : null}
         {!loading && !error && activeTab === "framework" ? renderFramework() : null}
+        {!loading && !error && activeTab === "regime" ? (
+          <section className={styles.tabContent} style={{ height: "calc(100vh - 120px)", position: "relative" }}>
+            <Slide08RegimeTransitionMatrix />
+          </section>
+        ) : null}
         {!loading && !error && activeTab === "map" ? renderMap() : null}
         {!loading && !error && activeTab === "sources" ? renderSources() : null}
 

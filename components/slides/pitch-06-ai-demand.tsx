@@ -179,7 +179,7 @@ export function PitchSlide06AiDemand() {
   return (
     <>
       <SectionHeader
-        sectionLabel="AI INFRASTRUCTURE"
+        sectionLabel="THESIS"
         title="The largest companies in history are building physical AI infrastructure at unprecedented scale"
         subtitle="Hyperscaler capex $36B (2016) → $600B+ (2026)"
       />

@@ -1,7 +1,7 @@
 import type { Slide29InteractiveValueChainData } from "@/lib/data/types";
 
 export const slide29ValueChainData: Slide29InteractiveValueChainData = {
-  sectionLabel: "AI INFRASTRUCTURE",
+  sectionLabel: "HOW WE INVEST",
   title: "The 12 Layers of the Stack",
   subtitle: "From raw materials to end-user access — 75+ nodes mapping every link in the infrastructure chain",
   layers: [

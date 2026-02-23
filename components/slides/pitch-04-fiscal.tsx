@@ -209,7 +209,7 @@ export function PitchSlide04Fiscal() {
   return (
     <>
       <SectionHeader
-        sectionLabel="FISCAL DOMINANCE"
+        sectionLabel="THESIS"
         title="Federal debt compounds structurally with no path to reversal"
         subtitle="$1 of every $5 collected now goes to interest"
       />

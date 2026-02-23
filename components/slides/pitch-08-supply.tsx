@@ -151,7 +151,7 @@ export function PitchSlide08Supply() {
   return (
     <>
       <SectionHeader
-        sectionLabel="SUPPLY CONSTRAINTS"
+        sectionLabel="THESIS"
         title="Mine development timelines have tripled while demand from electrification and AI accelerates"
         subtitle="~27% copper deficit by 2035 even if every announced project proceeds"
       />

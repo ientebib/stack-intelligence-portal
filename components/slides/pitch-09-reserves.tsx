@@ -183,7 +183,7 @@ export function PitchSlide09Reserves() {
   return (
     <>
       <SectionHeader
-        sectionLabel="RESERVE ROTATION"
+        sectionLabel="THESIS"
         title="Central banks are actively rotating reserves from dollar debt into gold"
         subtitle="Net purchases exceeded 1,000 tonnes in three consecutive years"
       />

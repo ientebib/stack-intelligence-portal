@@ -1,7 +1,7 @@
 import type { Slide51FundStructureData } from "@/lib/data/types";
 
 export const slide51FundStructureData: Slide51FundStructureData = {
-  sectionLabel: "FUND STRUCTURE",
+  sectionLabel: "FUND & TERMS",
   title: "Fund structure",
   subtitle: "Economics, fee mechanics, and liquidity",
   leftSections: [
@@ -37,16 +37,15 @@ export const slide51FundStructureData: Slide51FundStructureData = {
         { label: "Future", value: "May be introduced if capital concentration increases" },
       ],
     },
-  ],
-  rightSections: [
     {
       title: "Subscriptions",
       rows: [
         { label: "Frequency", value: "Quarterly" },
         { label: "Effective Date", value: "Last business day of each calendar quarter" },
-        { label: "Participation", value: "Starting next quarter" },
       ],
     },
+  ],
+  rightSections: [
     {
       title: "Redemptions",
       rows: [
@@ -70,6 +69,15 @@ export const slide51FundStructureData: Slide51FundStructureData = {
       rows: [
         { label: "Quarterly", value: "Performance report with NAV, attribution, and commentary" },
         { label: "Annual", value: "Annual letter from the Managing Partners" },
+      ],
+    },
+    {
+      title: "Legal & Compliance",
+      rows: [
+        { label: "Investor Eligibility", value: "Accredited investors only (SEC Rule 501)" },
+        { label: "Custody", value: "Assets held with a top qualified U.S. custodian and broker" },
+        { label: "Auditor", value: "Annual audit by a registered public accounting firm" },
+        { label: "Legal Counsel", value: "U.S.-qualified fund counsel" },
       ],
     },
   ],
